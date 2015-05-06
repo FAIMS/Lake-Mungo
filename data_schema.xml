@@ -1,0 +1,582 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSchema>
+  <ArchaeologicalElement name="Hearth">
+    <description></description>
+    <property name="ID Number" type="measure" isIdentifier="true">
+      <description>Feature identification code as marked on tag</description>
+    </property>
+    <property name="Grid Square" type="measure" isIdentifier="true">
+      <description>Letter code as marked in south-west corner of square</description>
+    </property>
+    <property name="Hearth Type" type="enum">
+      <description/>
+      <lookup>
+        <term> {Hearths with heat-retainer hearthstones}
+          <description/>
+          <term> {hsterm}
+            <description/>
+          </term>
+          <term> {hscarb}
+            <description/>
+          </term>
+          <term> {hsclay}
+            <description/>
+          </term>
+          <term> {hsother}
+            <description/>
+          </term>
+          <term> {hsindet}
+            <description/>
+          </term>
+        </term>
+        <term> {Hearths without hearthstones}
+          <description/>
+          <term> {emupat}
+            <description/>
+          </term>
+          <term> {bakedclay}
+            <description/>
+          </term>
+          <term> {bakedsed}
+            <description/>
+          </term>
+          <term> {ashlens}
+            <description/>
+          </term>
+          <term> {ashpatch}
+            <description/>
+          </term>
+          <term> {charclens}
+            <description/>
+          </term>
+          <term> {staining}
+            <description/>
+          </term>
+          <term> {other}
+            <description/>
+          </term>
+        </term>
+      </lookup>
+    </property>
+    <property name="Brief description" type="measure">
+      <description>A few word description of an ‘other’ type of hearth or hearthstone, e.g. fish hearth, emu eggshell hearth, silcrete hearthstones</description>
+    </property>
+    <property name="Charcoal" type="enum">
+      <description/>
+      <lookup>
+        <term> {none}
+          <description>No charcoal visible</description>
+        </term>
+        <term> {diss}
+          <description>Disseminated charcoal: fine particles of charcoal dispersed through the hearth feature or its sedimentary matrix</description>
+        </term>
+        <term> {flecks}
+          <description>Small fragments of charcoal dispersed through the hearth feature or its sedimentary matrix</description>
+        </term>
+        <term> {lumps}
+          <description>Fragments or lumps of charcoal occur within the hearth or its sedimentary matrix</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Proportion of material that remains in situ" type="enum">
+      <description>Select the proportion of visible shell material that remains in situ</description>
+      <lookup>
+        <term> {most}
+          <description>The majority of the visible shell material is in situ</description>
+        </term>
+        <term> {some}
+          <description>At least some of the shell is in situ</description>
+        </term>
+        <term> {surface}
+          <description>No shell material is embedded in sediment</description>
+        </term>
+        <term> {recement}
+          <description>The shell material appears to be in situ, but there is a high likelihood that it is actually cemented in redeposited sediment</description>
+        </term>
+        <term> {ambiguous}
+          <description>The shell material appears to be in situ, but it is impossible to say whether it is actually recemented</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Modification of heat-retainer hearths" type="enum">
+      <description>Select the degree of post-exposure modification of the heat-retainer hearth:</description>
+      <lookup>
+        <term> {none}
+          <description>Hearth structure is largely maintained, hearthstones are in good conditions</description>
+        </term>
+        <term> {frag}
+          <description>Material highly fragmented</description>
+        </term>
+        <term> {dispers}
+          <description>Material widely dispersed from in situ or clustered part of hearth</description>
+        </term>
+        <term> {polish}
+          <description>Hearthstones are smoothed and glossy material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Modification of non-heat retainer hearths" type="enum">
+      <description>Select the extent of post-exposure modification to non- heat retainer hearths:</description>
+      <lookup>
+        <term> {none}
+          <description>Hearth structure is intact and hearth material is largely unweathered</description>
+        </term>
+        <term> {weather}
+          <description>Hearth material has started to weather and/or crumble, but the feature remains largely intact</description>
+        </term>
+        <term> {incrill}
+          <description>Incipient rill network extending to edge of hearth or cutting back into it</description>
+        </term>
+        <term> {rill}
+          <description>Well-developed rills are cutting through the hearth</description>
+        </term>
+        <term> {undercut}
+          <description>Underlying sediment has been removed through erosion</description>
+        </term>
+        <term> {gul}
+          <description>Feature is bisected by an established gully</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Topographic Setting" type="enum">
+      <description>Where on the lunette exposure is the midden located?</description>
+      <lookup>
+        <term> {platform}
+          <description>Broad, flat platform exposure</description>
+        </term>
+        <term> {Lessthan_Six_Degrees}
+          <description>Slightly sloping surface</description>
+        </term>
+        <term> {Six_To_Twelve_Degrees}
+          <description>Moderately sloping surface</description>
+        </term>
+        <term> {Greaterthan_Twelve_Degrees}
+          <description>More steeply sloping surface</description>
+        </term>
+        <term> {shallrill}
+          <description>Within a shallow rill</description>
+        </term>
+        <term> {rillfloor}
+          <description>In the floor of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
+        </term>
+        <term> {rillwall}
+          <description>In the wall of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
+        </term>
+        <term> {ridge}
+          <description>On a narrow ridge in heavily eroded area</description>
+        </term>
+        <term> {ridgerill}
+          <description>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</description>
+        </term>
+        <term> {shalgulfl}
+          <description>In the floor of a gully less than 1.5m wide or deep</description>
+        </term>
+        <term> {shalgulwal}
+          <description>In the wall of a gully less than 1.5m wide or deep</description>
+        </term>
+        <term> {deepgulfl}
+          <description>In the floor of a gully greater than 1.5m wide and deep</description>
+        </term>
+        <term> {deepgulwal}
+          <description>In the wall of a gully greater than 1.5m wide and deep</description>
+        </term>
+        <term> {residtop}
+          <description>Flat surface on top of a residual</description>
+        </term>
+        <term> {residside}
+          <description>In the side of a residual</description>
+        </term>
+        <term> {chanfloor}
+          <description>In the floor of a modern outwash channel</description>
+        </term>
+        <term> {chanwall}
+          <description>In the wall of a modern outwash channel</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Sediment Type" type="enum">
+      <description>What are the sediments in that encase the midden, or upon which they are immediately lying?</description>
+      <lookup>
+        <term> {redsoil}
+          <description>Soil of a reddish colour</description>
+        </term>
+        <term> {brownsoil}
+          <description>Soil of a brownish colour</description>
+        </term>
+        <term> {redsand}
+          <description>Sandy sediments of a reddish colour</description>
+        </term>
+        <term> {brownsand}
+          <description>Sandy sediments of a brownish colour</description>
+        </term>
+        <term> {whitesand}
+          <description>Sandy sediments that are clean and whitish</description>
+        </term>
+        <term> {othersand}
+          <description>Sandy sediments that are of another colour</description>
+        </term>
+        <term> {greenclay}
+          <description>Clay sediments of a greenish colour</description>
+        </term>
+        <term> {otherclay}
+          <description>Clay sediments of another colour (usually brown)</description>
+        </term>
+        <term> {sandyclay}
+          <description>Sandy clay</description>
+        </term>
+        <term> {alternat}
+          <description>Alternating layers of sand and clay</description>
+        </term>
+        <term> {claylens}
+          <description>Distinct clay lens within other sediments</description>
+        </term>
+        <term> {sandlens}
+          <description>Distinct sand lens within other sediments</description>
+        </term>
+        <term> {cobble}
+          <description>A relatively continuous bed of cobbles or coarse gravel</description>
+        </term>
+        <term> {gglag}
+          <description>A surface lag of carbonate derived from Golgol sediments</description>
+        </term>
+        <term> {carblag}
+          <description>Any other surface lag of hard carbonate nodules</description>
+        </term>
+        <term> {ggC}
+          <description>In situ soil carbonate (C-horizon) associated with Golgol sediments</description>
+        </term>
+        <term> {Chorizon}
+          <description>In situ nodular soil carbonate in any other sediment</description>
+        </term>
+        <term> {carbsoft}
+          <description>In situ soil carbonate in a diffuse horizon</description>
+        </term>
+        <term> {carbpavemt}
+          <description>Well developed in situ soil carbonate forming a pavement</description>
+        </term>
+        <term> {carbrework}
+          <description>A carbonate lag that has been reworked and reburied</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Vulnerability to Erosion" type="enum">
+      <description>How vulnerable is the midden, based on the midden type and size, sediment characteristics and topographic setting?</description>
+      <lookup>
+        <term> {low}
+          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
+        </term>
+        <term> {moderate}
+          <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
+        </term>
+        <term> {high}
+          <description>High probability of erosion within a few years, e.g. relatively steep slope with incipient rills, or unconsolidated sandy sediment</description>
+        </term>
+        <term> {extreme}
+          <description>Extreme weather events may result in rapid removal of material, e.g. edge of eroding residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Palaeotopographic Setting" type="enum">
+      <description>Where is the midden located in relation to the original dune morphology?</description>
+      <lookup>
+        <term> {foredune}
+          <description>Stratigraphic layers are sloping towards the lakebed</description>
+        </term>
+        <term> {backdune}
+          <description>Stratigraphic layers are sloping towards the hinterland</description>
+        </term>
+        <term> {beach}
+          <description>An area of rounded cobbles or gravels in distinct horizon</description>
+        </term>
+        <term> {lakebed}
+          <description>Lakebed sediments</description>
+        </term>
+        <term> {crest}
+          <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
+        </term>
+        <term> {spit}
+          <description>Projection from dune into lakebed</description>
+        </term>
+        <term> {indet}
+          <description>Indeterminate</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Notes" type="measure">
+      <description>Any additional information worth noting that has not been covered by the recording – for example, combinations of associated material not on the menu options.</description>
+    </property>
+  </ArchaeologicalElement>
+  <ArchaeologicalElement name="Hearth Associated Materials">
+    <description></description>
+    <property name="Associated material" type="enum" isIdentifier="true">
+      <description>If material other than shell is associated, select those of the following that have been observed</description>
+      <lookup>
+        <term> {lacust}
+          <description>Lacustrine material other than mussel (fish bone, otoliths, etc.)</description>
+        </term>
+        <term> {terrbone}
+          <description>Terrestrial bone material</description>
+        </term>
+        <term> {indetbone}
+          <description>Bone that cannot be identified as terrestrial or fish (e.g. fragments too small)</description>
+        </term>
+        <term> {eggshell}
+          <description>Emu, Genyornis or other eggshell</description>
+        </term>
+        <term> {artefacts}
+          <description>Chipped, unmodified or ground stone</description>
+        </term>
+        <term> {otherwork}
+          <description>Other worked or transported material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated lacustrine material" type="enum">
+      <description>If lacustrine material other than mussel is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {fishbone}
+          <description>Fish bone</description>
+        </term>
+        <term> {otoliths}
+          <description>Fish otolith</description>
+        </term>
+        <term> {gastrolith}
+          <description>Crustacean gastrolith</description>
+        </term>
+        <term> {exoskel}
+          <description>Crustacean exoskeleton</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Burnt lacustrine material" type="enum">
+      <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
+      <lookup>
+        <term> {Yes}
+          <description/>
+        </term>
+        <term> {No}
+          <description/>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated terrestrial bone" type="enum">
+      <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
+      <lookup>
+        <term> {mammal}
+          <description/>
+        </term>
+        <term> {birdbone}
+          <description/>
+        </term>
+        <term> {reptile}
+          <description/>
+        </term>
+        <term> {other}
+          <description/>
+        </term>
+        <term> {unident}
+          <description>Cannot be identified by recorder</description>
+        </term>
+        <term> {undiag}
+          <description>Fragment is undiagnostic</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Burnt terrestrial bone" type="enum">
+      <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
+      <lookup>
+        <term> {Yes}
+          <description/>
+        </term>
+        <term> {No}
+          <description/>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated eggshell" type="enum">
+      <description>If eggshell is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {emu}
+          <description>Emu eggshell</description>
+        </term>
+        <term> {genyo}
+          <description>Genyornis eggshell</description>
+        </term>
+        <term> {other}
+          <description>Other eggshell, clearly not emu or Genyornis (e.g. duck, swan)</description>
+        </term>
+        <term> {indet}
+          <description>Indeterminate eggshell, features unclear due to surface modification</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Burnt eggshell" type="enum">
+      <description>If eggshell is present in the midden, is any of it burnt?</description>
+      <lookup>
+        <term> {Yes}
+          <description/>
+        </term>
+        <term> {No}
+          <description/>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated stone artefacts" type="enum">
+      <description>If stone artefacts are present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {cs}
+          <description>Chipped stone</description>
+        </term>
+        <term> {um}
+          <description>Unmodified stone</description>
+        </term>
+        <term> {ground}
+          <description>Ground stone</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated chipped stone artefacts" type="enum">
+      <description>If chipped stone is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {ru}
+          <description>Retouched/utilised artefact</description>
+        </term>
+        <term> {co}
+          <description>Core</description>
+        </term>
+        <term> {deb}
+          <description>Flaking debris, including whole flakes, broken flakes and angular fragments</description>
+        </term>
+        <term> {hammer}
+          <description>Hammerstone</description>
+        </term>
+        <term> {indet}
+          <description>Indeterminate</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated retouched artefacts" type="enum">
+      <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {notch}
+          <description>Notched artefact</description>
+        </term>
+        <term> {scraper}
+          <description>Other type of scraper</description>
+        </term>
+        <term> {backed}
+          <description>Backed artefact</description>
+        </term>
+        <term> {unifpt}
+          <description>Unifacial point</description>
+        </term>
+        <term> {bifac}
+          <description>Bifacially flaked artefact</description>
+        </term>
+        <term> {otherru}
+          <description>Any other type of retouch or use-wear</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated unmodified stone" type="enum">
+      <description>If unmodified stone is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {nodule}
+          <description>Nodular or rounded cobble</description>
+        </term>
+        <term> {slab}
+          <description>Angular piece</description>
+        </term>
+        <term> {pebble}
+          <description>Small nodular or rounded piece, unlikely to be useful for artefact manufacture</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Ground ston" type="enum">
+      <description>If ground stone is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {millstone}
+          <description>Large, concave to flattish ground surface</description>
+        </term>
+        <term> {muller}
+          <description>Convex surface with facet from back and forth motion</description>
+        </term>
+        <term> {mortar}
+          <description>A circular or oval basin</description>
+        </term>
+        <term> {pestle}
+          <description>A cobble with convex of flattish ground end</description>
+        </term>
+        <term> {grooved}
+          <description>Single or multiple grooves</description>
+        </term>
+        <term> {amorph}
+          <description>Poorly defined, or small, discontinuous ground surface, not matching any of the above</description>
+        </term>
+        <term> {undiag}
+          <description>Fragmentary, not complete enough to distinguish nature of ground surface</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Ground stone status" type="enum">
+      <description>If ground stone is present, is the ground material...</description>
+      <lookup>
+        <term> {whole}
+          <description/>
+        </term>
+        <term> {fragment}
+          <description/>
+        </term>
+      </lookup>
+    </property>
+    <property name="Raw materia" type="enum">
+      <description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Fine-grained silcrete</description>
+        </term>
+        <term> {silccoarse}
+          <description>Coarse-grained silcrete</description>
+        </term>
+        <term> {silcgran}
+          <description>Granular silcrete</description>
+        </term>
+        <term> {qtzite}
+          <description>Quartzite</description>
+        </term>
+        <term> {qtz}
+          <description>Quartz</description>
+        </term>
+        <term> {ironst}
+          <description>Ironstone</description>
+        </term>
+        <term> {sandst}
+          <description>Sandstone</description>
+        </term>
+        <term> {other}
+          <description>Other material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Associated other worked (or transported) material" type="enum">
+      <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
+      <lookup>
+        <term> {bone}
+          <description>Worked bone</description>
+        </term>
+        <term> {shell}
+          <description>Worked shell</description>
+        </term>
+        <term> {ochre}
+          <description>Unworked ochre</description>
+        </term>
+        <term> {facetochre}
+          <description>Facetted ochre</description>
+        </term>
+        <term> {qtzxtal}
+          <description>Unworked quartz crystal</description>
+        </term>
+      </lookup>
+    </property>
+  </ArchaeologicalElement>
+</dataSchema>
