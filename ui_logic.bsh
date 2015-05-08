@@ -326,14 +326,14 @@ onEvent("control/search/entityTypes", "click", "loadSearch();");
 onEvent("control/search", "show", "loadSearch();");
 onEvent("control/search/entityList", "click", "loadFeature();");
 
-/*** COMMON FEATURE FUNCTIONALITY ***/
-commonFeature (String tabgroup, String description) {
-	String entityTabgroup = tabgroup;
-	String desc = description;
+/*** HEARTH FEATURE ***/
+hearthFeature() {
+	entityTabgroup = "hearth";
+	desc = "Hearth record";
 	String id = null;
-
-	/** Saves the feature and executes some callback when the save is finished **/
-	save(String callback) {
+	
+	/** Saves the feature **/
+	save() {
 	  Boolean enable_autosave = true;
 	  saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
 	    onSave(uuid, newRecord) {
@@ -342,51 +342,35 @@ commonFeature (String tabgroup, String description) {
 	      if (newRecord) {
 	        Log.d("save()", "New " + desc + " created");
 	      }
-	      if (callback != null && !isNull(callback)) {
-          execute(callback);
-        }
 	    }
 	    onError(message) {
 	        showToast(message);
 	    }  
 	  }, enable_autosave);
 	}
-	
-	/** Saves the feature **/
-	save() {
-		save(null);
-	}
 
-	/** Creates a new feature record and executes some callback after creation. **/
-	create(String callback) {
+	/** Creates a new feature record. **/
+	create() {
 	  dialog = showBusy("creating a new record", "please wait");
 	  newTabGroup(entityTabgroup);
 	  id = null;
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
-    // save();
-    if (callback != null && !isNull(callback)) {
-      execute(callback);
-    }
+    save();
     dialog.dismiss();
   }
 
-  /** Creates a new feature record. **/
-  create() {
-  	create(null);
-  }
-
 	/** Loads a feature record. **/
-	load(String entityID) {
-	  if (isNull(entityID)) {
+	load() {
+	  if (isNull(id)) {
 	    showToast("No entity selected");
 	      return;
 	  }
 	  dialog = showBusy("loading record", "please wait");
-	  showTabGroup(entityTabgroup, entityID, new FetchCallback() {
+	  showTabGroup(entityTabgroup, id, new FetchCallback() {
 	    onFetch(result) {
-	      Log.d("load()", "Loaded a " + desc + ", ID: " + entityID);
+	      Log.d("load()", "Loaded a " + desc + ", ID: " + id);
 	      showToast("Loaded a " + desc);
 	      keepTabGroupChanges(entityTabgroup);
 	      dialog.dismiss();
@@ -394,32 +378,7 @@ commonFeature (String tabgroup, String description) {
 	  });
 	}
 
-	return this;
-}
-
-
-/*** HEARTH FEATURE ***/
-hearthFeature() {
-	entityTabgroup = "hearth";
-	desc = "Hearth record";
-	String id = null;
-	common = commonFeature(entityTabgroup, desc);
-
-	save() {
-		String callback = "hearth.id = id;";
-		common.save(callback);
-	}
-
 	onEvent(entityTabgroup, "show", "hearth.save();");
-
-	create() {
-		String callback = "hearth.save();";
-		common.create(callback);
-	}
-
-	load() {
-		common.load(id);
-	}
 
 	return this;
 }
@@ -427,26 +386,6 @@ hearth = hearthFeature();
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
-	entityTabgroup = "midden";
-	desc = "Midden record";
-	String id = null;
-	common = commonFeature(entityTabgroup, desc);
-
-	save() {
-		String callback = "midden.id = id;";
-		common.save(callback);
-	}
-
-	onEvent(entityTabgroup, "show", "midden.save();");
-
-	create() {
-		String callback = "midden.save();";
-		common.create(callback);
-	}
-
-	load() {
-		common.load(id);
-	}
 
 	return this;
 }
