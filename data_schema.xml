@@ -14,46 +14,46 @@
         <term> {Hearths with heat-retainer hearthstones}
           <description/>
           <term> {hsterm}
-            <description/>
+            <description>Termite nest hearthstones (holes and channels visible, sandy texture)</description>
           </term>
           <term> {hscarb}
-            <description/>
+            <description>Carbonate hearthstones</description>
           </term>
           <term> {hsclay}
-            <description/>
+            <description>Baked clay or sandy clay hearthstones</description>
           </term>
           <term> {hsother}
-            <description/>
+            <description>Other type of hearthstones (e.g. silcrete nodules)</description>
           </term>
           <term> {hsindet}
-            <description/>
+            <description>Hearthstones of indeterminate material</description>
           </term>
         </term>
         <term> {Hearths without hearthstones}
           <description/>
           <term> {emupat}
-            <description/>
+            <description>Thin, discrete patch of baked sediments with the form of an emu pat (or cow pat), usually associated with charcoal, ash and/or organic remains</description>
           </term>
           <term> {bakedclay}
-            <description/>
+            <description>Thin, discrete layer of burnt clay (orange in colour, freshly broken surfaces may be smooth and lustrous) underlain by black stain, may or may not be associated with organic material</description>
           </term>
           <term> {bakedsed}
-            <description/>
+            <description>Any other patch of baked sediment, with or without associated charcoal or organic remains</description>
           </term>
           <term> {ashlens}
-            <description/>
+            <description>A thin, laterally extensive lens containing ash or disseminated charcoal, with or without associated organic remains</description>
           </term>
           <term> {ashpatch}
-            <description/>
+            <description>A reasonably discrete patch containing fragmented or disseminated charcoal and/ or ash, with or without associated organic remains</description>
           </term>
           <term> {charclens}
-            <description/>
+            <description>A discrete lens of charcoal fragments (rare)</description>
           </term>
           <term> {staining}
-            <description/>
+            <description>Black staining of the sediment that does not correspond to any of the above, no or very little charcoal present, no organic remains, undiffuse boundaries</description>
           </term>
           <term> {other}
-            <description/>
+            <description>A cluster of burnt material without clear hearth structure or sediment alteration, e.g. fish hearth, emu eggshell hearth</description>
           </term>
         </term>
       </lookup>
@@ -580,3 +580,4 @@
     </property>
   </ArchaeologicalElement>
 </dataSchema>
+
