@@ -1,0 +1,272 @@
+<h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <h:head>
+    <h:title>hdb FAIMS Community Server</h:title>
+    <model>
+      <instance>
+        <faims id="hdb_FAIMS_Community_Server">
+          <style>
+            <orientation>
+              <orientation/>
+            </orientation>
+            <even>
+              <layout_weight/>
+            </even>
+            <large>
+              <layout_weight/>
+            </large>
+          </style>
+          <user>
+            <usertab>
+              <Area_Code/>
+              <users/>
+              <login/>
+            </usertab>
+          </user>
+          <hearth>
+            <basicIdentification>
+              <idNumber/>
+              <gridSquare/>
+              <calculateGridSquare/>
+              <hearthType/>
+              <briefDescription/>
+              <charcoal/>
+            </basicIdentification>
+            <hearthStructure>
+              <insituProportion/>
+              <heatRetainer/>
+              <nonHeatRetainer/>
+            </hearthStructure>
+            <associatedMaterials>
+              <recordMaterial/>
+              <associatedMaterialList/>
+            </associatedMaterials>
+            <topAndStratSetting>
+              <topographicSetting/>
+              <sedimentType/>
+              <erosionVulnerability/>
+              <paleotopographicSetting/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
+            </topAndStratSetting>
+          </hearth>
+          <hearthAssociatedMaterials>
+            <nearbyMaterial>
+              <assocMaterial/>
+            </nearbyMaterial>
+            <associatedLacustrineMaterial>
+              <assocLacust/>
+              <assocBurntLacust/>
+            </associatedLacustrineMaterial>
+            <associatedTerrestrialBone>
+              <assocTerrestrial/>
+              <assocBurntTerrestrial/>
+            </associatedTerrestrialBone>
+            <associatedEggshell>
+              <assocEggshell/>
+              <assocBurntEggshell/>
+            </associatedEggshell>
+            <associatedStoneArtefacts>
+              <assocStone/>
+              <assocChippedStone/>
+              <assocRetouchedStone/>
+              <assocUnmodifiedStone/>
+              <assocGroundStoneType/>
+              <assocGroundStoneStatus/>
+              <assocRawMaterial/>
+            </associatedStoneArtefacts>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </hearthAssociatedMaterials>
+        </faims>
+      </instance>
+      <!-- Insert nodeset bindings here -->
+    </model>
+  </h:head>
+  <h:body>
+    <group ref="hearth">
+      <label>{hearthUI_hearth}</label>
+      <group ref="basicIdentification">
+        <label>{hearthUI_basicIdentification}</label>
+        <input ref="idNumber" faims_attribute_name="Hearth - ID Number" faims_attribute_type="measure">
+          <label>{hearthUI_idNumber}</label>
+        </input>
+        <input ref="gridSquare" faims_attribute_name="Hearth - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_gridSquare}</label>
+        </input>
+        <trigger ref="calculateGridSquare">
+          <label>{hearthUI_calculateGridSquare}</label>
+        </trigger>
+        <select1 ref="hearthType" faims_attribute_name="Hearth - Hearth Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_hearthType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="briefDescription" faims_attribute_name="Hearth - Brief description" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_briefDescription}</label>
+        </input>
+        <select1 ref="charcoal" faims_attribute_name="Hearth - Charcoal" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_charcoal}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="hearthStructure">
+        <label>{hearthUI_hearthStructure}</label>
+        <select1 type="image" ref="insituProportion" faims_attribute_name="Hearth - Proportion of material that remains in situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_insituProportion}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select ref="heatRetainer" faims_attribute_name="Hearth - Modification of heat-retainer hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_heatRetainer}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select1 ref="nonHeatRetainer" faims_attribute_name="Hearth - Modification of non-heat retainer hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_nonHeatRetainer}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="associatedMaterials">
+        <label>{hearthUI_associatedMaterials}</label>
+        <trigger ref="recordMaterial">
+          <label>{hearthUI_recordMaterial}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedMaterialList" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_associatedMaterialList}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="topAndStratSetting">
+        <label>{hearthUI_topAndStratSetting}</label>
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Hearth - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_topographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Hearth - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_erosionVulnerability}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Hearth - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_paleotopographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="notes" faims_attribute_name="Hearth - Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth - Photos" faims_attribute_type="measure">
+          <label>{hearthUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{hearthUI_takePhoto}</label>
+        </trigger>
+      </group>
+    </group>
+    <group ref="hearthAssociatedMaterials">
+      <label>{hearthUI_hearthAssociatedMaterials}</label>
+      <select ref="nearbyMaterial">
+        <label>{hearthUI_nearbyMaterial}</label>
+        <item>
+          <label>placeholder</label>
+          <value>placeholder</value>
+        </item>
+        <group ref="assocMaterial">
+          <label>{hearthUI_assocMaterial}</label>
+        </group>
+      </select>
+      <group ref="associatedLacustrineMaterial">
+        <label>{hearthUI_associatedLacustrineMaterial}</label>
+        <group ref="assocLacust">
+          <label>{hearthUI_assocLacust}</label>
+        </group>
+        <group ref="assocBurntLacust">
+          <label>{hearthUI_assocBurntLacust}</label>
+        </group>
+      </group>
+      <group ref="associatedTerrestrialBone">
+        <label>{hearthUI_associatedTerrestrialBone}</label>
+        <group ref="assocTerrestrial">
+          <label>{hearthUI_assocTerrestrial}</label>
+        </group>
+        <group ref="assocBurntTerrestrial">
+          <label>{hearthUI_assocBurntTerrestrial}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{hearthUI_associatedEggshell}</label>
+        <group ref="assocEggshell">
+          <label>{hearthUI_assocEggshell}</label>
+        </group>
+        <group ref="assocBurntEggshell">
+          <label>{hearthUI_assocBurntEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedStoneArtefacts">
+        <label>{hearthUI_associatedStoneArtefacts}</label>
+        <group ref="assocStone">
+          <label>{hearthUI_assocStone}</label>
+        </group>
+        <group ref="assocChippedStone">
+          <label>{hearthUI_assocChippedStone}</label>
+        </group>
+        <group ref="assocRetouchedStone">
+          <label>{hearthUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedStone">
+          <label>{hearthUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocGroundStoneType">
+          <label>{hearthUI_assocGroundStoneType}</label>
+        </group>
+        <group ref="assocGroundStoneStatus">
+          <label>{hearthUI_assocGroundStoneStatus}</label>
+        </group>
+        <group ref="assocRawMaterial">
+          <label>{hearthUI_assocRawMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{hearthUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork">
+          <label>{hearthUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+  </h:body>
+</h:html>
