@@ -11,17 +11,22 @@
             <even>
               <layout_weight/>
             </even>
-            <large>
-              <layout_weight/>
-            </large>
           </style>
           <user>
             <usertab>
-              <Area_Code/>
               <users/>
-              <login/>
             </usertab>
           </user>
+          <control>
+            <control>
+              <entityTypes/>
+              <newEntity/>
+            </control>
+            <search>
+              <entityTypes/>
+              <entityList/>
+            </search>
+          </control>
           <hearth>
             <basicIdentification>
               <idNumber/>
@@ -85,6 +90,67 @@
     </model>
   </h:head>
   <h:body>
+    <group ref="style">
+      <label></label>
+      <group ref="orientation">
+        <label></label>
+        <input ref="orientation">
+          <label>horizontal</label>
+        </input>
+      </group>
+      <group ref="even">
+        <label></label>
+        <input ref="layout_weight">
+          <label>1</label>
+        </input>
+      </group>
+    </group>
+    <group ref="user">
+      <label>{userList}</label>
+      <group ref="usertab">
+        <label>{userList}</label>
+        <select1 appearance="compact" ref="users" faims_certainty="false" faims_annotation="false">
+          <label>{users}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+    </group>
+    <group ref="control">
+      <label>{control}</label>
+      <group ref="control">
+        <label>{control}</label>
+        <select1 ref="entityTypes">
+          <label>{entityTypes}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <trigger ref="newEntity">
+          <label>{newEntity}</label>
+        </trigger>
+      </group>
+      <group ref="search">
+        <label>{search}</label>
+        <select1 ref="entityTypes">
+          <label>{entityTypes}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 appearance="compact" ref="entityList">
+          <label>{entityList}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+    </group>
     <group ref="hearth">
       <label>{hearthUI_hearth}</label>
       <group ref="basicIdentification">
@@ -200,16 +266,16 @@
     </group>
     <group ref="hearthAssociatedMaterials">
       <label>{hearthUI_hearthAssociatedMaterials}</label>
-      <select ref="nearbyMaterial">
+      <group ref="nearbyMaterial">
         <label>{hearthUI_nearbyMaterial}</label>
-        <item>
-          <label>placeholder</label>
-          <value>placeholder</value>
-        </item>
-        <group ref="assocMaterial">
+        <select ref="assocMaterial">
           <label>{hearthUI_assocMaterial}</label>
-        </group>
-      </select>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+      </group>
       <group ref="associatedLacustrineMaterial">
         <label>{hearthUI_associatedLacustrineMaterial}</label>
         <group ref="assocLacust">
