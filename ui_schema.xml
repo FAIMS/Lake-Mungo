@@ -151,7 +151,7 @@
         </select1>
       </group>
     </group>
-    <group ref="hearth">
+    <group ref="hearth" faims_archent_type="Hearth">
       <label>{hearthUI_hearth}</label>
       <group ref="basicIdentification">
         <label>{hearthUI_basicIdentification}</label>

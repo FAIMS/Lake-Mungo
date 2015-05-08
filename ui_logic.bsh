@@ -295,7 +295,6 @@ loadSearch() {
 newFeature() {
   String type = getFieldValue("control/control/entityTypes");
   if (type.equals("Hearth")) {
-    showToast("Placeholder for recording a " + hearth.desc);
     hearth.create();
   } else if (type.equals("Midden")) {
 		showToast("Placeholder for recording a midden feature");
@@ -310,7 +309,7 @@ loadFeature() {
         entity_id = entityID;
         Log.d("loadFeature()", "Loading entity id: " + entityID);
         if (result.get(0).get(0).equals("Hearth")) {
-          showToast("Placeholder for loading a " + hearth.desc);
+        	hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
         	showToast("Placeholder for loading a midden feature");
         }
@@ -327,15 +326,14 @@ onEvent("control/search/entityTypes", "click", "loadSearch();");
 onEvent("control/search", "show", "loadSearch();");
 onEvent("control/search/entityList", "click", "loadFeature();");
 
-
-/*** HEARTH FEATURE ***/
-hearthFeature() {
-	entityTabgroup = "hearth";
-	desc = "Hearth record";
+/*** COMMON FEATURE FUNCTIONALITY ***/
+commonFeature (String tabgroup, String description) {
+	String entityTabgroup = tabgroup;
+	String desc = description;
 	String id = null;
 
-	/** Saves the feature **/
-	save() {
+	/** Saves the feature and executes some callback when the save is finished **/
+	save(String callback) {
 	  Boolean enable_autosave = true;
 	  saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
 	    onSave(uuid, newRecord) {
@@ -344,34 +342,115 @@ hearthFeature() {
 	      if (newRecord) {
 	        Log.d("save()", "New " + desc + " created");
 	      }
+	      if (callback != null && !isNull(callback)) {
+          execute(callback);
+        }
 	    }
 	    onError(message) {
 	        showToast(message);
 	    }  
 	  }, enable_autosave);
 	}
-
-	onEvent(entityTabgroup, "show", "hearth.save();");
 	
-	/** Creates a new feature record. **/
-	create() {
+	/** Saves the feature **/
+	save() {
+		save(null);
+	}
+
+	/** Creates a new feature record and executes some callback after creation. **/
+	create(String callback) {
 	  dialog = showBusy("creating a new record", "please wait");
 	  newTabGroup(entityTabgroup);
 	  id = null;
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
-    save();
+    // save();
+    if (callback != null && !isNull(callback)) {
+      execute(callback);
+    }
     dialog.dismiss();
   }
+
+  /** Creates a new feature record. **/
+  create() {
+  	create(null);
+  }
+
+	/** Loads a feature record. **/
+	load(String entityID) {
+	  if (isNull(entityID)) {
+	    showToast("No entity selected");
+	      return;
+	  }
+	  dialog = showBusy("loading record", "please wait");
+	  showTabGroup(entityTabgroup, entityID, new FetchCallback() {
+	    onFetch(result) {
+	      Log.d("load()", "Loaded a " + desc + ", ID: " + entityID);
+	      showToast("Loaded a " + desc);
+	      keepTabGroupChanges(entityTabgroup);
+	      dialog.dismiss();
+	    }
+	  });
+	}
 
 	return this;
 }
 
+
+/*** HEARTH FEATURE ***/
+hearthFeature() {
+	entityTabgroup = "hearth";
+	desc = "Hearth record";
+	String id = null;
+	common = commonFeature(entityTabgroup, desc);
+
+	save() {
+		String callback = "hearth.id = id;";
+		common.save(callback);
+	}
+
+	onEvent(entityTabgroup, "show", "hearth.save();");
+
+	create() {
+		String callback = "hearth.save();";
+		common.create(callback);
+	}
+
+	load() {
+		common.load(id);
+	}
+
+	return this;
+}
 hearth = hearthFeature();
 
 /*** MIDDEN FEATURE ***/
+middenFeature() {
+	entityTabgroup = "midden";
+	desc = "Midden record";
+	String id = null;
+	common = commonFeature(entityTabgroup, desc);
 
+	save() {
+		String callback = "midden.id = id;";
+		common.save(callback);
+	}
+
+	onEvent(entityTabgroup, "show", "midden.save();");
+
+	create() {
+		String callback = "midden.save();";
+		common.create(callback);
+	}
+
+	load() {
+		common.load(id);
+	}
+
+	return this;
+}
+midden = middenFeature();
 
 /*** STONE ARTEFACT FEATURE ***/
 
