@@ -69,7 +69,7 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
   	Log.e("makeVocab()", "Can't make populate a vocab when the given type, path or attribute is Null");
   	return;
   }
-  
+
   if (type.equals("PictureGallery")) {
   	fetchAll("select vocabid, vocabname, pictureurl from vocabulary left join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
 	    onFetch(pictures) {
@@ -357,6 +357,7 @@ hearthFeature() {
 	String type = "Hearth";
 	String desc = type + " record";
 	String id = null;
+	String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
 	
 	/** Saves the feature **/
 	save() {
@@ -417,12 +418,43 @@ hearthFeature() {
 		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth - Palaeotopographic Setting");
 	}
 
+	/** Populates the in-situ and surface associated materials list. **/
+	listAssociatedMaterials() {
+		if(!isNull(id)) {
+    	String assocListQuery = "select uuid, response " +
+	      "from latestNonDeletedArchEntFormattedIdentifiers " +
+	      "where aenttypename = 'Associated Materials' " +
+	      "and uuid in  (select uuid " +
+	      "FROM latestNonDeletedAentReln " +
+	      "where relationshipid in (select relationshipid " +
+	      "FROM latestNonDeletedAentReln " +
+	      "JOIN relationship using (relationshipid) " +
+	      "JOIN relntype using (relntypeid) " +
+	      "where uuid = "+ id + " " +
+	      "and relntypeName = '" + relTypeName + "') " +
+	      "and uuid != "+ id +") " + 
+	      "limit ? offset ?;";
+	    populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
+	    Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
+	  } else {
+	    result = new ArrayList();
+	    result.add(new NameValuePair("{noRecordsFound}", ""));
+	    populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
+	  } 
+	}
+
 	onEvent(entityTabgroup, "show", "hearth.save();");
+	onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
+	onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
 	return this;
 }
 hearth = hearthFeature();
 hearth.init();
+
+/*** HEARTH ASSOCIATED MATERIALS ***/
+
+
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
