@@ -63,8 +63,33 @@ makeVocab(String type, String path, String attrib, List vocabExclusions) {
 }
 
 /* Populates the path specified vocabulary from the database based on the given attribute name, where type 
-is the type of the vocab to populate (checkbox, dropdown, radio or list). */
+is the type of the vocab to populate (PictureGallery, CheckBoxGroup, DropDown, HierarchicalDropDown, RadioGroup or List). */
 makeVocab(String type, String path, String attrib, List vocabExclusions, String callbackFunction){
+  if (isNull(type) || isNull(path) || isNull(attrib)) {
+  	Log.e("makeVocab()", "Can't make populate a vocab when the given type, path or attribute is Null");
+  	return;
+  }
+  
+  if (type.equals("PictureGallery")) {
+  	fetchAll("select vocabid, vocabname, pictureurl from vocabulary left join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
+	    onFetch(pictures) {
+	      populatePictureGallery(path, pictures);
+	      if (callbackFunction != null && !isNull(callbackFunction)) {
+		      execute(callbackFunction);
+		    }
+	    }
+	  });
+	  return;
+  }
+
+  if (type.equals("HierarchicalDropDown")) {
+  	populateHierarchicalDropDown(path, attrib);
+  	if (callbackFunction != null && !isNull(callbackFunction)) {
+      execute(callbackFunction);
+    }
+    return;
+  }
+
   fetchAll("select vocabid, vocabname from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;",
     new FetchCallback() {
       onFetch(result) {
@@ -282,7 +307,7 @@ entityTypes = new ArrayList();
 entityTypes.add(new NameValuePair("{hearth}", "Hearth"));
 entityTypes.add(new NameValuePair("{midden}", "Midden"));
 populateDropDown("control/control/entityTypes", entityTypes);
-entityTypes.add(0, new NameValuePair("{all}", "Feature"));
+// entityTypes.add(0, new NameValuePair("{all}", "Feature"));
 populateDropDown("control/search/entityTypes", entityTypes);
 
 /* Loads a list view of existing entities. */
@@ -328,8 +353,9 @@ onEvent("control/search/entityList", "click", "loadFeature();");
 
 /*** HEARTH FEATURE ***/
 hearthFeature() {
-	entityTabgroup = "hearth";
-	desc = "Hearth record";
+	String entityTabgroup = "hearth";
+	String type = "Hearth";
+	String desc = type + " record";
 	String id = null;
 	
 	/** Saves the feature **/
@@ -378,11 +404,25 @@ hearthFeature() {
 	  });
 	}
 
+ 	/** Initialises the tabgroup vocabularies. **/
+	init() {
+		makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth - Hearth Type");
+		makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth - Charcoal");
+		makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth - Proportion of material that remains in situ");
+		makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth - Modification of heat-retainer hearths");
+		makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth - Modification of non-heat retainer hearths");
+		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth - Topographic Setting");
+		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth - Sediment Type");
+		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth - Vulnerability to Erosion");
+		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth - Palaeotopographic Setting");
+	}
+
 	onEvent(entityTabgroup, "show", "hearth.save();");
 
 	return this;
 }
 hearth = hearthFeature();
+hearth.init();
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
