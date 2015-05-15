@@ -526,7 +526,16 @@ oldboneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    
+    makeVocab("DropDown"      , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone - Cluster Type");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone - Body Parts Identifed");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone - Taxon Identified");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone - Bone Preservation");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone - Deliberate Surface Modification");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone - Topographic Setting");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone - Sediment Type");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone - Stratigraphic Unit");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone - Vulnerability to Erosion");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone - Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -857,3 +866,4 @@ isolatedFeature() {
   return this;
 }
 isolated = isolatedFeature();
+
