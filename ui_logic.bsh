@@ -421,15 +421,15 @@ hearthFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth_-_Hearth Type");
+    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth_-_Hearth_Type");
     makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth_-_Charcoal");
-    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth_-_Proportion of material that remains in situ");
-    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth_-_Modification of heat-retainer hearths");
-    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth_-_Modification of non-heat retainer hearths");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth_-_Topographic Setting");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth_-_Sediment Type");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth_-_Vulnerability to Erosion");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth_-_Palaeotopographic Setting");
+    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth_-_Proportion_of_material_that_remains_in_situ");
+    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths");
+    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth_-_Topographic_Setting");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth_-_Sediment_Type");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -572,6 +572,7 @@ oldboneFeature() {
   return this;
 }
 oldbone = oldboneFeature();
+oldbone.init();
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
@@ -673,6 +674,7 @@ middenFeature() {
   return this;
 }
 midden = middenFeature();
+midden.init();
 
 /*** STONE ARTEFACT FEATURE ***/
 stoneFeature() {
@@ -769,6 +771,7 @@ stoneFeature() {
   return this;
 }
 stone = stoneFeature();
+stone.init();
 
 
 /*** ISOLATED FEATURE ***/
@@ -868,4 +871,5 @@ isolatedFeature() {
   return this;
 }
 isolated = isolatedFeature();
+isolated.init();
 
