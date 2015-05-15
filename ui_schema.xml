@@ -4,7 +4,7 @@
     <model>
       <instance>
         <faims id="hdb_FAIMS_Community_Server">
-<!--           <style>
+          <!-- <style>
             <orientation>
               <orientation/>
             </orientation>
@@ -205,7 +205,8 @@
               <bivalveDispersal/>
             </middenDescription>
             <associatedMaterials>
-              <assocMaterials/>
+              <recordMaterial/>
+              <associatedMaterialList/>
             </associatedMaterials>
             <topAndStratSetting>
               <topographicSetting/>
@@ -590,28 +591,28 @@
       </group>
       <group ref="inSituDescription">
         <label>{stoneArtefactClustersUI_inSituDescription}</label>
-        <group ref="inSituInSituStoneArtefacts" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituInSituStoneArtefacts">
           <label>{stoneArtefactClustersUI_inSituInSituStoneArtefacts}</label>
         </group>
-        <group ref="inSituChippedStoneArtfacts" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
         </group>
-        <group ref="inSituRetouchedArtefacts" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituRetouchedArtefacts">
           <label>{stoneArtefactClustersUI_inSituRetouchedArtefacts}</label>
         </group>
-        <group ref="inSituUnmodifiedStoneTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_inSituUnmodifiedStoneTypes}</label>
         </group>
-        <group ref="inSituGroundStoneTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituGroundStoneTypes">
           <label>{stoneArtefactClustersUI_inSituGroundStoneTypes}</label>
         </group>
-        <group ref="inSituGroundStoneStatus" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituGroundStoneStatus">
           <label>{stoneArtefactClustersUI_inSituGroundStoneStatus}</label>
         </group>
-        <group ref="inSituSurfaceModification" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituSurfaceModification">
           <label>{stoneArtefactClustersUI_inSituSurfaceModification}</label>
         </group>
-        <group ref="inSituRawMaterialTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="inSituRawMaterialTypes">
           <label>{stoneArtefactClustersUI_inSituRawMaterialTypes}</label>
         </group>
       </group>
@@ -620,25 +621,25 @@
         <input ref="potentialRefits" faims_attribute_name="Stone - Potential Refits" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
         </input>
-        <group ref="surfaceChippedStoneArtfacts" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
         </group>
-        <group ref="surfaceRetouchedArtefacts" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceRetouchedArtefacts">
           <label>{stoneArtefactClustersUI_surfaceRetouchedArtefacts}</label>
         </group>
-        <group ref="surfaceUnmodifiedStoneTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_surfaceUnmodifiedStoneTypes}</label>
         </group>
-        <group ref="surfaceGroundStoneTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceGroundStoneTypes">
           <label>{stoneArtefactClustersUI_surfaceGroundStoneTypes}</label>
         </group>
-        <group ref="surfaceGroundStoneStatus" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceGroundStoneStatus">
           <label>{stoneArtefactClustersUI_surfaceGroundStoneStatus}</label>
         </group>
-        <group ref="surfaceSurfaceModification" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceSurfaceModification">
           <label>{stoneArtefactClustersUI_surfaceSurfaceModification}</label>
         </group>
-        <group ref="surfaceRawMaterialTypes" faims_certainty="true" faims_annotation="true">
+        <group ref="surfaceRawMaterialTypes">
           <label>{stoneArtefactClustersUI_surfaceRawMaterialTypes}</label>
         </group>
       </group>
@@ -714,40 +715,40 @@
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
       <group ref="control">
         <label>{stoneAssociatedMaterialsUI_control}</label>
-        <group ref="assocMaterialInSitu" faims_certainty="true" faims_annotation="true">
+        <group ref="assocMaterialInSitu">
           <label>{stoneAssociatedMaterialsUI_assocMaterialInSitu}</label>
         </group>
-        <group ref="assocSurface" faims_certainty="true" faims_annotation="true">
+        <group ref="assocSurface">
           <label>{stoneAssociatedMaterialsUI_assocSurface}</label>
         </group>
       </group>
       <group ref="associatedHearthstones">
         <label>{stoneAssociatedMaterialsUI_associatedHearthstones}</label>
-        <group ref="assocHearth" faims_certainty="true" faims_annotation="true">
+        <group ref="assocHearth">
           <label>{stoneAssociatedMaterialsUI_assocHearth}</label>
         </group>
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
-        <group ref="assocLacust" faims_certainty="true" faims_annotation="true">
+        <group ref="assocLacust">
           <label>{stoneAssociatedMaterialsUI_assocLacust}</label>
         </group>
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{stoneAssociatedMaterialsUI_associatedTerrestrialBone}</label>
-        <group ref="assocTerrestrial" faims_certainty="true" faims_annotation="true">
+        <group ref="assocTerrestrial">
           <label>{stoneAssociatedMaterialsUI_assocTerrestrial}</label>
         </group>
       </group>
       <group ref="associatedEggshell">
         <label>{stoneAssociatedMaterialsUI_associatedEggshell}</label>
-        <group ref="assocEggshell" faims_certainty="true" faims_annotation="true">
+        <group ref="assocEggshell">
           <label>{stoneAssociatedMaterialsUI_assocEggshell}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork" faims_certainty="true" faims_annotation="true">
+        <group ref="assocOtherwork">
           <label>{stoneAssociatedMaterialsUI_assocOtherwork}</label>
         </group>
       </group>
@@ -786,10 +787,10 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <group ref="modificationtoOrganicMaterial" faims_certainty="true" faims_annotation="true">
+        <group ref="modificationtoOrganicMaterial">
           <label>{isolatedOccurrencesUI_modificationtoOrganicMaterial}</label>
         </group>
-        <group ref="modificationtoStoneMaterial" faims_certainty="true" faims_annotation="true">
+        <group ref="modificationtoStoneMaterial">
           <label>{isolatedOccurrencesUI_modificationtoStoneMaterial}</label>
         </group>
       </group>
@@ -858,7 +859,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <group ref="continuity" faims_attribute_name="Midden - Charcoal" faims_certainty="true" faims_annotation="true">
+        <group ref="continuity">
           <label>{middenUI_continuity}</label>
         </group>
       </group>
@@ -894,9 +895,12 @@
         </select1>
       </group>
       <group ref="associatedMaterials">
-        <label>{middenUI_associatedMaterials}</label>
-        <select1 appearance="compact" ref="assocMaterials">
-          <label>{middenUI_assocMaterials}</label>
+        <label>{hearthUI_associatedMaterials}</label>
+        <trigger ref="recordMaterial">
+          <label>{hearthUI_recordMaterial}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedMaterialList" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_associatedMaterialList}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
@@ -952,7 +956,7 @@
       <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
-        <group ref="assocMaterial" faims_certainty="true" faims_annotation="true">
+        <group ref="assocMaterial">
           <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
         </group>
       </group>
