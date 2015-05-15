@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <dataSchema>
+  <RelationshipElement name="Midden And Associated Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Midden and Midden Associated Materials</description>
+  </RelationshipElement>
+  <RelationshipElement name="Stone And Associated Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Stone Arrtefact Clusters and Stone Associated</description>
+  </RelationshipElement>
+  <RelationshipElement name="Old Bone And Associated Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Materials</description>
+  </RelationshipElement>
+  <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
+  </RelationshipElement>
+
   <ArchaeologicalElement name="Old Bone Associated Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone - Associated in situ material" type="enum" isIdentifier="true">
@@ -580,9 +593,7 @@
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
     </property>
   </ArchaeologicalElement>
-  <RelationshipElement name="Midden And Associated Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Midden and Midden Associated Materials</description>
-  </RelationshipElement>
+
   <ArchaeologicalElement name="Midden">
     <description></description>
     <property name="Midden - ID Number" type="measure" isIdentifier="true">
@@ -857,9 +868,7 @@
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
     </property>
   </ArchaeologicalElement>
-  <RelationshipElement name="Stone And Associated Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Stone Arrtefact Clusters and Stone Associated</description>
-  </RelationshipElement>
+
   <ArchaeologicalElement name="Hearth Associated Materials">
     <description></description>
     <property name="HearthAssoc - Associated material" type="enum" isIdentifier="true">
@@ -1133,9 +1142,7 @@
       </lookup>
     </property>
   </ArchaeologicalElement>
-  <RelationshipElement name="Old Bone And Associated Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Materials</description>
-  </RelationshipElement>
+
   <ArchaeologicalElement name="Isolated">
     <description></description>
     <property name="Isolated - ID Number" type="measure" isIdentifier="true">
@@ -1726,9 +1733,7 @@ Genyornis (duck, swan)</description>
       </lookup>
     </property>
   </ArchaeologicalElement>
-  <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
-  </RelationshipElement>
+
   <ArchaeologicalElement name="Stone Artefact Clusters">
     <description></description>
     <property name="Stone - ID Number" type="measure" isIdentifier="true">
