@@ -1002,7 +1002,7 @@
         </group>
       </group>
     </group>
-    <group ref="oldBone">
+    <group ref="oldBone" faims_archent_type="Old Bone">
       <label>{oldBoneUI_oldBone}</label>
       <group ref="basicIdentification">
         <label>{oldBoneUI_basicIdentification}</label>
