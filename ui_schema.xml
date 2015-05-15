@@ -1002,7 +1002,7 @@
         </group>
       </group>
     </group>
-    <group ref="oldBone">
+    <group ref="oldBone" faims_archent_type="Old Bone">
       <label>{oldBoneUI_oldBone}</label>
       <group ref="basicIdentification">
         <label>{oldBoneUI_basicIdentification}</label>
@@ -1103,7 +1103,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>

@@ -323,7 +323,7 @@ loadSearch() {
 newFeature() {
   String type = getFieldValue("control/control/entityTypes");
   if (type.equals("Old Bone")) {
-    showToast("Placeholder for recording an old bone feature");
+    oldbone.create();
   } else if (type.equals("Hearth")) {
     hearth.create();
   } else if (type.equals("Midden")) {
@@ -483,6 +483,8 @@ oldboneFeature() {
     Boolean enable_autosave = true;
     saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
       onSave(uuid, newRecord) {
+        Log.d("autosave", "id: " + id);
+        Log.d("autosave", "uuid: " + uuid.toString());
         id = uuid;
         Log.d("save()", desc + " saved with id: " + id);
         if (newRecord) {
@@ -526,7 +528,7 @@ oldboneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown"      , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster Type");
+    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster Type");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body Parts Identifed");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon Identified");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone Preservation");
@@ -563,8 +565,8 @@ oldboneFeature() {
     } 
   }
 
-  onEvent(entityTabgroup, "show", "oldBone.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "oldBone.listAssociatedMaterials();");
+  onEvent(entityTabgroup, "show", "oldbone.save();");
+  onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
