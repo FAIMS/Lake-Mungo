@@ -56,7 +56,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {frag}
           <description>majority of shell is highly fragmented</description>
@@ -147,7 +147,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -216,13 +216,13 @@
       <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
       <lookup>
         <term> {whole}
-          <description/>
+          <description></description>
         </term>
         <term> {fragment}
-          <description/>
+          <description></description>
         </term>
         <term> {refits}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -291,10 +291,10 @@
       <description>Letter code as marked in south-west corner of square</description>
     </property>
     <property name="Hearth_-_Hearth_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Hearths_with_heat-retainer_hearthstones}
-          <description/>
+          <description></description>
           <term> {hsterm}
             <description>Termite nest hearthstones (holes and channels visible, sandy texture)</description>
           </term>
@@ -312,7 +312,7 @@
           </term>
         </term>
         <term> {Hearths_without_hearthstones}
-          <description/>
+          <description></description>
           <term> {emupat}
             <description>Thin, discrete patch of baked sediments with the form of an emu pat (or cow pat), usually associated with charcoal, ash and/or organic remains</description>
           </term>
@@ -344,7 +344,7 @@
       <description>A few word description of an ‘other’ type of hearth or hearthstone, e.g. fish hearth, emu eggshell hearth, silcrete hearthstones</description>
     </property>
     <property name="Hearth_-_Charcoal" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {none}
           <description>No charcoal visible</description>
@@ -603,7 +603,7 @@
       <description>Letter code as marked in south-west corner of square</description>
     </property>
     <property name="Midden_-_Midden_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {smallclust}
           <description>A single discrete cluster of a handful of mussel shell</description>
@@ -682,7 +682,7 @@
       </lookup>
     </property>
     <property name="Midden_-_Bivalve_dispersal" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {low}
           <description>Surface scatter of material is confined to the area of in situ material, or, if only surface material is present, to a discrete, relatively dense, area</description>
@@ -915,10 +915,10 @@
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -926,16 +926,16 @@
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
-          <description/>
+          <description></description>
         </term>
         <term> {birdbone}
-          <description/>
+          <description></description>
         </term>
         <term> {reptile}
-          <description/>
+          <description></description>
         </term>
         <term> {other}
-          <description/>
+          <description></description>
         </term>
         <term> {unident}
           <description>Cannot be identified by recorder</description>
@@ -949,10 +949,10 @@
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -977,10 +977,10 @@
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -1085,10 +1085,10 @@
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
-          <description/>
+          <description></description>
         </term>
         <term> {fragment}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -1146,13 +1146,13 @@
   <ArchaeologicalElement name="Isolated">
     <description></description>
     <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
-      <description/>
+      <description></description>
     </property>
     <property name="Isolated_-_Grid_Square" type="measure" isIdentifier="true">
-      <description/>
+      <description></description>
     </property>
     <property name="Isolated_-_In_Situ_or_Surface" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {insitu}
           <description>Most or some of the object is
@@ -1172,10 +1172,10 @@ the possibility that it has been recemented</description>
       </lookup>
     </property>
     <property name="Isolated_-_Occurence_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Stone_Artefacts}
-          <description/>
+          <description></description>
           <term> {notch}
             <description>Notched artefact</description>
           </term>
@@ -1215,7 +1215,7 @@ stone</description>
           </term>
         </term>
         <term> {Other_Artefacts}
-          <description/>
+          <description></description>
           <term> {bonetool}
             <description>Bone tool</description>
           </term>
@@ -1227,15 +1227,15 @@ stone</description>
           </term>
         </term>
         <term> {Faunal_Remains}
-          <description/>
+          <description></description>
           <term> {wombat}
-            <description/>
+            <description></description>
           </term>
           <term> {bettong}
-            <description/>
+            <description></description>
           </term>
           <term> {macropod}
-            <description/>
+            <description></description>
           </term>
           <term> {smallmars}
             <description>Small marsupial</description>
@@ -1244,13 +1244,13 @@ stone</description>
             <description>e.g. Thylacine, Tasmanian Devil</description>
           </term>
           <term> {emu}
-            <description/>
+            <description></description>
           </term>
           <term> {otherbird}
             <description>Bird bone other than emu</description>
           </term>
           <term> {rodent}
-            <description/>
+            <description></description>
           </term>
           <term> {fishbone}
             <description>e.g. Murray Cod, Golden Perch</description>
@@ -1285,7 +1285,7 @@ Genyornis</description>
           </term>
         </term>
         <term> {Other_Worked_Material}
-          <description/>
+          <description></description>
           <term> {ochre}
             <description>Unmodified ochre</description>
           </term>
@@ -1297,7 +1297,7 @@ Genyornis</description>
           </term>
         </term>
         <term> {Hearthstones}
-          <description/>
+          <description></description>
           <term> {hscarb}
             <description>Carbonate</description>
           </term>
@@ -1314,7 +1314,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Stone_Raw_Material_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {silcfine}
           <description>Fine-grained silcrete</description>
@@ -1343,7 +1343,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Modification_to_Organic_Material" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {none}
           <description>Fresh surface</description>
@@ -1372,7 +1372,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Modification_to_Stone_Material" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {indet}
           <description>Indeterminate, if artefact is too buried to determine modification</description>
@@ -1395,7 +1395,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Topographic_Setting" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Lessthan_Six_Degrees}
           <description>Slightly sloping surface</description>
@@ -1448,7 +1448,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Sediment_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {redsoil}
           <description>Soil of a reddish colour</description>
@@ -1513,7 +1513,7 @@ Genyornis</description>
       </lookup>
     </property>
     <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
@@ -1533,7 +1533,7 @@ residual or deep rill, in gully wall, on a steep, slope-washed surface</descript
       </lookup>
     </property>
     <property name="Isolated_-_Palaeotopographic_Setting" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
@@ -1560,7 +1560,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Isolated_-_Photographs_Taken" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {general}
           <description>Only general artefact and setting photos taken</description>
@@ -1577,7 +1577,7 @@ lakebed and hinterland</description>
   <ArchaeologicalElement name="Stone Associated">
     <description></description>
     <property name="Stone_-_In_Situ" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {hs}
           <description>Hearthstones or charcoal</description>
@@ -1597,7 +1597,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {hs}
           <description>Hearthstones or charcoal</description>
@@ -1617,7 +1617,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Hearth" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {clay}
           <description>Baked clay or sandy clay hearthstones</description>
@@ -1637,7 +1637,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Lacustrine" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
@@ -1657,13 +1657,13 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Terrestrial" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {wombat}
-          <description/>
+          <description></description>
         </term>
         <term> {bettong}
-          <description/>
+          <description></description>
         </term>
         <term> {macropod}
           <description>Eastern Grey, Western Grey, Red Kangaroo</description>
@@ -1695,7 +1695,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Eggshell" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {emu}
           <description>Emu eggshell</description>
@@ -1713,7 +1713,7 @@ Genyornis (duck, swan)</description>
       </lookup>
     </property>
     <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {bone}
           <description>Worked bone</description>
@@ -1743,10 +1743,10 @@ Genyornis (duck, swan)</description>
       <description>Letter code as marked in south-west corner of square</description>
     </property>
     <property name="Stone_-_Cluster_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Stone_artefacts_only}
-          <description/>
+          <description></description>
           <term> {insitu}
             <description>3 or more in situ stone artefacts within 1m of each other, with no other associated material</description>
           </term>
@@ -1763,7 +1763,7 @@ material that have the potential to have been derived from the same piece of sto
           </term>
         </term>
         <term> {Stone_artefacts_and_other_material}
-          <description/>
+          <description></description>
           <term> {insit_oth}
             <description>‘Insitu’ cluster as defined above, associated with material other than stone artefacts, either in situ or on the surface</description>
           </term>
@@ -1777,7 +1777,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Stone_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -1804,7 +1804,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Chipped_Stone_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact (see below)</description>
@@ -1824,7 +1824,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Retouched_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -1847,7 +1847,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Unmodified_Stone_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -1864,7 +1864,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -1890,18 +1890,18 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Status" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {whole}
-          <description/>
+          <description></description>
         </term>
         <term> {fragmented}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Surface_Modification" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {algal}
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
@@ -1919,7 +1919,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Raw_Material_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {silcfine}
           <description>Fine-grained silcrete</description>
@@ -1951,7 +1951,7 @@ material that have the potential to have been derived from the same piece of sto
       <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
     <property name="Stone_-_Surface_-_Chipped_Stone_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact (see below)</description>
@@ -1971,7 +1971,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Retouched_Artefacts" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -1994,7 +1994,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Unmodified_Stone_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -2011,7 +2011,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Ground_Stone_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -2037,18 +2037,18 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Ground_Stone_Status" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {whole}
-          <description/>
+          <description></description>
         </term>
         <term> {fragmented}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Surface_-_Modification" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {algal}
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
@@ -2066,7 +2066,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Raw_Material_Types" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {silcfine}
           <description>Fine-grained silcrete</description>
@@ -2095,7 +2095,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Topographic_Setting" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Lessthan_Six_Degrees}
           <description>Slightly sloping surface</description>
@@ -2148,7 +2148,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Sediment_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {redsoil}
           <description>Soil of a reddish colour</description>
@@ -2213,7 +2213,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Vulnerability_to_Erosion" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
@@ -2233,7 +2233,7 @@ residual or deep rill, in gully wall, on a steep, slope-washed surface</descript
       </lookup>
     </property>
     <property name="Stone_-_Palaeotopographic_Setting" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
@@ -2260,7 +2260,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="Stone_-_Photographs_Taken" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {general}
           <description>Only general artefact and setting photos taken</description>
@@ -2325,10 +2325,10 @@ lakebed and hinterland</description>
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -2336,16 +2336,16 @@ lakebed and hinterland</description>
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
-          <description/>
+          <description></description>
         </term>
         <term> {birdbone}
-          <description/>
+          <description></description>
         </term>
         <term> {reptile}
-          <description/>
+          <description></description>
         </term>
         <term> {other}
-          <description/>
+          <description></description>
         </term>
         <term> {unident}
           <description>Cannot be identified by recorder</description>
@@ -2359,10 +2359,10 @@ lakebed and hinterland</description>
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -2387,10 +2387,10 @@ lakebed and hinterland</description>
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description></description>
         </term>
         <term> {No}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -2495,10 +2495,10 @@ lakebed and hinterland</description>
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
-          <description/>
+          <description></description>
         </term>
         <term> {fragment}
-          <description/>
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -2561,10 +2561,10 @@ lakebed and hinterland</description>
       <description>Letter code as marked in south-west corner of square</description>
     </property>
     <property name="OldBone_-_Cluster_Type" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {boneOnly}
-          <description/>
+          <description></description>
           <term> {insitBO}
             <description>2 or more in situ elements, a set of in situ articulated elements, or an in situ skeleton, not associated with any other in situ or surface material</description>
           </term>
@@ -2576,7 +2576,7 @@ lakebed and hinterland</description>
           </term>
         </term>
         <term> {boneAndOtherMaterial}
-          <description/>
+          <description></description>
           <term> {inistAndOth}
             <description>In situ bone cluster as defined above, associated with other material, either in situ or on the surface</description>
           </term>
@@ -2663,10 +2663,10 @@ lakebed and hinterland</description>
           <description>e.g. Western Grey, Eastern Grey, Red Kangaroo</description>
         </term>
         <term> {bettong}
-          <description/>
+          <description></description>
         </term>
         <term> {wombat}
-          <description/>
+          <description></description>
         </term>
         <term> {smallmars}
           <description>Small marsupial</description>
@@ -2675,13 +2675,13 @@ lakebed and hinterland</description>
           <description>e.g. Thylacine, Tasmanian Devil</description>
         </term>
         <term> {emu}
-          <description/>
+          <description></description>
         </term>
         <term> {otherbird}
           <description>Bird other than emu (swan, duck, etc)</description>
         </term>
         <term> {reptile}
-          <description/>
+          <description></description>
         </term>
         <term> {fish}
           <description>e.g. Murray Cod, Golden Perch</description>
@@ -2889,7 +2889,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="OldBone_-_Stratigraphic_Unit" type="enum">
-      <description/>
+      <description></description>
       <lookup>
         <term> {Golgol}
           <description>deeply weathered sands and clays with strong red colour</description>
