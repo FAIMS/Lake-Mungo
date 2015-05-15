@@ -327,11 +327,11 @@ newFeature() {
   } else if (type.equals("Hearth")) {
     hearth.create();
   } else if (type.equals("Midden")) {
-    showToast("Placeholder for recording a midden feature");
+    midden.create();
   } else if (type.equals("Stone Artefact Clusters")) {
-    showToast("Placeholder for recording a stone feature");
+    stone.create();
   } else if (type.equals("Isolated")) {
-    showToast("Placeholder for recording an isolated feature");
+    isolated.create();
   }
 }
 
@@ -674,8 +674,8 @@ midden = middenFeature();
 
 /*** STONE ARTEFACT FEATURE ***/
 stoneFeature() {
-  String entityTabgroup = "Stone Artefact Clusters";
-  String type = "stoneArtefectClusters";
+  String entityTabgroup = "stoneArtefactClusters";
+  String type = "Stone Artefact Clusters";
   String desc = type + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
