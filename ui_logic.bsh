@@ -421,15 +421,15 @@ hearthFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth - Hearth Type");
-    makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth - Charcoal");
-    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth - Proportion of material that remains in situ");
-    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth - Modification of heat-retainer hearths");
-    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth - Modification of non-heat retainer hearths");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth - Topographic Setting");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth - Sediment Type");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth - Vulnerability to Erosion");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth - Palaeotopographic Setting");
+    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth_-_Hearth Type");
+    makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth_-_Charcoal");
+    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth_-_Proportion of material that remains in situ");
+    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth_-_Modification of heat-retainer hearths");
+    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth_-_Modification of non-heat retainer hearths");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth_-_Topographic Setting");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth_-_Sediment Type");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth_-_Vulnerability to Erosion");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth_-_Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -526,16 +526,16 @@ oldboneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown"      , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone - Cluster Type");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone - Body Parts Identifed");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone - Taxon Identified");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone - Bone Preservation");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone - Deliberate Surface Modification");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone - Topographic Setting");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone - Sediment Type");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone - Stratigraphic Unit");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone - Vulnerability to Erosion");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone - Palaeotopographic Setting");
+    makeVocab("DropDown"      , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster Type");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body Parts Identifed");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon Identified");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone Preservation");
+    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone_-_Deliberate Surface Modification");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic Setting");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment Type");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic Unit");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability to Erosion");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -627,16 +627,16 @@ middenFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                            , "Midden - Midden Type");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "presenceOfCharcoal"                    , "Midden - Presence of charcoal");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "proportionOfMaterialThatRemainsInSitu" , "Midden - Proportion of material that remains in situ");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalvePreservation"                   , "Midden - Bivalve preservation");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalveDispersal"                      , "Midden - Bivalve dispersal");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                            , "Midden_-_Midden Type");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "presenceOfCharcoal"                    , "Midden_-_Presence of charcoal");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion of material that remains in situ");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalvePreservation"                   , "Midden_-_Bivalve preservation");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalveDispersal"                      , "Midden_-_Bivalve dispersal");
 
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                     , "Midden - Topographic Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden - Sediment Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                   , "Midden - Vulnerability to Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"                , "Midden - Palaeotopographic Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                     , "Midden_-_Topographic Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden_-_Sediment Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                   , "Midden_-_Vulnerability to Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"                , "Midden_-_Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -728,11 +728,11 @@ stoneFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone - Cluster Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone - Topographic Setting");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone - Sediment Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone - Vulnerability to Erosion");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone - Palaeotopographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability to Erosion");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -825,13 +825,13 @@ isolatedFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated - In Situ or Surface");
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/occurenceType"          , "Isolated - Occurence Type");
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated - Stone Raw Material Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated - Topographic Setting");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated - Sediment Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated - Vulnerability to Erosion");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated - Palaeotopographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In Situ or Surface");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/occurenceType"          , "Isolated_-_Occurence Type");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone Raw Material Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability to Erosion");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
