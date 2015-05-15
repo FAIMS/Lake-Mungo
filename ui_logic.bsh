@@ -304,8 +304,11 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
 /*** MODULE CONTROL ***/
 // List of feature entities for recording.
 entityTypes = new ArrayList();
+entityTypes.add(new NameValuePair("{oldBone}", "Old Bone"));
 entityTypes.add(new NameValuePair("{hearth}", "Hearth"));
 entityTypes.add(new NameValuePair("{midden}", "Midden"));
+entityTypes.add(new NameValuePair("{stone}", "Stone Artefact Clusters"));
+entityTypes.add(new NameValuePair("{isolated}", "Isolated"));
 populateDropDown("control/control/entityTypes", entityTypes);
 // entityTypes.add(0, new NameValuePair("{all}", "Feature"));
 populateDropDown("control/search/entityTypes", entityTypes);
@@ -319,10 +322,16 @@ loadSearch() {
 /** Creates a record for the selected feature type. **/
 newFeature() {
   String type = getFieldValue("control/control/entityTypes");
-  if (type.equals("Hearth")) {
+  if (type.equals("Old Bone")) {
+    showToast("Placeholder for recording an old bone feature");
+  } else if (type.equals("Hearth")) {
     hearth.create();
   } else if (type.equals("Midden")) {
 		showToast("Placeholder for recording a midden feature");
+  } else if (type.equals("Stone Artefact Clusters")) {
+    showToast("Placeholder for recording a stone feature");
+  } else if (type.equals("Isolated")) {
+    showToast("Placeholder for recording an isolated feature");
   }
 }
 
@@ -333,12 +342,17 @@ loadFeature() {
       onFetch(result) {
         entity_id = entityID;
         Log.d("loadFeature()", "Loading entity id: " + entityID);
-        if (result.get(0).get(0).equals("Hearth")) {
+        if (result.get(0).get(0).equals("Old Bone")) {
+          showToast("Placeholder for loading an old bone feature");
+        } else if (result.get(0).get(0).equals("Hearth")) {
         	hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
         	showToast("Placeholder for loading a midden feature");
+        } else if (result.get(0).get(0).equals("Stone Artefact Clusters")) {
+          showToast("Placeholder for loading a stone feature");
+        } else if (result.get(0).get(0).equals("Isolated")) {
+          showToast("Placeholder for loading an isolated feature");
         }
-
       }
     });
   } else {
@@ -464,10 +478,17 @@ middenFeature() {
 midden = middenFeature();
 
 /*** STONE ARTEFACT FEATURE ***/
+stoneFeature() {
 
-
-/*** OLD BONE FEATURE ***/
+  return this;
+}
+stone = stoneFeature();
 
 
 /*** ISOLATED FEATURE ***/
+isolatedFeature() {
+
+  return this;
+}
+isolated = isolatedFeature();
 
