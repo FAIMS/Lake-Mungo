@@ -12,10 +12,10 @@
   <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
   </RelationshipElement>
-
+  
   <ArchaeologicalElement name="Old Bone Associated Materials">
     <description>A material associated with a feature cluster</description>
-    <property name="OldBone - Associated in situ material" type="enum" isIdentifier="true">
+    <property name="OldBone_-_Associated_in_situ_material" type="enum" isIdentifier="true">
       <description>If material other than old bone is associated, select those of the following that have been observed in situ</description>
       <lookup>
         <term> {mussel}
@@ -35,7 +35,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated surface material" type="enum" isIdentifier="true">
+    <property name="OldBone_-_Associated_surface_material" type="enum" isIdentifier="true">
       <description>If material other than old bone is associated, select those of the following that have been observed on the surface</description>
       <lookup>
         <term> {mussel}
@@ -55,7 +55,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Bivalve preservation" type="enum">
+    <property name="OldBone_-_Bivalve_preservation" type="enum">
       <description/>
       <lookup>
         <term> {frag}
@@ -69,7 +69,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Hearth Material" type="enum">
+    <property name="OldBone_-_Associated_Hearth_Material" type="enum">
       <description>If hearthstone material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {clay}
@@ -84,7 +84,7 @@
         <term> {other}
           <description>Hearthstones of other material, e.g. stone</description>
         </term>
-        <term> {baked sed}
+        <term> {baked_sed}
           <description>baked sed</description>
         </term>
         <term> {staining}
@@ -95,7 +95,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Eggshell" type="enum">
+    <property name="OldBone_-_Associated_Eggshell" type="enum">
       <description>If eggshell is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {emu}
@@ -112,7 +112,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Stone Artefacts" type="enum">
+    <property name="OldBone_-_Associated_Stone_Artefacts" type="enum">
       <description>If stone artefacts are associated, either in situ or on the surface, select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
@@ -126,7 +126,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Chipped Stone Artefacts" type="enum">
+    <property name="OldBone_-_Associated_Chipped_Stone_Artefacts" type="enum">
       <description>If chipped stone is present, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {ru}
@@ -146,7 +146,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Retouched Artefacts" type="enum">
+    <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {notch}
@@ -169,7 +169,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Unmodified Stone" type="enum">
+    <property name="OldBone_-_Associated_Unmodified_Stone" type="enum">
       <description>If unmodified stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {nodule}
@@ -186,7 +186,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Ground Stone Types Present" type="enum">
+    <property name="OldBone_-_Ground_Stone_Types_Present" type="enum">
       <description>If ground stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {millstone}
@@ -212,7 +212,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Ground Stone Status" type="enum">
+    <property name="OldBone_-_Ground_Stone_Status" type="enum">
       <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
       <lookup>
         <term> {whole}
@@ -226,7 +226,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Raw Material Types Present" type="enum">
+    <property name="OldBone_-_Raw_Material_Types_Present" type="enum">
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
@@ -258,7 +258,7 @@
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Associated Other Artefacts" type="enum">
+    <property name="OldBone_-_Associated_Other_Artefacts" type="enum">
       <description>If other worked or transported material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {bonemod}
@@ -284,16 +284,16 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Hearth">
     <description></description>
-    <property name="Hearth - ID Number" type="measure" isIdentifier="true">
+    <property name="Hearth_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
     </property>
-    <property name="Hearth - Grid Square" type="measure" isIdentifier="true">
+    <property name="Hearth_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
     </property>
-    <property name="Hearth - Hearth Type" type="enum">
+    <property name="Hearth_-_Hearth_Type" type="enum">
       <description/>
       <lookup>
-        <term> {Hearths with heat-retainer hearthstones}
+        <term> {Hearths_with_heat-retainer_hearthstones}
           <description/>
           <term> {hsterm}
             <description>Termite nest hearthstones (holes and channels visible, sandy texture)</description>
@@ -311,7 +311,7 @@
             <description>Hearthstones of indeterminate material</description>
           </term>
         </term>
-        <term> {Hearths without hearthstones}
+        <term> {Hearths_without_hearthstones}
           <description/>
           <term> {emupat}
             <description>Thin, discrete patch of baked sediments with the form of an emu pat (or cow pat), usually associated with charcoal, ash and/or organic remains</description>
@@ -340,10 +340,10 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Brief description" type="measure">
+    <property name="Hearth_-_Brief_description" type="measure">
       <description>A few word description of an ‘other’ type of hearth or hearthstone, e.g. fish hearth, emu eggshell hearth, silcrete hearthstones</description>
     </property>
-    <property name="Hearth - Charcoal" type="enum">
+    <property name="Hearth_-_Charcoal" type="enum">
       <description/>
       <lookup>
         <term> {none}
@@ -360,7 +360,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Proportion of material that remains in situ" type="enum">
+    <property name="Hearth_-_Proportion_of_material_that_remains_in_situ" type="enum">
       <description>Select the proportion of visible shell material that remains in situ</description>
       <lookup>
         <term pictureURL="files/data/"> {most}
@@ -380,7 +380,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Modification of heat-retainer hearths" type="enum">
+    <property name="Hearth_-_Modification_of_heat-retainer_hearths" type="enum">
       <description>Select the degree of post-exposure modification of the heat-retainer hearth:</description>
       <lookup>
         <term> {none}
@@ -397,7 +397,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Modification of non-heat retainer hearths" type="enum">
+    <property name="Hearth_-_Modification_of_non-heat_retainer_hearths" type="enum">
       <description>Select the extent of post-exposure modification to non- heat retainer hearths:</description>
       <lookup>
         <term> {none}
@@ -420,7 +420,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Topographic Setting" type="enum">
+    <property name="Hearth_-_Topographic_Setting" type="enum">
       <description>Where on the lunette exposure is the midden located?</description>
       <lookup>
         <term pictureURL="files/data/"> {platform}
@@ -476,7 +476,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Sediment Type" type="enum">
+    <property name="Hearth_-_Sediment_Type" type="enum">
       <description>What are the sediments in that encase the midden, or upon which they are immediately lying?</description>
       <lookup>
         <term pictureURL="files/data/"> {redsoil}
@@ -541,7 +541,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Vulnerability to Erosion" type="enum">
+    <property name="Hearth_-_Vulnerability_to_Erosion" type="enum">
       <description>How vulnerable is the midden, based on the midden type and size, sediment characteristics and topographic setting?</description>
       <lookup>
         <term pictureURL="files/data/"> {low}
@@ -558,7 +558,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Palaeotopographic Setting" type="enum">
+    <property name="Hearth_-_Palaeotopographic_Setting" type="enum">
       <description>Where is the midden located in relation to the original dune morphology?</description>
       <lookup>
         <term pictureURL="files/data/"> {foredune}
@@ -584,10 +584,10 @@
         </term>
       </lookup>
     </property>
-    <property name="Hearth - Notes" type="measure">
+    <property name="Hearth_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording – for example, combinations of associated material not on the menu options.</description>
     </property>
-    <property name="Hearth - Photos" type="file" file="true" thumbnail="true">
+    <property name="Hearth_-_Photos" type="file" file="true" thumbnail="true">
       <description>Take 2 images: 
        1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
@@ -596,13 +596,13 @@
 
   <ArchaeologicalElement name="Midden">
     <description></description>
-    <property name="Midden - ID Number" type="measure" isIdentifier="true">
+    <property name="Midden_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
     </property>
-    <property name="Midden - Grid Square" type="measure" isIdentifier="true">
+    <property name="Midden_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
     </property>
-    <property name="Midden - Midden Type" type="enum">
+    <property name="Midden_-_Midden_Type" type="enum">
       <description/>
       <lookup>
         <term> {smallclust}
@@ -619,7 +619,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Continuity" type="enum">
+    <property name="Midden_-_Continuity" type="enum">
       <description>If the midden is extensive or large, does it form a continuous blanket or is it patchy?</description>
       <lookup>
         <term> {continuous}
@@ -630,7 +630,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Presence of charcoal" type="enum">
+    <property name="Midden_-_Presence_of_charcoal" type="enum">
       <description>Select the type of charcoal visible in the shell midden</description>
       <lookup>
         <term> {none}
@@ -647,7 +647,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Proportion of material that remains in situ" type="enum">
+    <property name="Midden_-_Proportion_of_material_that_remains_in_situ" type="enum">
       <description>Select the proportion of visible shell material that remains in situ</description>
       <lookup>
         <term> {most}
@@ -667,7 +667,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Bivalve preservation" type="enum">
+    <property name="Midden_-_Bivalve_preservation" type="enum">
       <description>Select the degree of preservation of the shell material</description>
       <lookup>
         <term> {good}
@@ -681,7 +681,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Bivalve dispersal" type="enum">
+    <property name="Midden_-_Bivalve_dispersal" type="enum">
       <description/>
       <lookup>
         <term> {low}
@@ -695,7 +695,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Topographic Setting" type="enum">
+    <property name="Midden_-_Topographic_Setting" type="enum">
       <description>Where on the lunette exposure is the midden located?</description>
       <lookup>
         <term> {platform}
@@ -751,7 +751,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Sediment Type" type="enum">
+    <property name="Midden_-_Sediment_Type" type="enum">
       <description>What are the sediments in that encase the midden, or upon which they are immediately lying?</description>
       <lookup>
         <term> {redsoil}
@@ -816,7 +816,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Vulnerability to Erosion" type="enum">
+    <property name="Midden_-_Vulnerability_to_Erosion" type="enum">
       <description>How vulnerable is the midden, based on the midden type and size, sediment characteristics and topographic setting?</description>
       <lookup>
         <term> {low}
@@ -833,7 +833,7 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Palaeotopographic Setting" type="enum">
+    <property name="Midden_-_Palaeotopographic_Setting" type="enum">
       <description>Where is the midden located in relation to the original dune morphology?</description>
       <lookup>
         <term> {foredune}
@@ -859,10 +859,10 @@
         </term>
       </lookup>
     </property>
-    <property name="Midden - Notes" type="measure">
+    <property name="Midden_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording – for example, combinations of associated material not on the menu options.</description>
     </property>
-    <property name="Midden - Photos" type="file" file="true" thumbnail="true">
+    <property name="Midden_-_Photos" type="file" file="true" thumbnail="true">
       <description>Take 2 images: 
        1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
@@ -871,7 +871,7 @@
 
   <ArchaeologicalElement name="Hearth Associated Materials">
     <description></description>
-    <property name="HearthAssoc - Associated material" type="enum" isIdentifier="true">
+    <property name="HearthAssoc_-_Associated_material" type="enum" isIdentifier="true">
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
         <term> {lacust}
@@ -894,7 +894,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated lacustrine material" type="enum">
+    <property name="HearthAssoc_-_Associated_lacustrine_material" type="enum">
       <description>If lacustrine material other than mussel is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {fishbone}
@@ -911,7 +911,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Burnt lacustrine material" type="enum">
+    <property name="HearthAssoc_-_Burnt_lacustrine_material" type="enum">
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -922,7 +922,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated terrestrial bone" type="enum">
+    <property name="HearthAssoc_-_Associated_terrestrial_bone" type="enum">
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
@@ -945,7 +945,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Burnt terrestrial bone" type="enum">
+    <property name="HearthAssoc_-_Burnt_terrestrial_bone" type="enum">
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -956,7 +956,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated eggshell" type="enum">
+    <property name="HearthAssoc_-_Associated_eggshell" type="enum">
       <description>If eggshell is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {emu}
@@ -973,7 +973,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Burnt eggshell" type="enum">
+    <property name="HearthAssoc_-_Burnt_eggshell" type="enum">
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -984,7 +984,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated stone artefacts" type="enum">
+    <property name="HearthAssoc_-_Associated_stone_artefacts" type="enum">
       <description>If stone artefacts are present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
@@ -998,7 +998,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated chipped stone artefacts" type="enum">
+    <property name="HearthAssoc_-_Associated_chipped_stone_artefacts" type="enum">
       <description>If chipped stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {ru}
@@ -1018,7 +1018,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated retouched artefacts" type="enum">
+    <property name="HearthAssoc_-_Associated_retouched_artefacts" type="enum">
       <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {notch}
@@ -1041,7 +1041,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated unmodified stone" type="enum">
+    <property name="HearthAssoc_-_Associated_unmodified_stone" type="enum">
       <description>If unmodified stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {nodule}
@@ -1055,7 +1055,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Ground stone types present" type="enum">
+    <property name="HearthAssoc_-_Ground_stone_types_present" type="enum">
       <description>If ground stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {millstone}
@@ -1081,7 +1081,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Ground stone status" type="enum">
+    <property name="HearthAssoc_-_Ground_stone_status" type="enum">
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
@@ -1092,7 +1092,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Raw material types present" type="enum">
+    <property name="HearthAssoc_-_Raw_material_types_present" type="enum">
       <description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
@@ -1121,7 +1121,7 @@
         </term>
       </lookup>
     </property>
-    <property name="HearthAssoc - Associated other worked (or transported) material" type="enum">
+    <property name="HearthAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
       <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {bone}
@@ -1145,13 +1145,13 @@
 
   <ArchaeologicalElement name="Isolated">
     <description></description>
-    <property name="Isolated - ID Number" type="measure" isIdentifier="true">
+    <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
       <description/>
     </property>
-    <property name="Isolated - Grid Square" type="measure" isIdentifier="true">
+    <property name="Isolated_-_Grid_Square" type="measure" isIdentifier="true">
       <description/>
     </property>
-    <property name="Isolated - In Situ or Surface" type="enum">
+    <property name="Isolated_-_In_Situ_or_Surface" type="enum">
       <description/>
       <lookup>
         <term> {insitu}
@@ -1171,7 +1171,7 @@ the possibility that it has been recemented</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Occurence Type" type="enum">
+    <property name="Isolated_-_Occurence_Type" type="enum">
       <description/>
       <lookup>
         <term> {Stone_Artefacts}
@@ -1226,7 +1226,7 @@ stone</description>
             <description>Deliberately modified eggshell</description>
           </term>
         </term>
-        <term> {Faunal Remains}
+        <term> {Faunal_Remains}
           <description/>
           <term> {wombat}
             <description/>
@@ -1313,7 +1313,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Stone Raw Material Type" type="enum">
+    <property name="Isolated_-_Stone_Raw_Material_Type" type="enum">
       <description/>
       <lookup>
         <term> {silcfine}
@@ -1342,7 +1342,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Modification to Organic Material" type="enum">
+    <property name="Isolated_-_Modification_to_Organic_Material" type="enum">
       <description/>
       <lookup>
         <term> {none}
@@ -1371,7 +1371,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Modification to Stone Material" type="enum">
+    <property name="Isolated_-_Modification_to_Stone_Material" type="enum">
       <description/>
       <lookup>
         <term> {indet}
@@ -1394,7 +1394,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Topographic Setting" type="enum">
+    <property name="Isolated_-_Topographic_Setting" type="enum">
       <description/>
       <lookup>
         <term> {Lessthan_Six_Degrees}
@@ -1447,7 +1447,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Sediment Type" type="enum">
+    <property name="Isolated_-_Sediment_Type" type="enum">
       <description/>
       <lookup>
         <term> {redsoil}
@@ -1512,7 +1512,7 @@ Genyornis</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Vulnerability to Erosion" type="enum">
+    <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
       <description/>
       <lookup>
         <term> {low}
@@ -1532,7 +1532,7 @@ residual or deep rill, in gully wall, on a steep, slope-washed surface</descript
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Palaeotopographic Setting" type="enum">
+    <property name="Isolated_-_Palaeotopographic_Setting" type="enum">
       <description/>
       <lookup>
         <term> {foredune}
@@ -1559,7 +1559,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Photographs Taken" type="enum">
+    <property name="Isolated_-_Photographs_Taken" type="enum">
       <description/>
       <lookup>
         <term> {general}
@@ -1570,13 +1570,13 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated - Notes" type="measure">
+    <property name="Isolated_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Stone Associated">
     <description></description>
-    <property name="Stone - In Situ" type="enum">
+    <property name="Stone_-_In_Situ" type="enum">
       <description/>
       <lookup>
         <term> {hs}
@@ -1596,7 +1596,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface" type="enum">
+    <property name="Stone_-_Surface" type="enum">
       <description/>
       <lookup>
         <term> {hs}
@@ -1616,7 +1616,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Hearth" type="enum">
+    <property name="Stone_-_Hearth" type="enum">
       <description/>
       <lookup>
         <term> {clay}
@@ -1636,7 +1636,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Lacustrine" type="enum">
+    <property name="Stone_-_Lacustrine" type="enum">
       <description/>
       <lookup>
         <term> {mussel}
@@ -1656,7 +1656,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Terrestrial" type="enum">
+    <property name="Stone_-_Terrestrial" type="enum">
       <description/>
       <lookup>
         <term> {wombat}
@@ -1694,7 +1694,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Eggshell" type="enum">
+    <property name="Stone_-_Eggshell" type="enum">
       <description/>
       <lookup>
         <term> {emu}
@@ -1712,7 +1712,7 @@ Genyornis (duck, swan)</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Other Worked or Transported Material" type="enum">
+    <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
       <description/>
       <lookup>
         <term> {bone}
@@ -1736,13 +1736,13 @@ Genyornis (duck, swan)</description>
 
   <ArchaeologicalElement name="Stone Artefact Clusters">
     <description></description>
-    <property name="Stone - ID Number" type="measure" isIdentifier="true">
+    <property name="Stone_-_ID_Number" type="measure" isIdentifier="true">
       <description>Artefact identification code as marked on tag</description>
     </property>
-    <property name="Stone - Grid Square" type="measure" isIdentifier="true">
+    <property name="Stone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
     </property>
-    <property name="Stone - Cluster Type" type="enum">
+    <property name="Stone_-_Cluster_Type" type="enum">
       <description/>
       <lookup>
         <term> {Stone_artefacts_only}
@@ -1776,7 +1776,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Stone Artefacts" type="enum">
+    <property name="Stone_-_In_Situ_-_Stone_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {cs}
@@ -1803,7 +1803,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Chipped Stone Artefacts" type="enum">
+    <property name="Stone_-_In_Situ_-_Chipped_Stone_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {ru}
@@ -1823,7 +1823,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Retouched Artefacts" type="enum">
+    <property name="Stone_-_In_Situ_-_Retouched_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {notch}
@@ -1846,7 +1846,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Unmodified Stone Types" type="enum">
+    <property name="Stone_-_In_Situ_-_Unmodified_Stone_Types" type="enum">
       <description/>
       <lookup>
         <term> {nodule}
@@ -1863,7 +1863,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Ground Stone Types" type="enum">
+    <property name="Stone_-_In_Situ_-_Ground_Stone_Types" type="enum">
       <description/>
       <lookup>
         <term> {millstone}
@@ -1889,7 +1889,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Ground Stone Status" type="enum">
+    <property name="Stone_-_In_Situ_-_Ground_Stone_Status" type="enum">
       <description/>
       <lookup>
         <term> {whole}
@@ -1900,7 +1900,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Surface Modification" type="enum">
+    <property name="Stone_-_In_Situ_-_Surface_Modification" type="enum">
       <description/>
       <lookup>
         <term> {algal}
@@ -1918,7 +1918,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - In Situ - Raw Material Types" type="enum">
+    <property name="Stone_-_In_Situ_-_Raw_Material_Types" type="enum">
       <description/>
       <lookup>
         <term> {silcfine}
@@ -1947,10 +1947,10 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Potential Refits" type="measure">
+    <property name="Stone_-_Surface_-_Potential_Refits" type="measure">
       <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
-    <property name="Stone - Surface - Chipped Stone Artefacts" type="enum">
+    <property name="Stone_-_Surface_-_Chipped_Stone_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {ru}
@@ -1970,7 +1970,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Retouched Artefacts" type="enum">
+    <property name="Stone_-_Surface_-_Retouched_Artefacts" type="enum">
       <description/>
       <lookup>
         <term> {notch}
@@ -1993,7 +1993,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Unmodified Stone Types" type="enum">
+    <property name="Stone_-_Surface_-_Unmodified_Stone_Types" type="enum">
       <description/>
       <lookup>
         <term> {nodule}
@@ -2010,7 +2010,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Ground Stone Types" type="enum">
+    <property name="Stone_-_Surface_-_Ground_Stone_Types" type="enum">
       <description/>
       <lookup>
         <term> {millstone}
@@ -2036,7 +2036,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Ground Stone Status" type="enum">
+    <property name="Stone_-_Surface_-_Ground_Stone_Status" type="enum">
       <description/>
       <lookup>
         <term> {whole}
@@ -2047,7 +2047,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Surface - Modification" type="enum">
+    <property name="Stone_-_Surface_-_Surface_-_Modification" type="enum">
       <description/>
       <lookup>
         <term> {algal}
@@ -2065,7 +2065,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Surface - Raw Material Types" type="enum">
+    <property name="Stone_-_Surface_-_Raw_Material_Types" type="enum">
       <description/>
       <lookup>
         <term> {silcfine}
@@ -2094,7 +2094,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Topographic Setting" type="enum">
+    <property name="Stone_-_Topographic_Setting" type="enum">
       <description/>
       <lookup>
         <term> {Lessthan_Six_Degrees}
@@ -2147,7 +2147,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Sediment Type" type="enum">
+    <property name="Stone_-_Sediment_Type" type="enum">
       <description/>
       <lookup>
         <term> {redsoil}
@@ -2212,7 +2212,7 @@ material that have the potential to have been derived from the same piece of sto
         </term>
       </lookup>
     </property>
-    <property name="Stone - Vulnerability to Erosion" type="enum">
+    <property name="Stone_-_Vulnerability_to_Erosion" type="enum">
       <description/>
       <lookup>
         <term> {low}
@@ -2232,7 +2232,7 @@ residual or deep rill, in gully wall, on a steep, slope-washed surface</descript
         </term>
       </lookup>
     </property>
-    <property name="Stone - Palaeotopographic Setting" type="enum">
+    <property name="Stone_-_Palaeotopographic_Setting" type="enum">
       <description/>
       <lookup>
         <term> {foredune}
@@ -2259,7 +2259,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Photographs Taken" type="enum">
+    <property name="Stone_-_Photographs_Taken" type="enum">
       <description/>
       <lookup>
         <term> {general}
@@ -2270,10 +2270,10 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone - Notes" type="measure">
+    <property name="Stone_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
-    <property name="Stone - Photos" type="file" file="true" thumbnail="true">
+    <property name="Stone_-_Photos" type="file" file="true" thumbnail="true">
       <description>Take 2 images: 
        1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
@@ -2281,7 +2281,7 @@ lakebed and hinterland</description>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Midden Associated Materials">
     <description></description>
-    <property name="MiddenAssoc - Associated material" type="enum" isIdentifier="true">
+    <property name="MiddenAssoc_-_Associated_material" type="enum" isIdentifier="true">
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
         <term> {lacust}
@@ -2304,7 +2304,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated lacustrine material" type="enum">
+    <property name="MiddenAssoc_-_Associated_lacustrine_material" type="enum">
       <description>If lacustrine material other than mussel is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {fishbone}
@@ -2321,7 +2321,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Burnt lacustrine material" type="enum">
+    <property name="MiddenAssoc_-_Burnt_lacustrine_material" type="enum">
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -2332,7 +2332,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated terrestrial bone" type="enum">
+    <property name="MiddenAssoc_-_Associated_terrestrial_bone" type="enum">
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
@@ -2355,7 +2355,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Burnt terrestrial bone" type="enum">
+    <property name="MiddenAssoc_-_Burnt_terrestrial_bone" type="enum">
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -2366,7 +2366,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated eggshell" type="enum">
+    <property name="MiddenAssoc_-_Associated_eggshell" type="enum">
       <description>If eggshell is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {emu}
@@ -2383,7 +2383,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Burnt eggshell" type="enum">
+    <property name="MiddenAssoc_-_Burnt_eggshell" type="enum">
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
@@ -2394,7 +2394,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated stone artefacts" type="enum">
+    <property name="MiddenAssoc_-_Associated_stone_artefacts" type="enum">
       <description>If stone artefacts are present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
@@ -2408,7 +2408,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated chipped stone artefacts" type="enum">
+    <property name="MiddenAssoc_-_Associated_chipped_stone_artefacts" type="enum">
       <description>If chipped stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {ru}
@@ -2428,7 +2428,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated retouched artefacts" type="enum">
+    <property name="MiddenAssoc_-_Associated_retouched_artefacts" type="enum">
       <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {notch}
@@ -2451,7 +2451,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated unmodified stone" type="enum">
+    <property name="MiddenAssoc_-_Associated_unmodified_stone" type="enum">
       <description>If unmodified stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {nodule}
@@ -2465,7 +2465,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Ground stone types present" type="enum">
+    <property name="MiddenAssoc_-_Ground_stone_types_present" type="enum">
       <description>If ground stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {millstone}
@@ -2491,7 +2491,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Ground stone status" type="enum">
+    <property name="MiddenAssoc_-_Ground_stone_status" type="enum">
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
@@ -2502,7 +2502,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Raw material types present" type="enum">
+    <property name="MiddenAssoc_-_Raw_material_types_present" type="enum">
       <description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
@@ -2531,7 +2531,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc - Associated other worked (or transported) material" type="enum">
+    <property name="MiddenAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
       <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {bone}
@@ -2554,13 +2554,13 @@ lakebed and hinterland</description>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Old Bone">
     <description></description>
-    <property name="OldBone - ID Number" type="measure" isIdentifier="true">
+    <property name="OldBone_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
     </property>
-    <property name="OldBone - Grid Square" type="measure" isIdentifier="true">
+    <property name="OldBone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
     </property>
-    <property name="OldBone - Cluster Type" type="enum">
+    <property name="OldBone_-_Cluster_Type" type="enum">
       <description/>
       <lookup>
         <term> {boneOnly}
@@ -2589,7 +2589,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Proportion of material that remains in situ" type="enum">
+    <property name="OldBone_-_Proportion_of_material_that_remains_in_situ" type="enum">
       <description>Select the proportion of visible shell material that remains in situ</description>
       <lookup>
         <term pictureURL="files/data/"> {most}
@@ -2609,7 +2609,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Body Parts Identifed" type="enum">
+    <property name="OldBone_-_Body_Parts_Identifed" type="enum">
       <description>Select those of the following that have been observed, both in situ and on the surface</description>
       <lookup>
         <term> {fragsonly}
@@ -2653,7 +2653,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Taxon Identified" type="enum">
+    <property name="OldBone_-_Taxon_Identified" type="enum">
       <description>Select those of the following that can be identified:</description>
       <lookup>
         <term> {unident}
@@ -2697,7 +2697,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Bone Preservation" type="enum">
+    <property name="OldBone_-_Bone_Preservation" type="enum">
       <description>Select those types of modification that are common on the Good preservation visible bone:</description>
       <lookup>
         <term> {good}
@@ -2729,7 +2729,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Deliberate Surface Modification" type="enum">
+    <property name="OldBone_-_Deliberate_Surface_Modification" type="enum">
       <description>Select those types of deliberate modification that occur in any proportion on the visible bone:</description>
       <lookup>
         <term> {none}
@@ -2749,7 +2749,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Topographic Setting" type="enum">
+    <property name="OldBone_-_Topographic_Setting" type="enum">
       <description>Where on the lunette exposure is the old bone located?</description>
       <lookup>
         <term> {platform}
@@ -2808,7 +2808,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Sediment Type" type="enum">
+    <property name="OldBone_-_Sediment_Type" type="enum">
       <description>What are the sediments that encase the old bone, or upon which they are immediately lying?</description>
       <lookup>
         <term> {redsand}
@@ -2888,7 +2888,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Stratigraphic Unit" type="enum">
+    <property name="OldBone_-_Stratigraphic_Unit" type="enum">
       <description/>
       <lookup>
         <term> {Golgol}
@@ -2929,7 +2929,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Vulnerability To Erosion" type="enum">
+    <property name="OldBone_-_Vulnerability_To_Erosion" type="enum">
       <description>Based on the cluster type and its topographic setting, how vulnerable is the old bone?</description>
       <lookup>
         <term> {low}
@@ -2946,7 +2946,7 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Palaeotopographic Setting" type="enum">
+    <property name="OldBone_-_Palaeotopographic_Setting" type="enum">
       <description>Where is the old bone cluster located in relation to the original dune morphology?</description>
       <lookup>
         <term> {foredune}
@@ -2972,12 +2972,12 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="OldBone - Photos" type="file" file="true" thumbnail="true">
+    <property name="OldBone_-_Photos" type="file" file="true" thumbnail="true">
       <description>Take 2 images:
 1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
 2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
     </property>
-    <property name="OldBone - Notes" type="measure">
+    <property name="OldBone_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
   </ArchaeologicalElement>

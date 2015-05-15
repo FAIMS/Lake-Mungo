@@ -11,6 +11,24 @@
             <even>
               <layout_weight/>
             </even>
+            <large>
+              <layout_weight/>
+            </large>
+          </style>
+          <user>
+            <usertab>
+              <Area_Code/>
+              <users/>
+              <login/>
+            </usertab>
+          </user>
+          <style>
+            <orientation>
+              <orientation/>
+            </orientation>
+            <even>
+              <layout_weight/>
+            </even>
           </style>
           <user>
             <usertab>
@@ -25,9 +43,6 @@
             <search>
               <entityTypes/>
               <entityList/>
-              <notes/>
-              <photos/>
-              <takePhoto/>
             </search>
           </control>
           <hearth>
@@ -352,45 +367,32 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
-          <label>{notesUI_notes}</label>
-        </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Photos" faims_attribute_type="measure">
-          <label>{photosUI_photos}</label>
-          <item>
-            <label>placeholder</label>
-            <value>placeholder</value>
-          </item>
-        </select>
-        <trigger ref="takePhoto">
-          <label>{takePhotoUI_takePhoto}</label>
-        </trigger>
       </group>
     </group>
-    <group ref="hearth">
-      <label>{hearthUI_hearth, arch16n: Hearths and Hearthstones}</label>
+    <group ref="hearth" faims_archent_type="hearth">
+      <label>{hearthUI_hearth}</label>
       <group ref="basicIdentification">
         <label>{hearthUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="Hearth - ID Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="Hearth_-_ID_Number" faims_attribute_type="measure">
           <label>{hearthUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="Hearth - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="Hearth_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{hearthUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="hearthType" faims_attribute_name="Hearth - Hearth Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="hearthType" faims_attribute_name="Hearth_-_Hearth_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_hearthType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="briefDescription" faims_attribute_name="Hearth - Brief description" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="briefDescription" faims_attribute_name="Hearth_-_Brief_description" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_briefDescription}</label>
         </input>
-        <select1 ref="charcoal" faims_attribute_name="Hearth - Charcoal" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="charcoal" faims_attribute_name="Hearth_-_Charcoal" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_charcoal}</label>
           <item>
             <label>placeholder</label>
@@ -400,21 +402,21 @@
       </group>
       <group ref="hearthStructure">
         <label>{hearthUI_hearthStructure}</label>
-        <select1 type="image" ref="insituProportion" faims_attribute_name="Hearth - Proportion of material that remains in situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="insituProportion" faims_attribute_name="Hearth_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_insituProportion}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select ref="heatRetainer" faims_attribute_name="Hearth - Modification of heat-retainer hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="heatRetainer" faims_attribute_name="Hearth_-_Modification_of_heat-retainer_hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_heatRetainer}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="nonHeatRetainer" faims_attribute_name="Hearth - Modification of non-heat retainer hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="nonHeatRetainer" faims_attribute_name="Hearth_-_Modification_of_non-heat_retainer_hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_nonHeatRetainer}</label>
           <item>
             <label>placeholder</label>
@@ -437,38 +439,38 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{hearthUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Hearth - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Hearth_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Hearth - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Hearth_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Hearth - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Hearth_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Hearth - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Hearth_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth - Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth_-_Photos" faims_attribute_type="measure">
           <label>{hearthUI_photos}</label>
           <item>
             <label>placeholder</label>
@@ -480,8 +482,8 @@
         </trigger>
       </group>
     </group>
-    <group ref="hearthAssociatedMaterials">
-      <label>{hearthAssociatedMaterialsUI_hearthAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
+    <group ref="hearthAssociatedMaterials" faims_archent_type="hearth associated materials">
+      <label>{hearthAssociatedMaterialsUI_hearthAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{hearthAssociatedMaterialsUI_nearbyMaterial}</label>
         <select ref="assocMaterial" faims_attribute_type="vocab">
@@ -550,20 +552,20 @@
         </group>
       </group>
     </group>
-    <group ref="stoneArtefactClusters">
-      <label>{stoneArtefactClustersUI_stoneArtefactClusters, arch16n: Stone Artefact Clusters}</label>
+    <group ref="stoneArtefactClusters" faims_archent_type="stone artefact clusters">
+      <label>{stoneArtefactClustersUI_stoneArtefactClusters}</label>
       <group ref="basicIdentification">
         <label>{stoneArtefactClustersUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="Stone - ID Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="Stone_-_ID_Number" faims_attribute_type="measure">
           <label>{stoneArtefactClustersUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="Stone - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="Stone_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{stoneArtefactClustersUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="clusterType" faims_attribute_name="Stone - Cluster Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="clusterType" faims_attribute_name="Stone_-_Cluster_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_clusterType}</label>
           <item>
             <label>placeholder</label>
@@ -600,7 +602,7 @@
       </group>
       <group ref="surfaceDescription">
         <label>{stoneArtefactClustersUI_surfaceDescription}</label>
-        <input ref="potentialRefits" faims_attribute_name="Stone - Potential Refits" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="potentialRefits" faims_attribute_name="Stone_-_Potential_Refits" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
         </input>
         <group ref="surfaceChippedStoneArtfacts">
@@ -650,38 +652,38 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{stoneArtefactClustersUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Stone - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Stone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Stone - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Stone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Stone - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Stone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Stone - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Stone_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Stone - Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Stone_-_Photos" faims_attribute_type="measure">
           <label>{stoneArtefactClustersUI_photos}</label>
           <item>
             <label>placeholder</label>
@@ -693,8 +695,8 @@
         </trigger>
       </group>
     </group>
-    <group ref="stoneAssociatedMaterials">
-      <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
+    <group ref="stoneAssociatedMaterials" faims_archent_type="stone associated">
+      <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
       <group ref="control">
         <label>{stoneAssociatedMaterialsUI_control}</label>
         <group ref="assocMaterialInSitu">
@@ -735,34 +737,34 @@
         </group>
       </group>
     </group>
-    <group ref="isolatedOccurrences">
-      <label>{isolatedOccurrencesUI_isolatedOccurrences, arch16n: Stone Artefact Clusters}</label>
+    <group ref="isolatedOccurrences" faims_archent_type="isolated">
+      <label>{isolatedOccurrencesUI_isolatedOccurrences}</label>
       <group ref="basicIdentification">
         <label>{isolatedOccurrencesUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="Isolated - ID Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="Isolated_-_ID_Number" faims_attribute_type="measure">
           <label>{isolatedOccurrencesUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="Isolated - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="Isolated_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{isolatedOccurrencesUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="inSituOrSurface" faims_attribute_name="Isolated - In Situ or Surface" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="inSituOrSurface" faims_attribute_name="Isolated_-_In_Situ_or_Surface" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_inSituOrSurface}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="occurenceType" faims_attribute_name="Isolated - Occurence Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="occurenceType" faims_attribute_name="Isolated_-_Occurence_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_occurenceType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="stoneRawMaterialType" faims_attribute_name="Isolated - Stone Raw Material Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="stoneRawMaterialType" faims_attribute_name="Isolated_-_Stone_Raw_Material_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_stoneRawMaterialType}</label>
           <item>
             <label>placeholder</label>
@@ -778,38 +780,38 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{isolatedOccurrencesUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Isolated - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Isolated_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Isolated - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Isolated_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Isolated - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Isolated_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Isolated - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Isolated_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Isolated - Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Isolated_-_Photos" faims_attribute_type="measure">
           <label>{isolatedOccurrencesUI_photos}</label>
           <item>
             <label>placeholder</label>
@@ -821,20 +823,20 @@
         </trigger>
       </group>
     </group>
-    <group ref="midden">
-      <label>{middenUI_midden, arch16n: Midden}</label>
+    <group ref="midden" faims_archent_type="midden">
+      <label>{middenUI_midden}</label>
       <group ref="basicIdentification">
         <label>{middenUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="Midden - ID Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="Midden_-_ID_Number" faims_attribute_type="measure">
           <label>{middenUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="Midden - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="Midden_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{middenUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="middenType" faims_attribute_name="Midden - Midden Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="middenType" faims_attribute_name="Midden_-_Midden_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_middenType}</label>
           <item>
             <label>placeholder</label>
@@ -847,28 +849,28 @@
       </group>
       <group ref="middenDescription">
         <label>{middenUI_middenDescription}</label>
-        <select1 ref="presenceOfCharcoal" faims_attribute_name="Midden - Presence of charcoal" faims_attribute_type="vocab">
+        <select1 ref="presenceOfCharcoal" faims_attribute_name="Midden_-_Presence_of_charcoal" faims_attribute_type="vocab">
           <label>{middenUI_presenceOfCharcoal}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="proportionOfMaterialThatRemainsInSitu" faims_attribute_name="Midden - Proportion of material that remains in situ" faims_attribute_type="vocab">
+        <select1 ref="proportionOfMaterialThatRemainsInSitu" faims_attribute_name="Midden_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab">
           <label>{middenUI_proportionOfMaterialThatRemainsInSitu}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="bivalvePreservation" faims_attribute_name="Midden - Bivalve preservation" faims_attribute_type="vocab">
+        <select1 ref="bivalvePreservation" faims_attribute_name="Midden_-_Bivalve_preservation" faims_attribute_type="vocab">
           <label>{middenUI_bivalvePreservation}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="bivalveDispersal" faims_attribute_name="Midden - Bivalve dispersal" faims_attribute_type="vocab">
+        <select1 ref="bivalveDispersal" faims_attribute_name="Midden_-_Bivalve_dispersal" faims_attribute_type="vocab">
           <label>{middenUI_bivalveDispersal}</label>
           <item>
             <label>placeholder</label>
@@ -891,38 +893,38 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{middenUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Midden - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Midden_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Midden - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Midden_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Midden - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Midden_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Midden - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Midden_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Midden - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Midden_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Midden - Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Midden_-_Photos" faims_attribute_type="measure">
           <label>{middenUI_photos}</label>
           <item>
             <label>placeholder</label>
@@ -934,8 +936,8 @@
         </trigger>
       </group>
     </group>
-    <group ref="middenAssociatedMaterials">
-      <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
+    <group ref="middenAssociatedMaterials" faims_archent_type="midden associated materials">
+      <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
         <group ref="assocMaterial">
@@ -1004,16 +1006,16 @@
       <label>{oldBoneUI_oldBone}</label>
       <group ref="basicIdentification">
         <label>{oldBoneUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="OldBone - ID Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="OldBone_-_ID_Number" faims_attribute_type="measure">
           <label>{oldBoneUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="OldBone - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="OldBone_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{oldBoneUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="clusterType" faims_attribute_name="OldBone - Cluster Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="clusterType" faims_attribute_name="OldBone_-_Cluster_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_clusterType}</label>
           <item>
             <label>placeholder</label>
@@ -1026,28 +1028,28 @@
         <group ref="insituProportion">
           <label>{oldBoneUI_insituProportion}</label>
         </group>
-        <select ref="bodyPartsIdentified" faims_attribute_name="OldBone - Body Parts Identifed" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="bodyPartsIdentified" faims_attribute_name="OldBone_-_Body_Parts_Identifed" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_bodyPartsIdentified}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select ref="taxonIdentified" faims_attribute_name="OldBone - Taxon Identified" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="taxonIdentified" faims_attribute_name="OldBone_-_Taxon_Identified" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_taxonIdentified}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select ref="bonePreservation" faims_attribute_name="OldBone - Bone Preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="bonePreservation" faims_attribute_name="OldBone_-_Bone_Preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_bonePreservation}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select ref="deliberateSurfaceModification" faims_attribute_name="OldBone - Deliberate Surface Modification" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="deliberateSurfaceModification" faims_attribute_name="OldBone_-_Deliberate_Surface_Modification" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_deliberateSurfaceModification}</label>
           <item>
             <label>placeholder</label>
@@ -1080,45 +1082,45 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{oldBoneUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="OldBone - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="OldBone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="OldBone - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="OldBone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="OldBone - Stratigraphic Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="OldBone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="OldBone - Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="OldBone_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="OldBone - Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="OldBone_-_Photos" faims_attribute_type="measure">
           <label>{oldBoneUI_photos}</label>
           <item>
             <label>placeholder</label>
