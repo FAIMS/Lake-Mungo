@@ -665,6 +665,95 @@ midden = middenFeature();
 
 /*** STONE ARTEFACT FEATURE ***/
 stoneFeature() {
+  String entityTabgroup = "Stone Artefact Clusters";
+  String type = "stoneArtefectClusters";
+  String desc = type + " record";
+  String id = null;
+  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  
+  /** Saves the feature **/
+  save() {
+    Boolean enable_autosave = true;
+    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("save()", desc + " saved with id: " + id);
+        if (newRecord) {
+          Log.d("save()", "New " + desc + " created");
+        }
+      }
+      onError(message) {
+          showToast(message);
+      }  
+    }, enable_autosave);
+  }
+
+  /** Creates a new feature record. **/
+  create() {
+    dialog = showBusy("creating a new record", "please wait");
+    newTabGroup(entityTabgroup);
+    id = null;
+    setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
+    setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
+    keepTabGroupChanges(entityTabgroup);
+    save();
+    dialog.dismiss();
+  }
+
+  /** Loads a feature record. **/
+  load() {
+    if (isNull(id)) {
+      showToast("No entity selected");
+        return;
+    }
+    dialog = showBusy("loading record", "please wait");
+    showTabGroup(entityTabgroup, id, new FetchCallback() {
+      onFetch(result) {
+        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
+        showToast("Loaded a " + desc);
+        keepTabGroupChanges(entityTabgroup);
+        dialog.dismiss();
+      }
+    });
+  }
+
+   /** Initialises the tabgroup vocabularies. **/
+  init() {
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone - Cluster Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone - Topographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone - Sediment Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone - Vulnerability to Erosion");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone - Palaeotopographic Setting");
+  }
+
+  /** Populates the in-situ and surface associated materials list. **/
+  listAssociatedMaterials() {
+    if(!isNull(id)) {
+      String assocListQuery = "select uuid, response " +
+        "from latestNonDeletedArchEntFormattedIdentifiers " +
+        "where aenttypename = '" + Type + "Associated Materials' " +
+        "and uuid in  (select uuid " +
+        "FROM latestNonDeletedAentReln " +
+        "where relationshipid in (select relationshipid " +
+        "FROM latestNonDeletedAentReln " +
+        "JOIN relationship using (relationshipid) " +
+        "JOIN relntype using (relntypeid) " +
+        "where uuid = "+ id + " " +
+        "and relntypeName = '" + relTypeName + "') " +
+        "and uuid != "+ id +") " + 
+        "limit ? offset ?;";
+      populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
+      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
+    } else {
+      result = new ArrayList();
+      result.add(new NameValuePair("{noRecordsFound}", ""));
+      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
+    } 
+  }
+
+  onEvent(entityTabgroup, "show", "midden.save();");
+  onEvent(entityTabgroup + "/associatedMaterials", "show", "midden.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
 }
