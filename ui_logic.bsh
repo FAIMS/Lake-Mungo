@@ -66,25 +66,25 @@ makeVocab(String type, String path, String attrib, List vocabExclusions) {
 is the type of the vocab to populate (PictureGallery, CheckBoxGroup, DropDown, HierarchicalDropDown, RadioGroup or List). */
 makeVocab(String type, String path, String attrib, List vocabExclusions, String callbackFunction){
   if (isNull(type) || isNull(path) || isNull(attrib)) {
-  	Log.e("makeVocab()", "Can't make populate a vocab when the given type, path or attribute is Null");
-  	return;
+    Log.e("makeVocab()", "Can't make populate a vocab when the given type, path or attribute is Null");
+    return;
   }
 
   if (type.equals("PictureGallery")) {
-  	fetchAll("select vocabid, vocabname, pictureurl from vocabulary left join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
-	    onFetch(pictures) {
-	      populatePictureGallery(path, pictures);
-	      if (callbackFunction != null && !isNull(callbackFunction)) {
-		      execute(callbackFunction);
-		    }
-	    }
-	  });
-	  return;
+    fetchAll("select vocabid, vocabname, pictureurl from vocabulary left join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
+      onFetch(pictures) {
+        populatePictureGallery(path, pictures);
+        if (callbackFunction != null && !isNull(callbackFunction)) {
+          execute(callbackFunction);
+        }
+      }
+    });
+    return;
   }
 
   if (type.equals("HierarchicalDropDown")) {
-  	populateHierarchicalDropDown(path, attrib);
-  	if (callbackFunction != null && !isNull(callbackFunction)) {
+    populateHierarchicalDropDown(path, attrib);
+    if (callbackFunction != null && !isNull(callbackFunction)) {
       execute(callbackFunction);
     }
     return;
@@ -327,7 +327,7 @@ newFeature() {
   } else if (type.equals("Hearth")) {
     hearth.create();
   } else if (type.equals("Midden")) {
-		showToast("Placeholder for recording a midden feature");
+    showToast("Placeholder for recording a midden feature");
   } else if (type.equals("Stone Artefact Clusters")) {
     showToast("Placeholder for recording a stone feature");
   } else if (type.equals("Isolated")) {
@@ -345,9 +345,9 @@ loadFeature() {
         if (result.get(0).get(0).equals("Old Bone")) {
           showToast("Placeholder for loading an old bone feature");
         } else if (result.get(0).get(0).equals("Hearth")) {
-        	hearth.load();
+          hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
-        	showToast("Placeholder for loading a midden feature");
+          showToast("Placeholder for loading a midden feature");
         } else if (result.get(0).get(0).equals("Stone Artefact Clusters")) {
           showToast("Placeholder for loading a stone feature");
         } else if (result.get(0).get(0).equals("Isolated")) {
@@ -367,34 +367,34 @@ onEvent("control/search/entityList", "click", "loadFeature();");
 
 /*** HEARTH FEATURE ***/
 hearthFeature() {
-	String entityTabgroup = "hearth";
-	String type = "Hearth";
-	String desc = type + " record";
-	String id = null;
-	String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
-	
-	/** Saves the feature **/
-	save() {
-	  Boolean enable_autosave = true;
-	  saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
-	    onSave(uuid, newRecord) {
-	      id = uuid;
-	      Log.d("save()", desc + " saved with id: " + id);
-	      if (newRecord) {
-	        Log.d("save()", "New " + desc + " created");
-	      }
-	    }
-	    onError(message) {
-	        showToast(message);
-	    }  
-	  }, enable_autosave);
-	}
+  String entityTabgroup = "hearth";
+  String type = "Hearth";
+  String desc = type + " record";
+  String id = null;
+  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  
+  /** Saves the feature **/
+  save() {
+    Boolean enable_autosave = true;
+    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("save()", desc + " saved with id: " + id);
+        if (newRecord) {
+          Log.d("save()", "New " + desc + " created");
+        }
+      }
+      onError(message) {
+          showToast(message);
+      }  
+    }, enable_autosave);
+  }
 
-	/** Creates a new feature record. **/
-	create() {
-	  dialog = showBusy("creating a new record", "please wait");
-	  newTabGroup(entityTabgroup);
-	  id = null;
+  /** Creates a new feature record. **/
+  create() {
+    dialog = showBusy("creating a new record", "please wait");
+    newTabGroup(entityTabgroup);
+    id = null;
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
@@ -402,66 +402,66 @@ hearthFeature() {
     dialog.dismiss();
   }
 
-	/** Loads a feature record. **/
-	load() {
-	  if (isNull(id)) {
-	    showToast("No entity selected");
-	      return;
-	  }
-	  dialog = showBusy("loading record", "please wait");
-	  showTabGroup(entityTabgroup, id, new FetchCallback() {
-	    onFetch(result) {
-	      Log.d("load()", "Loaded a " + desc + ", ID: " + id);
-	      showToast("Loaded a " + desc);
-	      keepTabGroupChanges(entityTabgroup);
-	      dialog.dismiss();
-	    }
-	  });
-	}
+  /** Loads a feature record. **/
+  load() {
+    if (isNull(id)) {
+      showToast("No entity selected");
+        return;
+    }
+    dialog = showBusy("loading record", "please wait");
+    showTabGroup(entityTabgroup, id, new FetchCallback() {
+      onFetch(result) {
+        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
+        showToast("Loaded a " + desc);
+        keepTabGroupChanges(entityTabgroup);
+        dialog.dismiss();
+      }
+    });
+  }
 
- 	/** Initialises the tabgroup vocabularies. **/
-	init() {
-		makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth - Hearth Type");
-		makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth - Charcoal");
-		makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth - Proportion of material that remains in situ");
-		makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth - Modification of heat-retainer hearths");
-		makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth - Modification of non-heat retainer hearths");
-		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth - Topographic Setting");
-		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth - Sediment Type");
-		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth - Vulnerability to Erosion");
-		makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth - Palaeotopographic Setting");
-	}
+   /** Initialises the tabgroup vocabularies. **/
+  init() {
+    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth - Hearth Type");
+    makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth - Charcoal");
+    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth - Proportion of material that remains in situ");
+    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth - Modification of heat-retainer hearths");
+    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth - Modification of non-heat retainer hearths");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth - Topographic Setting");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth - Sediment Type");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth - Vulnerability to Erosion");
+    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth - Palaeotopographic Setting");
+  }
 
-	/** Populates the in-situ and surface associated materials list. **/
-	listAssociatedMaterials() {
-		if(!isNull(id)) {
-    	String assocListQuery = "select uuid, response " +
-	      "from latestNonDeletedArchEntFormattedIdentifiers " +
-	      "where aenttypename = 'Associated Materials' " +
-	      "and uuid in  (select uuid " +
-	      "FROM latestNonDeletedAentReln " +
-	      "where relationshipid in (select relationshipid " +
-	      "FROM latestNonDeletedAentReln " +
-	      "JOIN relationship using (relationshipid) " +
-	      "JOIN relntype using (relntypeid) " +
-	      "where uuid = "+ id + " " +
-	      "and relntypeName = '" + relTypeName + "') " +
-	      "and uuid != "+ id +") " + 
-	      "limit ? offset ?;";
-	    populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
-	    Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
-	  } else {
-	    result = new ArrayList();
-	    result.add(new NameValuePair("{noRecordsFound}", ""));
-	    populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-	  } 
-	}
+  /** Populates the in-situ and surface associated materials list. **/
+  listAssociatedMaterials() {
+    if(!isNull(id)) {
+      String assocListQuery = "select uuid, response " +
+        "from latestNonDeletedArchEntFormattedIdentifiers " +
+        "where aenttypename = 'Associated Materials' " +
+        "and uuid in  (select uuid " +
+        "FROM latestNonDeletedAentReln " +
+        "where relationshipid in (select relationshipid " +
+        "FROM latestNonDeletedAentReln " +
+        "JOIN relationship using (relationshipid) " +
+        "JOIN relntype using (relntypeid) " +
+        "where uuid = "+ id + " " +
+        "and relntypeName = '" + relTypeName + "') " +
+        "and uuid != "+ id +") " + 
+        "limit ? offset ?;";
+      populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
+      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
+    } else {
+      result = new ArrayList();
+      result.add(new NameValuePair("{noRecordsFound}", ""));
+      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
+    } 
+  }
 
-	onEvent(entityTabgroup, "show", "hearth.save();");
-	onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
-	onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup, "show", "hearth.save();");
+  onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
-	return this;
+  return this;
 }
 hearth = hearthFeature();
 hearth.init();
@@ -564,8 +564,102 @@ oldbone = oldboneFeature();
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
+  String entityTabgroup = "midden";
+  String type = "Midden";
+  String desc = type + " record";
+  String id = null;
+  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  
+  /** Saves the feature **/
+  save() {
+    Boolean enable_autosave = true;
+    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("save()", desc + " saved with id: " + id);
+        if (newRecord) {
+          Log.d("save()", "New " + desc + " created");
+        }
+      }
+      onError(message) {
+          showToast(message);
+      }  
+    }, enable_autosave);
+  }
 
-	return this;
+  /** Creates a new feature record. **/
+  create() {
+    dialog = showBusy("creating a new record", "please wait");
+    newTabGroup(entityTabgroup);
+    id = null;
+    setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
+    setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
+    keepTabGroupChanges(entityTabgroup);
+    save();
+    dialog.dismiss();
+  }
+
+  /** Loads a feature record. **/
+  load() {
+    if (isNull(id)) {
+      showToast("No entity selected");
+        return;
+    }
+    dialog = showBusy("loading record", "please wait");
+    showTabGroup(entityTabgroup, id, new FetchCallback() {
+      onFetch(result) {
+        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
+        showToast("Loaded a " + desc);
+        keepTabGroupChanges(entityTabgroup);
+        dialog.dismiss();
+      }
+    });
+  }
+
+   /** Initialises the tabgroup vocabularies. **/
+  init() {
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                            , "Midden - Midden Type");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "presenceOfCharcoal"                    , "Midden - Presence of charcoal");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "proportionOfMaterialThatRemainsInSitu" , "Midden - Proportion of material that remains in situ");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalvePreservation"                   , "Midden - Bivalve preservation");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalveDispersal"                      , "Midden - Bivalve dispersal");
+
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                     , "Midden - Topographic Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden - Sediment Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                   , "Midden - Vulnerability to Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"                , "Midden - Palaeotopographic Setting");
+  }
+
+  /** Populates the in-situ and surface associated materials list. **/
+  listAssociatedMaterials() {
+    if(!isNull(id)) {
+      String assocListQuery = "select uuid, response " +
+        "from latestNonDeletedArchEntFormattedIdentifiers " +
+        "where aenttypename = '" + Type + "Associated Materials' " +
+        "and uuid in  (select uuid " +
+        "FROM latestNonDeletedAentReln " +
+        "where relationshipid in (select relationshipid " +
+        "FROM latestNonDeletedAentReln " +
+        "JOIN relationship using (relationshipid) " +
+        "JOIN relntype using (relntypeid) " +
+        "where uuid = "+ id + " " +
+        "and relntypeName = '" + relTypeName + "') " +
+        "and uuid != "+ id +") " + 
+        "limit ? offset ?;";
+      populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
+      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
+    } else {
+      result = new ArrayList();
+      result.add(new NameValuePair("{noRecordsFound}", ""));
+      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
+    } 
+  }
+
+  onEvent(entityTabgroup, "show", "midden.save();");
+  onEvent(entityTabgroup + "/associatedMaterials", "show", "midden.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
+
+  return this;
 }
 midden = middenFeature();
 
