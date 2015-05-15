@@ -528,7 +528,7 @@ oldboneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster_Type");
+    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/clusterType"              , "OldBone_-_Cluster_Type");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body_Parts_Identifed");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon_Identified");
     makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone_Preservation");
@@ -536,7 +536,7 @@ oldboneFeature() {
     makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic_Setting");
     makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment_Type");
     makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
-    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_to_Erosion");
+    makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
     makeVocab("DropDown"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
   }
 
@@ -637,7 +637,7 @@ middenFeature() {
     makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
 
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                     , "Midden_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden_-_Sediment _ype");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                   , "Midden_-_Vulnerability_to_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"                , "Midden_-_Palaeotopographic_Setting");
   }
