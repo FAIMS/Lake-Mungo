@@ -4,24 +4,6 @@
     <model>
       <instance>
         <faims id="hdb_FAIMS_Community_Server">
-          <!-- <style>
-            <orientation>
-              <orientation/>
-            </orientation>
-            <even>
-              <layout_weight/>
-            </even>
-            <large>
-              <layout_weight/>
-            </large>
-          </style>
-          <user>
-            <usertab>
-              <Area_Code/>
-              <users/>
-              <login/>
-            </usertab>
-          </user> -->
           <style>
             <orientation>
               <orientation/>
@@ -263,8 +245,8 @@
             </insituAndSurfaceBone>
             <associatedMaterials>
               <recordInsituMaterial/>
-              <associatedSurfaceList/>
-              <recordInsituMaterial/>
+              <associatedInsituList/>
+              <recordSurfaceMaterial/>
               <associatedSurfaceList/>
             </associatedMaterials>
             <topAndStratSetting>
@@ -1078,15 +1060,15 @@
         <trigger ref="recordInsituMaterial">
           <label>{oldBoneUI_recordInsituMaterial}</label>
         </trigger>
-        <select1 appearance="compact" ref="associatedSurfaceList" faims_certainty="true" faims_annotation="true">
-          <label>{oldBoneUI_associatedSurfaceList}</label>
+        <select1 appearance="compact" ref="associatedInsituList" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_associatedInsituList}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <trigger ref="recordInsituMaterial">
-          <label>{oldBoneUI_recordInsituMaterial}</label>
+        <trigger ref="recordSurfaceMaterial">
+          <label>{oldBoneUI_recordSurfaceMaterial}</label>
         </trigger>
         <select1 appearance="compact" ref="associatedSurfaceList" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_associatedSurfaceList}</label>
