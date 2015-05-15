@@ -771,8 +771,8 @@ stone = stoneFeature();
 
 /*** ISOLATED FEATURE ***/
 isolatedFeature() {
-  String entityTabgroup = "Isolated";
-  String type = "isolatedOccurences";
+  String entityTabgroup = "isolatedOccurrences";
+  String type = "Isolated";
   String desc = type + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
@@ -860,8 +860,6 @@ isolatedFeature() {
   }
 
   onEvent(entityTabgroup, "show", "isolated.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "isolated.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
 }
