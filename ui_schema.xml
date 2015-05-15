@@ -4,6 +4,24 @@
     <model>
       <instance>
         <faims id="hdb_FAIMS_Community_Server">
+<!--           <style>
+            <orientation>
+              <orientation/>
+            </orientation>
+            <even>
+              <layout_weight/>
+            </even>
+            <large>
+              <layout_weight/>
+            </large>
+          </style>
+          <user>
+            <usertab>
+              <Area_Code/>
+              <users/>
+              <login/>
+            </usertab>
+          </user> -->
           <style>
             <orientation>
               <orientation/>
@@ -25,6 +43,9 @@
             <search>
               <entityTypes/>
               <entityList/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
             </search>
           </control>
           <hearth>
@@ -84,6 +105,205 @@
               <assocOtherwork/>
             </associatedOtherWorkedMaterial>
           </hearthAssociatedMaterials>
+          <stoneArtefactClusters>
+            <basicIdentification>
+              <idNumber/>
+              <gridSquare/>
+              <calculateGridSquare/>
+              <clusterType/>
+            </basicIdentification>
+            <inSituDescription>
+              <inSituInSituStoneArtefacts/>
+              <inSituChippedStoneArtfacts/>
+              <inSituRetouchedArtefacts/>
+              <inSituUnmodifiedStoneTypes/>
+              <inSituGroundStoneTypes/>
+              <inSituGroundStoneStatus/>
+              <inSituSurfaceModification/>
+              <inSituRawMaterialTypes/>
+            </inSituDescription>
+            <surfaceDescription>
+              <potentialRefits/>
+              <surfaceChippedStoneArtfacts/>
+              <surfaceRetouchedArtefacts/>
+              <surfaceUnmodifiedStoneTypes/>
+              <surfaceGroundStoneTypes/>
+              <surfaceGroundStoneStatus/>
+              <surfaceSurfaceModification/>
+              <surfaceRawMaterialTypes/>
+            </surfaceDescription>
+            <associatedMaterials>
+              <recordMaterialInSitu/>
+              <associatedMaterialListInSitu/>
+              <recordMaterialSurface/>
+              <associatedMaterialListSurface/>
+            </associatedMaterials>
+            <topAndStratSetting>
+              <topographicSetting/>
+              <sedimentType/>
+              <erosionVulnerability/>
+              <paleotopographicSetting/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
+            </topAndStratSetting>
+          </stoneArtefactClusters>
+          <stoneAssociatedMaterials>
+            <control>
+              <assocMaterialInSitu/>
+              <assocSurface/>
+            </control>
+            <associatedHearthstones>
+              <assocHearth/>
+            </associatedHearthstones>
+            <associatedLacustrineMaterial>
+              <assocLacust/>
+            </associatedLacustrineMaterial>
+            <associatedTerrestrialBone>
+              <assocTerrestrial/>
+            </associatedTerrestrialBone>
+            <associatedEggshell>
+              <assocEggshell/>
+            </associatedEggshell>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </stoneAssociatedMaterials>
+          <isolatedOccurrences>
+            <basicIdentification>
+              <idNumber/>
+              <gridSquare/>
+              <calculateGridSquare/>
+              <inSituOrSurface/>
+              <occurenceType/>
+              <stoneRawMaterialType/>
+              <modificationtoOrganicMaterial/>
+              <modificationtoStoneMaterial/>
+            </basicIdentification>
+            <topAndStratSetting>
+              <topographicSetting/>
+              <sedimentType/>
+              <erosionVulnerability/>
+              <paleotopographicSetting/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
+            </topAndStratSetting>
+          </isolatedOccurrences>
+          <midden>
+            <basicIdentification>
+              <idNumber/>
+              <gridSquare/>
+              <calculateGridSquare/>
+              <middenType/>
+              <continuity/>
+            </basicIdentification>
+            <middenDescription>
+              <presenceOfCharcoal/>
+              <proportionOfMaterialThatRemainsInSitu/>
+              <bivalvePreservation/>
+              <bivalveDispersal/>
+            </middenDescription>
+            <associatedMaterials>
+              <assocMaterials/>
+            </associatedMaterials>
+            <topAndStratSetting>
+              <topographicSetting/>
+              <sedimentType/>
+              <erosionVulnerability/>
+              <paleotopographicSetting/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
+            </topAndStratSetting>
+          </midden>
+          <middenAssociatedMaterials>
+            <control>
+              <assocMaterial/>
+            </control>
+            <associatedLacustrineMaterial>
+              <assocLacust/>
+              <assocBurntLacust/>
+            </associatedLacustrineMaterial>
+            <associatedTerrestrialBone>
+              <assocTerrestrial/>
+              <assocBurntTerrestrial/>
+            </associatedTerrestrialBone>
+            <associatedEggshell>
+              <assocEggshell/>
+              <assocBurntEggshell/>
+            </associatedEggshell>
+            <associatedStoneArtefacts>
+              <assocStone/>
+              <assocChippedStone/>
+              <assocRetouchedStone/>
+              <assocUnmodifiedStone/>
+              <assocGroundStoneType/>
+              <assocGroundStoneStatus/>
+              <assocRawMaterial/>
+            </associatedStoneArtefacts>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </middenAssociatedMaterials>
+          <oldBone>
+            <basicIdentification>
+              <idNumber/>
+              <gridSquare/>
+              <calculateGridSquare/>
+              <clusterType/>
+            </basicIdentification>
+            <insituAndSurfaceBone>
+              <insituProportion/>
+              <bodyPartsIdentified/>
+              <taxonIdentified/>
+              <bonePreservation/>
+              <deliberateSurfaceModification/>
+            </insituAndSurfaceBone>
+            <associatedMaterials>
+              <recordInsituMaterial/>
+              <associatedSurfaceList/>
+              <recordInsituMaterial/>
+              <associatedSurfaceList/>
+            </associatedMaterials>
+            <topAndStratSetting>
+              <topographicSetting/>
+              <sedimentType/>
+              <stratigraphicUnit/>
+              <erosionVulnerability/>
+              <paleotopographicSetting/>
+              <notes/>
+              <photos/>
+              <takePhoto/>
+            </topAndStratSetting>
+          </oldBone>
+          <oldboneAssociatedMaterials>
+            <nearbyMaterial>
+              <assocInsituMaterial/>
+              <assocSurfaceMaterial/>
+            </nearbyMaterial>
+            <associatedMussel>
+              <assocMussel/>
+            </associatedMussel>
+            <associatedEggshell>
+              <assocEggshell/>
+            </associatedEggshell>
+            <associatedHearthMaterial>
+              <assocHearth/>
+            </associatedHearthMaterial>
+            <associatedStoneArtefacts>
+              <assocStone/>
+              <assocChippedStone/>
+              <assocRetouchedStone/>
+              <assocUnmodifiedStone/>
+              <assocGroundStoneType/>
+              <assocGroundStoneStatus/>
+              <assocRawMaterial/>
+            </associatedStoneArtefacts>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </oldboneAssociatedMaterials>
         </faims>
       </instance>
       <!-- Insert nodeset bindings here -->
@@ -94,13 +314,13 @@
       <label></label>
       <group ref="orientation">
         <label></label>
-        <input ref="orientation">
+        <input ref="orientation" faims_attribute_type="measure">
           <label>horizontal</label>
         </input>
       </group>
       <group ref="even">
         <label></label>
-        <input ref="layout_weight">
+        <input ref="layout_weight" faims_attribute_type="measure">
           <label>1</label>
         </input>
       </group>
@@ -122,7 +342,7 @@
       <label>{control}</label>
       <group ref="control">
         <label>{control}</label>
-        <select1 ref="entityTypes">
+        <select1 ref="entityTypes" faims_attribute_type="vocab">
           <label>{entityTypes}</label>
           <item>
             <label>placeholder</label>
@@ -135,7 +355,7 @@
       </group>
       <group ref="search">
         <label>{search}</label>
-        <select1 ref="entityTypes">
+        <select1 ref="entityTypes" faims_attribute_type="vocab">
           <label>{entityTypes}</label>
           <item>
             <label>placeholder</label>
@@ -149,10 +369,23 @@
             <value>placeholder</value>
           </item>
         </select1>
+        <input ref="notes" faims_attribute_name="Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{notesUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Photos" faims_attribute_type="measure">
+          <label>{photosUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{takePhotoUI_takePhoto}</label>
+        </trigger>
       </group>
     </group>
-    <group ref="hearth" faims_archent_type="Hearth">
-      <label>{hearthUI_hearth}</label>
+    <group ref="hearth">
+      <label>{hearthUI_hearth, arch16n: Hearths and Hearthstones}</label>
       <group ref="basicIdentification">
         <label>{hearthUI_basicIdentification}</label>
         <input ref="idNumber" faims_attribute_name="Hearth - ID Number" faims_attribute_type="measure">
@@ -249,7 +482,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Hearth - Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Hearth - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth - Photos" faims_attribute_type="measure">
@@ -265,11 +498,11 @@
       </group>
     </group>
     <group ref="hearthAssociatedMaterials">
-      <label>{hearthUI_hearthAssociatedMaterials}</label>
+      <label>{hearthAssociatedMaterialsUI_hearthAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
       <group ref="nearbyMaterial">
-        <label>{hearthUI_nearbyMaterial}</label>
-        <select ref="assocMaterial">
-          <label>{hearthUI_assocMaterial}</label>
+        <label>{hearthAssociatedMaterialsUI_nearbyMaterial}</label>
+        <select ref="assocMaterial" faims_attribute_type="vocab">
+          <label>{hearthAssociatedMaterialsUI_assocMaterial}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
@@ -277,60 +510,697 @@
         </select>
       </group>
       <group ref="associatedLacustrineMaterial">
-        <label>{hearthUI_associatedLacustrineMaterial}</label>
+        <label>{hearthAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
         <group ref="assocLacust">
-          <label>{hearthUI_assocLacust}</label>
+          <label>{hearthAssociatedMaterialsUI_assocLacust}</label>
         </group>
         <group ref="assocBurntLacust">
-          <label>{hearthUI_assocBurntLacust}</label>
+          <label>{hearthAssociatedMaterialsUI_assocBurntLacust}</label>
         </group>
       </group>
       <group ref="associatedTerrestrialBone">
-        <label>{hearthUI_associatedTerrestrialBone}</label>
+        <label>{hearthAssociatedMaterialsUI_associatedTerrestrialBone}</label>
         <group ref="assocTerrestrial">
-          <label>{hearthUI_assocTerrestrial}</label>
+          <label>{hearthAssociatedMaterialsUI_assocTerrestrial}</label>
         </group>
         <group ref="assocBurntTerrestrial">
-          <label>{hearthUI_assocBurntTerrestrial}</label>
+          <label>{hearthAssociatedMaterialsUI_assocBurntTerrestrial}</label>
         </group>
       </group>
       <group ref="associatedEggshell">
-        <label>{hearthUI_associatedEggshell}</label>
+        <label>{hearthAssociatedMaterialsUI_associatedEggshell}</label>
         <group ref="assocEggshell">
-          <label>{hearthUI_assocEggshell}</label>
+          <label>{hearthAssociatedMaterialsUI_assocEggshell}</label>
         </group>
         <group ref="assocBurntEggshell">
-          <label>{hearthUI_assocBurntEggshell}</label>
+          <label>{hearthAssociatedMaterialsUI_assocBurntEggshell}</label>
         </group>
       </group>
       <group ref="associatedStoneArtefacts">
-        <label>{hearthUI_associatedStoneArtefacts}</label>
+        <label>{hearthAssociatedMaterialsUI_associatedStoneArtefacts}</label>
         <group ref="assocStone">
-          <label>{hearthUI_assocStone}</label>
+          <label>{hearthAssociatedMaterialsUI_assocStone}</label>
         </group>
         <group ref="assocChippedStone">
-          <label>{hearthUI_assocChippedStone}</label>
+          <label>{hearthAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
         <group ref="assocRetouchedStone">
-          <label>{hearthUI_assocRetouchedStone}</label>
+          <label>{hearthAssociatedMaterialsUI_assocRetouchedStone}</label>
         </group>
         <group ref="assocUnmodifiedStone">
-          <label>{hearthUI_assocUnmodifiedStone}</label>
+          <label>{hearthAssociatedMaterialsUI_assocUnmodifiedStone}</label>
         </group>
         <group ref="assocGroundStoneType">
-          <label>{hearthUI_assocGroundStoneType}</label>
+          <label>{hearthAssociatedMaterialsUI_assocGroundStoneType}</label>
         </group>
         <group ref="assocGroundStoneStatus">
-          <label>{hearthUI_assocGroundStoneStatus}</label>
+          <label>{hearthAssociatedMaterialsUI_assocGroundStoneStatus}</label>
         </group>
         <group ref="assocRawMaterial">
-          <label>{hearthUI_assocRawMaterial}</label>
+          <label>{hearthAssociatedMaterialsUI_assocRawMaterial}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">
-        <label>{hearthUI_associatedOtherWorkedMaterial}</label>
+        <label>{hearthAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
         <group ref="assocOtherwork">
-          <label>{hearthUI_assocOtherwork}</label>
+          <label>{hearthAssociatedMaterialsUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+    <group ref="stoneArtefactClusters">
+      <label>{stoneArtefactClustersUI_stoneArtefactClusters, arch16n: Stone Artefact Clusters}</label>
+      <group ref="basicIdentification">
+        <label>{stoneArtefactClustersUI_basicIdentification}</label>
+        <input ref="idNumber" faims_attribute_name="Stone - ID Number" faims_attribute_type="measure">
+          <label>{stoneArtefactClustersUI_idNumber}</label>
+        </input>
+        <input ref="gridSquare" faims_attribute_name="Stone - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_gridSquare}</label>
+        </input>
+        <trigger ref="calculateGridSquare">
+          <label>{stoneArtefactClustersUI_calculateGridSquare}</label>
+        </trigger>
+        <select1 ref="clusterType" faims_attribute_name="Stone - Cluster Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_clusterType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="inSituDescription">
+        <label>{stoneArtefactClustersUI_inSituDescription}</label>
+        <group ref="inSituInSituStoneArtefacts" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituInSituStoneArtefacts}</label>
+        </group>
+        <group ref="inSituChippedStoneArtfacts" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
+        </group>
+        <group ref="inSituRetouchedArtefacts" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituRetouchedArtefacts}</label>
+        </group>
+        <group ref="inSituUnmodifiedStoneTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituUnmodifiedStoneTypes}</label>
+        </group>
+        <group ref="inSituGroundStoneTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituGroundStoneTypes}</label>
+        </group>
+        <group ref="inSituGroundStoneStatus" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituGroundStoneStatus}</label>
+        </group>
+        <group ref="inSituSurfaceModification" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituSurfaceModification}</label>
+        </group>
+        <group ref="inSituRawMaterialTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_inSituRawMaterialTypes}</label>
+        </group>
+      </group>
+      <group ref="surfaceDescription">
+        <label>{stoneArtefactClustersUI_surfaceDescription}</label>
+        <input ref="potentialRefits" faims_attribute_name="Stone - Potential Refits" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_potentialRefits}</label>
+        </input>
+        <group ref="surfaceChippedStoneArtfacts" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
+        </group>
+        <group ref="surfaceRetouchedArtefacts" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceRetouchedArtefacts}</label>
+        </group>
+        <group ref="surfaceUnmodifiedStoneTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceUnmodifiedStoneTypes}</label>
+        </group>
+        <group ref="surfaceGroundStoneTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceGroundStoneTypes}</label>
+        </group>
+        <group ref="surfaceGroundStoneStatus" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceGroundStoneStatus}</label>
+        </group>
+        <group ref="surfaceSurfaceModification" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceSurfaceModification}</label>
+        </group>
+        <group ref="surfaceRawMaterialTypes" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_surfaceRawMaterialTypes}</label>
+        </group>
+      </group>
+      <group ref="associatedMaterials">
+        <label>{stoneArtefactClustersUI_associatedMaterials}</label>
+        <trigger ref="recordMaterialInSitu">
+          <label>{stoneArtefactClustersUI_recordMaterialInSitu}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedMaterialListInSitu">
+          <label>{stoneArtefactClustersUI_associatedMaterialListInSitu}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <trigger ref="recordMaterialSurface">
+          <label>{stoneArtefactClustersUI_recordMaterialSurface}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedMaterialListSurface">
+          <label>{stoneArtefactClustersUI_associatedMaterialListSurface}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="topAndStratSetting">
+        <label>{stoneArtefactClustersUI_topAndStratSetting}</label>
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Stone - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_topographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Stone - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_erosionVulnerability}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Stone - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_paleotopographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="notes" faims_attribute_name="Stone - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Stone - Photos" faims_attribute_type="measure">
+          <label>{stoneArtefactClustersUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{stoneArtefactClustersUI_takePhoto}</label>
+        </trigger>
+      </group>
+    </group>
+    <group ref="stoneAssociatedMaterials">
+      <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
+      <group ref="control">
+        <label>{stoneAssociatedMaterialsUI_control}</label>
+        <group ref="assocMaterialInSitu" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocMaterialInSitu}</label>
+        </group>
+        <group ref="assocSurface" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocSurface}</label>
+        </group>
+      </group>
+      <group ref="associatedHearthstones">
+        <label>{stoneAssociatedMaterialsUI_associatedHearthstones}</label>
+        <group ref="assocHearth" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocHearth}</label>
+        </group>
+      </group>
+      <group ref="associatedLacustrineMaterial">
+        <label>{stoneAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
+        <group ref="assocLacust" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocLacust}</label>
+        </group>
+      </group>
+      <group ref="associatedTerrestrialBone">
+        <label>{stoneAssociatedMaterialsUI_associatedTerrestrialBone}</label>
+        <group ref="assocTerrestrial" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocTerrestrial}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{stoneAssociatedMaterialsUI_associatedEggshell}</label>
+        <group ref="assocEggshell" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork" faims_certainty="true" faims_annotation="true">
+          <label>{stoneAssociatedMaterialsUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+    <group ref="isolatedOccurrences">
+      <label>{isolatedOccurrencesUI_isolatedOccurrences, arch16n: Stone Artefact Clusters}</label>
+      <group ref="basicIdentification">
+        <label>{isolatedOccurrencesUI_basicIdentification}</label>
+        <input ref="idNumber" faims_attribute_name="Isolated - ID Number" faims_attribute_type="measure">
+          <label>{isolatedOccurrencesUI_idNumber}</label>
+        </input>
+        <input ref="gridSquare" faims_attribute_name="Isolated - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_gridSquare}</label>
+        </input>
+        <trigger ref="calculateGridSquare">
+          <label>{isolatedOccurrencesUI_calculateGridSquare}</label>
+        </trigger>
+        <select1 ref="inSituOrSurface" faims_attribute_name="Isolated - In Situ or Surface" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_inSituOrSurface}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="occurenceType" faims_attribute_name="Isolated - Occurence Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_occurenceType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="stoneRawMaterialType" faims_attribute_name="Isolated - Stone Raw Material Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_stoneRawMaterialType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <group ref="modificationtoOrganicMaterial" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_modificationtoOrganicMaterial}</label>
+        </group>
+        <group ref="modificationtoStoneMaterial" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_modificationtoStoneMaterial}</label>
+        </group>
+      </group>
+      <group ref="topAndStratSetting">
+        <label>{isolatedOccurrencesUI_topAndStratSetting}</label>
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Isolated - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_topographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Isolated - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_erosionVulnerability}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Isolated - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_paleotopographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="notes" faims_attribute_name="Isolated - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Isolated - Photos" faims_attribute_type="measure">
+          <label>{isolatedOccurrencesUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{isolatedOccurrencesUI_takePhoto}</label>
+        </trigger>
+      </group>
+    </group>
+    <group ref="midden">
+      <label>{middenUI_midden, arch16n: Midden}</label>
+      <group ref="basicIdentification">
+        <label>{middenUI_basicIdentification}</label>
+        <input ref="idNumber" faims_attribute_name="Midden - ID Number" faims_attribute_type="measure">
+          <label>{middenUI_idNumber}</label>
+        </input>
+        <input ref="gridSquare" faims_attribute_name="Midden - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_gridSquare}</label>
+        </input>
+        <trigger ref="calculateGridSquare">
+          <label>{middenUI_calculateGridSquare}</label>
+        </trigger>
+        <select1 ref="middenType" faims_attribute_name="Midden - Midden Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_middenType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <group ref="continuity" faims_attribute_name="Midden - Charcoal" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_continuity}</label>
+        </group>
+      </group>
+      <group ref="middenDescription">
+        <label>{middenUI_middenDescription}</label>
+        <select1 ref="presenceOfCharcoal" faims_attribute_name="Midden - Presence of charcoal" faims_attribute_type="vocab">
+          <label>{middenUI_presenceOfCharcoal}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="proportionOfMaterialThatRemainsInSitu" faims_attribute_name="Midden - Proportion of material that remains in situ" faims_attribute_type="vocab">
+          <label>{middenUI_proportionOfMaterialThatRemainsInSitu}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="bivalvePreservation" faims_attribute_name="Midden - Bivalve preservation" faims_attribute_type="vocab">
+          <label>{middenUI_bivalvePreservation}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="bivalveDispersal" faims_attribute_name="Midden - Bivalve dispersal" faims_attribute_type="vocab">
+          <label>{middenUI_bivalveDispersal}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="associatedMaterials">
+        <label>{middenUI_associatedMaterials}</label>
+        <select1 appearance="compact" ref="assocMaterials">
+          <label>{middenUI_assocMaterials}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="topAndStratSetting">
+        <label>{middenUI_topAndStratSetting}</label>
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Midden - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_topographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Midden - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Midden - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_erosionVulnerability}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Midden - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_paleotopographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="notes" faims_attribute_name="Midden - Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Midden - Photos" faims_attribute_type="measure">
+          <label>{middenUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{middenUI_takePhoto}</label>
+        </trigger>
+      </group>
+    </group>
+    <group ref="middenAssociatedMaterials">
+      <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials, arch16n: Hearth Associated Materials}</label>
+      <group ref="control">
+        <label>{middenAssociatedMaterialsUI_control}</label>
+        <group ref="assocMaterial" faims_certainty="true" faims_annotation="true">
+          <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedLacustrineMaterial">
+        <label>{middenAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
+        <group ref="assocLacust">
+          <label>{middenAssociatedMaterialsUI_assocLacust}</label>
+        </group>
+        <group ref="assocBurntLacust">
+          <label>{middenAssociatedMaterialsUI_assocBurntLacust}</label>
+        </group>
+      </group>
+      <group ref="associatedTerrestrialBone">
+        <label>{middenAssociatedMaterialsUI_associatedTerrestrialBone}</label>
+        <group ref="assocTerrestrial">
+          <label>{middenAssociatedMaterialsUI_assocTerrestrial}</label>
+        </group>
+        <group ref="assocBurntTerrestrial">
+          <label>{middenAssociatedMaterialsUI_assocBurntTerrestrial}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{middenAssociatedMaterialsUI_associatedEggshell}</label>
+        <group ref="assocEggshell">
+          <label>{middenAssociatedMaterialsUI_assocEggshell}</label>
+        </group>
+        <group ref="assocBurntEggshell">
+          <label>{middenAssociatedMaterialsUI_assocBurntEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedStoneArtefacts">
+        <label>{middenAssociatedMaterialsUI_associatedStoneArtefacts}</label>
+        <group ref="assocStone">
+          <label>{middenAssociatedMaterialsUI_assocStone}</label>
+        </group>
+        <group ref="assocChippedStone">
+          <label>{middenAssociatedMaterialsUI_assocChippedStone}</label>
+        </group>
+        <group ref="assocRetouchedStone">
+          <label>{middenAssociatedMaterialsUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedStone">
+          <label>{middenAssociatedMaterialsUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocGroundStoneType">
+          <label>{middenAssociatedMaterialsUI_assocGroundStoneType}</label>
+        </group>
+        <group ref="assocGroundStoneStatus">
+          <label>{middenAssociatedMaterialsUI_assocGroundStoneStatus}</label>
+        </group>
+        <group ref="assocRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocRawMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{middenAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork">
+          <label>{middenAssociatedMaterialsUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+    <group ref="oldBone">
+      <label>{oldBoneUI_oldBone}</label>
+      <group ref="basicIdentification">
+        <label>{oldBoneUI_basicIdentification}</label>
+        <input ref="idNumber" faims_attribute_name="OldBone - ID Number" faims_attribute_type="measure">
+          <label>{oldBoneUI_idNumber}</label>
+        </input>
+        <input ref="gridSquare" faims_attribute_name="OldBone - Grid Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_gridSquare}</label>
+        </input>
+        <trigger ref="calculateGridSquare">
+          <label>{oldBoneUI_calculateGridSquare}</label>
+        </trigger>
+        <select1 ref="clusterType" faims_attribute_name="OldBone - Cluster Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_clusterType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="insituAndSurfaceBone">
+        <label>{oldBoneUI_insituAndSurfaceBone}</label>
+        <group ref="insituProportion">
+          <label>{oldBoneUI_insituProportion}</label>
+        </group>
+        <select ref="bodyPartsIdentified" faims_attribute_name="OldBone - Body Parts Identifed" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_bodyPartsIdentified}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select ref="taxonIdentified" faims_attribute_name="OldBone - Taxon Identified" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_taxonIdentified}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select ref="bonePreservation" faims_attribute_name="OldBone - Bone Preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_bonePreservation}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select ref="deliberateSurfaceModification" faims_attribute_name="OldBone - Deliberate Surface Modification" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_deliberateSurfaceModification}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+      </group>
+      <group ref="associatedMaterials">
+        <label>{oldBoneUI_associatedMaterials}</label>
+        <trigger ref="recordInsituMaterial">
+          <label>{oldBoneUI_recordInsituMaterial}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedSurfaceList" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_associatedSurfaceList}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <trigger ref="recordInsituMaterial">
+          <label>{oldBoneUI_recordInsituMaterial}</label>
+        </trigger>
+        <select1 appearance="compact" ref="associatedSurfaceList" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_associatedSurfaceList}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+      </group>
+      <group ref="topAndStratSetting">
+        <label>{oldBoneUI_topAndStratSetting}</label>
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="OldBone - Topographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_topographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="sedimentType" faims_attribute_name="OldBone - Sediment Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="OldBone - Stratigraphic Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_stratigraphicUnit}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone - Vulnerability to Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_erosionVulnerability}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone - Palaeotopographic Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_paleotopographicSetting}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <input ref="notes" faims_attribute_name="OldBone - Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_notes}</label>
+        </input>
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="OldBone - Photos" faims_attribute_type="measure">
+          <label>{oldBoneUI_photos}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <trigger ref="takePhoto">
+          <label>{oldBoneUI_takePhoto}</label>
+        </trigger>
+      </group>
+    </group>
+    <group ref="oldboneAssociatedMaterials">
+      <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
+      <group ref="nearbyMaterial">
+        <label>{oldBoneUI_nearbyMaterial}</label>
+        <group ref="assocInsituMaterial">
+          <label>{oldBoneUI_assocInsituMaterial}</label>
+        </group>
+        <group ref="assocSurfaceMaterial">
+          <label>{oldBoneUI_assocSurfaceMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedMussel">
+        <label>{oldBoneUI_associatedMussel}</label>
+        <group ref="assocMussel">
+          <label>{oldBoneUI_assocMussel}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{oldBoneUI_associatedEggshell}</label>
+        <group ref="assocEggshell">
+          <label>{oldBoneUI_assocEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedHearthMaterial">
+        <label>{oldBoneUI_associatedHearthMaterial}</label>
+        <group ref="assocHearth">
+          <label>{oldBoneUI_assocHearth}</label>
+        </group>
+      </group>
+      <group ref="associatedStoneArtefacts">
+        <label>{oldBoneUI_associatedStoneArtefacts}</label>
+        <group ref="assocStone">
+          <label>{oldBoneUI_assocStone}</label>
+        </group>
+        <group ref="assocChippedStone">
+          <label>{oldBoneUI_assocChippedStone}</label>
+        </group>
+        <group ref="assocRetouchedStone">
+          <label>{oldBoneUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedStone">
+          <label>{oldBoneUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocGroundStoneType">
+          <label>{oldBoneUI_assocGroundStoneType}</label>
+        </group>
+        <group ref="assocGroundStoneStatus">
+          <label>{oldBoneUI_assocGroundStoneStatus}</label>
+        </group>
+        <group ref="assocRawMaterial">
+          <label>{oldBoneUI_assocRawMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{oldBoneUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork">
+          <label>{oldBoneUI_assocOtherwork}</label>
         </group>
       </group>
     </group>
