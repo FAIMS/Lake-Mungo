@@ -816,11 +816,13 @@ isolatedFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone - Cluster Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone - Topographic Setting");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone - Sediment Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone - Vulnerability to Erosion");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone - Palaeotopographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated - In Situ or Surface");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/occurenceType"          , "Isolated - Occurence Type");
+    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated - Stone Raw Material Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated - Topographic Setting");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated - Sediment Type");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated - Vulnerability to Erosion");
+    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated - Palaeotopographic Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -848,8 +850,8 @@ isolatedFeature() {
     } 
   }
 
-  onEvent(entityTabgroup, "show", "stone.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "stone.listAssociatedMaterials();");
+  onEvent(entityTabgroup, "show", "isolated.save();");
+  onEvent(entityTabgroup + "/associatedMaterials", "show", "isolated.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
