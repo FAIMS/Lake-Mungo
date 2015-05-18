@@ -1385,6 +1385,7 @@ isolatedFeature() {
     for (occurrenceType : occurrenceTypeVocabulary) {
       if (selectedItem.equals(occurrenceType.get(0))) {
         selectedItemText = occurrenceType.get(1);
+        break;
       }
     }
 
@@ -1483,7 +1484,7 @@ ArrayList tabGroups = new ArrayList();
 tabGroups.add("hearth");
 tabGroups.add("isolatedOccurrences");
 tabGroups.add("midden");
-tabGroups.add("oldBone");
+//tabGroups.add("oldBone");
 tabGroups.add("stoneArtefactClusters");
 
 for (tg : tabGroups) {
