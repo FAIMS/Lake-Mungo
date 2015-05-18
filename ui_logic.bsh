@@ -1071,8 +1071,8 @@ oldboneAssoc.init();
 /*** MIDDEN FEATURE ***/
 middenFeature() {
   String entityTabgroup = "midden";
-  String type = "Midden";
-  String desc = type + " record";
+  String archentType = "Midden";
+  String desc = archentType + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
   
@@ -1141,7 +1141,7 @@ middenFeature() {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + Type + "Associated Materials' " +
+        "where aenttypename = '" + midden.archentType + "Associated Materials' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
@@ -1173,8 +1173,8 @@ midden.init();
 /*** STONE ARTEFACT FEATURE ***/
 stoneFeature() {
   String entityTabgroup = "stoneArtefactClusters";
-  String type = "Stone Artefact Clusters";
-  String desc = type + " record";
+  String archentType = "Stone Artefact Clusters";
+  String desc = archentType + " record";
   String id = null;
   String relTypeName = "Stone And Associated Materials";
   
@@ -1239,11 +1239,12 @@ stoneFeature() {
     listAssociatedMaterials("Stone Associated Materials", "associatedMaterialListInSitu");
   }
 
-  listAssociatedMaterials(String aenttypename, String listRef ) {
+  /** Populates the in-situ and surface associated materials list. **/
+  listAssociatedMaterials() {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + aenttypename + "' " +
+        "where aenttypename = '" + stone.archentType + "Associated Materials' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
@@ -1254,12 +1255,12 @@ stoneFeature() {
         "and relntypeName = '" + relTypeName + "') " +
         "and uuid != "+ id +") " + 
         "limit ? offset ?;";
-      populateCursorList(entityTabgroup + "/associatedMaterials/" + listRef, assocListQuery, 25);
+      populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
       Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
     } else {
       result = new ArrayList();
       result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/" + listRef, result);
+      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
     } 
   }
 
@@ -1277,8 +1278,8 @@ stone.init();
 /*** ISOLATED FEATURE ***/
 isolatedFeature() {
   String entityTabgroup = "isolatedOccurrences";
-  String type = "Isolated";
-  String desc = type + " record";
+  String archentType = "Isolated";
+  String desc = archentType + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
   List occurrenceTypeVocabulary = new ArrayList();
@@ -1346,7 +1347,7 @@ isolatedFeature() {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + Type + "Associated Materials' " +
+        "where aenttypename = '" + archentType + "Associated Materials' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
