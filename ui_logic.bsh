@@ -486,7 +486,8 @@ oldboneFeature() {
   String type = "Old Bone";
   String desc = type + " record";
   String id = null;
-  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  String relTypeName = "Old Bone And Associated Materials";
+  String assocTabgroup = "oldboneAssociatedMaterials";
   List clusterTypeVocabulary = new ArrayList();
 
   /** Saves the feature **/
@@ -531,6 +532,7 @@ oldboneFeature() {
       onFetch(result) {
         Log.d("load()", "Loaded a " + desc + ", ID: " + id);
         showToast("Loaded a " + desc);
+        onclickClusterType();
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
@@ -612,15 +614,61 @@ oldboneFeature() {
     }
   }
 
+  onclickClusterType() {
+    Log.d("oldBone.onClickClusterType()", "Hello world!");
+    String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
+    Boolean showAssocTab = false;
+    for (clusterType : clusterTypeVocabulary) {
+      if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{boneAndOtherMaterial}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{surfAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
+        showAssocTab = true;
+      }
+    }
+    if (showAssocTab) {
+      Log.d("oldBone.onClickClusterType()", "Showing associated materials tab");
+      showTab("oldBone/associatedMaterials");
+      showTab("oldBone/basicIdentification");
+    } else {
+      Log.d("oldBone.onClickClusterType()", "Cancelling associated materials tab");
+      cancelTab("oldBone/associatedMaterials", false);
+    }
+  }
+
   onEvent(entityTabgroup, "show", "oldbone.save();");
+  onEvent(entityTabgroup, "show", "oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "showTabGroup(\""+assocTabgroup+"\");");
 
   return this;
 }
 oldbone = oldboneFeature();
 oldbone.init();
+
+/*** OLD BONE ASSOCIATED MATERIALS ***/
+oldboneAssociatedMaterials() {
+  String tabgroup = "oldboneAssociatedMaterials";
+  String relTypeName = "Old Bone And Associated Materials";
+  String id = null;
+
+  /** Saves the old bone associated materials record. **/
+  save() {
+    Boolean enable_autosave = true;
+    saveTabGroup(tabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("oldboneAssociatedMaterials.save()", "Saving the  relation between oldBone " + oldbone.id + " and associatedMaterials " + id);
+        String callback = "listAssociatedMaterials();" + "showTab(\"oldBone/associatedMaterials\");";
+        saveEntitiesToRel(relTypeName, oldbone.id, id, callback);
+      }
+    }, enable_autosave);
+  }
+
+  onEvent(tabgroup, "show", "keepTabGroupChanges(\""+tabgroup+"\"); oldboneAssoc.save();");
+
+  return this;
+}
+oldboneAssoc = oldboneAssociatedMaterials();
 
 /*** MIDDEN FEATURE ***/
 middenFeature() {
