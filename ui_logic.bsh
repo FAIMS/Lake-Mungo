@@ -483,8 +483,8 @@ hearth.init();
 /*** OLD BONE FEATURE ***/
 oldboneFeature() {
   String entityTabgroup = "oldBone";
-  String type = "Old Bone";
-  String desc = type + " record";
+  String archentType = "Old Bone";
+  String desc = archentType + " record";
   String id = null;
   String relTypeName = "Old Bone And Associated Materials";
   String assocTabgroup = "oldboneAssociatedMaterials";
@@ -559,7 +559,7 @@ oldboneFeature() {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = 'Associated Materials' " +
+        "where aenttypename = '"+oldboneAssoc.archentType+"' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
@@ -570,12 +570,12 @@ oldboneFeature() {
         "and relntypeName = '" + relTypeName + "') " +
         "and uuid != "+ id +") " + 
         "limit ? offset ?;";
-      populateCursorList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", assocListQuery, 25);
-      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedSurfaceList");
+      populateCursorList(entityTabgroup + "/associatedMaterials/associatedInsituList", assocListQuery, 25);
+      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedInsituList");
     } else {
       result = new ArrayList();
       result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", result);
+      populateList(entityTabgroup + "/associatedMaterials/associatedInsituList", result);
     } 
   }
 
@@ -637,7 +637,8 @@ oldboneFeature() {
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "showTabGroup(\""+assocTabgroup+"\");");
+  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "newTabGroup(\""+assocTabgroup+"\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc.load();");
 
   return this;
 }
@@ -647,6 +648,7 @@ oldbone.init();
 /*** OLD BONE ASSOCIATED MATERIALS ***/
 oldboneAssociatedMaterials() {
   String tabgroup = "oldboneAssociatedMaterials";
+  String archentType = "Old Bone Associated Materials";
   String relTypeName = "Old Bone And Associated Materials";
   String id = null;
   Boolean loading = false;
@@ -688,8 +690,8 @@ oldboneAssociatedMaterials() {
   /** Loads the old bone associated materials record. **/
   load() {
     selectedID = getListItemValue();
-    Log.d("load()", "Preparing to load associated material with ID: " + selectedID);
-    if (!isNull(selectedID)) {
+    if (!isNull(selectedID) && !selectedID.equals("placeholder")) {
+      Log.d("load()", "Preparing to load associated material with ID: " + selectedID);
       id = selectedID;
       loading = true;
       removeAllViewsAndContainers("oldboneAssociatedMaterials");
