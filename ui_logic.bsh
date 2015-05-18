@@ -353,7 +353,7 @@ loadFeature() {
         entity_id = entityID;
         Log.d("loadFeature()", "Loading entity id: " + entityID);
         if (result.get(0).get(0).equals("Old Bone")) {
-          showToast("Placeholder for loading an old bone feature");
+          oldbone.load();
         } else if (result.get(0).get(0).equals("Hearth")) {
           hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
@@ -523,10 +523,12 @@ oldboneFeature() {
 
   /** Loads a feature record. **/
   load() {
-    if (isNull(id)) {
+    String selectedID = getListItemValue();
+    if (isNull(selectedID)) {
       showToast("No entity selected");
-        return;
+      return;
     }
+    id = selectedID;
     dialog = showBusy("loading record", "please wait");
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
