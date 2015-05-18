@@ -1381,7 +1381,7 @@ isolatedFeature() {
     String dynamicViewStone   = entityTabgroup + "/basicIdentification/modificationtoStoneMaterial";
 
     /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
-    selectedItemText = "";
+    String selectedItemText = "";
     for (occurrenceType : occurrenceTypeVocabulary) {
       if (selectedItem.equals(occurrenceType.get(0))) {
         selectedItemText = occurrenceType.get(1);
