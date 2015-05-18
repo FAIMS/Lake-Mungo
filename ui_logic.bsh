@@ -108,7 +108,7 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
   fetchAll("select vocabid, vocabname from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;",
     new FetchCallback() {
       onFetch(result) {
-        print("makeVocab() result: " + result);
+        // print("makeVocab() result: " + result);
         if (result!=null && result.size()>0 && vocabExclusions!=null && vocabExclusions.size()>0) {
           List filteredVocab = new ArrayList();
           for(item : result) {
@@ -120,7 +120,7 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
           }
           result=filteredVocab;
         }
-        print("makeVocab() filtered result: " + result);
+        // print("makeVocab() filtered result: " + result);
         if(type.equals("CheckBoxGroup")) {
           populateCheckBoxGroup(path, result);
         } else if(type.equals("DropDown")) {
@@ -639,7 +639,7 @@ oldboneFeature() {
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "newTabGroup(\""+assocTabgroup+"\");");
+  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc.create();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc.load();");
 
   return this;
@@ -696,8 +696,36 @@ oldboneAssociatedMaterials() {
       Log.d("load()", "Preparing to load associated material with ID: " + selectedID);
       id = selectedID;
       loading = true;
-      removeAllViewsAndContainers("oldboneAssociatedMaterials");
+      removeAllViewsAndContainers(tabgroup);
       renderControlTab();
+    }
+  }
+
+  /** Creates an old bone associated materials record. **/
+  create() {
+    if (!isNull(oldbone.id)) {
+      fetchOne("select uuid, response " +
+        "from latestNonDeletedArchEntFormattedIdentifiers " +
+        "where aenttypename = '"+archentType+"' " +
+        "and uuid in  (select uuid " +
+        "FROM latestNonDeletedAentReln " +
+        "where relationshipid in (select relationshipid " +
+        "FROM latestNonDeletedAentReln " +
+        "JOIN relationship using (relationshipid) " +
+        "JOIN relntype using (relntypeid) " +
+        "where uuid = "+oldbone.id+" " +
+        "and relntypeName = '"+relTypeName+"') " +
+        "and uuid != "+oldbone.id+");",  new FetchCallback() {
+        onFetch(result) {
+          if(isNull(result)) {
+            id = null;
+            removeAllViewsAndContainers(tabgroup);
+            newTabGroup(tabgroup);
+          } else {
+            showToast("Only one associated material can be recorded");
+          }
+        }
+      }); 
     }
   }
 
@@ -726,13 +754,15 @@ oldboneAssociatedMaterials() {
         String callback = "onEvent(\""+dynamicView+"\", \"click\", \"oldboneAssoc.renderAssocTabs();\"); oldboneAssoc.renderAssocTabs();";
         executeViewTask(new ViewTask(){
           doTask() {
+            Log.d("renderControlTab()", "Making the oldboneAssoc insituMaterial view, as it doesn't exist");
             makeDynamicVocab("CheckBoxGroup", dynamicView, vocab, "{oldBoneUI_assocInsituMaterial}", callback, null, vocab, "vocab");
             if (loading) {
+              Log.d("renderControlTab()", "Preparing to load");
               loadAssocCallback();
             }
           }
         });
-      }
+      } else {Log.d("renderControlTab()", "Not making oldboneAssoc insituMaterial view, as it already exists");}
     }
   }
 
@@ -843,36 +873,58 @@ oldboneAssociatedMaterials() {
 
   loadAssocCallback() {
     // render the default views for each associated material tab
-    makeDynamicVocab("RadioGroup", "oldboneAssociatedMaterials/associatedMussel/bivalvePreservation", "OldBone_-_Bivalve_preservation", "{bivalvePreservation}", null, "oldboneAssociatedMaterials/associatedMussel/assocMussel", "OldBone_-_Bivalve_preservation", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedMussel/bivalvePreservation")) {
+      makeDynamicVocab("RadioGroup", "oldboneAssociatedMaterials/associatedMussel/bivalvePreservation", "OldBone_-_Bivalve_preservation", "{bivalvePreservation}", null, "oldboneAssociatedMaterials/associatedMussel/assocMussel", "OldBone_-_Bivalve_preservation", "vocab");
+    }
     removeAssocMussel = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedHearthMaterial/assocHearth", "OldBone_-_Associated_Hearth_Material", "{associatedHearthMaterial}", null, "oldboneAssociatedMaterials/associatedHearthMaterial/assocHearth", "OldBone_-_Associated_Hearth_Material", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedHearthMaterial/assocHearth")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedHearthMaterial/assocHearth", "OldBone_-_Associated_Hearth_Material", "{associatedHearthMaterial}", null, "oldboneAssociatedMaterials/associatedHearthMaterial/assocHearth", "OldBone_-_Associated_Hearth_Material", "vocab");
+    }
     removeAssocHearth = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedEggshell/assocEggshell", "OldBone_-_Associated_Eggshell", "{associatedEggshell}", null, "oldboneAssociatedMaterials/associatedEggshell/assocEggshell", "OldBone_-_Associated_Eggshell", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedEggshell/assocEggshell")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedEggshell/assocEggshell", "OldBone_-_Associated_Eggshell", "{associatedEggshell}", null, "oldboneAssociatedMaterials/associatedEggshell/assocEggshell", "OldBone_-_Associated_Eggshell", "vocab");
+    }
     removeAssocEggshell = false;
-    String callback = "onEvent(\"oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone\", \"click\", \"oldboneAssoc.updateDynamicAssociatedStone();\");";
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone", "OldBone_-_Associated_Stone_Artefacts", "{associatedStoneArtefacts}", callback, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone", "OldBone_-_Associated_Stone_Artefacts", "vocab");
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRawMaterial", "OldBone_-_Raw_Material_Types_Present", "{rawMaterialTypesPresent}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRawMaterial", "OldBone_-_Raw_Material_Types_Present", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone")) {
+      String callback = "onEvent(\"oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone\", \"click\", \"oldboneAssoc.updateDynamicAssociatedStone();\");";
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone", "OldBone_-_Associated_Stone_Artefacts", "{associatedStoneArtefacts}", callback, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocStone", "OldBone_-_Associated_Stone_Artefacts", "vocab");
+    }
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocRawMaterial")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRawMaterial", "OldBone_-_Raw_Material_Types_Present", "{rawMaterialTypesPresent}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRawMaterial", "OldBone_-_Raw_Material_Types_Present", "vocab");  
+    }
     removeAssocStone = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedOtherWorkedMaterial/assocOtherwork", "OldBone_-_Associated_Other_Artefacts", "{associatedOtherArtefacts}", null, "oldboneAssociatedMaterials/associatedOtherWorkedMaterial/assocOtherwork", "OldBone_-_Associated_Other_Artefacts", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedOtherWorkedMaterial/assocOtherwork")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedOtherWorkedMaterial/assocOtherwork", "OldBone_-_Associated_Other_Artefacts", "{associatedOtherArtefacts}", null, "oldboneAssociatedMaterials/associatedOtherWorkedMaterial/assocOtherwork", "OldBone_-_Associated_Other_Artefacts", "vocab");  
+    }
     removeAssocOther = false;
 
     // render the 'selection-dependent' views for the stone tab
-    String callback = "onEvent(\"oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone\", \"click\", \"oldboneAssoc.updateDynamicChippedStone();\");";
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone", "OldBone_-_Associated_Chipped_Stone_Artefacts", "{chippedStoneArtefacts}", callback, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone", "OldBone_-_Associated_Chipped_Stone_Artefacts", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone")) {
+      String callback = "onEvent(\"oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone\", \"click\", \"oldboneAssoc.updateDynamicChippedStone();\");";
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone", "OldBone_-_Associated_Chipped_Stone_Artefacts", "{chippedStoneArtefacts}", callback, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocChippedStone", "OldBone_-_Associated_Chipped_Stone_Artefacts", "vocab");   
+    }
     removeChippedStone = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocUnmodifiedStone", "OldBone_-_Associated_Unmodified_Stone", "{unmodifiedStone}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocUnmodifiedStone", "OldBone_-_Associated_Unmodified_Stone", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocUnmodifiedStone")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocUnmodifiedStone", "OldBone_-_Associated_Unmodified_Stone", "{unmodifiedStone}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocUnmodifiedStone", "OldBone_-_Associated_Unmodified_Stone", "vocab");
+    }    
     removeUnmodifiedStone = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneType", "OldBone_-_Ground_Stone_Types_Present", "{groundStoneType}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneType", "OldBone_-_Ground_Stone_Types_Present", "vocab");
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneStatus", "OldBone_-_Ground_Stone_Status", "{groundStoneStatus}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneStatus", "OldBone_-_Ground_Stone_Status", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneType")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneType", "OldBone_-_Ground_Stone_Types_Present", "{groundStoneType}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneType", "OldBone_-_Ground_Stone_Types_Present", "vocab"); 
+    } 
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneStatus")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneStatus", "OldBone_-_Ground_Stone_Status", "{groundStoneStatus}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocGroundStoneStatus", "OldBone_-_Ground_Stone_Status", "vocab");     
+    }    
     removeGroundStone = false;
-    makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRetouchedStone", "OldBone_-_Associated_Retouched_Artefacts", "{retouchedArtefacts}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRetouchedStone", "OldBone_-_Associated_Retouched_Artefacts", "vocab");
+    if (!hasView("oldboneAssociatedMaterials/associatedStoneArtefacts/assocRetouchedStone")) {
+      makeDynamicVocab("CheckBoxGroup", "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRetouchedStone", "OldBone_-_Associated_Retouched_Artefacts", "{retouchedArtefacts}", null, "oldboneAssociatedMaterials/associatedStoneArtefacts/assocRetouchedStone", "OldBone_-_Associated_Retouched_Artefacts", "vocab");    
+    }
     removeRetouchedArtefacts = false;
     
     // load the saved values into the rendered views
     dialog = showBusy("loading record", "please wait");
     showTabGroup("oldboneAssociatedMaterials", id, new FetchCallback() {
       onFetch(result) {
-        print("loaded assoc: " + result + " with attributes: " + result.getAttributes());
+        // print("loaded assoc: " + result + " with attributes: " + result.getAttributes());
         removeUnselectedMaterials();
         dialog.dismiss();
       }
@@ -1061,7 +1113,7 @@ oldboneAssociatedMaterials() {
     }
   }
 
-  onEvent(tabgroup, "show", "oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+tabgroup+"\"); oldboneAssoc.save();");
+  onEvent(tabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+tabgroup+"\"); oldboneAssoc.save();");
 
   return this;
 }
