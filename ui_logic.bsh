@@ -54,10 +54,25 @@ stopSync() {
     setFileSyncEnabled(false);
 }
 
+/** Fetches the contents of a specifed vocabluary and stores it in the given list. **/
+fetchVocabulary(String vocabName, List storageList) {
+  fetchAll("select vocabid, vocabname from vocabulary left join attributekey using (attributeid) where attributename = '" + vocabName + "';", new FetchCallback() {
+    onFetch(result) {
+      storageList.addAll(result);
+      Log.d("fetchVocabulary()", "Fetched vocabulary \"" + vocabname + "\" contents: " + result.toString());
+    }
+  }); 
+}
+
+/** Wrapper for to make a vocab without an exlusion list **/
+makeVocab(String type, String path, String attrib) {
+  makeVocab(type, path, attrib, null);
+}
+
 /*** 'Editable' - you can edit the code below based on the needs ***/
 /** Vocab Population **/
 /* Populates the path specified vocabulary from the database based on the given attribute name, where type 
-is the type of the vocab to populate (checkbox, dropdown, radio or list). */
+is the type of the vocab to populate (PictureGallery, CheckBoxGroup, DropDown, HierarchicalDropDown, RadioGroup or List). */
 makeVocab(String type, String path, String attrib, List vocabExclusions) {
     makeVocab(type, path, attrib, vocabExclusions, null);
 }
@@ -122,9 +137,17 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
     });
 }
 
-/** Wrapper for to make a vocab without an exlusion list **/
-makeVocab(String type, String path, String attrib) {
-  makeVocab(type, path, attrib, null);
+makeDynamicVocab(String type, String path, String attrib, String label) {
+  makeDynamicVocab(type, path, attrib, label, null, null);
+}
+
+makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction) {
+  makeDynamicVocab(type, path, attrib, label, callbackFunction, null);
+}
+
+/** Makes a dynamic vocab and populates it using a data_schema vocab. **/
+makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container) {
+  makeDynamicVocab(type, path, attrib, label, callbackFunction, container, null, null);
 }
 
 /** Makes a dynamic vocab nested in the specified and populates it using a data_schema vocab, with a callbackFunction to execute after creating the dynamic view. **/
@@ -174,19 +197,6 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
   });
   Log.d("makeDynamicVocab()", "Refreshing CSS for tabgroup: " + tabgroup);
   refreshTabgroupCSS(tabgroup);
-}
-
-/** Makes a dynamic vocab and populates it using a data_schema vocab. **/
-makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container) {
-  makeDynamicVocab(type, path, attrib, label, callbackFunction, container, null, null);
-}
-
-makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction) {
-  makeDynamicVocab(type, path, attrib, label, callbackFunction, null);
-}
-
-makeDynamicVocab(String type, String path, String attrib, String label) {
-  makeDynamicVocab(type, path, attrib, label, null, null);
 }
 
 /** Entity Relationship Saving **/
@@ -477,6 +487,7 @@ oldboneFeature() {
   String desc = type + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  List clusterTypeVocabulary = new ArrayList();
 
   /** Saves the feature **/
   save() {
@@ -538,6 +549,7 @@ oldboneFeature() {
     makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
     makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
     makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
+    fetchVocabulary("OldBone_-_Cluster_Type", clusterTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -565,9 +577,45 @@ oldboneFeature() {
     } 
   }
 
+  /** Displays the insitu proportion view. **/
+  displayInsituProportion() {
+    String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
+    if (isNull(selectedItem)) {
+      Log.e("updateInsituProportion()", "Null field value for: \"oldBone/basicIdentification/clusterType\"");
+      return;
+    } else if (clusterTypeVocabulary == null) {
+      Log.e("updateInsituProportion()", "Null value for: \"clusterTypeVocabulary\"");
+      return;
+    }
+    String dynamicView = "oldBone/insituAndSurfaceBone/insituProportion";
+    Boolean removeDynamicView = true;
+    // iterate through the cluster type vocab and display the insitu proportion view if insitu values are seletced
+    for (clusterType : clusterTypeVocabulary) {
+      if (selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitBO}") || clusterType.get(1).equals("{insitAndSurf}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
+        removeDynamicView = false;
+        if (!hasView(dynamicView)) {
+            executeViewTask(new ViewTask(){
+            doTask() {
+              String vocab = "OldBone_-_Proportion_of_material_that_remains_in_situ";
+              String callback = "makeVocab(\"PictureGallery\", \""+dynamicView+"\", \""+vocab+"\");";
+              makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", callback, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
+              Log.d("displayInsituProportion()", "Making insituProportion picture gallery");
+            }
+          });
+        }
+      }
+    }
+    if (removeDynamicView) {
+      if (hasView(dynamicView)) {
+        removeView(dynamicView);
+      }
+    }
+  }
+
   onEvent(entityTabgroup, "show", "oldbone.save();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion();");
 
   return this;
 }
