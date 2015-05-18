@@ -293,10 +293,12 @@
               <assocStone/>
               <assocChippedStone/>
               <assocRetouchedStone/>
+              <assocChippedRawMaterial/>
               <assocUnmodifiedStone/>
+              <assocUnmodifiedRawMaterial/>
               <assocGroundStoneType/>
               <assocGroundStoneStatus/>
-              <assocRawMaterial/>
+              <assocGroundRawMaterial/>
             </associatedStoneArtefacts>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -1172,8 +1174,14 @@
         <group ref="assocRetouchedStone">
           <label>{oldBoneUI_assocRetouchedStone}</label>
         </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{oldBoneUI_assocChippedRawMaterial}</label>
+        </group>
         <group ref="assocUnmodifiedStone">
           <label>{oldBoneUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{oldBoneUI_assocUnmodifiedRawMaterial}</label>
         </group>
         <group ref="assocGroundStoneType">
           <label>{oldBoneUI_assocGroundStoneType}</label>
@@ -1181,8 +1189,8 @@
         <group ref="assocGroundStoneStatus">
           <label>{oldBoneUI_assocGroundStoneStatus}</label>
         </group>
-        <group ref="assocRawMaterial">
-          <label>{oldBoneUI_assocRawMaterial}</label>
+        <group ref="assocGroundRawMaterial">
+          <label>{oldBoneUI_assocGroundRawMaterial}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">
