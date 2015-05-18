@@ -1475,3 +1475,21 @@ isolatedFeature() {
 isolated = isolatedFeature();
 isolated.init();
 
+/******************************************************************************/
+/*                                   PHOTOS                                   */
+/******************************************************************************/
+ArrayList tabGroups = new ArrayList();
+
+tabGroups.add("hearth");
+tabGroups.add("isolatedOccurrences");
+tabGroups.add("midden");
+tabGroups.add("oldBone");
+tabGroups.add("stoneArtefactClusters");
+
+for (tg : tabGroups) {
+  onEvent(
+      tg + "/topAndStratSetting/takePhoto",
+      "click",
+      "attachPictureTo(\"" + tg + "/topAndStratSetting/takePhoto\")"
+  );
+}
