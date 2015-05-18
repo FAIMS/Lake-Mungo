@@ -1333,13 +1333,13 @@ isolatedFeature() {
    /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurence_Type");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
     makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
-    fetchVocabulary("Isolated_-_Occurence_Type", occurrenceTypeVocabulary);
+    fetchVocabulary("Isolated_-_Occurrence_Type", occurrenceTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
