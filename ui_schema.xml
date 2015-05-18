@@ -172,7 +172,7 @@
               <gridSquare/>
               <calculateGridSquare/>
               <inSituOrSurface/>
-              <occurenceType/>
+              <occurrenceType/>
               <stoneRawMaterialType/>
               <modificationtoOrganicMaterial/>
               <modificationtoStoneMaterial/>
@@ -757,8 +757,8 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="occurenceType" faims_attribute_name="Isolated_-_Occurence_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
-          <label>{isolatedOccurrencesUI_occurenceType}</label>
+        <select1 ref="occurrenceType" faims_attribute_name="Isolated_-_Occurrence_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_occurrenceType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
