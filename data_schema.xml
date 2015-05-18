@@ -1181,7 +1181,7 @@ the possibility that it has been recemented</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated_-_Occurence_Type" type="enum">
+    <property name="Isolated_-_Occurrence_Type" type="enum">
       <description></description>
       <lookup>
         <term> {Stone_Artefacts}
