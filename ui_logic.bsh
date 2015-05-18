@@ -778,7 +778,7 @@ stoneFeature() {
   String type = "Stone Artefact Clusters";
   String desc = type + " record";
   String id = null;
-  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  String relTypeName = "Stone And Associated Materials";
   
   /** Saves the feature **/
   save() {
@@ -828,19 +828,24 @@ stoneFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
+    makeVocab("DropDown"       , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
+    listAssociatedMaterials("Stone Associated Materials", "associatedMaterialListSurface");
+    listAssociatedMaterials("Stone Associated Materials", "associatedMaterialListInSitu");
+  }
+
+  listAssociatedMaterials(String aenttypename, String listRef ) {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + Type + "Associated Materials' " +
+        "where aenttypename = '" + aenttypename + "' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
@@ -851,18 +856,19 @@ stoneFeature() {
         "and relntypeName = '" + relTypeName + "') " +
         "and uuid != "+ id +") " + 
         "limit ? offset ?;";
-      populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
+      populateCursorList(entityTabgroup + "/associatedMaterials/" + listRef, assocListQuery, 25);
       Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
     } else {
       result = new ArrayList();
       result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
+      populateList(entityTabgroup + "/associatedMaterials/" + listRef, result);
     } 
   }
 
   onEvent(entityTabgroup, "show", "stone.save();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "stone.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
 }
@@ -929,10 +935,10 @@ isolatedFeature() {
     makeVocab("DropDown" , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
     makeVocab("DropDown" , entityTabgroup + "/basicIdentification/occurenceType"          , "Isolated_-_Occurence_Type");
     makeVocab("DropDown" , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
-    makeVocab("DropDown" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
