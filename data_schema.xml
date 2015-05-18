@@ -1569,21 +1569,10 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
-    <property name="Isolated_-_Photographs_Taken" type="enum">
-      <description></description>
-      <lookup>
-        <term> {general}
-          <description>Only general artefact and setting photos taken</description>
-        </term>
-        <term> {frame}
-          <description>Only frame photos taken</description>
-        </term>
-      </lookup>
-    </property>
     <property name="Isolated_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
-    <property name="Stone_-_Photos" type="file" file="true" thumbnail="true">
+    <property name="Isolated_-_Photos" type="file" file="true" thumbnail="true">
       <description>Take 2 images: 
        1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
@@ -2273,17 +2262,6 @@ lakebed and hinterland</description>
         </term>
         <term> {indet}
           <description>Indeterminate</description>
-        </term>
-      </lookup>
-    </property>
-    <property name="Stone_-_Photographs_Taken" type="enum">
-      <description></description>
-      <lookup>
-        <term> {general}
-          <description>Only general artefact and setting photos taken</description>
-        </term>
-        <term> {frame}
-          <description>Only frame photos taken</description>
         </term>
       </lookup>
     </property>
