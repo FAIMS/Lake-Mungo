@@ -17,6 +17,8 @@
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_in_situ_material" type="enum" isIdentifier="true">
       <description>If material other than old bone is associated, select those of the following that have been observed in situ</description>
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
@@ -37,6 +39,8 @@
     </property>
     <property name="OldBone_-_Associated_surface_material" type="enum" isIdentifier="true">
       <description>If material other than old bone is associated, select those of the following that have been observed on the surface</description>
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
@@ -284,11 +288,13 @@
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Hearth">
     <description></description>
-    <property name="Hearth_-_ID_Number" type="measure" isIdentifier="true">
-      <description>Feature identification code as marked on tag</description>
-    </property>
     <property name="Hearth_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+    </property>
+    <property name="Hearth_-_ID_Number" type="measure" isIdentifier="true">
+      <description>Feature identification code as marked on tag</description>
+      <formatString><![CDATA[Old Bone $2]]></formatString>
     </property>
     <property name="Hearth_-_Hearth_Type" type="enum">
       <description></description>
@@ -596,11 +602,13 @@
 
   <ArchaeologicalElement name="Midden">
     <description></description>
-    <property name="Midden_-_ID_Number" type="measure" isIdentifier="true">
-      <description>Feature identification code as marked on tag</description>
-    </property>
     <property name="Midden_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+    </property>
+    <property name="Midden_-_ID_Number" type="measure" isIdentifier="true">
+      <description>Feature identification code as marked on tag</description>
+      <formatString><![CDATA[Old Bone $2]]></formatString>
     </property>
     <property name="Midden_-_Midden_Type" type="enum">
       <description></description>
@@ -1145,11 +1153,13 @@
 
   <ArchaeologicalElement name="Isolated">
     <description></description>
-    <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
-      <description></description>
-    </property>
     <property name="Isolated_-_Grid_Square" type="measure" isIdentifier="true">
       <description></description>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+    </property>
+    <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
+      <description></description>
+      <formatString><![CDATA[Old Bone $2]]></formatString>
     </property>
     <property name="Isolated_-_In_Situ_or_Surface" type="enum">
       <description></description>
@@ -1736,11 +1746,13 @@ Genyornis (duck, swan)</description>
 
   <ArchaeologicalElement name="Stone Artefact Clusters">
     <description></description>
-    <property name="Stone_-_ID_Number" type="measure" isIdentifier="true">
-      <description>Artefact identification code as marked on tag</description>
-    </property>
     <property name="Stone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+    </property>
+    <property name="Stone_-_ID_Number" type="measure" isIdentifier="true">
+      <description>Artefact identification code as marked on tag</description>
+      <formatString><![CDATA[Old Bone $2]]></formatString>
     </property>
     <property name="Stone_-_Cluster_Type" type="enum">
       <description></description>
@@ -2554,12 +2566,14 @@ lakebed and hinterland</description>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Old Bone">
     <description></description>
-    <property name="OldBone_-_ID_Number" type="measure" isIdentifier="true">
-      <description>Feature identification code as marked on tag</description>
-    </property>
     <property name="OldBone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
+    <property name="OldBone_-_ID_Number" type="measure" isIdentifier="true">
+      <description>Feature identification code as marked on tag</description>
+      <formatString><![CDATA[Old Bone $2]]></formatString>
+    </property>  
     <property name="OldBone_-_Cluster_Type" type="enum">
       <description></description>
       <lookup>
