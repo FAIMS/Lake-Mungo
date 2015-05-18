@@ -1132,7 +1132,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="oldboneAssociatedMaterials">
+    <group ref="oldboneAssociatedMaterials" faims_archent_type="Old Bone Associated Materials">
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
