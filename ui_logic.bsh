@@ -431,15 +431,15 @@ hearthFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/" + "hearthType", "Hearth_-_Hearth_Type");
-    makeVocab("DropDown", entityTabgroup + "/basicIdentification/" + "charcoal", "Hearth_-_Charcoal");
-    makeVocab("PictureGallery", entityTabgroup + "/hearthStructure/" + "insituProportion", "Hearth_-_Proportion_of_material_that_remains_in_situ");
-    makeVocab("CheckBoxGroup", entityTabgroup + "/hearthStructure/" + "heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths");
-    makeVocab("DropDown", entityTabgroup + "/hearthStructure/" + "nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "topographicSetting", "Hearth_-_Topographic_Setting");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "sedimentType", "Hearth_-_Sediment_Type");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability", "Hearth_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery", entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting", "Hearth_-_Palaeotopographic_Setting");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "hearthType"             , "Hearth_-_Hearth_Type");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "charcoal"               , "Hearth_-_Charcoal");
+    makeVocab("PictureGallery"       , entityTabgroup + "/hearthStructure/" + "insituProportion"           , "Hearth_-_Proportion_of_material_that_remains_in_situ");
+    makeVocab("CheckBoxGroup"        , entityTabgroup + "/hearthStructure/" + "heatRetainer"               , "Hearth_-_Modification_of_heat-retainer_hearths");
+    makeVocab("DropDown"             , entityTabgroup + "/hearthStructure/" + "nonHeatRetainer"            , "Hearth_-_Modification_of_non-heat_retainer_hearths");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"      , "Hearth_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"            , "Hearth_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"    , "Hearth_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting" , "Hearth_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -539,16 +539,16 @@ oldboneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown", entityTabgroup + "/basicIdentification/clusterType"              , "OldBone_-_Cluster_Type");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body_Parts_Identifed");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon_Identified");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone_Preservation");
-    makeVocab("CheckBoxGroup" , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone_-_Deliberate_Surface_Modification");
-    makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic_Setting");
-    makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment_Type");
-    makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
-    makeVocab("PictureGallery"      , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster_Type");
+    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body_Parts_Identifed");
+    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon_Identified");
+    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone_Preservation");
+    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone_-_Deliberate_Surface_Modification");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
     fetchVocabulary("OldBone_-_Cluster_Type", clusterTypeVocabulary);
   }
 
@@ -835,7 +835,8 @@ isolatedFeature() {
   String desc = type + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
-  
+  List occurrenceTypeVocabulary = new ArrayList();
+
   /** Saves the feature **/
   save() {
     Boolean enable_autosave = true;
@@ -884,13 +885,14 @@ isolatedFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/occurenceType"          , "Isolated_-_Occurence_Type");
-    makeVocab("DropDown" , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurence_Type");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
+    fetchVocabulary("Isolated_-_Occurence_Type", occurrenceTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -907,7 +909,7 @@ isolatedFeature() {
         "JOIN relntype using (relntypeid) " +
         "where uuid = "+ id + " " +
         "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +") " + 
+        "and uuid != "+ id +") " +
         "limit ? offset ?;";
       populateCursorList(entityTabgroup + "/associatedMaterials/associatedMaterialList", assocListQuery, 25);
       Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
@@ -918,7 +920,109 @@ isolatedFeature() {
     } 
   }
 
+  /** Displays the insitu proportion view. **/
+  displayOrganicOrStone() {
+    //modificationtoStoneMaterial
+    String ref = "modificationtoOrganicMaterial";
+    String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/occurrenceType");
+    if (isNull(selectedItem)) {
+      return;
+    }
+    if (occurrenceTypeVocabulary == null) {
+      return;
+    }
+    String dynamicViewOrganic = entityTabgroup + "/basicIdentification/modificationtoOrganicMaterial";
+    String dynamicViewStone   = entityTabgroup + "/basicIdentification/modificationtoStoneMaterial";
+
+    /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
+    selectedItemText = "";
+    for (occurrenceType : occurrenceTypeVocabulary) {
+      if (selectedItem.equals(occurrenceType.get(0))) {
+        selectedItemText = occurrenceType.get(1);
+      }
+    }
+
+    /* Figure out if an organic material is selected by comparing it to `selectedItemText` */
+    ArrayList organicMaterials = new ArrayList();
+    ArrayList stoneMaterials   = new ArrayList();
+
+    organicMaterials.add("{bettong}");
+    organicMaterials.add("{bivalve}");
+    organicMaterials.add("{carnivore}");
+    organicMaterials.add("{eggemu}");
+    organicMaterials.add("{egggenyo}");
+    organicMaterials.add("{eggindet}");
+    organicMaterials.add("{eggother}");
+    organicMaterials.add("{emu}");
+    organicMaterials.add("{exoskel}");
+    organicMaterials.add("{fishbone}");
+    organicMaterials.add("{glith}");
+    organicMaterials.add("{indetbone}");
+    organicMaterials.add("{macropod}");
+    organicMaterials.add("{otherbird}");
+    organicMaterials.add("{reptile}");
+    organicMaterials.add("{rodent}");
+    organicMaterials.add("{smallmars}");
+    organicMaterials.add("{wombat}");
+
+    stoneMaterials.add("{notch}");
+    stoneMaterials.add("{scraper}");
+    stoneMaterials.add("{backed}");
+    stoneMaterials.add("{unifpt}");
+    stoneMaterials.add("{bifac}");
+    stoneMaterials.add("{otehrru}");
+    stoneMaterials.add("{debris}");
+    stoneMaterials.add("{core}");
+    stoneMaterials.add("{hammer}");
+    stoneMaterials.add("{mport}");
+    stoneMaterials.add("{groundst}");
+    stoneMaterials.add("{indet}");
+    stoneMaterials.add("{bonetool}");
+    stoneMaterials.add("{shellmod}");
+    stoneMaterials.add("{eggmod}");
+    stoneMaterials.add("{ochre}");
+    stoneMaterials.add("{facetochre}");
+    stoneMaterials.add("{qtzxtal}");
+    stoneMaterials.add("{hscarb}");
+    stoneMaterials.add("{hsterm}");
+    stoneMaterials.add("{hsclay}");
+    stoneMaterials.add("{hsother}");
+
+    Boolean isSelectedOrganicMaterial = organicMaterials.contains(selectedItemText);
+    Boolean isSelectedStoneMaterial   = stoneMaterials.contains(selectedItemText);
+
+    /* Update the UI based on the selected item */
+    if (isSelectedOrganicMaterial) {
+      if (hasView(dynamicViewStone)) {     // First, remove the stone view if it exists
+        removeView(dynamicViewStone);
+      }
+      if (!hasView(dynamicViewOrganic)) {  // Then, add in the organic view if it doesn't exist yet
+        executeViewTask(new ViewTask(){
+          doTask() {
+            String vocab = "Isolated_-_Modification_to_Organic_Material";
+            String callback = "makeVocab(\"CheckBoxGroup\", \""+dynamicViewOrganic+"\", \""+vocab+"\");";
+            makeDynamicVocab("CheckBoxGroup", dynamicViewOrganic, vocab, "{isolatedOccurrencesUI_modificationtoOrganicMaterial}", callback, dynamicViewOrganic, vocab, "vocab"); 
+          }
+        });
+      }
+    } else if (isSelectedStoneMaterial) {
+      if (hasView(dynamicViewOrganic)) {     // First, remove the *organic* view if it exists
+        removeView(dynamicViewOrganic);
+      }
+      if (!hasView(dynamicViewStone)) {       // Then, add in the *stone* view if it doesn't exist yet
+        executeViewTask(new ViewTask(){
+          doTask() {
+            String vocab = "Isolated_-_Modification_to_Stone_Material";
+            String callback = "makeVocab(\"CheckBoxGroup\", \""+dynamicViewStone+"\", \""+vocab+"\");";
+            makeDynamicVocab("CheckBoxGroup", dynamicViewStone, vocab, "{isolatedOccurrencesUI_modificationtoStoneMaterial}", callback, dynamicViewStone, vocab, "vocab"); 
+          }
+        });
+      }
+    }
+  }
+
   onEvent(entityTabgroup, "show", "isolated.save();");
+  onEvent(entityTabgroup + "/basicIdentification/occurrenceType", "click", "isolated.displayOrganicOrStone();");
 
   return this;
 }
