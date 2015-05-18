@@ -615,7 +615,6 @@ oldboneFeature() {
   }
 
   onclickClusterType() {
-    Log.d("oldBone.onClickClusterType()", "Hello world!");
     String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
     Boolean showAssocTab = false;
     for (clusterType : clusterTypeVocabulary) {
