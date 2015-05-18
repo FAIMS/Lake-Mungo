@@ -357,11 +357,11 @@ loadFeature() {
         } else if (result.get(0).get(0).equals("Hearth")) {
           hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
-          showToast("Placeholder for loading a midden feature");
+          midde.load();
         } else if (result.get(0).get(0).equals("Stone Artefact Clusters")) {
-          showToast("Placeholder for loading a stone feature");
+          stone.load();
         } else if (result.get(0).get(0).equals("Isolated")) {
-          showToast("Placeholder for loading an isolated feature");
+          isolated.load();
         }
       }
     });
@@ -370,10 +370,10 @@ loadFeature() {
   }
 }
 
-onEvent("control/control/newEntity", "delayclick", "newFeature();");
-onEvent("control/search/entityTypes", "click", "loadSearch();");
-onEvent("control/search", "show", "loadSearch();");
-onEvent("control/search/entityList", "click", "loadFeature();");
+onEvent("control/control/newEntity"  , "delayclick" , "newFeature();");
+onEvent("control/search"             , "show"       , "loadSearch();");
+onEvent("control/search/entityList"  , "click"      , "loadFeature();");
+onEvent("control/search/entityTypes" , "click"      , "loadSearch();");
 
 /*** HEARTH FEATURE ***/
 hearthFeature() {
@@ -1176,16 +1176,16 @@ middenFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                            , "Midden_-_Midden_Type");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "presenceOfCharcoal"                    , "Midden_-_Presence_of_charcoal");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion_of_material_that_remains_in_situ");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalvePreservation"                   , "Midden_-_Bivalve_preservation");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
 
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                     , "Midden_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                           , "Midden_-_Sediment_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                   , "Midden_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"                , "Midden_-_Palaeotopographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "topographicSetting"                   , "Midden_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                         , "Midden_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                 , "Midden_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"              , "Midden_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -1434,10 +1434,11 @@ isolatedFeature() {
     String dynamicViewStone   = entityTabgroup + "/basicIdentification/modificationtoStoneMaterial";
 
     /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
-    selectedItemText = "";
+    String selectedItemText = "";
     for (occurrenceType : occurrenceTypeVocabulary) {
       if (selectedItem.equals(occurrenceType.get(0))) {
         selectedItemText = occurrenceType.get(1);
+        break;
       }
     }
 
@@ -1464,28 +1465,28 @@ isolatedFeature() {
     organicMaterials.add("{smallmars}");
     organicMaterials.add("{wombat}");
 
-    stoneMaterials.add("{notch}");
-    stoneMaterials.add("{scraper}");
     stoneMaterials.add("{backed}");
-    stoneMaterials.add("{unifpt}");
     stoneMaterials.add("{bifac}");
-    stoneMaterials.add("{otehrru}");
-    stoneMaterials.add("{debris}");
-    stoneMaterials.add("{core}");
-    stoneMaterials.add("{hammer}");
-    stoneMaterials.add("{mport}");
-    stoneMaterials.add("{groundst}");
-    stoneMaterials.add("{indet}");
     stoneMaterials.add("{bonetool}");
-    stoneMaterials.add("{shellmod}");
+    stoneMaterials.add("{core}");
+    stoneMaterials.add("{debris}");
     stoneMaterials.add("{eggmod}");
-    stoneMaterials.add("{ochre}");
     stoneMaterials.add("{facetochre}");
-    stoneMaterials.add("{qtzxtal}");
+    stoneMaterials.add("{groundst}");
+    stoneMaterials.add("{hammer}");
     stoneMaterials.add("{hscarb}");
-    stoneMaterials.add("{hsterm}");
     stoneMaterials.add("{hsclay}");
     stoneMaterials.add("{hsother}");
+    stoneMaterials.add("{hsterm}");
+    stoneMaterials.add("{indet}");
+    stoneMaterials.add("{mport}");
+    stoneMaterials.add("{notch}");
+    stoneMaterials.add("{ochre}");
+    stoneMaterials.add("{otehrru}");
+    stoneMaterials.add("{qtzxtal}");
+    stoneMaterials.add("{scraper}");
+    stoneMaterials.add("{shellmod}");
+    stoneMaterials.add("{unifpt}");
 
     Boolean isSelectedOrganicMaterial = organicMaterials.contains(selectedItemText);
     Boolean isSelectedStoneMaterial   = stoneMaterials.contains(selectedItemText);
@@ -1528,3 +1529,21 @@ isolatedFeature() {
 isolated = isolatedFeature();
 isolated.init();
 
+/******************************************************************************/
+/*                                   PHOTOS                                   */
+/******************************************************************************/
+ArrayList tabGroups = new ArrayList();
+
+tabGroups.add("hearth");
+tabGroups.add("isolatedOccurrences");
+tabGroups.add("midden");
+//tabGroups.add("oldBone");
+tabGroups.add("stoneArtefactClusters");
+
+for (tg : tabGroups) {
+  onEvent(
+      tg + "/topAndStratSetting/takePhoto",
+      "click",
+      "attachPictureTo(\"" + tg + "/topAndStratSetting/takePhoto\")"
+  );
+}

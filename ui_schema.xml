@@ -369,7 +369,7 @@
         </select1>
       </group>
     </group>
-    <group ref="hearth" faims_archent_type="hearth">
+    <group ref="hearth" faims_archent_type="Hearth">
       <label>{hearthUI_hearth}</label>
       <group ref="basicIdentification">
         <label>{hearthUI_basicIdentification}</label>
@@ -482,7 +482,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="hearthAssociatedMaterials" faims_archent_type="hearth associated materials">
+    <group ref="hearthAssociatedMaterials" faims_archent_type="Hearth Associated Materials">
       <label>{hearthAssociatedMaterialsUI_hearthAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{hearthAssociatedMaterialsUI_nearbyMaterial}</label>
@@ -552,7 +552,7 @@
         </group>
       </group>
     </group>
-    <group ref="stoneArtefactClusters" faims_archent_type="stone artefact clusters">
+    <group ref="stoneArtefactClusters" faims_archent_type="Stone Artefact Clusters">
       <label>{stoneArtefactClustersUI_stoneArtefactClusters}</label>
       <group ref="basicIdentification">
         <label>{stoneArtefactClustersUI_basicIdentification}</label>
@@ -695,7 +695,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="stoneAssociatedMaterials" faims_archent_type="stone associated">
+    <group ref="stoneAssociatedMaterials" faims_archent_type="Stone Associated">
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
       <group ref="control">
         <label>{stoneAssociatedMaterialsUI_control}</label>
@@ -737,7 +737,7 @@
         </group>
       </group>
     </group>
-    <group ref="isolatedOccurrences" faims_archent_type="isolated">
+    <group ref="isolatedOccurrences" faims_archent_type="Isolated">
       <label>{isolatedOccurrencesUI_isolatedOccurrences}</label>
       <group ref="basicIdentification">
         <label>{isolatedOccurrencesUI_basicIdentification}</label>
@@ -823,7 +823,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="midden" faims_archent_type="midden">
+    <group ref="midden" faims_archent_type="Midden">
       <label>{middenUI_midden}</label>
       <group ref="basicIdentification">
         <label>{middenUI_basicIdentification}</label>
@@ -936,7 +936,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="middenAssociatedMaterials" faims_archent_type="midden associated materials">
+    <group ref="middenAssociatedMaterials" faims_archent_type="Midden Associated Materials">
       <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
