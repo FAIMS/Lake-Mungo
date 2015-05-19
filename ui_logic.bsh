@@ -1227,9 +1227,7 @@ oldboneAssociatedMaterials() {
       }
     }
   }
-
-  // onEvent(insituTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+insituTabgroup+"\"); oldboneAssoc.save();");
-  // onEvent(surfaceTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); oldboneAssoc.save();");
+  
   onEvent(insituTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+insituTabgroup+"\"); oldboneAssoc.save();");
   onEvent(surfaceTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); oldboneAssoc.save();");
   
