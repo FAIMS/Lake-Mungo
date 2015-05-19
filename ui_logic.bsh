@@ -177,12 +177,8 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
   String tabgroup = path.split("/")[0];
   String tab = path.split("/")[1];
   String view = path.split("/")[2];
-  fetchAll("select vocabid, vocabname from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
+  fetchAll("select vocabid, vocabname, pictureurl from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
     onFetch(result) {
-      // print ("Dynamic Vocab: " + result);
-      for (item : result) {
-        viewDef.addChoice(item.get(1), item.get(0));
-      }
       if (!isNull(container)) {
         Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in container '" + container + "'");
         createView(path, viewDef, container);
@@ -190,6 +186,15 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
         Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in tab '" + tabgroup + "/" + tab + "'");
         createView(path, viewDef);
       }
+
+      if (type.equals("CheckBoxGroup")) {
+        populateCheckBoxGroup(path, result);
+      } else if (type.equals("RadioGroup")) {
+        populateRadioGroup(path, result);
+      } else if (type.equals("PictureGallery")) {
+        populatePictureGallery(path, result);
+      }    
+
       if (callbackFunction != null && !isNull(callbackFunction)) {
         execute(callbackFunction);
       }
