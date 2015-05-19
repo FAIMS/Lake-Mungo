@@ -652,7 +652,7 @@
     </property>
     <property name="Hearth_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
-      <formatString><![CDATA[Old Bone $2]]></formatString>
+      <formatString><![CDATA[Hearth $2]]></formatString>
     </property>
     <property name="Hearth_-_Hearth_Type" type="enum">
       <description></description>
@@ -974,7 +974,7 @@
     </property>
     <property name="Midden_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
-      <formatString><![CDATA[Old Bone $2]]></formatString>
+      <formatString><![CDATA[Midden $2]]></formatString>
     </property>
     <property name="Midden_-_Midden_Type" type="enum">
       <description></description>
@@ -1543,7 +1543,7 @@
     </property>
     <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
       <description></description>
-      <formatString><![CDATA[Old Bone $2]]></formatString>
+      <formatString><![CDATA[Isolated $2]]></formatString>
     </property>
     <property name="Isolated_-_In_Situ_or_Surface" type="enum">
       <description></description>
@@ -2143,7 +2143,7 @@ Genyornis (duck, swan)</description>
     </property>
     <property name="Stone_-_ID_Number" type="measure" isIdentifier="true">
       <description>Artefact identification code as marked on tag</description>
-      <formatString><![CDATA[Old Bone $2]]></formatString>
+      <formatString><![CDATA[Stone $2]]></formatString>
     </property>
     <property name="Stone_-_Cluster_Type" type="enum">
       <description></description>

@@ -354,7 +354,7 @@
     </group>
     <group ref="user">
       <label>{userList}</label>
-      <group ref="usertab">
+      <group ref="usertab" faims_scrollable="false">
         <label>{userList}</label>
         <select1 appearance="compact" ref="users" faims_certainty="false" faims_annotation="false">
           <label>{users}</label>
@@ -380,7 +380,7 @@
           <label>{newEntity}</label>
         </trigger>
       </group>
-      <group ref="search">
+      <group ref="search" faims_scrollable="false">
         <label>{search}</label>
         <select1 ref="entityTypes" faims_attribute_type="vocab">
           <label>{entityTypes}</label>
@@ -389,7 +389,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 appearance="compact" ref="entityList">
+        <select1 appearance="compact" ref="entityList" faims_style_class="menu-list">
           <label>{entityList}</label>
           <item>
             <label>placeholder</label>

@@ -325,7 +325,7 @@ populateDropDown("control/search/entityTypes", entityTypes);
 /* Loads a list view of existing entities. */
 loadSearch() {
   String type = getFieldValue("control/search/entityTypes");
-  populateCursorList("control/search/entityList", "select uuid, response from latestNonDeletedArchEntFormattedIdentifiers where aenttypename like '%" + type + "%' limit ? offset ?;", 25);
+  populateCursorList("control/search/entityList", "select uuid, response from latestNonDeletedArchEntFormattedIdentifiers where aenttypename = '" + type + "' limit ? offset ?;", 25);
 }
 
 /** Creates a record for the selected feature type. **/
