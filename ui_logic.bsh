@@ -59,7 +59,7 @@ fetchVocabulary(String vocabName, List storageList) {
   fetchAll("select vocabid, vocabname from vocabulary left join attributekey using (attributeid) where attributename = '" + vocabName + "';", new FetchCallback() {
     onFetch(result) {
       storageList.addAll(result);
-      Log.d("fetchVocabulary()", "Fetched vocabulary \"" + vocabname + "\" contents: " + result.toString());
+      // Log.d("fetchVocabulary()", "Fetched vocabulary \"" + vocabname + "\" contents: " + result.toString());
     }
   }); 
 }
@@ -195,7 +195,6 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
       }
     }
   });
-  Log.d("makeDynamicVocab()", "Refreshing CSS for tabgroup: " + tabgroup);
   refreshTabgroupCSS(tabgroup);
 }
 
@@ -500,8 +499,6 @@ oldboneFeature() {
     Boolean enable_autosave = true;
     saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
       onSave(uuid, newRecord) {
-        Log.d("autosave", "id: " + id);
-        Log.d("autosave", "uuid: " + uuid.toString());
         id = uuid;
         Log.d("save()", desc + " saved with id: " + id);
         if (newRecord) {
@@ -796,7 +793,6 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       dynamicView = surfaceTabgroup+"/nearbyMaterial/assocSurfaceMaterial";
     }
-    Log.d("getSelectedAssocMaterial()", "dynamicView = "+dynamicView);
     if (hasView(dynamicView)) {
       return getFieldValue(dynamicView);
     } else {
@@ -817,15 +813,13 @@ oldboneAssociatedMaterials() {
       vocab = "OldBone_-_Associated_surface_material";
       label = "{oldBoneUI_assocSurfaceMaterial}";
     }
-    Log.d("renderControlTab()", "tabgroup = "+tabgroup);
-    Log.d("renderControlTab()", "dynamicView = "+dynamicView);
     if (!hasView(dynamicView)) {
       String callback = "onEvent(\""+dynamicView+"\", \"click\", \"oldboneAssoc.renderAssocTabs();\"); oldboneAssoc.renderAssocTabs();";
       executeViewTask(new ViewTask(){
         doTask() {
           Log.d("renderControlTab()", "Making the dynamic view "+dynamicView+", as it doesn't exist");
           makeDynamicVocab("CheckBoxGroup", dynamicView, vocab, label, callback, null, vocab, "vocab");
-          Log.d("renderControlTab()", "Attached callback: " + callback);
+          // Log.d("renderControlTab()", "Attached callback: " + callback);
           if (loading) {
             Log.d("renderControlTab()", "Preparing to load");
             loadAssocCallback();
@@ -845,8 +839,6 @@ oldboneAssociatedMaterials() {
         tabgroup = surfaceTabgroup;
         vocabulary = surfaceMaterialVocabulary;
       }
-      Log.d("renderAssocTabs()", "tabgroup = "+tabgroup);
-      Log.d("renderAssocTabs()", "vocabulary = "+vocabulary);
       for (selectedItem : selectedAssocMaterial) {
         // render the associated material dynamic views
         for (type : vocabulary) {
@@ -904,8 +896,6 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       tabgroup = surfaceTabgroup;
     }
-    Log.d("onShowAssociatedMaterials()", "loading = "+loading);
-    Log.d("onShowAssociatedMaterials()", "tabgroup = "+tabgroup);
     // remove unselected tabs
     if (removeAssocMussel) {
       cancelTab(tabgroup+"/associatedMussel", false);
