@@ -1215,8 +1215,13 @@ middenFeature() {
     });
   }
 
-  displayDynamicFields() {
-    //modificationtoStoneMaterial
+  displayAssocMaterials() {
+    List checkedMaterials = getFieldValue("middenAssociatedMaterials/control/assocMaterial");
+    if (isNull(checkedMaterials))
+      return;
+  }
+
+  displayContinuity() {
     String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/middenType");
     if (isNull(selectedItem)) {
       return;
@@ -1256,7 +1261,7 @@ middenFeature() {
                 "CheckBoxGroup",
                 refContinuity,
                 faimsAttribContinuity,
-                "{isolatedOccurrencesUI_modificationtoOrganicMaterial}",
+                "{middenUI_continuity}",
                 callback,
                 refContinuity,
                 faimsAttribContinuity,
@@ -1276,6 +1281,7 @@ middenFeature() {
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "presenceOfCharcoal"                    , "Midden_-_Presence_of_charcoal");
+    makeVocab("CheckBoxGroup"             , "middenAssociatedMaterials/control/assocMaterial", "MiddenAssoc_-_Associated_material");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion_of_material_that_remains_in_situ");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalvePreservation"                   , "Midden_-_Bivalve_preservation");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
@@ -1320,7 +1326,7 @@ middenFeature() {
   onEvent(entityTabgroup + "/associatedMaterials"                        , "show"  , "midden.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"middenAssociatedMaterials\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList" , "click" , "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click" , "midden.displayDynamicFields();");
+  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click" , "midden.displayContinuity();");
 
   return this;
 }

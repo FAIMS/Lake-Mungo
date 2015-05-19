@@ -942,9 +942,13 @@
       <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
-        <group ref="assocMaterial">
+        <select ref="assocMaterial" faims_attribute_name="MiddenAssoc_-_Associated_material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{middenAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
