@@ -3174,229 +3174,229 @@ lakebed and hinterland</description>
     <property name="OldBone_-_Topographic_Setting" type="enum">
       <description>Where on the lunette exposure is the old bone located?</description>
       <lookup>
-        <term> {platform}
+        <term pictureURL="files/data/images/missing.png"> {platform}
           <description>Broad, flat platform exposure</description>
         </term>
-        <term> {less6Degree}
+        <term pictureURL="files/data/images/missing.png"> {less6Degree}
           <description>Slightly sloping surface</description>
         </term>
-        <term> {6To12Degree}
+        <term pictureURL="files/data/images/missing.png"> {6To12Degree}
           <description>Moderately sloping surface</description>
         </term>
-        <term> {greater12Degree}
+        <term pictureURL="files/data/images/missing.png"> {greater12Degree}
           <description>More steeply sloping surface</description>
         </term>
-        <term> {shallrill}
+        <term pictureURL="files/data/images/missing.png"> {shallrill}
           <description>Within a shallow rill</description>
         </term>
-        <term> {rillfloor}
+        <term pictureURL="files/data/images/missing.png"> {rillfloor}
           <description>In the floor of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {rillwall}
+        <term pictureURL="files/data/images/missing.png"> {rillwall}
           <description>In the wall of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {ridge}
+        <term pictureURL="files/data/images/missing.png"> {ridge}
           <description>On a narrow ridge in heavily eroded area</description>
         </term>
-        <term> {ridgerill}
+        <term pictureURL="files/data/images/missing.png"> {ridgerill}
           <description>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</description>
         </term>
-        <term> {shalgulfl}
+        <term pictureURL="files/data/images/missing.png"> {shalgulfl}
           <description>In the floor of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {shalgulwal}
+        <term pictureURL="files/data/images/missing.png"> {shalgulwal}
           <description>In the wall of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {deepgulfl}
+        <term pictureURL="files/data/images/missing.png"> {deepgulfl}
           <description>In the floor of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {deepgulwal}
+        <term pictureURL="files/data/images/missing.png"> {deepgulwal}
           <description>In the wall of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {residtop}
+        <term pictureURL="files/data/images/missing.png"> {residtop}
           <description>Flat surface on top of a residual</description>
         </term>
-        <term> {residside}
+        <term pictureURL="files/data/images/missing.png"> {residside}
           <description>In the side of a residual</description>
         </term>
-        <term> {chanfloor}
+        <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> {chanwall}
+        <term> pictureURL="files/data/images/missing.png" {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
-        <term> {allfan}
+        <term pictureURL="files/data/images/missing.png"> {allfan}
           <description>modern alluvial fan</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Sediment_Type" type="enum">
       <description>What are the sediments that encase the old bone, or upon which they are immediately lying?</description>
       <lookup>
-        <term> {redsand}
+        <term pictureURL="files/data/images/missing.png"> {redsand}
           <description>quartz sand of a reddish colour</description>
         </term>
-        <term> {brownsand}
+        <term pictureURL="files/data/images/missing.png"> {brownsand}
           <description>quartz sands of a brownish colour</description>
         </term>
-        <term> {whitesand}
+        <term pictureURL="files/data/images/missing.png"> {whitesand}
           <description>sand that is clean (no clay) and white</description>
         </term>
-        <term> {othersand}
+        <term pictureURL="files/data/images/missing.png"> {othersand}
           <description>quartz sands of a different colour (eg pink)</description>
         </term>
-        <term> {clayeysand}
+        <term pictureURL="files/data/images/missing.png"> {clayeysand}
           <description>quartz sands that contain some clay</description>
         </term>
-        <term> {laminarsand}
+        <term pictureURL="files/data/images/missing.png"> {laminarsand}
           <description>fine laminae of quartz sands, clayey sands and clays; brown colour, sands predominate</description>
         </term>
-        <term> {redlamsand}
+        <term pictureURL="files/data/images/missing.png"> {redlamsand}
           <description>red sands preserving fine bedding</description>
         </term>
-        <term> {unconsolsand}
+        <term pictureURL="files/data/images/missing.png"> {unconsolsand}
           <description>unconsolidated sands, sometimes with thin horizons of carbonate (archaeology bearing)</description>
         </term>
-        <term> {modernaeolian}
+        <term pictureURL="files/data/images/missing.png"> {modernaeolian}
           <description>shifting veneer of unconsolidated sands, coppice sands</description>
         </term>
-        <term> {pelletalclay}
+        <term pictureURL="files/data/images/missing.png"> {pelletalclay}
           <description>grey clays made up of clay pellets</description>
         </term>
-        <term> {alternat}
+        <term pictureURL="files/data/images/missing.png"> {alternat}
           <description>alternating beds of pelletal clay and quartz sand</description>
         </term>
-        <term> {clay-alt}
+        <term pictureURL="files/data/images/missing.png"> {clay-alt}
           <description>distinct bed of pelletal clay within a sequence of alternating sands and clays</description>
         </term>
-        <term> {sand-alt}
+        <term pictureURL="files/data/images/missing.png"> {sand-alt}
           <description>distinct bed of quartz sand within a sequence of alternating sands and clays</description>
         </term>
-        <term> {bluelam-alt}
+        <term pictureURL="files/data/images/missing.png"> {bluelam-alt}
           <description>mm-thick, but laterally traceable lens of clay with distinct ‘blue’ colour</description>
         </term>
-        <term> {greenclay}
+        <term pictureURL="files/data/images/missing.png"> {greenclay}
           <description>clay of a green colour</description>
         </term>
-        <term> {redsoil}
+        <term pictureURL="files/data/images/missing.png"> {redsoil}
           <description>soil of a reddish colour</description>
         </term>
-        <term> {brownsoil}
+        <term pictureURL="files/data/images/missing.png"> {brownsoil}
           <description>soil of a brownish colour</description>
         </term>
-        <term> {darksoil}
+        <term pictureURL="files/data/images/missing.png"> {darksoil}
           <description>soil with greyish to dark greyish colour, carbonate rich</description>
         </term>
-        <term> {carbsoft}
+        <term pictureURL="files/data/images/missing.png"> {carbsoft}
           <description>sediment containing diffuse soil carbonate (C horizon)</description>
         </term>
-        <term> {carbnodule}
+        <term pictureURL="files/data/images/missing.png"> {carbnodule}
           <description>sediment containing hard carbonate nodules (C horizon)</description>
         </term>
-        <term> {carbpavemt}
+        <term pictureURL="files/data/images/missing.png"> {carbpavemt}
           <description>well developed in situ soil carbonates forming a solid pavement</description>
         </term>
-        <term> {carblag}
+        <term pictureURL="files/data/images/missing.png"> {carblag}
           <description>broken up, angular pieces of carbonate nodules, root traces, burrows, rhizomorphs representing a reworked lag</description>
         </term>
-        <term> {finesilt}
+        <term pictureURL="files/data/images/missing.png"> {finesilt}
           <description>fine, well-sorted silt with no clay component</description>
         </term>
-        <term> {cobblebeach}
+        <term pictureURL="files/data/images/missing.png"> {cobblebeach}
           <description>continuous bed of rounded carbonate nodules, rhizomorphs etc together with rounded pebbles/cobbles of qtz or rock fragments</description>
         </term>
-        <term> {gravelbeach}
+        <term pictureURL="files/data/images/missing.png"> {gravelbeach}
           <description>relatively continuous bed of rounded gravels and coarse sand</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Stratigraphic_Unit" type="enum">
       <description></description>
       <lookup>
-        <term> {Golgol}
+        <term pictureURL="files/data/images/missing.png"> {Golgol}
           <description>deeply weathered sands and clays with strong red colour</description>
         </term>
-        <term> {ggC}
+        <term pictureURL="files/data/images/missing.png"> {ggC}
           <description>Golgol C horizon: in situ carbonate nodules and sediments cemented together to form distinct pavement (pinkish colour)</description>
         </term>
-        <term> {gglag}
+        <term pictureURL="files/data/images/missing.png"> {gglag}
           <description>surface lag made up of broken up, angular pieces of pinkish carbonate nodules, root traces etc derived from the Golgol C</description>
         </term>
-        <term> {B}
+        <term pictureURL="files/data/images/missing.png"> {B}
           <description>Lower Mungo</description>
         </term>
-        <term> {C}
+        <term pictureURL="files/data/images/missing.png"> {C}
           <description>Upper Mungo</description>
         </term>
-        <term> {D}
+        <term pictureURL="files/data/images/missing.png"> {D}
           <description>mega-lake sediments</description>
         </term>
-        <term> {E}
+        <term pictureURL="files/data/images/missing.png"> {E}
           <description>Arumpo/Zanci</description>
         </term>
-        <term> {F}
+        <term pictureURL="files/data/images/missing.png"> {F}
           <description>unconsolidated sands reworked lunette sediments</description>
         </term>
-        <term> {G}
+        <term pictureURL="files/data/images/missing.png"> {G}
           <description>Holocene alluvial fans</description>
         </term>
-        <term> {H}
+        <term pictureURL="files/data/images/missing.png"> {H}
           <description>modern aeolian</description>
         </term>
-        <term> {I}
+        <term pictureURL="files/data/images/missing.png"> {I}
           <description>modern alluvium</description>
         </term>
-        <term> {indet}
+        <term pictureURL="files/data/images/missing.png"> {indet}
           <description>stratgraphic unit not yet identified</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Vulnerability_To_Erosion" type="enum">
       <description>Based on the cluster type and its topographic setting, how vulnerable is the old bone?</description>
       <lookup>
-        <term> {low}
+        <term pictureURL="files/data/images/missing.png"> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills, in well cemented (firm) sediment</description>
         </term>
-        <term> {moderate}
+        <term pictureURL="files/data/images/missing.png"> {moderate}
           <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
         </term>
-        <term> {high}
+        <term pictureURL="files/data/images/missing.png"> {high}
           <description>High probability of material being removed by erosion, or of the hearth losing its integrity, e.g. relatively steep slope with incipient rills and/or in loose sandy sediment</description>
         </term>
-        <term> {extreme}
+        <term pictureURL="files/data/images/missing.png"> {extreme}
           <description>Hearth material is in imminent danger of rapid removal and loss, e.g. edge of eroding residual or deep rill, in gully wall, on a steep slope- washed surface, or in loose sandy sediment</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Palaeotopographic_Setting" type="enum">
       <description>Where is the old bone cluster located in relation to the original dune morphology?</description>
       <lookup>
-        <term> {foredune}
+        <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
         </term>
-        <term> {backdune}
+        <term pictureURL="files/data/images/missing.png"> {backdune}
           <description>Stratigraphic layers are sloping towards the hinterland</description>
         </term>
-        <term> {crest}
+        <term pictureURL="files/data/images/missing.png"> {crest}
           <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
         </term>
-        <term> {beach}
+        <term pictureURL="files/data/images/missing.png"> {beach}
           <description>An area of rounded cobbles or gravels in distinct horizon</description>
         </term>
-        <term> {spit}
+        <term pictureURL="files/data/images/missing.png"> {spit}
           <description>Projection from dune into lakebed</description>
         </term>
-        <term> {lakebed}
+        <term pictureURL="files/data/images/missing.png"> {lakebed}
           <description>Lakebed sediments</description>
         </term>
-        <term> {indet}
+        <term pictureURL="files/data/images/missing.png"> {indet}
           <description>Indeterminate</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Photos" type="file" file="true" thumbnail="true">
