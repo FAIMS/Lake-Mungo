@@ -1243,6 +1243,7 @@ middenFeature() {
   String desc = archentType + " record";
   String id = null;
   String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  ArrayList middenTypeVocabulary = new ArrayList();
   
   /** Saves the feature **/
   save() {
@@ -1290,6 +1291,63 @@ middenFeature() {
     });
   }
 
+  displayDynamicFields() {
+    //modificationtoStoneMaterial
+    String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/middenType");
+    if (isNull(selectedItem)) {
+      return;
+    }
+    if (middenTypeVocabulary == null) {
+      return;
+    }
+    String dynamicViewMiddenType = entityTabgroup + "/basicIdentification/continuity";
+
+    /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
+    String selectedItemName = "";
+    for (middenType : middenTypeVocabulary) {
+      if (selectedItem.equals(middenType.get(0))) {
+        selectedItemName = middenType.get(1);
+        break;
+      }
+    }
+
+    ArrayList extensiveAndLargeTypes = new ArrayList();
+
+    extensiveAndLargeTypes.add("{largeclust}");
+    extensiveAndLargeTypes.add("{extthin}");
+    extensiveAndLargeTypes.add("{extthick}");
+
+    String faimsAttribMiddenType = "Midden_-_Midden_Type";
+    String refMiddenType         = entityTabgroup + "/basicIdentification/middenType";
+    Boolean isSelectedExtensiveOrLarge = extensiveAndLargeTypes.contains(selectedItemName);
+
+    String faimsAttribContinuity = "Midden_-_Continuity";
+    String refContinuity         = entityTabgroup + "/basicIdentification/continuity";
+    if (isSelectedExtensiveOrLarge) {
+      if (!hasView(refContinuity)) {
+          executeViewTask(new ViewTask(){
+            doTask() {
+              String callback = "makeVocab(\"CheckBoxGroup\", \"" + refContinuity+"\", \"" + faimsAttribContinuity + "\");";
+              makeDynamicVocab(
+                "CheckBoxGroup",
+                refContinuity,
+                faimsAttribContinuity,
+                "{isolatedOccurrencesUI_modificationtoOrganicMaterial}",
+                callback,
+                refContinuity,
+                faimsAttribContinuity,
+                "vocab"
+              );
+            }
+          });
+      }
+    } else {
+      if (hasView(refContinuity)) {
+        removeView(refContinuity);
+      }
+    }
+  }
+
    /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
@@ -1302,6 +1360,8 @@ middenFeature() {
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "sedimentType"                         , "Midden_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "erosionVulnerability"                 , "Midden_-_Vulnerability_to_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/" + "paleotopographicSetting"              , "Midden_-_Palaeotopographic_Setting");
+
+    fetchVocabulary("Midden_-_Midden_Type", middenTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -1332,9 +1392,11 @@ middenFeature() {
     } 
   }
 
-  onEvent(entityTabgroup, "show", "midden.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "midden.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup                                                 , "show"  , "midden.save();");
+  onEvent(entityTabgroup + "/associatedMaterials"                        , "show"  , "midden.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"middenAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList" , "click" , "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click" , "midden.displayDynamicFields();");
 
   return this;
 }
@@ -1397,11 +1459,11 @@ stoneFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("DropDown"       , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -1411,11 +1473,11 @@ stoneFeature() {
   }
 
   /** Populates the in-situ and surface associated materials list. **/
-  listAssociatedMaterials() {
+  listAssociatedMaterials(String aenttypename, String listRef ) {
     if(!isNull(id)) {
       String assocListQuery = "select uuid, response " +
         "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + stone.archentType + "Associated Materials' " +
+        "where aenttypename = '" + aenttypename + "' " +
         "and uuid in  (select uuid " +
         "FROM latestNonDeletedAentReln " +
         "where relationshipid in (select relationshipid " +
@@ -1424,18 +1486,15 @@ stoneFeature() {
         "JOIN relntype using (relntypeid) " +
         "where uuid = "+ id + " " +
         "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocListQuery, new FetchCallback() {
-        onFetch(result) {
-          populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-        }
-      });
+        "and uuid != "+ id +") " + 
+        "limit ? offset ?;";
+      populateCursorList(entityTabgroup + "/associatedMaterials/" + listRef, assocListQuery, 25);
       Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
     } else {
       result = new ArrayList();
       result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-    } 
+      populateList(entityTabgroup + "/associatedMaterials/" + listRef, result);
+    }
   }
 
   onEvent(entityTabgroup, "show", "stone.save();");
@@ -1547,7 +1606,6 @@ isolatedFeature() {
   /** Displays the insitu proportion view. **/
   displayOrganicOrStone() {
     //modificationtoStoneMaterial
-    String ref = "modificationtoOrganicMaterial";
     String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/occurrenceType");
     if (isNull(selectedItem)) {
       return;
@@ -1559,15 +1617,15 @@ isolatedFeature() {
     String dynamicViewStone   = entityTabgroup + "/basicIdentification/modificationtoStoneMaterial";
 
     /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
-    String selectedItemText = "";
+    String selectedItemName = "";
     for (occurrenceType : occurrenceTypeVocabulary) {
       if (selectedItem.equals(occurrenceType.get(0))) {
-        selectedItemText = occurrenceType.get(1);
+        selectedItemName = occurrenceType.get(1);
         break;
       }
     }
 
-    /* Figure out if an organic material is selected by comparing it to `selectedItemText` */
+    /* Figure out if an organic material is selected by comparing it to `selectedItemName` */
     ArrayList organicMaterials = new ArrayList();
     ArrayList stoneMaterials   = new ArrayList();
 
@@ -1613,8 +1671,8 @@ isolatedFeature() {
     stoneMaterials.add("{shellmod}");
     stoneMaterials.add("{unifpt}");
 
-    Boolean isSelectedOrganicMaterial = organicMaterials.contains(selectedItemText);
-    Boolean isSelectedStoneMaterial   = stoneMaterials.contains(selectedItemText);
+    Boolean isSelectedOrganicMaterial = organicMaterials.contains(selectedItemName);
+    Boolean isSelectedStoneMaterial   = stoneMaterials.contains(selectedItemName);
 
     /* Update the UI based on the selected item */
     if (isSelectedOrganicMaterial) {
