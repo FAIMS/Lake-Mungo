@@ -592,7 +592,7 @@
           <description>Other material</description>
         </term>
       </lookup>
-    <property>
+    </property>
     <property name="OldBone_-_Ground_Stone_Raw_Material" type="enum">
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
