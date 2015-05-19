@@ -374,6 +374,108 @@ onEvent("control/search"             , "show"       , "loadSearch();");
 onEvent("control/search/entityList"  , "click"      , "loadFeature();");
 onEvent("control/search/entityTypes" , "click"      , "loadSearch();");
 
+/*******************/
+/* Grid Square GPS */
+/** Calculates the grid square that the feature is in. **/
+calculateGridSquare(String id, String tabgroup, String gridSquareViewPath) {
+  // check that GPS is on and a position can be found.
+  if(!isExternalGPSOn() && !isInternalGPSOn()) {
+    showToast("Please turn on GPS");
+    Log.e("calculateGridSquare()", "Internal and external GPS are off.");
+    return;
+  }
+  Object position = getGPSPosition();
+  if (position == null) {
+    showToast("A GPS position could not be found");
+    Log.e("calculateGridSquare()", "A GPS position couldn't be found.");
+    return;
+  }
+  if(isNull(id)) {
+    showToast("The record needs to be saved before calculating the grid square");
+    Log.e("calculateGridSquare()", "The entity_id is null as the record has not been saved yet.");
+    return;
+  }
+  // record the gps geometry 
+  dialog = showBusy("Caculating grid square", "please wait");
+  Object projPosition = getGPSPositionProjected();
+  Log.d("calculateGridSquare()", "Projected position: " + projPosition.toString());
+  Double latitude = position.getLatitude();
+  Double longitude = position.getLongitude();
+  Double northing = projPosition.getLatitude();
+  Double easting = projPosition.getLongitude();
+  Log.d("calculateGridSquare()", "Using module srid " + getModuleSrid() + ", obtained as lat and long (" + latitude.toString() + " " + longitude.toString() + "), and northing and easting (" + northing.toString() + " " + easting.toString() + ")");
+  samplePoint = new Point(new MapPos(easting, northing), null, (PointStyle) null, null);
+  ArrayList geolist = new ArrayList();
+  geolist.add(samplePoint);
+  saveArchEnt(id, tabgroup, geolist, null, new SaveCallback() {
+    onSave(uuid, newRecord) {
+      Log.d("calculateGridSquare()", "Saved geometry: " + geolist.toString());
+      // queryGridDB(easting.toString(), northing.toString(), gridSquareViewPath);
+      queryGridDB("693400", "6257300", gridSquareViewPath); // Used for testing
+      showWarning("Alert", "The calculate grid square is currently using the following mock projections for testing: (693400, 6257300)");
+      dialog.dismiss();
+    }  
+  });
+}
+
+/** Connects to and queries the grid db. **/
+queryGridDB(String easting, String northing, String gridSquareViewPath) {
+  String srid = getModuleSrid();
+  File file = new File("/sdcard/faims/modules/"+getModuleId()+"/files/data/grid.sqlite3");
+  type = jsqlite.Constants.SQLITE_OPEN_READONLY;
+  jsqlite.Database db = new jsqlite.Database();
+  // Query the grid square
+  String gridSquareQuery = "select label from grid where coveredBy(pointfromtext('POINT ("+easting+" "+northing+")',"+srid+"), grid) order by x,y limit 1;";
+  Log.d("queryGridDB()", "Running query to select grid label: " + gridSquareQuery);
+  try {
+    db.open(file.getPath(), type);
+    db.exec(gridSquareQuery, new Callback() {
+      public void columns(String[] coldata) {
+        Log.d("grid square query", "coldata: " + Arrays.toString(coldata));
+      }
+      public void types(String[] types) {
+        Log.d("grid square query", "types: " + Arrays.toString(types));
+      }
+      public boolean newrow(String[] rowdata) {
+        Log.d("grid square query", "rowdata: " + Arrays.toString(rowdata));
+        setFieldValue(gridSquareViewPath, rowdata[0].toString());
+        showToast("You are in grid square " + rowdata[0].toString());
+        return false;
+      }
+    });
+  } catch (Exception e) {
+    Log.e("error dumping database", e.toString());
+  } finally {
+    db.close();
+  }
+  // Query the grid warning
+  String warningQuery = "select warning from gridbuffer where  coveredBy(pointfromtext('POINT ("+easting+" "+northing+")',"+srid+"), gridbuffer);";
+  Log.d("queryGridDB()", "Running query to select grid warning: " + warningQuery);
+  try {
+    db.open(file.getPath(), type);
+    db.exec(warningQuery, new Callback() {
+      public void columns(String[] coldata) {
+        Log.d("grid warning query", "coldata: " + Arrays.toString(coldata));
+      }
+      public void types(String[] types) {
+        Log.d("grid warning query", "types: " + Arrays.toString(types));
+      }
+      public boolean newrow(String[] rowdata) {
+        Log.d("grid warning query", "rowdata: " + Arrays.toString(rowdata));
+        if (rowdata[0].toString().equals("warning")) {
+          showWarning("Warning", "You are close to a grid square boundary");
+        }
+        return false;
+      }
+    });
+  } catch (Exception e) {
+    Log.e("error dumping database", e.toString());
+  } finally {
+    db.close();
+  }
+}
+/*******************/
+
 /*** HEARTH FEATURE ***/
 hearthFeature() {
   String entityTabgroup = "hearth";
@@ -667,6 +769,7 @@ oldboneFeature() {
   onEvent(entityTabgroup, "show", "oldbone.save();");
   onEvent(entityTabgroup, "show", "oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone.id, oldbone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
   onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
   onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc.isInsituMaterial=true; oldboneAssoc.create();");
