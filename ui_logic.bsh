@@ -238,7 +238,7 @@ saveEntitiesToHierRel(String type, String entity1, String entity2, String e1verb
 /** Action Bar **/
 addActionBarItem("sync", new ToggleActionButtonCallback() {
     actionOnLabel() {
-        "{Sync_Enabled}";
+        "{Disable_Sync}";
     }
     actionOn() {
         setSyncEnabled(false);
@@ -249,7 +249,7 @@ addActionBarItem("sync", new ToggleActionButtonCallback() {
         isSyncEnabled();
     }
     actionOffLabel() {
-        "{Sync_Disabled}";
+        "{Enable_Sync}";
     }
     actionOff() {
         setSyncEnabled(true);
@@ -260,41 +260,41 @@ addActionBarItem("sync", new ToggleActionButtonCallback() {
 
 addActionBarItem("internal_gps", new ToggleActionButtonCallback() {
     actionOnLabel() {
-        "{Internal_GPS_Enabled}";
+        "{Disable_Internal_GPS}";
     }
     actionOn() {
         stopGPS();
-        showToast("{GPS_Disabled}");
+        showToast("{Internal_GPS_Disabled}");
     }
     isActionOff() {
         isInternalGPSOn();
     }
     actionOffLabel() {
-        "{Internal_GPS_Disabled}";
+        "{Enable_Internal_GPS}";
     }
     actionOff() {
         if(isExternalGPSOn()) {
             stopGPS();
         }
         startInternalGPS();
-        showToast("{GPS_Enabled}");
+        showToast("{Internal_GPS_Enabled}");
     }
 });
 
 addActionBarItem("external_gps", new ToggleActionButtonCallback() {
     actionOnLabel() {
-        "{External_GPS_Enabled}";
+        "{Disable_External_GPS}";
     }
     actionOn() {
         stopGPS();
-        showToast("{GPS_Disabled}");
+        showToast("{External_GPS_Disabled}");
 
     }
     isActionOff() {
         isExternalGPSOn();
     }
     actionOffLabel() {
-        "{External_GPS_Disabled}";
+        "{Enable_External_GPS}";
     }
     actionOff() {
         if(isInternalGPSOn()) {
@@ -302,7 +302,7 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
         }
         startExternalGPS();
         if(isBluetoothConnected()) {
-            showToast("{GPS_Enabled}");
+            showToast("{External_GPS_Enabled}");
         } else {
             showToast("{Please_Enable_Bluetooth}");
             this.isActionOff();
