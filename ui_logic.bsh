@@ -578,6 +578,10 @@ oldboneFeature() {
         "and uuid != "+ id +");";
       fetchAll(assocInsituListQuery, new FetchCallback() {
         onFetch(result) {
+          if (result == null || result.isEmpty()) {
+              result = new ArrayList();
+              result.add(new NameValuePair("{noRecordsFound}", ""));
+          }
           populateList(entityTabgroup + "/associatedMaterials/associatedInsituList", result);
         }
       });
@@ -595,7 +599,11 @@ oldboneFeature() {
         "and uuid != "+ id +");";
       fetchAll(assocSurfaceListQuery, new FetchCallback() {
         onFetch(result) {
-          populateList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", result);
+          if (result == null || result.isEmpty()) {
+              result = new ArrayList();
+              result.add(new NameValuePair("{noRecordsFound}", ""));
+          }
+          populateList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", result); 
         }
       });
     } else {
@@ -731,7 +739,7 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       tabgroup = surfaceTabgroup;
     }
-    selectedID = getListItemValue();
+    String selectedID = getListItemValue();
     if (!isNull(selectedID) && !selectedID.equals("placeholder")) {
       Log.d("load()", "Preparing to load associated material with ID: " + selectedID);
       id = selectedID;
@@ -769,6 +777,7 @@ oldboneAssociatedMaterials() {
             id = null;
             removeAllViewsAndContainers(tabgroup);
             newTabGroup(tabgroup);
+            renderControlTab();
           } else {
             String type = "insitu";
             if (!isInsituMaterial) {
@@ -895,6 +904,7 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       tabgroup = surfaceTabgroup;
     }
+    Log.d("onShowAssociatedMaterials()", "loading = "+loading);
     Log.d("onShowAssociatedMaterials()", "tabgroup = "+tabgroup);
     // remove unselected tabs
     if (removeAssocMussel) {
@@ -1228,8 +1238,11 @@ oldboneAssociatedMaterials() {
     }
   }
 
-  onEvent(insituTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+insituTabgroup+"\"); oldboneAssoc.save();");
-  onEvent(surfaceTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); oldboneAssoc.save();");
+  // onEvent(insituTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+insituTabgroup+"\"); oldboneAssoc.save();");
+  // onEvent(surfaceTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); oldboneAssoc.renderControlTab(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); oldboneAssoc.save();");
+  onEvent(insituTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+insituTabgroup+"\"); oldboneAssoc.save();");
+  onEvent(surfaceTabgroup, "show", "oldboneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); oldboneAssoc.save();");
+  
   return this;
 }
 oldboneAssoc = oldboneAssociatedMaterials();
