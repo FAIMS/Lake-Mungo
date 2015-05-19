@@ -54,7 +54,7 @@ stopSync() {
     setFileSyncEnabled(false);
 }
 
-/** Fetches the contents of a specifed vocabluary and stores it in the given list. **/
+/** Fetches the contents of a specifed vocabulary and stores it in the given list. **/
 fetchVocabulary(String vocabName, List storageList) {
   fetchAll("select vocabid, vocabname from vocabulary left join attributekey using (attributeid) where attributename = '" + vocabName + "';", new FetchCallback() {
     onFetch(result) {
@@ -787,6 +787,7 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       dynamicView = surfaceTabgroup+"/nearbyMaterial/assocSurfaceMaterial";
     }
+    Log.d("getSelectedAssocMaterial()", "dynamicView = "+dynamicView);
     if (hasView(dynamicView)) {
       return getFieldValue(dynamicView);
     } else {
@@ -807,12 +808,15 @@ oldboneAssociatedMaterials() {
       vocab = "OldBone_-_Associated_surface_material";
       label = "{oldBoneUI_assocSurfaceMaterial}";
     }
+    Log.d("renderControlTab()", "tabgroup = "+tabgroup);
+    Log.d("renderControlTab()", "dynamicView = "+dynamicView);
     if (!hasView(dynamicView)) {
       String callback = "onEvent(\""+dynamicView+"\", \"click\", \"oldboneAssoc.renderAssocTabs();\"); oldboneAssoc.renderAssocTabs();";
       executeViewTask(new ViewTask(){
         doTask() {
           Log.d("renderControlTab()", "Making the dynamic view "+dynamicView+", as it doesn't exist");
           makeDynamicVocab("CheckBoxGroup", dynamicView, vocab, label, callback, null, vocab, "vocab");
+          Log.d("renderControlTab()", "Attached callback: " + callback);
           if (loading) {
             Log.d("renderControlTab()", "Preparing to load");
             loadAssocCallback();
@@ -827,13 +831,18 @@ oldboneAssociatedMaterials() {
     selectedAssocMaterial = getSelectedAssocMaterial();
     if (selectedAssocMaterial != null && !selectedAssocMaterial.isEmpty()) {
       String tabgroup = insituTabgroup;
+      List vocabulary = insituMaterialVocabulary;
       if (!isInsituMaterial) {
         tabgroup = surfaceTabgroup;
+        vocabulary = surfaceMaterialVocabulary;
       }
+      Log.d("renderAssocTabs()", "tabgroup = "+tabgroup);
+      Log.d("renderAssocTabs()", "vocabulary = "+vocabulary);
       for (selectedItem : selectedAssocMaterial) {
         // render the associated material dynamic views
-        for (type : insituMaterialVocabulary) {
+        for (type : vocabulary) {
           if (selectedItem.getName().equals(type.get(0))) {
+            Log.d("renderAssocTabs()", "Selected "+tabgroup+" "+type.get(1));
             executeViewTask(new ViewTask() {
               doTask() {
               if (type.get(1).equals("{mussel}")) {
@@ -886,6 +895,7 @@ oldboneAssociatedMaterials() {
     if (!isInsituMaterial) {
       tabgroup = surfaceTabgroup;
     }
+    Log.d("onShowAssociatedMaterials()", "tabgroup = "+tabgroup);
     // remove unselected tabs
     if (removeAssocMussel) {
       cancelTab(tabgroup+"/associatedMussel", false);
@@ -1010,8 +1020,10 @@ oldboneAssociatedMaterials() {
     if (selectedAssocMaterial != null && !selectedAssocMaterial.isEmpty())
     {
       String tabgroup = insituTabgroup;
+      List vocabulary = insituMaterialVocabulary;
       if (!isInsituMaterial) {
         tabgroup = surfaceTabgroup;
+        vocabulary = surfaceMaterialVocabulary;
       }
       removeAssocMussel = true;
       removeAssocHearth = true;
@@ -1020,7 +1032,7 @@ oldboneAssociatedMaterials() {
       removeAssocOther = true;
       // flag the selected values which shouldn't be removed.
       for (selectedItem : selectedAssocMaterial) {
-        for (type : insituMaterialVocabulary) {
+        for (type : vocabulary) {
           if (selectedItem.getName().equals(type.get(0))) {
             if (type.get(1).equals("{mussel}")) {
               removeAssocMussel = false;
