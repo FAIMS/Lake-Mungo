@@ -275,9 +275,36 @@
               <takePhoto/>
             </topAndStratSetting>
           </oldBone>
-          <oldboneAssociatedMaterials>
+          <oldboneAssociatedInsituMaterials>
             <nearbyMaterial>
               <assocInsituMaterial/>
+            </nearbyMaterial>
+            <associatedMussel>
+              <assocMussel/>
+            </associatedMussel>
+            <associatedEggshell>
+              <assocEggshell/>
+            </associatedEggshell>
+            <associatedHearthMaterial>
+              <assocHearth/>
+            </associatedHearthMaterial>
+            <associatedStoneArtefacts>
+              <assocStone/>
+              <assocChippedStone/>
+              <assocRetouchedStone/>
+              <assocChippedRawMaterial/>
+              <assocUnmodifiedStone/>
+              <assocUnmodifiedRawMaterial/>
+              <assocGroundStoneType/>
+              <assocGroundStoneStatus/>
+              <assocGroundRawMaterial/>
+            </associatedStoneArtefacts>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </oldboneAssociatedInsituMaterials>
+          <oldboneAssociatedSurfaceMaterials>
+            <nearbyMaterial>
               <assocSurfaceMaterial/>
             </nearbyMaterial>
             <associatedMussel>
@@ -303,7 +330,7 @@
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
             </associatedOtherWorkedMaterial>
-          </oldboneAssociatedMaterials>
+          </oldboneAssociatedSurfaceMaterials>
         </faims>
       </instance>
       <!-- Insert nodeset bindings here -->
@@ -327,7 +354,7 @@
     </group>
     <group ref="user">
       <label>{userList}</label>
-      <group ref="usertab">
+      <group ref="usertab" faims_scrollable="false">
         <label>{userList}</label>
         <select1 appearance="compact" ref="users" faims_certainty="false" faims_annotation="false">
           <label>{users}</label>
@@ -353,7 +380,7 @@
           <label>{newEntity}</label>
         </trigger>
       </group>
-      <group ref="search">
+      <group ref="search" faims_scrollable="false">
         <label>{search}</label>
         <select1 ref="entityTypes" faims_attribute_type="vocab">
           <label>{entityTypes}</label>
@@ -362,7 +389,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 appearance="compact" ref="entityList">
+        <select1 appearance="compact" ref="entityList" faims_style_class="menu-list">
           <label>{entityList}</label>
           <item>
             <label>placeholder</label>
@@ -1138,13 +1165,73 @@
         </trigger>
       </group>
     </group>
-    <group ref="oldboneAssociatedMaterials" faims_archent_type="Old Bone Associated Materials">
+    <group ref="oldboneAssociatedInsituMaterials" faims_archent_type="Old Bone Associated Insitu Materials">
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
         <group ref="assocInsituMaterial">
           <label>{oldBoneUI_assocInsituMaterial}</label>
         </group>
+      </group>
+      <group ref="associatedMussel">
+        <label>{oldBoneUI_associatedMussel}</label>
+        <group ref="assocMussel">
+          <label>{oldBoneUI_assocMussel}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{oldBoneUI_associatedEggshell}</label>
+        <group ref="assocEggshell">
+          <label>{oldBoneUI_assocEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedHearthMaterial">
+        <label>{oldBoneUI_associatedHearthMaterial}</label>
+        <group ref="assocHearth">
+          <label>{oldBoneUI_assocHearth}</label>
+        </group>
+      </group>
+      <group ref="associatedStoneArtefacts">
+        <label>{oldBoneUI_associatedStoneArtefacts}</label>
+        <group ref="assocStone">
+          <label>{oldBoneUI_assocStone}</label>
+        </group>
+        <group ref="assocChippedStone">
+          <label>{oldBoneUI_assocChippedStone}</label>
+        </group>
+        <group ref="assocRetouchedStone">
+          <label>{oldBoneUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{oldBoneUI_assocChippedRawMaterial}</label>
+        </group>
+        <group ref="assocUnmodifiedStone">
+          <label>{oldBoneUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{oldBoneUI_assocUnmodifiedRawMaterial}</label>
+        </group>
+        <group ref="assocGroundStoneType">
+          <label>{oldBoneUI_assocGroundStoneType}</label>
+        </group>
+        <group ref="assocGroundStoneStatus">
+          <label>{oldBoneUI_assocGroundStoneStatus}</label>
+        </group>
+        <group ref="assocGroundRawMaterial">
+          <label>{oldBoneUI_assocGroundRawMaterial}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{oldBoneUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork">
+          <label>{oldBoneUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+    <group ref="oldboneAssociatedSurfaceMaterials" faims_archent_type="Old Bone Associated Surface Materials">
+      <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
+      <group ref="nearbyMaterial">
+        <label>{oldBoneUI_nearbyMaterial}</label>
         <group ref="assocSurfaceMaterial">
           <label>{oldBoneUI_assocSurfaceMaterial}</label>
         </group>
