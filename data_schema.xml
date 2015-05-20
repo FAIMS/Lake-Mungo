@@ -3,14 +3,17 @@
   <RelationshipElement name="Midden And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Midden and Midden Associated Materials</description>
   </RelationshipElement>
-  <RelationshipElement name="Stone And Associated Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Stone Arrtefact Clusters and Stone Associated</description>
+  <RelationshipElement name="Stone And Associated Insitu Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Stone Artefact Clusters and Stone Associated Insitu</description>
+  </RelationshipElement>
+  <RelationshipElement name="Stone And Associated Surface Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Stone Artefact Clusters and Stone Associated Surface</description>
   </RelationshipElement>
   <RelationshipElement name="Old Bone And Associated Insitu Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Materials</description>
+    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Insitu Materials</description>
   </RelationshipElement>
   <RelationshipElement name="Old Bone And Associated Surface Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Materials</description>
+    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Surface Materials</description>
   </RelationshipElement>
   <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
@@ -1672,8 +1675,7 @@ stone</description>
             <description>Genyornis eggshell</description>
           </term>
           <term> {eggother}
-            <description>Other eggshell, clearly not emu or
-Genyornis</description>
+            <description>Other eggshell, clearly not emu or Genyornis</description>
           </term>
           <term> {eggindet}
             <description>Indeterminate eggshell, features unclear due to surface modification</description>
@@ -1919,16 +1921,13 @@ Genyornis</description>
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
         </term>
         <term> {moderate}
-          <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure,
-gully head, expanding rill system</description>
+          <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
         </term>
         <term> {high}
-          <description>High probability of material being removed by erosion, or losing its integrity, e.g. relatively
-steep slope with incipient rills</description>
+          <description>High probability of material being removed by erosion, or losing its integrity, e.g. relatively steep slope with incipient rills</description>
         </term>
         <term> {extreme}
-          <description>Cluster is in imminent danger of rapid removal and loss of material, e.g. edge of eroding
-residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
+          <description>Cluster is in imminent danger of rapid removal and loss of material, e.g. edge of eroding residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -1949,8 +1948,7 @@ residual or deep rill, in gully wall, on a steep, slope-washed surface</descript
           <description>Lakebed sediments</description>
         </term>
         <term> {crest}
-          <description>Crest of dune, stratigraphic layers slope away, towards both
-lakebed and hinterland</description>
+          <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
         </term>
         <term> {spit}
           <description>Projection from dune into lakebed</description>
@@ -1970,7 +1968,7 @@ lakebed and hinterland</description>
        2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
     </property>
   </ArchaeologicalElement>
-  <ArchaeologicalElement name="Stone Associated">
+  <ArchaeologicalElement name="Stone Associated Insitu">
     <description></description>
     <property name="Stone_-_In_Situ" type="enum">
       <description></description>
@@ -1992,6 +1990,130 @@ lakebed and hinterland</description>
         </term>
       </lookup>
     </property>
+    <property name="Stone_-_Hearth" type="enum">
+      <description></description>
+      <lookup>
+        <term> {clay}
+          <description>Baked clay or sandy clay hearthstones</description>
+        </term>
+        <term> {carb}
+          <description>Carbonate hearthstones</description>
+        </term>
+        <term> {term}
+          <description>Termite nest hearthstones (holes and channels visible)</description>
+        </term>
+        <term> {other}
+          <description>Hearthstones of other material, e.g. stone</description>
+        </term>
+        <term> {indet}
+          <description>Hearthstones of indeterminate raw material</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Lacustrine" type="enum">
+      <description></description>
+      <lookup>
+        <term> {mussel}
+          <description>Mussel shell or shell fragment</description>
+        </term>
+        <term> {fishbone}
+          <description>Fish bone</description>
+        </term>
+        <term> {fishotol}
+          <description>Fish otolith</description>
+        </term>
+        <term> {glith}
+          <description>Crustacean gastrolith</description>
+        </term>
+        <term> {exoskel}
+          <description>Crustacean exoskeleton</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Terrestrial" type="enum">
+      <description></description>
+      <lookup>
+        <term> {wombat}
+          <description></description>
+        </term>
+        <term> {bettong}
+          <description></description>
+        </term>
+        <term> {macropod}
+          <description>Eastern Grey, Western Grey, Red Kangaroo</description>
+        </term>
+        <term> {smallmars}
+          <description>Small marsupial</description>
+        </term>
+        <term> {emu}
+          <description>Emu bone</description>
+        </term>
+        <term> {birdother}
+          <description>Other types of bird bone</description>
+        </term>
+        <term> {carnivore}
+          <description>Thylacine, Tasmanian Devil</description>
+        </term>
+        <term> {reptile}
+          <description>Bearded dragon, luards, Joanna</description>
+        </term>
+        <term> {unident}
+          <description>Cannot be identified by recorder</description>
+        </term>
+        <term> {unidiag}
+          <description>Fragment is undiagnostic</description>
+        </term>
+        <term> {mega}
+          <description>Megafauna remains</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Eggshell" type="enum">
+      <description></description>
+      <lookup>
+        <term> {emu}
+          <description>Emu eggshell</description>
+        </term>
+        <term> {genyo}
+          <description>Genyornis eggshell</description>
+        </term>
+        <term> {other}
+          <description>Other eggshell, clearly not emu or Genyornis (duck, swan)</description>
+        </term>
+        <term> {indet}
+          <description>Indeterminate eggshell, features unclear due to surface modification</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
+      <description></description>
+      <lookup>
+        <term> {bone}
+          <description>Worked bone</description>
+        </term>
+        <term> {shell}
+          <description>Worked shell</description>
+        </term>
+        <term> {ochre}
+          <description>Unworked ochre</description>
+        </term>
+        <term> {facetochre}
+          <description>Facetted ochre</description>
+        </term>
+        <term> {qtzxtal}
+          <description>Unworked quartz crystal</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
+  </ArchaeologicalElement>
+
+  <ArchaeologicalElement name="Stone Associated Surface">
+    <description></description>
     <property name="Stone_-_Surface" type="enum">
       <description></description>
       <lookup>
@@ -2103,8 +2225,7 @@ lakebed and hinterland</description>
           <description>Genyornis eggshell</description>
         </term>
         <term> {other}
-          <description>Other eggshell, clearly not emu or
-Genyornis (duck, swan)</description>
+          <description>Other eggshell, clearly not emu or Genyornis (duck, swan)</description>
         </term>
         <term> {indet}
           <description>Indeterminate eggshell, features unclear due to surface modification</description>
