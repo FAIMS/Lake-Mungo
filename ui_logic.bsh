@@ -1836,6 +1836,6 @@ for (tg : tabGroups) {
   onEvent(
       tg + "/topAndStratSetting/takePhoto",
       "click",
-      "attachPictureTo(\"" + tg + "/topAndStratSetting/takePhoto\")"
+      "attachPictureTo(\"" + tg + "/topAndStratSetting/photos\")"
   );
 }
