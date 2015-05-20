@@ -2278,12 +2278,10 @@ stone</description>
             <description>Discrete stone artefact cluster on the surface, but in a topographic and sedimentary context indicating that they have not been transported</description>
           </term>
           <term> {both}
-            <description>3 or more in situ stone artefacts within 1m of each other, plus a surface cluster of artefacts
-other, plus a surface cluster of artefacts</description>
+            <description>3 or more in situ stone artefacts within 1m of each other, plus a surface cluster of artefacts other, plus a surface cluster of artefacts</description>
           </term>
           <term> {surfrefit}
-            <description>A collection of surface artefacts of the same raw
-material that have the potential to have been derived from the same piece of stone</description>
+            <description>A collection of surface artefacts of the same raw material that have the potential to have been derived from the same piece of stone</description>
           </term>
         </term>
         <term> {Stone_artefacts_and_other_material}
