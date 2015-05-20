@@ -138,6 +138,7 @@
             <topAndStratSetting>
               <topographicSetting/>
               <sedimentType/>
+              <stratigraphicUnit/>
               <erosionVulnerability/>
               <paleotopographicSetting/>
               <notes/>
@@ -714,7 +715,14 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Stone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{stoneArtefactClustersUI_stratigraphicUnit}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
@@ -728,7 +736,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Stone_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Stone_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Stone_-_Photos" faims_attribute_type="measure">
