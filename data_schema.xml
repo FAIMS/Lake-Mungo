@@ -2305,23 +2305,10 @@ stone</description>
           <description>Chipped stone</description>
         </term>
         <term> {um}
-          <description>Unmodified stone
-(manuport)</description>
+          <description>Unmodified stone (manuport)</description>
         </term>
         <term> {gs}
           <description>Ground stone</description>
-        </term>
-        <term> {csum}
-          <description>Both chipped and unmodified stone</description>
-        </term>
-        <term> {csgs}
-          <description>Both chipped and ground stone</description>
-        </term>
-        <term> {csumgs}
-          <description>Chipped, unmodified and ground stone</description>
-        </term>
-        <term> {umgs}
-          <description>Unmodified and ground stone</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -2434,8 +2421,7 @@ stone</description>
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
         </term>
         <term> {carb}
-          <description>A thin or powdery calcium carbonate
-￼coating</description>
+          <description>A thin or powdery calcium carbonate coating</description>
         </term>
         <term> {abraded}
           <description>A scored, scratched or polished surface</description>
@@ -2446,23 +2432,81 @@ stone</description>
         <term> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Stone_-_In_Situ_-_Raw_Material_Types" type="enum">
-      <description></description>
+    <property name="Stone_-_In_Situ_-_Chipped_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
-          <description>Fine-grained silcrete</description>
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
         </term>
         <term> {silccoarse}
-          <description>Coarse-grained silcrete</description>
+          <description>Quartz grains greater than 0.5mm</description>
         </term>
-        <term> {silcgran}
-          <description>Granular silcrete</description>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
         </term>
         <term> {qtzite}
           <description>Quartzite</description>
         </term>
-        <term> {qtzite}
+        <term> {qtz}
           <description>Quartz</description>
+        </term>
+        <term> {ironst}
+          <description>Ironstone</description>
+        </term>
+        <term> {other}
+          <description>Other material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_In_Situ_-_Unmodified_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains greater than 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Quartzite</description>
+        </term>
+        <term> {qtz}
+          <description>Quartz</description>
+        </term>
+        <term> {ironst}
+          <description>Ironstone</description>
+        </term>
+        <term> {sandst}
+          <description>Sandstone</description>
+        </term>
+        <term> {other}
+          <description>Other material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_In_Situ_-_Ground_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains greater than 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
         </term>
         <term> {ironst}
           <description>Ironstone</description>
@@ -2586,8 +2630,7 @@ stone</description>
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
         </term>
         <term> {carb}
-          <description>A thin or powdery calcium carbonate
-￼coating</description>
+          <description>A thin or powdery calcium carbonate coating</description>
         </term>
         <term> {abraded}
           <description>A scored, scratched or polished surface</description>
@@ -2598,23 +2641,81 @@ stone</description>
         <term> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Stone_-_Surface_-_Raw_Material_Types" type="enum">
-      <description></description>
+    <property name="Stone_-_Surface_-_Chipped_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
-          <description>Fine-grained silcrete</description>
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
         </term>
         <term> {silccoarse}
-          <description>Coarse-grained silcrete</description>
+          <description>Quartz grains greater than 0.5mm</description>
         </term>
-        <term> {silcgran}
-          <description>Granular silcrete</description>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
         </term>
         <term> {qtzite}
           <description>Quartzite</description>
         </term>
-        <term> {qtzite}
+        <term> {qtz}
           <description>Quartz</description>
+        </term>
+        <term> {ironst}
+          <description>Ironstone</description>
+        </term>
+        <term> {other}
+          <description>Other material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Surface_-_Unmodified_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains greater than 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Quartzite</description>
+        </term>
+        <term> {qtz}
+          <description>Quartz</description>
+        </term>
+        <term> {ironst}
+          <description>Ironstone</description>
+        </term>
+        <term> {sandst}
+          <description>Sandstone</description>
+        </term>
+        <term> {other}
+          <description>Other material</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Surface_-_Ground_Stone_Raw_Material" type="enum">
+      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains less than 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains greater than 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>No grains visible in the matrix</description>
         </term>
         <term> {ironst}
           <description>Ironstone</description>

@@ -112,20 +112,25 @@
             <inSituDescription>
               <inSituInSituStoneArtefacts/>
               <inSituChippedStoneArtfacts/>
+              <inSituChippedRawMaterial/>
               <inSituRetouchedArtefacts/>
               <inSituUnmodifiedStoneTypes/>
+              <inSituUnmodifiedRawMaterial/>
               <inSituGroundStoneTypes/>
               <inSituGroundStoneStatus/>
+              <inSituGroundRawMaterial/>
               <inSituSurfaceModification/>
-              <inSituRawMaterialTypes/>
             </inSituDescription>
             <surfaceDescription>
               <potentialRefits/>
               <surfaceChippedStoneArtfacts/>
+              <surfaceChippedRawMaterial/>
               <surfaceRetouchedArtefacts/>
               <surfaceUnmodifiedStoneTypes/>
+              <surfaceUnmodifiedRawMaterial/>
               <surfaceGroundStoneTypes/>
               <surfaceGroundStoneStatus/>
+              <surfaceGroundRawMaterial/>
               <surfaceSurfaceModification/>
               <surfaceRawMaterialTypes/>
             </surfaceDescription>
@@ -629,11 +634,17 @@
         <group ref="inSituChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
         </group>
+        <group ref="insituChippedRawMaterial">
+          <label>{stoneArtefactClusterUI_insituChippedRawMaterial}</label>
+        </group>
         <group ref="inSituRetouchedArtefacts">
           <label>{stoneArtefactClustersUI_inSituRetouchedArtefacts}</label>
         </group>
         <group ref="inSituUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_inSituUnmodifiedStoneTypes}</label>
+        </group>
+        <group ref="insituUnmodifiedRawMaterial">
+          <label>{stoneArtefactClusterUI_insituUnmodifiedRawMaterial}</label>
         </group>
         <group ref="inSituGroundStoneTypes">
           <label>{stoneArtefactClustersUI_inSituGroundStoneTypes}</label>
@@ -641,11 +652,11 @@
         <group ref="inSituGroundStoneStatus">
           <label>{stoneArtefactClustersUI_inSituGroundStoneStatus}</label>
         </group>
+        <group ref="insituGroundRawMaterial">
+          <label>{stoneArtefactClusterUI_insituGroundRawMaterial}</label>
+        </group>
         <group ref="inSituSurfaceModification">
           <label>{stoneArtefactClustersUI_inSituSurfaceModification}</label>
-        </group>
-        <group ref="inSituRawMaterialTypes">
-          <label>{stoneArtefactClustersUI_inSituRawMaterialTypes}</label>
         </group>
       </group>
       <group ref="surfaceDescription">
@@ -656,11 +667,17 @@
         <group ref="surfaceChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
         </group>
+        <group ref="surfaceChippedRawMaterial">
+          <label>{stoneArtefactClusterUI_surfaceChippedRawMaterial}</label>
+        </group>
         <group ref="surfaceRetouchedArtefacts">
           <label>{stoneArtefactClustersUI_surfaceRetouchedArtefacts}</label>
         </group>
         <group ref="surfaceUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_surfaceUnmodifiedStoneTypes}</label>
+        </group>
+        <group ref="surfaceUnmodifiedRawMaterial">
+          <label>{stoneArtefactClusterUI_surfaceUnmodifiedRawMaterial}</label>
         </group>
         <group ref="surfaceGroundStoneTypes">
           <label>{stoneArtefactClustersUI_surfaceGroundStoneTypes}</label>
@@ -668,11 +685,11 @@
         <group ref="surfaceGroundStoneStatus">
           <label>{stoneArtefactClustersUI_surfaceGroundStoneStatus}</label>
         </group>
+        <group ref="surfaceGroundRawMaterial">
+          <label>{stoneArtefactClusterUI_surfaceGroundRawMaterial}</label>
+        </group>
         <group ref="surfaceSurfaceModification">
           <label>{stoneArtefactClustersUI_surfaceSurfaceModification}</label>
-        </group>
-        <group ref="surfaceRawMaterialTypes">
-          <label>{stoneArtefactClustersUI_surfaceRawMaterialTypes}</label>
         </group>
       </group>
       <group ref="associatedMaterials">
