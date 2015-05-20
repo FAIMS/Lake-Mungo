@@ -1661,7 +1661,7 @@ stoneFeature() {
               } 
               removeInsituUnmodifiedStone = false;
             } else if (type.get(1).equals("{gs}")) {
-              if (!hasView(tabgroup+tab+"/assocGroundStoneType")) {
+              if (!hasView(tabgroup+tab+"/inSituGroundStoneTypes")) {
                 makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/inSituGroundStoneTypes", "Stone_-_In_Situ_-_Ground_Stone_Types", "{stoneArtefactClustersUI_inSituGroundStoneTypes}", null, tabgroup+tab+"/inSituGroundStoneTypes", "Stone_-_In_Situ_-_Ground_Stone_Types", "vocab");
               }
               if (!hasView(tabgroup+tab+"/inSituGroundStoneStatus")) {
