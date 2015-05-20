@@ -713,8 +713,7 @@ oldboneFeature() {
             executeViewTask(new ViewTask(){
             doTask() {
               String vocab = "OldBone_-_Proportion_of_material_that_remains_in_situ";
-              String callback = "makeVocab(\"PictureGallery\", \""+dynamicView+"\", \""+vocab+"\");";
-              makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", callback, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
+              makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", null, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
               Log.d("displayInsituProportion()", "Making insituProportion picture gallery");
             }
           });
