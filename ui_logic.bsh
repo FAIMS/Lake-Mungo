@@ -738,17 +738,16 @@ oldboneFeature() {
       }
     }
     if (showAssocTab) {
-      Log.d("oldBone.onClickClusterType()", "Showing associated materials tab");
+      Log.d("oldBone.onclickClusterType()", "Showing associated materials tab");
       showTab("oldBone/associatedMaterials");
       showTab("oldBone/basicIdentification");
     } else {
-      Log.d("oldBone.onClickClusterType()", "Cancelling associated materials tab");
+      Log.d("oldBone.onclickClusterType()", "Cancelling associated materials tab");
       cancelTab("oldBone/associatedMaterials", false);
     }
   }
 
-  onEvent(entityTabgroup, "show", "oldbone.save();");
-  onEvent(entityTabgroup, "show", "oldbone.onclickClusterType();");
+  onEvent(entityTabgroup, "show", "oldbone.save(); oldbone.onclickClusterType();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone.id, oldbone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
   onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.onclickClusterType();");
@@ -1497,8 +1496,9 @@ stoneFeature() {
   String id = null;
   String insituRelTypeName = "Stone And Associated Materials";
   String surfaceRelTypeName = "Stone And Associated Materials";
-  String assocInsituTabgroup = "";
-  String assocSurfaceTabgroup = "";
+  String assocInsituTabgroup = "stoneAssociatedInsituMaterials";
+  String assocSurfaceTabgroup = "stoneAssociatedSurfaceMaterials";
+  List clusterTypeVocabulary = new ArrayList();
   
   /** Saves the feature **/
   save() {
@@ -1540,19 +1540,100 @@ stoneFeature() {
       onFetch(result) {
         Log.d("load()", "Loaded a " + desc + ", ID: " + id);
         showToast("Loaded a " + desc);
+        onclickClusterType();
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
     });
   }
 
-   /** Initialises the tabgroup vocabularies. **/
+  /** Displays the insitu proportion view. **/
+  // displayInsituProportion() {
+  //   String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
+  //   if (isNull(selectedItem)) {
+  //     Log.e("updateInsituProportion()", "Null field value for: \"oldBone/basicIdentification/clusterType\"");
+  //     return;
+  //   } else if (clusterTypeVocabulary == null) {
+  //     Log.e("updateInsituProportion()", "Null value for: \"clusterTypeVocabulary\"");
+  //     return;
+  //   }
+  //   String dynamicView = "oldBone/insituAndSurfaceBone/insituProportion";
+  //   Boolean removeDynamicView = true;
+  //   // iterate through the cluster type vocab and display the insitu proportion view if insitu values are seletced
+  //   for (clusterType : clusterTypeVocabulary) {
+  //     if (selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitBO}") || clusterType.get(1).equals("{insitAndSurf}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
+  //       removeDynamicView = false;
+  //       if (!hasView(dynamicView)) {
+  //           executeViewTask(new ViewTask(){
+  //           doTask() {
+  //             String vocab = "OldBone_-_Proportion_of_material_that_remains_in_situ";
+  //             makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", null, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
+  //             Log.d("displayInsituProportion()", "Making insituProportion picture gallery");
+  //           }
+  //         });
+  //       }
+  //     }
+  //   }
+  //   if (removeDynamicView) {
+  //     if (hasView(dynamicView)) {
+  //       removeView(dynamicView);
+  //     }
+  //   }
+  // }
+
+  onclickClusterType() {
+    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/clusterType");
+    Boolean showInsituTab = false;
+    Boolean showSurfaceTab = false;
+    Boolean showAssocTab = false;
+    // determine what is selected
+    for (clusterType : clusterTypeVocabulary) {
+      if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitu}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+        showInsituTab = true;
+      }
+      if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{surf}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{surfrefit}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+        showSurfaceTab = true;
+      }
+      if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{Stone_artefacts_and_other_material}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+        showAssocTab = true;
+      }
+    }
+    // show or hide the relevant tabs
+    if (showInsituTab) {
+      Log.d("stone.onclickClusterType()", "Showing insitu artefact tab");
+      showTab(entityTabgroup + "/inSituDescription");
+    } else {
+      Log.d("stone.onclickClusterType()", "Cancelling insitu artefacts tab");
+      cancelTab(entityTabgroup + "/inSituDescription", false);
+    }
+    if (showSurfaceTab) {
+      Log.d("stone.onclickClusterType()", "Showing surface artefact tab");
+      showTab(entityTabgroup + "/surfaceDescription");
+    } else {
+      Log.d("stone.onclickClusterType()", "Cancelling surface artefacts tab");
+      cancelTab(entityTabgroup + "/surfaceDescription", false);
+    }
+    if (showAssocTab) {
+      Log.d("stone.onclickClusterType()", "Showing associated materials tab");
+      showTab(entityTabgroup + "/associatedMaterials");
+    } else {
+      Log.d("stone.onclickClusterType()", "Cancelling associated materials tab");
+      cancelTab(entityTabgroup + "/associatedMaterials", false);
+    }
+    // swap back to the first tab in the tabgroup
+    if (showInsituTab || showSurfaceTab || showAssocTab) {
+      showTab(entityTabgroup + "/basicIdentification");
+    }
+  }
+
+  /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
+    fetchVocabulary("Stone_-_Cluster_Type", clusterTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -1561,10 +1642,11 @@ stoneFeature() {
     listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListSurface", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
 
-  onEvent(entityTabgroup                                                        , "show"  , "stone.save();");
-  onEvent(entityTabgroup + "/associatedMaterials"                               , "show"  , "stone.listAssociatedMaterials();");
+  onEvent(entityTabgroup                                                        , "show"  , "stone.save(); stone.onclickClusterType();");
+  onEvent(entityTabgroup + "/basicIdentification/clusterType"                   , "click" , "stone.onclickClusterType();");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare"           , "click" , "calculateGridSquare(stone.id, stone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
+  onEvent(entityTabgroup + "/associatedMaterials"                               , "show"  , "stone.listAssociatedMaterials();"); 
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterialInSitu"          , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
-  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(stone.id, stone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterialSurface"         , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface" , "click" , "showToast(\"Placeholder for loading an associated material\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu"  , "click" , "showToast(\"Placeholder for loading an associated material\");");
