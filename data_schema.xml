@@ -2895,6 +2895,24 @@ stone</description>
         </term>
       </lookup>
     </property>
+    <property name="Stone_-_Surface_-_Surface_Modification" type="enum">
+      <description/>
+      <lookup>
+        <term> {algal}
+          <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
+        </term>
+        <term> {carb}
+          <description>A thin or powdery calcium carbonate coating</description>
+        </term>
+        <term> {abraded}
+          <description>A scored, scratched or polished surface</description>
+        </term>
+        <term> {weather}
+          <description>Weathering</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
     <property name="Stone_-_Topographic_Setting" type="enum">
       <description>Where on the lunette exposure is the artefact cluster located?</description>
       <lookup>
