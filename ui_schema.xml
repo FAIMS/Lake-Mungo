@@ -743,13 +743,49 @@
         </trigger>
       </group>
     </group>
-    <group ref="stoneAssociatedMaterials" faims_archent_type="Stone Associated">
+    <group ref="stoneAssociatedInsituMaterials" faims_archent_type="Stone Associated Insitu">
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
       <group ref="control">
         <label>{stoneAssociatedMaterialsUI_control}</label>
         <group ref="assocMaterialInSitu">
           <label>{stoneAssociatedMaterialsUI_assocMaterialInSitu}</label>
         </group>
+      </group>
+      <group ref="associatedHearthstones">
+        <label>{stoneAssociatedMaterialsUI_associatedHearthstones}</label>
+        <group ref="assocHearth">
+          <label>{stoneAssociatedMaterialsUI_assocHearth}</label>
+        </group>
+      </group>
+      <group ref="associatedLacustrineMaterial">
+        <label>{stoneAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
+        <group ref="assocLacust">
+          <label>{stoneAssociatedMaterialsUI_assocLacust}</label>
+        </group>
+      </group>
+      <group ref="associatedTerrestrialBone">
+        <label>{stoneAssociatedMaterialsUI_associatedTerrestrialBone}</label>
+        <group ref="assocTerrestrial">
+          <label>{stoneAssociatedMaterialsUI_assocTerrestrial}</label>
+        </group>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{stoneAssociatedMaterialsUI_associatedEggshell}</label>
+        <group ref="assocEggshell">
+          <label>{stoneAssociatedMaterialsUI_assocEggshell}</label>
+        </group>
+      </group>
+      <group ref="associatedOtherWorkedMaterial">
+        <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
+        <group ref="assocOtherwork">
+          <label>{stoneAssociatedMaterialsUI_assocOtherwork}</label>
+        </group>
+      </group>
+    </group>
+    <group ref="stoneAssociatedSurfaceMaterials" faims_archent_type="Stone Associated Surface">
+      <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
+      <group ref="control">
+        <label>{stoneAssociatedMaterialsUI_control}</label>
         <group ref="assocSurface">
           <label>{stoneAssociatedMaterialsUI_assocSurface}</label>
         </group>
