@@ -1749,8 +1749,6 @@ stoneFeature() {
     if (hasView(tabgroup+tab+"/surfaceStoneArtefacts")) {
       // check the value of the surface stone artefacts and display the relevant dynamic views based on the selection
       List assocSurfaceStone = getFieldValue(tabgroup+tab+"/surfaceStoneArtefacts");
-      Log.d("stone.displaySurfaceTabViews()", "associated surface stone: " + assocSurfaceStone.toString());
-      Log.d("stone.displaySurfaceTabViews()", "surface stone vocabulary: " + surfaceStoneArtefactsVocabulary.toString());
       for (selectedItem : assocSurfaceStone) {
         for (type : surfaceStoneArtefactsVocabulary) {
           if (selectedItem.getName().equals(type.get(0))) {
