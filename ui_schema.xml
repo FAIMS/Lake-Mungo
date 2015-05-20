@@ -1,9 +1,9 @@
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
-    <h:title>hdb FAIMS Community Server</h:title>
+    <h:title>Lake Mungo</h:title>
     <model>
       <instance>
-        <faims id="hdb_FAIMS_Community_Server">
+        <faims id="Lake Mungo">
           <style>
             <orientation>
               <orientation/>
@@ -66,6 +66,7 @@
             <topAndStratSetting>
               <topographicSetting/>
               <sedimentType/>
+              <stratigraphicUnit/>
               <erosionVulnerability/>
               <paleotopographicSetting/>
               <notes/>
@@ -503,7 +504,14 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Hearth_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{hearthUI_stratigraphicUnit}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
@@ -517,7 +525,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Hearth_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Hearth_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth_-_Photos" faims_attribute_type="measure">
