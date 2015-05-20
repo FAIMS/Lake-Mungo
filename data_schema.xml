@@ -2389,16 +2389,16 @@ stone</description>
         <term> {Stone_artefacts_only}
           <description/>
           <term> {insitu}
-            <description>3 or more in situ stone artefacts within 1m of each other, with no other associated material</description>
+            <description>2 or more in situ stone artefacts within 1 metre of each other, with no other associated material</description>
           </term>
           <term> {surf}
-            <description>Discrete stone artefact cluster on the surface, but in a topographic and sedimentary context indicating that they have not been transported</description>
+            <description>discrete cluster of artefacts of the same raw material, probably struck from the same core but no s present, in a topographic and sedimentary context indicating that the artefacts could not have been transported</description>
           </term>
           <term> {both}
-            <description>3 or more in situ stone artefacts within 1m of each other, plus a surface cluster of artefacts other, plus a surface cluster of artefacts</description>
+            <description>2 or more in situ stone artefacts within 1 metre of each other, plus a surface cluster of artefacts</description>
           </term>
           <term> {surfrefit}
-            <description>A collection of surface artefacts of the same raw material that have the potential to have been derived from the same piece of stone</description>
+            <description>a collection of surface artefacts of the same raw material that contains 1 or more refits</description>
           </term>
         </term>
         <term> {Stone_artefacts_and_other_material}
@@ -2455,22 +2455,25 @@ stone</description>
       <description/>
       <lookup>
         <term> {notch}
-          <description>Notched artefact</description>
+          <description>Retouch that creates one or more concavities along the margin of the tool</description>
         </term>
         <term> {scraper}
-          <description>Other type of scraper</description>
+          <description>Flake (or other blank) with one or more margins of retouch</description>
         </term>
         <term> {backed}
-          <description>Backed artefact</description>
+          <description>Tool with steep, blunting retouch along one margin</description>
         </term>
         <term> {unifpt}
-          <description>Unifacial point</description>
+          <description>Retouch on one or more margins, which converge to a point in plan view, initiated from a single surface</description>
         </term>
         <term> {bifac}
-          <description>Bifacially flaked artefact</description>
+          <description>Retouch on one or more margins, which converge to a point in plan view, initiated from two surfaces</description>
         </term>
         <term> {otherru}
           <description>Any other type of retouch or use-wear</description>
+        </term>
+        <term> {unident}
+          <description>Artefact is too deeply buried to be identified</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -2518,6 +2521,9 @@ stone</description>
           <description>Fragmentary, not complete enough to distinguish nature of ground surface</description>
         </term>
         <term> {other} <description/> </term>
+        <term> {unident}
+          <description>Artefact is too deeply buried to determine type</description>
+        </term>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Status" type="enum">
@@ -2528,6 +2534,29 @@ stone</description>
         </term>
         <term> {fragmented}
           <description/>
+        </term>
+        <term> {refit}
+          <description>Broken fragments can be refitted back together and/or texture, colour, thickness and/or surface modifications suggest that they are part of the same artefact</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_In_Situ_-_Ground_Stone_Raw_Material" type="enum">
+      <description/>
+      <lookup>
+        <term> {sandst}
+          <description>a clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
+        <term> {quartzite}
+          <description>Metamorphosed sandstone, has a sugary texture</description>
+        </term>
+        <term> {ironst}
+          <description>Sedimentary rock containing iron rich minerals</description>
+        </term>
+        <term> {other}
+          <description>If material can be identified, enter into notes</description>
+        </term>
+        <term> {indet}
+          <description>Material could not be identified</description>
         </term>
       </lookup>
     </property>
@@ -2553,28 +2582,31 @@ stone</description>
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
-          <description>Quartz grains less than 0.25 mm</description>
+          <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
         </term>
         <term> {silcmed}
-          <description>Quartz grains 0.25 – 0.5 mm</description>
+          <description>Quartz grains in the matrix are 0.25 – 0.5 mm</description>
         </term>
         <term> {silccoarse}
-          <description>Quartz grains greater than 0.5mm</description>
+          <description>Quartz grains in the matrix are &gt; 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
         </term>
         <term> {qtzite}
-          <description>Quartzite</description>
+          <description>Sugary texture, variable grain size and colour</description>
         </term>
         <term> {qtz}
-          <description>Quartz</description>
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
-        <term> {ironst}
-          <description>Ironstone</description>
-        </term>
+        <!--<term> {ironst}-->
+          <!--<description>Ironstone</description>-->
+        <!--</term>-->
         <term> {other}
-          <description>Other material</description>
+          <description>If material can be identified, enter into notes</description>
+        </term>
+        <term> {indet}
+          <description>Material could not be identified</description>
         </term>
       </lookup>
     </property>
@@ -2582,31 +2614,34 @@ stone</description>
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
-          <description>Quartz grains less than 0.25 mm</description>
+          <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
         </term>
         <term> {silcmed}
-          <description>Quartz grains 0.25 – 0.5 mm</description>
+          <description>Quartz grains in the matrix are 0.25 – 0.5 mm</description>
         </term>
         <term> {silccoarse}
-          <description>Quartz grains greater than 0.5mm</description>
+          <description>Quartz grains in the matrix are &gt; 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
         </term>
         <term> {qtzite}
-          <description>Quartzite</description>
+          <description>Sugary texture, variable grain size and colour</description>
         </term>
         <term> {qtz}
-          <description>Quartz</description>
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
         <term> {ironst}
-          <description>Ironstone</description>
+          <description>Sedimentary rock containing iron rich minerals</description>
         </term>
         <term> {sandst}
-          <description>Sandstone</description>
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>If material can be identified, enter into notes</description>
+        </term>
+        <term> {indet}
+          <description>Material could not be identified</description>
         </term>
       </lookup>
     </property>
@@ -2688,16 +2723,16 @@ stone</description>
       <description/>
       <lookup>
         <term> {nodule}
-          <description>Nodular or rounded cobble</description>
+          <description>A large, nodular or rounded cobble (&gt;64 mm)</description>
         </term>
         <term> {slab}
-          <description>Angular piece</description>
+          <description>A thick, flat piece of rock (&gt;64 mm)</description>
         </term>
         <term> {pebble}
-          <description>Small nodular or rounded piece, unlikely to be useful for artefact manufacture</description>
+          <description>Small nodular or rounded piece, &lt; 64 mm maximum dimension, unlikely to be useful for artefact manufacture</description>
         </term>
-        <term> {indet}
-          <description>Indeterminate unmodified stone</description>
+        <term> {unident}
+          <description>Form cannot be determined because too deeply buried or covered with carbonate</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
