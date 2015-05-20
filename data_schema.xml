@@ -2690,7 +2690,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Sediment_Type" type="enum">
-      <description>What are the sediments that encase the old bone, or upon which they are immediately lying?</description>
+      <description>What are the sediments that encase the object, or upon which they are immediately lying?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {redsand}
           <description>quartz sand of a reddish colour</description>
@@ -2813,7 +2813,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Vulnerability_To_Erosion" type="enum">
-      <description>Based on the cluster type and its topographic setting, how vulnerable is the old bone?</description>
+      <description>Based on the cluster type and its topographic setting, how vulnerable is the object?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills, in well cemented (firm) sediment</description>
@@ -2831,7 +2831,7 @@ material that have the potential to have been derived from the same piece of sto
       </lookup>
     </property>
     <property name="Stone_-_Palaeotopographic_Setting" type="enum">
-      <description>Where is the old bone cluster located in relation to the original dune morphology?</description>
+      <description>Where is the object cluster located in relation to the original dune morphology?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
