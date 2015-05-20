@@ -578,6 +578,7 @@ hearthFeature() {
 
   onEvent(entityTabgroup, "show", "hearth.save();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"hearthAssociatedMaterials\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
@@ -1611,10 +1612,12 @@ stoneFeature() {
     }
   }
 
-  onEvent(entityTabgroup, "show", "stone.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "stone.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup                                                        , "show"  , "stone.save();");
+  onEvent(entityTabgroup + "/associatedMaterials"                               , "show"  , "stone.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterialInSitu"          , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterialSurface"         , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface" , "click" , "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu"  , "click" , "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
 }
