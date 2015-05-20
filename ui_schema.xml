@@ -650,9 +650,9 @@
       </group>
       <group ref="surfaceDescription">
         <label>{stoneArtefactClustersUI_surfaceDescription}</label>
-        <input ref="potentialRefits" faims_attribute_name="Stone_-_Surface_-_Potential_Refits" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <group ref="potentialRefits">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
-        </input>
+        </group>
         <group ref="surfaceChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
         </group>
