@@ -374,6 +374,37 @@ loadFeature() {
   }
 }
 
+/** Populates the in-situ and surface associated materials list. **/
+listAssociatedMaterials(String listPath, String id, String associatedAenttypename, String reltypename) {
+  if(!isNull(id)) {
+    String assocListQuery = "select uuid, response " +
+      "from latestNonDeletedArchEntFormattedIdentifiers " +
+      "where aenttypename = '"+ associatedAenttypename +"' " +
+      "and uuid in  (select uuid " +
+      "FROM latestNonDeletedAentReln " +
+      "where relationshipid in (select relationshipid " +
+      "FROM latestNonDeletedAentReln " +
+      "JOIN relationship using (relationshipid) " +
+      "JOIN relntype using (relntypeid) " +
+      "where uuid = "+ id +" " +
+      "and relntypeName = '"+ reltypename +"') " +
+      "and uuid != "+ id +");";
+    fetchAll(assocListQuery, new FetchCallback() {
+      onFetch(result) {
+        if (result == null || result.isEmpty()) {
+            result = new ArrayList();
+            result.add(new NameValuePair("{noRecordsFound}", ""));
+        }
+        populateList(listPath, result);
+      }
+    });
+  } else {
+    result = new ArrayList();
+    result.add(new NameValuePair("{noRecordsFound}", ""));
+    populateList(listPath, result);
+  } 
+}
+
 onEvent("control/control/newEntity"  , "delayclick" , "newFeature();");
 onEvent("control/search"             , "show"       , "loadSearch();");
 onEvent("control/search/entityList"  , "click"      , "loadFeature();");
@@ -550,30 +581,7 @@ hearthFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    if(!isNull(id)) {
-      String assocListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = 'Associated Materials' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id + " " +
-        "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocListQuery, new FetchCallback() {
-        onFetch(result) {
-          populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-        }
-      });
-      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
-    } else {
-      result = new ArrayList();
-      result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-    } 
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialList", id, hearthAssoc.archentType, relTypeName);
   }
 
   onEvent(entityTabgroup, "show", "hearth.save();");
@@ -586,8 +594,22 @@ hearth = hearthFeature();
 hearth.init();
 
 /*** HEARTH ASSOCIATED MATERIALS ***/
+hearthAssociatedMaterials() {
+  String tabgroup = "hearthAssociatedMaterials";
+  String archentType = "Hearth Associated Materials";
+  String relTypeName = hearth.relTypeName;
+  String id = null;
+  Boolean loading = false;
 
+  /** Initialises the tabgroup vocabularies. **/
+  init() {
 
+  }
+
+  return this;
+}
+hearthAssoc = hearthAssociatedMaterials();
+hearthAssoc.init();
 
 /*** OLD BONE FEATURE ***/
 oldboneFeature() {
@@ -667,55 +689,8 @@ oldboneFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    if(!isNull(id)) {
-      String assocInsituListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '"+ oldboneAssoc.insituArchentType +"' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id +" " +
-        "and relntypeName = '"+ insituRelTypeName +"') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocInsituListQuery, new FetchCallback() {
-        onFetch(result) {
-          if (result == null || result.isEmpty()) {
-              result = new ArrayList();
-              result.add(new NameValuePair("{noRecordsFound}", ""));
-          }
-          populateList(entityTabgroup + "/associatedMaterials/associatedInsituList", result);
-        }
-      });
-      String assocSurfaceListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '"+ oldboneAssoc.surfaceArchentType +"' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id +" " +
-        "and relntypeName = '"+ surfaceRelTypeName +"') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocSurfaceListQuery, new FetchCallback() {
-        onFetch(result) {
-          if (result == null || result.isEmpty()) {
-              result = new ArrayList();
-              result.add(new NameValuePair("{noRecordsFound}", ""));
-          }
-          populateList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", result); 
-        }
-      });
-    } else {
-      result = new ArrayList();
-      result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedInsituList", result);
-      populateList(entityTabgroup + "/associatedMaterials/associatedSurfaceList", result);
-    } 
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedInsituList", id, oldboneAssoc.insituArchentType, insituRelTypeName);
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedSurfaceList", id, oldboneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
 
   /** Displays the insitu proportion view. **/
@@ -1465,7 +1440,7 @@ middenFeature() {
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "presenceOfCharcoal"                    , "Midden_-_Presence_of_charcoal");
-    makeVocab("CheckBoxGroup"             , "middenAssociatedMaterials/control/assocMaterial", "MiddenAssoc_-_Associated_material");
+    makeVocab("CheckBoxGroup"        , "middenAssociatedMaterials/control/assocMaterial", "MiddenAssoc_-_Associated_material");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion_of_material_that_remains_in_situ");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalvePreservation"                   , "Midden_-_Bivalve_preservation");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
@@ -1480,30 +1455,7 @@ middenFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    if(!isNull(id)) {
-      String assocListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + midden.archentType + "Associated Materials' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id + " " +
-        "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocListQuery, new FetchCallback() {
-      onFetch(result) {
-        populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-        }
-      });
-      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
-    } else {
-      result = new ArrayList();
-      result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-    } 
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialList", id, middenAssoc.archentType, relTypeName);
   }
 
   onEvent(entityTabgroup                                                 , "show"  , "midden.save();");
@@ -1517,13 +1469,34 @@ middenFeature() {
 midden = middenFeature();
 midden.init();
 
+/*** MIDDEN ASSOCIATED MATERIALS ***/
+middenAssociatedMaterials() {
+  String tabgroup = "middenAssociatedMaterials";
+  String archentType = "Midden Associated Materials";
+  String relTypeName = "";
+  String id = null;
+  Boolean loading = false;
+
+  /** Initialises the tabgroup vocabularies. **/
+  init() {
+
+  }
+
+  return this;
+}
+middenAssoc = middenAssociatedMaterials();
+middenAssoc.init();
+
 /*** STONE ARTEFACT FEATURE ***/
 stoneFeature() {
   String entityTabgroup = "stoneArtefactClusters";
   String archentType = "Stone Artefact Clusters";
   String desc = archentType + " record";
   String id = null;
-  String relTypeName = "Stone And Associated Materials";
+  String insituRelTypeName = "Stone And Associated Materials";
+  String surfaceRelTypeName = "Stone And Associated Materials";
+  String assocInsituTabgroup = "";
+  String assocSurfaceTabgroup = "";
   
   /** Saves the feature **/
   save() {
@@ -1582,33 +1555,8 @@ stoneFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    listAssociatedMaterials("Stone Associated Materials", "associatedMaterialListSurface");
-    listAssociatedMaterials("Stone Associated Materials", "associatedMaterialListInSitu");
-  }
-
-  /** Populates the in-situ and surface associated materials list. **/
-  listAssociatedMaterials(String aenttypename, String listRef ) {
-    if(!isNull(id)) {
-      String assocListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + aenttypename + "' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id + " " +
-        "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +") " + 
-        "limit ? offset ?;";
-      populateCursorList(entityTabgroup + "/associatedMaterials/" + listRef, assocListQuery, 25);
-      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
-    } else {
-      result = new ArrayList();
-      result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/" + listRef, result);
-    }
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedInsituList", id, stoneAssoc.insituArchentType, insituRelTypeName);
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedSurfaceList", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
 
   onEvent(entityTabgroup, "show", "stone.save();");
@@ -1621,6 +1569,27 @@ stoneFeature() {
 stone = stoneFeature();
 stone.init();
 
+/** STONE ASSOCIATED MATERIALS **/
+stoneAssociatedMaterials() {
+  String insituTabgroup = "stoneAssociatedInsituMaterials";
+  String insituArchentType = "Stone Associated Insitu";
+  String insituRelTypeName = "Stone And Associated Insitu Materials";
+  String surfaceTabgroup = "stoneAssociatedSurfaceMaterials";
+  String surfaceArchentType = "Stone Associated Surface";
+  String surfaceRelTypeName = "Stone And Associated Surface Materials";
+  String id = null;
+  Boolean loading = false;
+  Boolean isInsituMaterial = true;
+
+  /** Initialises the tabgroup vocabularies. **/
+  init() {
+
+  }
+
+  return this;
+}
+stoneAssoc = stoneAssociatedMaterials();
+stoneAssoc.init();
 
 /*** ISOLATED FEATURE ***/
 isolatedFeature() {

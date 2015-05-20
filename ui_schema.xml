@@ -145,9 +145,28 @@
               <takePhoto/>
             </topAndStratSetting>
           </stoneArtefactClusters>
-          <stoneAssociatedMaterials>
+          <stoneAssociatedInsituMaterials>
             <control>
               <assocMaterialInSitu/>
+            </control>
+            <associatedHearthstones>
+              <assocHearth/>
+            </associatedHearthstones>
+            <associatedLacustrineMaterial>
+              <assocLacust/>
+            </associatedLacustrineMaterial>
+            <associatedTerrestrialBone>
+              <assocTerrestrial/>
+            </associatedTerrestrialBone>
+            <associatedEggshell>
+              <assocEggshell/>
+            </associatedEggshell>
+            <associatedOtherWorkedMaterial>
+              <assocOtherwork/>
+            </associatedOtherWorkedMaterial>
+          </stoneAssociatedInsituMaterials>
+          <stoneAssociatedSurfaceMaterials>
+            <control>
               <assocSurface/>
             </control>
             <associatedHearthstones>
@@ -165,7 +184,7 @@
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
             </associatedOtherWorkedMaterial>
-          </stoneAssociatedMaterials>
+          </stoneAssociatedSurfaceMaterials>
           <isolatedOccurrences>
             <basicIdentification>
               <idNumber/>
