@@ -842,7 +842,7 @@
         <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> pictureURL="files/data/images/missing.png" {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {allfan}
@@ -1189,7 +1189,7 @@
         <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> pictureURL="files/data/images/missing.png" {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {allfan}
@@ -2793,7 +2793,7 @@ stone</description>
         <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> pictureURL="files/data/images/missing.png" {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {allfan}
@@ -3515,7 +3515,7 @@ stone</description>
         <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> pictureURL="files/data/images/missing.png" {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {allfan}
