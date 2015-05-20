@@ -44,7 +44,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {frag}
           <description>majority of shell is highly fragmented</description>
@@ -138,7 +138,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -210,13 +210,13 @@
       <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragment}
-          <description></description>
+          <description/>
         </term>
         <term> {refits}
-          <description></description>
+          <description/>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -358,7 +358,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {frag}
           <description>majority of shell is highly fragmented</description>
@@ -452,7 +452,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -524,13 +524,13 @@
       <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragment}
-          <description></description>
+          <description/>
         </term>
         <term> {refits}
-          <description></description>
+          <description/>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -648,7 +648,7 @@
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Hearth">
-    <description></description>
+    <description/>
     <property name="Hearth_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
       <formatString><![CDATA[Grid Square $2 - ]]></formatString>
@@ -658,10 +658,10 @@
       <formatString><![CDATA[Hearth $2]]></formatString>
     </property>
     <property name="Hearth_-_Hearth_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {Hearths_with_heat-retainer_hearthstones}
-          <description></description>
+          <description/>
           <term> {hsterm}
             <description>Termite nest hearthstones (holes and channels visible, sandy texture)</description>
           </term>
@@ -679,7 +679,7 @@
           </term>
         </term>
         <term> {Hearths_without_hearthstones}
-          <description></description>
+          <description/>
           <term> {emupat}
             <description>Thin, discrete patch of baked sediments with the form of an emu pat (or cow pat), usually associated with charcoal, ash and/or organic remains</description>
           </term>
@@ -711,7 +711,7 @@
       <description>A few word description of an ‘other’ type of hearth or hearthstone, e.g. fish hearth, emu eggshell hearth, silcrete hearthstones</description>
     </property>
     <property name="Hearth_-_Charcoal" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {none}
           <description>No charcoal visible</description>
@@ -792,18 +792,18 @@
       </lookup>
     </property>
     <property name="Hearth_-_Topographic_Setting" type="enum">
-      <description>Where on the lunette exposure is the midden located?</description>
+      <description>Where on the lunette exposure is the hearth located?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {platform}
           <description>Broad, flat platform exposure</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {Lessthan_Six_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {less6Degree}
           <description>Slightly sloping surface</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {Six_To_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {6To12Degree}
           <description>Moderately sloping surface</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {Greaterthan_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {greater12Degree}
           <description>More steeply sloping surface</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {shallrill}
@@ -845,95 +845,155 @@
         <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
+        <term pictureURL="files/data/images/missing.png"> {allfan}
+          <description>modern alluvial fan</description>
+        </term>
         <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Hearth_-_Sediment_Type" type="enum">
-      <description>What are the sediments in that encase the midden, or upon which they are immediately lying?</description>
+      <description>What are the sediments that encase the hearth, or upon which they are immediately lying?</description>
       <lookup>
-        <term pictureURL="files/data/images/missing.png"> {redsoil}
-          <description>Soil of a reddish colour</description>
-        </term>
-        <term pictureURL="files/data/images/missing.png"> {brownsoil}
-          <description>Soil of a brownish colour</description>
-        </term>
         <term pictureURL="files/data/images/missing.png"> {redsand}
-          <description>Sandy sediments of a reddish colour</description>
+          <description>quartz sand of a reddish colour</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {brownsand}
-          <description>Sandy sediments of a brownish colour</description>
+          <description>quartz sands of a brownish colour</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {whitesand}
-          <description>Sandy sediments that are clean and whitish</description>
+          <description>sand that is clean (no clay) and white</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {othersand}
-          <description>Sandy sediments that are of another colour</description>
+          <description>quartz sands of a different colour (eg pink)</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {greenclay}
-          <description>Clay sediments of a greenish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {clayeysand}
+          <description>quartz sands that contain some clay</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {otherclay}
-          <description>Clay sediments of another colour (usually brown)</description>
+        <term pictureURL="files/data/images/missing.png"> {laminarsand}
+          <description>fine laminae of quartz sands, clayey sands and clays; brown colour, sands predominate</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {sandyclay}
-          <description>Sandy clay</description>
+        <term pictureURL="files/data/images/missing.png"> {redlamsand}
+          <description>red sands preserving fine bedding</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {unconsolsand}
+          <description>unconsolidated sands, sometimes with thin horizons of carbonate (archaeology bearing)</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {modernaeolian}
+          <description>shifting veneer of unconsolidated sands, coppice sands</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {pelletalclay}
+          <description>grey clays made up of clay pellets</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {alternat}
-          <description>Alternating layers of sand and clay</description>
+          <description>alternating beds of pelletal clay and quartz sand</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {claylens}
-          <description>Distinct clay lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {clay-alt}
+          <description>distinct bed of pelletal clay within a sequence of alternating sands and clays</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {sandlens}
-          <description>Distinct sand lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {sand-alt}
+          <description>distinct bed of quartz sand within a sequence of alternating sands and clays</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {cobble}
-          <description>A relatively continuous bed of cobbles or coarse gravel</description>
+        <term pictureURL="files/data/images/missing.png"> {bluelam-alt}
+          <description>mm-thick, but laterally traceable lens of clay with distinct ‘blue’ colour</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {gglag}
-          <description>A surface lag of carbonate derived from Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {greenclay}
+          <description>clay of a green colour</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {carblag}
-          <description>Any other surface lag of hard carbonate nodules</description>
+        <term pictureURL="files/data/images/missing.png"> {redsoil}
+          <description>soil of a reddish colour</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {ggC}
-          <description>In situ soil carbonate (C-horizon) associated with Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {brownsoil}
+          <description>soil of a brownish colour</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {Chorizon}
-          <description>In situ nodular soil carbonate in any other sediment</description>
+        <term pictureURL="files/data/images/missing.png"> {darksoil}
+          <description>soil with greyish to dark greyish colour, carbonate rich</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {carbsoft}
-          <description>In situ soil carbonate in a diffuse horizon</description>
+          <description>sediment containing diffuse soil carbonate (C horizon)</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {carbnodule}
+          <description>sediment containing hard carbonate nodules (C horizon)</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {carbpavemt}
-          <description>Well developed in situ soil carbonate forming a pavement</description>
+          <description>well developed in situ soil carbonates forming a solid pavement</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {carbrework}
-          <description>A carbonate lag that has been reworked and reburied</description>
+        <term pictureURL="files/data/images/missing.png"> {carblag}
+          <description>broken up, angular pieces of carbonate nodules, root traces, burrows, rhizomorphs representing a reworked lag</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {finesilt}
+          <description>fine, well-sorted silt with no clay component</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {cobblebeach}
+          <description>continuous bed of rounded carbonate nodules, rhizomorphs etc together with rounded pebbles/cobbles of qtz or rock fragments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {gravelbeach}
+          <description>relatively continuous bed of rounded gravels and coarse sand</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Hearth_-_Vulnerability_to_Erosion" type="enum">
-      <description>How vulnerable is the midden, based on the midden type and size, sediment characteristics and topographic setting?</description>
+    <property name="Hearth_-_Stratigraphic_Unit" type="enum">
+      <description/>
+      <lookup>
+        <term pictureURL="files/data/images/missing.png"> {Golgol}
+          <description>deeply weathered sands and clays with strong red colour</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {ggC}
+          <description>Golgol C horizon: in situ carbonate nodules and sediments cemented together to form distinct pavement (pinkish colour)</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {gglag}
+          <description>surface lag made up of broken up, angular pieces of pinkish carbonate nodules, root traces etc derived from the Golgol C</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {B}
+          <description>Lower Mungo</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {C}
+          <description>Upper Mungo</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {D}
+          <description>mega-lake sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {E}
+          <description>Arumpo/Zanci</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {F}
+          <description>unconsolidated sands reworked lunette sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {G}
+          <description>Holocene alluvial fans</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {H}
+          <description>modern aeolian</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {I}
+          <description>modern alluvium</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {indet}
+          <description>stratgraphic unit not yet identified</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Hearth_-_Vulnerability_To_Erosion" type="enum">
+      <description>Based on the cluster type and its topographic setting, how vulnerable is the hearth?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {low}
-          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
+          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills, in well cemented (firm) sediment</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {moderate}
           <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {high}
-          <description>High probability of erosion within a few years, e.g. relatively steep slope with incipient rills, or unconsolidated sandy sediment</description>
+          <description>High probability of material being removed by erosion, or of the hearth losing its integrity, e.g. relatively steep slope with incipient rills and/or in loose sandy sediment</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {extreme}
-          <description>Extreme weather events may result in rapid removal of material, e.g. edge of eroding residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
+          <description>Hearth material is in imminent danger of rapid removal and loss, e.g. edge of eroding residual or deep rill, in gully wall, on a steep slope- washed surface, or in loose sandy sediment</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Hearth_-_Palaeotopographic_Setting" type="enum">
-      <description>Where is the midden located in relation to the original dune morphology?</description>
+      <description>Where is the hearth cluster located in relation to the original dune morphology?</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
@@ -941,17 +1001,17 @@
         <term pictureURL="files/data/images/missing.png"> {backdune}
           <description>Stratigraphic layers are sloping towards the hinterland</description>
         </term>
-        <term pictureURL="files/data/images/missing.png"> {beach}
-          <description>An area of rounded cobbles or gravels in distinct horizon</description>
-        </term>
-        <term pictureURL="files/data/images/missing.png"> {lakebed}
-          <description>Lakebed sediments</description>
-        </term>
         <term pictureURL="files/data/images/missing.png"> {crest}
           <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
         </term>
+        <term pictureURL="files/data/images/missing.png"> {beach}
+          <description>An area of rounded cobbles or gravels in distinct horizon</description>
+        </term>
         <term pictureURL="files/data/images/missing.png"> {spit}
           <description>Projection from dune into lakebed</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {lakebed}
+          <description>Lakebed sediments</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {indet}
           <description>Indeterminate</description>
@@ -959,18 +1019,18 @@
         <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Hearth_-_Notes" type="measure">
-      <description>Any additional information worth noting that has not been covered by the recording – for example, combinations of associated material not on the menu options.</description>
-    </property>
     <property name="Hearth_-_Photos" type="file" file="true" thumbnail="true">
-      <description>Take 2 images: 
-       1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
-       2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
+      <description>Take 2 images:
+1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
+2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
+    </property>
+    <property name="Hearth_-_Notes" type="measure">
+      <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Midden">
-    <description></description>
+    <description/>
     <property name="Midden_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
       <formatString><![CDATA[Grid Square $2 - ]]></formatString>
@@ -980,7 +1040,7 @@
       <formatString><![CDATA[Midden $2]]></formatString>
     </property>
     <property name="Midden_-_Midden_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {smallclust}
           <description>A single discrete cluster of a handful of mussel shell</description>
@@ -1064,7 +1124,7 @@
       </lookup>
     </property>
     <property name="Midden_-_Bivalve_dispersal" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {low}
           <description>Surface scatter of material is confined to the area of in situ material, or, if only surface material is present, to a discrete, relatively dense, area</description>
@@ -1079,185 +1139,245 @@
       </lookup>
     </property>
     <property name="Midden_-_Topographic_Setting" type="enum">
-      <description>Where on the lunette exposure is the midden located?</description>
+      <description>Where on the lunette exposure is the object located?</description>
       <lookup>
-        <term> {platform}
+        <term pictureURL="files/data/images/missing.png"> {platform}
           <description>Broad, flat platform exposure</description>
         </term>
-        <term> {Lessthan_Six_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {less6Degree}
           <description>Slightly sloping surface</description>
         </term>
-        <term> {Six_To_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {6To12Degree}
           <description>Moderately sloping surface</description>
         </term>
-        <term> {Greaterthan_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {greater12Degree}
           <description>More steeply sloping surface</description>
         </term>
-        <term> {shallrill}
+        <term pictureURL="files/data/images/missing.png"> {shallrill}
           <description>Within a shallow rill</description>
         </term>
-        <term> {rillfloor}
+        <term pictureURL="files/data/images/missing.png"> {rillfloor}
           <description>In the floor of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {rillwall}
+        <term pictureURL="files/data/images/missing.png"> {rillwall}
           <description>In the wall of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {ridge}
+        <term pictureURL="files/data/images/missing.png"> {ridge}
           <description>On a narrow ridge in heavily eroded area</description>
         </term>
-        <term> {ridgerill}
+        <term pictureURL="files/data/images/missing.png"> {ridgerill}
           <description>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</description>
         </term>
-        <term> {shalgulfl}
+        <term pictureURL="files/data/images/missing.png"> {shalgulfl}
           <description>In the floor of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {shalgulwal}
+        <term pictureURL="files/data/images/missing.png"> {shalgulwal}
           <description>In the wall of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {deepgulfl}
+        <term pictureURL="files/data/images/missing.png"> {deepgulfl}
           <description>In the floor of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {deepgulwal}
+        <term pictureURL="files/data/images/missing.png"> {deepgulwal}
           <description>In the wall of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {residtop}
+        <term pictureURL="files/data/images/missing.png"> {residtop}
           <description>Flat surface on top of a residual</description>
         </term>
-        <term> {residside}
+        <term pictureURL="files/data/images/missing.png"> {residside}
           <description>In the side of a residual</description>
         </term>
-        <term> {chanfloor}
+        <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {allfan}
+          <description>modern alluvial fan</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Midden_-_Sediment_Type" type="enum">
-      <description>What are the sediments in that encase the midden, or upon which they are immediately lying?</description>
+      <description>What are the sediments that encase the midden, or upon which they are immediately lying?</description>
       <lookup>
-        <term> {redsoil}
-          <description>Soil of a reddish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {redsand}
+          <description>quartz sand of a reddish colour</description>
         </term>
-        <term> {brownsoil}
-          <description>Soil of a brownish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {brownsand}
+          <description>quartz sands of a brownish colour</description>
         </term>
-        <term> {redsand}
-          <description>Sandy sediments of a reddish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {whitesand}
+          <description>sand that is clean (no clay) and white</description>
         </term>
-        <term> {brownsand}
-          <description>Sandy sediments of a brownish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {othersand}
+          <description>quartz sands of a different colour (eg pink)</description>
         </term>
-        <term> {whitesand}
-          <description>Sandy sediments that are clean and whitish</description>
+        <term pictureURL="files/data/images/missing.png"> {clayeysand}
+          <description>quartz sands that contain some clay</description>
         </term>
-        <term> {othersand}
-          <description>Sandy sediments that are of another colour</description>
+        <term pictureURL="files/data/images/missing.png"> {laminarsand}
+          <description>fine laminae of quartz sands, clayey sands and clays; brown colour, sands predominate</description>
         </term>
-        <term> {greenclay}
-          <description>Clay sediments of a greenish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {redlamsand}
+          <description>red sands preserving fine bedding</description>
         </term>
-        <term> {otherclay}
-          <description>Clay sediments of another colour (usually brown)</description>
+        <term pictureURL="files/data/images/missing.png"> {unconsolsand}
+          <description>unconsolidated sands, sometimes with thin horizons of carbonate (archaeology bearing)</description>
         </term>
-        <term> {sandyclay}
-          <description>Sandy clay</description>
+        <term pictureURL="files/data/images/missing.png"> {modernaeolian}
+          <description>shifting veneer of unconsolidated sands, coppice sands</description>
         </term>
-        <term> {alternat}
-          <description>Alternating layers of sand and clay</description>
+        <term pictureURL="files/data/images/missing.png"> {pelletalclay}
+          <description>grey clays made up of clay pellets</description>
         </term>
-        <term> {claylens}
-          <description>Distinct clay lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {alternat}
+          <description>alternating beds of pelletal clay and quartz sand</description>
         </term>
-        <term> {sandlens}
-          <description>Distinct sand lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {clay-alt}
+          <description>distinct bed of pelletal clay within a sequence of alternating sands and clays</description>
         </term>
-        <term> {cobble}
-          <description>A relatively continuous bed of cobbles or coarse gravel</description>
+        <term pictureURL="files/data/images/missing.png"> {sand-alt}
+          <description>distinct bed of quartz sand within a sequence of alternating sands and clays</description>
         </term>
-        <term> {gglag}
-          <description>A surface lag of carbonate derived from Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {bluelam-alt}
+          <description>mm-thick, but laterally traceable lens of clay with distinct ‘blue’ colour</description>
         </term>
-        <term> {carblag}
-          <description>Any other surface lag of hard carbonate nodules</description>
+        <term pictureURL="files/data/images/missing.png"> {greenclay}
+          <description>clay of a green colour</description>
         </term>
-        <term> {ggC}
-          <description>In situ soil carbonate (C-horizon) associated with Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {redsoil}
+          <description>soil of a reddish colour</description>
         </term>
-        <term> {Chorizon}
-          <description>In situ nodular soil carbonate in any other sediment</description>
+        <term pictureURL="files/data/images/missing.png"> {brownsoil}
+          <description>soil of a brownish colour</description>
         </term>
-        <term> {carbsoft}
-          <description>In situ soil carbonate in a diffuse horizon</description>
+        <term pictureURL="files/data/images/missing.png"> {darksoil}
+          <description>soil with greyish to dark greyish colour, carbonate rich</description>
         </term>
-        <term> {carbpavemt}
-          <description>Well developed in situ soil carbonate forming a pavement</description>
+        <term pictureURL="files/data/images/missing.png"> {carbsoft}
+          <description>sediment containing diffuse soil carbonate (C horizon)</description>
         </term>
-        <term> {carbrework}
-          <description>A carbonate lag that has been reworked and reburied</description>
+        <term pictureURL="files/data/images/missing.png"> {carbnodule}
+          <description>sediment containing hard carbonate nodules (C horizon)</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {carbpavemt}
+          <description>well developed in situ soil carbonates forming a solid pavement</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {carblag}
+          <description>broken up, angular pieces of carbonate nodules, root traces, burrows, rhizomorphs representing a reworked lag</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {finesilt}
+          <description>fine, well-sorted silt with no clay component</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {cobblebeach}
+          <description>continuous bed of rounded carbonate nodules, rhizomorphs etc together with rounded pebbles/cobbles of qtz or rock fragments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {gravelbeach}
+          <description>relatively continuous bed of rounded gravels and coarse sand</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Midden_-_Vulnerability_to_Erosion" type="enum">
-      <description>How vulnerable is the midden, based on the midden type and size, sediment characteristics and topographic setting?</description>
+    <property name="Midden_-_Stratigraphic_Unit" type="enum">
+      <description/>
       <lookup>
-        <term> {low}
-          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
+        <term pictureURL="files/data/images/missing.png"> {Golgol}
+          <description>deeply weathered sands and clays with strong red colour</description>
         </term>
-        <term> {moderate}
+        <term pictureURL="files/data/images/missing.png"> {ggC}
+          <description>Golgol C horizon: in situ carbonate nodules and sediments cemented together to form distinct pavement (pinkish colour)</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {gglag}
+          <description>surface lag made up of broken up, angular pieces of pinkish carbonate nodules, root traces etc derived from the Golgol C</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {B}
+          <description>Lower Mungo</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {C}
+          <description>Upper Mungo</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {D}
+          <description>mega-lake sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {E}
+          <description>Arumpo/Zanci</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {F}
+          <description>unconsolidated sands reworked lunette sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {G}
+          <description>Holocene alluvial fans</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {H}
+          <description>modern aeolian</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {I}
+          <description>modern alluvium</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {indet}
+          <description>stratgraphic unit not yet identified</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Midden_-_Vulnerability_To_Erosion" type="enum">
+      <description>Based on the cluster type and its topographic setting, how vulnerable is the midden?</description>
+      <lookup>
+        <term pictureURL="files/data/images/missing.png"> {low}
+          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills, in well cemented (firm) sediment</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {moderate}
           <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
         </term>
-        <term> {high}
-          <description>High probability of erosion within a few years, e.g. relatively steep slope with incipient rills, or unconsolidated sandy sediment</description>
+        <term pictureURL="files/data/images/missing.png"> {high}
+          <description>High probability of material being removed by erosion, or of the hearth losing its integrity, e.g. relatively steep slope with incipient rills and/or in loose sandy sediment</description>
         </term>
-        <term> {extreme}
-          <description>Extreme weather events may result in rapid removal of material, e.g. edge of eroding residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
+        <term pictureURL="files/data/images/missing.png"> {extreme}
+          <description>Hearth material is in imminent danger of rapid removal and loss, e.g. edge of eroding residual or deep rill, in gully wall, on a steep slope- washed surface, or in loose sandy sediment</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Midden_-_Palaeotopographic_Setting" type="enum">
-      <description>Where is the midden located in relation to the original dune morphology?</description>
+      <description>Where is the object cluster located in relation to the original dune morphology?</description>
       <lookup>
-        <term> {foredune}
+        <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
         </term>
-        <term> {backdune}
+        <term pictureURL="files/data/images/missing.png"> {backdune}
           <description>Stratigraphic layers are sloping towards the hinterland</description>
         </term>
-        <term> {beach}
-          <description>An area of rounded cobbles or gravels in distinct horizon</description>
-        </term>
-        <term> {lakebed}
-          <description>Lakebed sediments</description>
-        </term>
-        <term> {crest}
+        <term pictureURL="files/data/images/missing.png"> {crest}
           <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
         </term>
-        <term> {spit}
+        <term pictureURL="files/data/images/missing.png"> {beach}
+          <description>An area of rounded cobbles or gravels in distinct horizon</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {spit}
           <description>Projection from dune into lakebed</description>
         </term>
-        <term> {indet}
+        <term pictureURL="files/data/images/missing.png"> {lakebed}
+          <description>Lakebed sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {indet}
           <description>Indeterminate</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Midden_-_Notes" type="measure">
-      <description>Any additional information worth noting that has not been covered by the recording – for example, combinations of associated material not on the menu options.</description>
-    </property>
     <property name="Midden_-_Photos" type="file" file="true" thumbnail="true">
-      <description>Take 2 images: 
-       1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
-       2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
+      <description>Take 2 images:
+1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
+2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
+    </property>
+    <property name="Midden_-_Notes" type="measure">
+      <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Hearth Associated Materials">
-    <description></description>
+    <description/>
     <property name="HearthAssoc_-_Associated_material" type="enum" isIdentifier="true">
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
@@ -1303,10 +1423,10 @@
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -1314,16 +1434,16 @@
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
-          <description></description>
+          <description/>
         </term>
         <term> {birdbone}
-          <description></description>
+          <description/>
         </term>
         <term> {reptile}
-          <description></description>
+          <description/>
         </term>
         <term> {other}
-          <description></description>
+          <description/>
         </term>
         <term> {unident}
           <description>Cannot be identified by recorder</description>
@@ -1337,10 +1457,10 @@
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -1365,10 +1485,10 @@
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -1478,10 +1598,10 @@
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragment}
-          <description></description>
+          <description/>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -1539,41 +1659,38 @@
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Isolated">
-    <description></description>
+    <description/>
     <property name="Isolated_-_Grid_Square" type="measure" isIdentifier="true">
-      <description></description>
+      <description/>
       <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
     <property name="Isolated_-_ID_Number" type="measure" isIdentifier="true">
-      <description></description>
+      <description/>
       <formatString><![CDATA[Isolated $2]]></formatString>
     </property>
     <property name="Isolated_-_In_Situ_or_Surface" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {insitu}
-          <description>Most or some of the object is
-unambiguously embedded in sediment</description>
+          <description>Most or some of the object is unambiguously embedded in sediment</description>
         </term>
         <term> {surface}
           <description>The object is unambiguously lying on the surface</description>
         </term>
         <term> {recement}
-          <description>The object appears to be embedded in sediment, but there is a high probability
-that it has been recemented</description>
+          <description>The object appears to be embedded in sediment, but there is a high probability that it has been recemented</description>
         </term>
         <term> {ambiguous}
-          <description>The find appears to be embedded in sediment, but it is impossible to preclude
-the possibility that it has been recemented</description>
+          <description>The find appears to be embedded in sediment, but it is impossible to preclude the possibility that it has been recemented</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Isolated_-_Occurrence_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {Stone_Artefacts}
-          <description></description>
+          <description/>
           <term> {notch}
             <description>Notched artefact</description>
           </term>
@@ -1613,7 +1730,7 @@ stone</description>
           </term>
         </term>
         <term> {Other_Artefacts}
-          <description></description>
+          <description/>
           <term> {bonetool}
             <description>Bone tool</description>
           </term>
@@ -1625,15 +1742,15 @@ stone</description>
           </term>
         </term>
         <term> {Faunal_Remains}
-          <description></description>
+          <description/>
           <term> {wombat}
-            <description></description>
+            <description/>
           </term>
           <term> {bettong}
-            <description></description>
+            <description/>
           </term>
           <term> {macropod}
-            <description></description>
+            <description/>
           </term>
           <term> {smallmars}
             <description>Small marsupial</description>
@@ -1642,13 +1759,13 @@ stone</description>
             <description>e.g. Thylacine, Tasmanian Devil</description>
           </term>
           <term> {emu}
-            <description></description>
+            <description/>
           </term>
           <term> {otherbird}
             <description>Bird bone other than emu</description>
           </term>
           <term> {rodent}
-            <description></description>
+            <description/>
           </term>
           <term> {fishbone}
             <description>e.g. Murray Cod, Golden Perch</description>
@@ -1682,7 +1799,7 @@ stone</description>
           </term>
         </term>
         <term> {Other_Worked_Material}
-          <description></description>
+          <description/>
           <term> {ochre}
             <description>Unmodified ochre</description>
           </term>
@@ -1694,7 +1811,7 @@ stone</description>
           </term>
         </term>
         <term> {Hearthstones}
-          <description></description>
+          <description/>
           <term> {hscarb}
             <description>Carbonate</description>
           </term>
@@ -1711,7 +1828,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Stone_Raw_Material_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {silcfine}
           <description>Fine-grained silcrete</description>
@@ -1741,7 +1858,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Modification_to_Organic_Material" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {none}
           <description>Fresh surface</description>
@@ -1771,7 +1888,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Modification_to_Stone_Material" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {indet}
           <description>Indeterminate, if artefact is too buried to determine modification</description>
@@ -1795,7 +1912,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Topographic_Setting" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {Lessthan_Six_Degrees}
           <description>Slightly sloping surface</description>
@@ -1849,7 +1966,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Sediment_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {redsoil}
           <description>Soil of a reddish colour</description>
@@ -1915,7 +2032,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
@@ -1933,7 +2050,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Isolated_-_Palaeotopographic_Setting" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
@@ -1969,9 +2086,9 @@ stone</description>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Stone Associated Insitu">
-    <description></description>
+    <description/>
     <property name="Stone_-_In_Situ" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {hs}
           <description>Hearthstones or charcoal</description>
@@ -1991,7 +2108,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Hearth" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {clay}
           <description>Baked clay or sandy clay hearthstones</description>
@@ -2012,7 +2129,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Lacustrine" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
@@ -2033,13 +2150,13 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Terrestrial" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {wombat}
-          <description></description>
+          <description/>
         </term>
         <term> {bettong}
-          <description></description>
+          <description/>
         </term>
         <term> {macropod}
           <description>Eastern Grey, Western Grey, Red Kangaroo</description>
@@ -2072,7 +2189,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Eggshell" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {emu}
           <description>Emu eggshell</description>
@@ -2090,7 +2207,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {bone}
           <description>Worked bone</description>
@@ -2113,9 +2230,9 @@ stone</description>
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Stone Associated Surface">
-    <description></description>
+    <description/>
     <property name="Stone_-_Surface" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {hs}
           <description>Hearthstones or charcoal</description>
@@ -2135,7 +2252,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Hearth" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {clay}
           <description>Baked clay or sandy clay hearthstones</description>
@@ -2156,7 +2273,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Lacustrine" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
@@ -2177,13 +2294,13 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Terrestrial" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {wombat}
-          <description></description>
+          <description/>
         </term>
         <term> {bettong}
-          <description></description>
+          <description/>
         </term>
         <term> {macropod}
           <description>Eastern Grey, Western Grey, Red Kangaroo</description>
@@ -2216,7 +2333,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Eggshell" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {emu}
           <description>Emu eggshell</description>
@@ -2234,7 +2351,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {bone}
           <description>Worked bone</description>
@@ -2257,7 +2374,7 @@ stone</description>
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Stone Artefact Clusters">
-    <description></description>
+    <description/>
     <property name="Stone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
       <formatString><![CDATA[Grid Square $2 - ]]></formatString>
@@ -2267,10 +2384,10 @@ stone</description>
       <formatString><![CDATA[Stone $2]]></formatString>
     </property>
     <property name="Stone_-_Cluster_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {Stone_artefacts_only}
-          <description></description>
+          <description/>
           <term> {insitu}
             <description>3 or more in situ stone artefacts within 1m of each other, with no other associated material</description>
           </term>
@@ -2285,7 +2402,7 @@ stone</description>
           </term>
         </term>
         <term> {Stone_artefacts_and_other_material}
-          <description></description>
+          <description/>
           <term> {insit_oth}
             <description>‘Insitu’ cluster as defined above, associated with material other than stone artefacts, either in situ or on the surface</description>
           </term>
@@ -2299,7 +2416,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Stone_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -2314,7 +2431,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Chipped_Stone_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact (see below)</description>
@@ -2335,7 +2452,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Retouched_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -2359,7 +2476,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Unmodified_Stone_Types" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -2377,7 +2494,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Types" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -2404,18 +2521,18 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Status" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragmented}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Surface_Modification" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {algal}
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
@@ -2523,7 +2640,7 @@ stone</description>
       <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
     <property name="Stone_-_Surface_-_Chipped_Stone_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact (see below)</description>
@@ -2544,7 +2661,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Retouched_Artefacts" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {notch}
           <description>Notched artefact</description>
@@ -2568,7 +2685,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Unmodified_Stone_Types" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -2586,7 +2703,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Ground_Stone_Types" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -2613,24 +2730,24 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Ground_Stone_Status" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragmented}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Surface_-_Modification" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {algal}
           <description>A dense carbonate coating, often with a texture resembling cauliflower</description>
         </term>
         <term> {carb}
-          <description>A thin or powdery calcium carbonate coating</description>
+          <description>A thin or powdery calcium carbonate ￼coating</description>
         </term>
         <term> {abraded}
           <description>A scored, scratched or polished surface</description>
@@ -2729,185 +2846,244 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Topographic_Setting" type="enum">
-      <description></description>
+      <description>Where on the lunette exposure is the artefact cluster located?</description>
       <lookup>
-        <term> {Lessthan_Six_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {platform}
+          <description>Broad, flat platform exposure</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {less6Degree}
           <description>Slightly sloping surface</description>
         </term>
-        <term> {Six_To_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {6To12Degree}
           <description>Moderately sloping surface</description>
         </term>
-        <term> {Greaterthan_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {greater12Degree}
           <description>More steeply sloping surface</description>
         </term>
-        <term> {shallrill}
+        <term pictureURL="files/data/images/missing.png"> {shallrill}
           <description>Within a shallow rill</description>
         </term>
-        <term> {rillfloor}
+        <term pictureURL="files/data/images/missing.png"> {rillfloor}
           <description>In the floor of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {rillwall}
+        <term pictureURL="files/data/images/missing.png"> {rillwall}
           <description>In the wall of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {ridge}
+        <term pictureURL="files/data/images/missing.png"> {ridge}
           <description>On a narrow ridge in heavily eroded area</description>
         </term>
-        <term> {riderill}
+        <term pictureURL="files/data/images/missing.png"> {ridgerill}
           <description>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</description>
         </term>
-        <term> {shalgulfl}
+        <term pictureURL="files/data/images/missing.png"> {shalgulfl}
           <description>In the floor of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {shalgulwal}
+        <term pictureURL="files/data/images/missing.png"> {shalgulwal}
           <description>In the wall of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {deppgulfl}
+        <term pictureURL="files/data/images/missing.png"> {deepgulfl}
           <description>In the floor of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {deepgulwal}
+        <term pictureURL="files/data/images/missing.png"> {deepgulwal}
           <description>In the wall of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {residtop}
+        <term pictureURL="files/data/images/missing.png"> {residtop}
           <description>Flat surface on top of a residual</description>
         </term>
-        <term> {residside}
+        <term pictureURL="files/data/images/missing.png"> {residside}
           <description>In the side of a residual</description>
         </term>
-        <term> {chanfloor}
+        <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {allfan}
+          <description>modern alluvial fan</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Stone_-_Sediment_Type" type="enum">
-      <description></description>
+      <description>What are the sediments that encase the object, or upon which they are immediately lying?</description>
       <lookup>
-        <term> {redsoil}
-          <description>Soil of a reddish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {redsand}
+          <description>quartz sand of a reddish colour</description>
         </term>
-        <term> {brownsoil}
-          <description>Soil of a brownish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {brownsand}
+          <description>quartz sands of a brownish colour</description>
         </term>
-        <term> {redsand}
-          <description>Sandy sediments of a reddish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {whitesand}
+          <description>sand that is clean (no clay) and white</description>
         </term>
-        <term> {brownsand}
-          <description>Sandy sediments of a brownish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {othersand}
+          <description>quartz sands of a different colour (eg pink)</description>
         </term>
-        <term> {whitesand}
-          <description>Sandy sediments that are clean and whitish</description>
+        <term pictureURL="files/data/images/missing.png"> {clayeysand}
+          <description>quartz sands that contain some clay</description>
         </term>
-        <term> {othersand}
-          <description>Sandy sediments that are of another colour</description>
+        <term pictureURL="files/data/images/missing.png"> {laminarsand}
+          <description>fine laminae of quartz sands, clayey sands and clays; brown colour, sands predominate</description>
         </term>
-        <term> {greenclay}
-          <description>Clay sediments of a greenish colour</description>
+        <term pictureURL="files/data/images/missing.png"> {redlamsand}
+          <description>red sands preserving fine bedding</description>
         </term>
-        <term> {otherclay}
-          <description>Clay sediments of another colour (usually brown)</description>
+        <term pictureURL="files/data/images/missing.png"> {unconsolsand}
+          <description>unconsolidated sands, sometimes with thin horizons of carbonate (archaeology bearing)</description>
         </term>
-        <term> {sandyclay}
-          <description>Sandy clay</description>
+        <term pictureURL="files/data/images/missing.png"> {modernaeolian}
+          <description>shifting veneer of unconsolidated sands, coppice sands</description>
         </term>
-        <term> {alternat}
-          <description>Alternating layers of sand and clay</description>
+        <term pictureURL="files/data/images/missing.png"> {pelletalclay}
+          <description>grey clays made up of clay pellets</description>
         </term>
-        <term> {claylens}
-          <description>Distinct clay lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {alternat}
+          <description>alternating beds of pelletal clay and quartz sand</description>
         </term>
-        <term> {sandlens}
-          <description>Distinct sand lens within other sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {clay-alt}
+          <description>distinct bed of pelletal clay within a sequence of alternating sands and clays</description>
         </term>
-        <term> {cobble}
-          <description>A relatively continuous bed of cobbles or coarse gravel</description>
+        <term pictureURL="files/data/images/missing.png"> {sand-alt}
+          <description>distinct bed of quartz sand within a sequence of alternating sands and clays</description>
         </term>
-        <term> {gglag}
-          <description>A surface lag of carbonate derived from Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {bluelam-alt}
+          <description>mm-thick, but laterally traceable lens of clay with distinct ‘blue’ colour</description>
         </term>
-        <term> {carblag}
-          <description>Any other surface lag of hard carbonate nodules</description>
+        <term pictureURL="files/data/images/missing.png"> {greenclay}
+          <description>clay of a green colour</description>
         </term>
-        <term> {ggC}
-          <description>In situ soil carbonate (C-horizon) associated with Golgol sediments</description>
+        <term pictureURL="files/data/images/missing.png"> {redsoil}
+          <description>soil of a reddish colour</description>
         </term>
-        <term> {Chorizon}
-          <description>In situ nodular soil carbonate in any other sediment</description>
+        <term pictureURL="files/data/images/missing.png"> {brownsoil}
+          <description>soil of a brownish colour</description>
         </term>
-        <term> {carbsoft}
-          <description>In situ soil carbonate in a diffuse horizon</description>
+        <term pictureURL="files/data/images/missing.png"> {darksoil}
+          <description>soil with greyish to dark greyish colour, carbonate rich</description>
         </term>
-        <term> {carbpavemt}
-          <description>Well developed in situ soil carbonate forming a pavement</description>
+        <term pictureURL="files/data/images/missing.png"> {carbsoft}
+          <description>sediment containing diffuse soil carbonate (C horizon)</description>
         </term>
-        <term> {carbrework}
-          <description>A carbonate lag that has been reworked and reburied</description>
+        <term pictureURL="files/data/images/missing.png"> {carbnodule}
+          <description>sediment containing hard carbonate nodules (C horizon)</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {carbpavemt}
+          <description>well developed in situ soil carbonates forming a solid pavement</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {carblag}
+          <description>broken up, angular pieces of carbonate nodules, root traces, burrows, rhizomorphs representing a reworked lag</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {finesilt}
+          <description>fine, well-sorted silt with no clay component</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {cobblebeach}
+          <description>continuous bed of rounded carbonate nodules, rhizomorphs etc together with rounded pebbles/cobbles of qtz or rock fragments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {gravelbeach}
+          <description>relatively continuous bed of rounded gravels and coarse sand</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="Stone_-_Vulnerability_to_Erosion" type="enum">
-      <description></description>
+    <property name="Stone_-_Stratigraphic_Unit" type="enum">
+      <description/>
       <lookup>
-        <term> {low}
-          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
+        <term pictureURL="files/data/images/missing.png"> {Golgol}
+          <description>deeply weathered sands and clays with strong red colour</description>
         </term>
-        <term> {moderate}
-          <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure,
-gully head, expanding rill system</description>
+        <term pictureURL="files/data/images/missing.png"> {ggC}
+          <description>Golgol C horizon: in situ carbonate nodules and sediments cemented together to form distinct pavement (pinkish colour)</description>
         </term>
-        <term> {high}
-          <description>High probability of material being removed by erosion, or losing its integrity, e.g. relatively
-steep slope with incipient rills</description>
+        <term pictureURL="files/data/images/missing.png"> {gglag}
+          <description>surface lag made up of broken up, angular pieces of pinkish carbonate nodules, root traces etc derived from the Golgol C</description>
         </term>
-        <term> {extreme}
-          <description>Cluster is in imminent danger of rapid removal and loss of material, e.g. edge of eroding
-residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
+        <term pictureURL="files/data/images/missing.png"> {B}
+          <description>Lower Mungo</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {C}
+          <description>Upper Mungo</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {D}
+          <description>mega-lake sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {E}
+          <description>Arumpo/Zanci</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {F}
+          <description>unconsolidated sands reworked lunette sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {G}
+          <description>Holocene alluvial fans</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {H}
+          <description>modern aeolian</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {I}
+          <description>modern alluvium</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {indet}
+          <description>stratgraphic unit not yet identified</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Vulnerability_To_Erosion" type="enum">
+      <description>Based on the cluster type and its topographic setting, how vulnerable is the object?</description>
+      <lookup>
+        <term pictureURL="files/data/images/missing.png"> {low}
+          <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills, in well cemented (firm) sediment</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {moderate}
+          <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {high}
+          <description>High probability of material being removed by erosion, or of the hearth losing its integrity, e.g. relatively steep slope with incipient rills and/or in loose sandy sediment</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {extreme}
+          <description>Hearth material is in imminent danger of rapid removal and loss, e.g. edge of eroding residual or deep rill, in gully wall, on a steep slope- washed surface, or in loose sandy sediment</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Stone_-_Palaeotopographic_Setting" type="enum">
-      <description></description>
+      <description>Where is the object cluster located in relation to the original dune morphology?</description>
       <lookup>
-        <term> {foredune}
+        <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
         </term>
-        <term> {backdune}
+        <term pictureURL="files/data/images/missing.png"> {backdune}
           <description>Stratigraphic layers are sloping towards the hinterland</description>
         </term>
-        <term> {beach}
+        <term pictureURL="files/data/images/missing.png"> {crest}
+          <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {beach}
           <description>An area of rounded cobbles or gravels in distinct horizon</description>
         </term>
-        <term> {lakebed}
-          <description>Lakebed sediments</description>
-        </term>
-        <term> {crest}
-          <description>Crest of dune, stratigraphic layers slope away, towards both
-lakebed and hinterland</description>
-        </term>
-        <term> {spit}
+        <term pictureURL="files/data/images/missing.png"> {spit}
           <description>Projection from dune into lakebed</description>
         </term>
-        <term> {indet}
+        <term pictureURL="files/data/images/missing.png"> {lakebed}
+          <description>Lakebed sediments</description>
+        </term>
+        <term pictureURL="files/data/images/missing.png"> {indet}
           <description>Indeterminate</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
+    </property>
+    <property name="Stone_-_Photos" type="file" file="true" thumbnail="true">
+      <description>Take 2 images:
+1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
+2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
     </property>
     <property name="Stone_-_Notes" type="measure">
       <description>Any additional information worth noting that has not been covered by the recording</description>
     </property>
-    <property name="Stone_-_Photos" type="file" file="true" thumbnail="true">
-      <description>Take 2 images: 
-       1.    landscape/stratigraphic setting (to aid re-location), include horizon and nearby landmarks that will have some longevity
-       2.    the feature itself (to aid identification) – include the critical components of the feature like the in situ portion of a hearth or bone cluster</description>
-    </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Midden Associated Materials">
-    <description></description>
+    <description/>
     <property name="MiddenAssoc_-_Associated_material" type="enum" isIdentifier="true">
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
@@ -2953,10 +3129,10 @@ lakebed and hinterland</description>
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -2964,16 +3140,16 @@ lakebed and hinterland</description>
       <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
-          <description></description>
+          <description/>
         </term>
         <term> {birdbone}
-          <description></description>
+          <description/>
         </term>
         <term> {reptile}
-          <description></description>
+          <description/>
         </term>
         <term> {other}
-          <description></description>
+          <description/>
         </term>
         <term> {unident}
           <description>Cannot be identified by recorder</description>
@@ -2987,10 +3163,10 @@ lakebed and hinterland</description>
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -3015,10 +3191,10 @@ lakebed and hinterland</description>
       <description>If eggshell is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description></description>
+          <description/>
         </term>
         <term> {No}
-          <description></description>
+          <description/>
         </term>
       </lookup>
     </property>
@@ -3128,10 +3304,10 @@ lakebed and hinterland</description>
       <description>If ground stone is present, is the ground material...</description>
       <lookup>
         <term> {whole}
-          <description></description>
+          <description/>
         </term>
         <term> {fragment}
-          <description></description>
+          <description/>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -3188,7 +3364,7 @@ lakebed and hinterland</description>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Old Bone">
-    <description></description>
+    <description/>
     <property name="OldBone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
       <formatString><![CDATA[Grid Square $2 - ]]></formatString>
@@ -3198,10 +3374,10 @@ lakebed and hinterland</description>
       <formatString><![CDATA[Old Bone $2]]></formatString>
     </property>  
     <property name="OldBone_-_Cluster_Type" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term> {boneOnly}
-          <description></description>
+          <description/>
           <term> {insitBO}
             <description>2 or more in situ elements, a set of in situ articulated elements, or an in situ skeleton, not associated with any other in situ or surface material</description>
           </term>
@@ -3213,7 +3389,7 @@ lakebed and hinterland</description>
           </term>
         </term>
         <term> {boneAndOtherMaterial}
-          <description></description>
+          <description/>
           <term> {inistAndOth}
             <description>In situ bone cluster as defined above, associated with other material, either in situ or on the surface</description>
           </term>
@@ -3302,10 +3478,10 @@ lakebed and hinterland</description>
           <description>e.g. Western Grey, Eastern Grey, Red Kangaroo</description>
         </term>
         <term> {bettong}
-          <description></description>
+          <description/>
         </term>
         <term> {wombat}
-          <description></description>
+          <description/>
         </term>
         <term> {smallmars}
           <description>Small marsupial</description>
@@ -3314,13 +3490,13 @@ lakebed and hinterland</description>
           <description>e.g. Thylacine, Tasmanian Devil</description>
         </term>
         <term> {emu}
-          <description></description>
+          <description/>
         </term>
         <term> {otherbird}
           <description>Bird other than emu (swan, duck, etc)</description>
         </term>
         <term> {reptile}
-          <description></description>
+          <description/>
         </term>
         <term> {fish}
           <description>e.g. Murray Cod, Golden Perch</description>
@@ -3442,7 +3618,7 @@ lakebed and hinterland</description>
         <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> pictureURL="files/data/images/missing.png" {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {allfan}
@@ -3533,7 +3709,7 @@ lakebed and hinterland</description>
       </lookup>
     </property>
     <property name="OldBone_-_Stratigraphic_Unit" type="enum">
-      <description></description>
+      <description/>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {Golgol}
           <description>deeply weathered sands and clays with strong red colour</description>
