@@ -124,6 +124,7 @@
             </inSituDescription>
             <surfaceDescription>
               <potentialRefits/>
+              <surfaceStoneArtefacts/>
               <surfaceChippedStoneArtfacts/>
               <surfaceChippedRawMaterial/>
               <surfaceRetouchedArtefacts/>
@@ -673,6 +674,9 @@
         <label>{stoneArtefactClustersUI_surfaceDescription}</label>
         <group ref="potentialRefits">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
+        </group>
+        <group ref="surfaceStoneArtefacts">
+          <label>{stoneArtefactClustersUI_surfaceStoneArtefacts}</label>
         </group>
         <group ref="surfaceChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>

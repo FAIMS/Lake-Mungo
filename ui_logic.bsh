@@ -1503,11 +1503,17 @@ stoneFeature() {
   List clusterTypeVocabulary = new ArrayList();
   List insituStoneArtefactsVocabulary = new ArrayList();
   List insituChippedStoneVocabulary = new ArrayList();
+  List surfaceStoneArtefactsVocabulary = new ArrayList();
+  List surfaceChippedStoneVocabulary = new ArrayList();
   Boolean removeInsituGroundStone = true;
   Boolean removeInsituUnmodifiedStone = true;
   Boolean removeInsituChippedStone = true;
   Boolean removeInsituRetouchedArtefacts = true;
-  
+  Boolean removeSurfaceGroundStone = true;
+  Boolean removeSurfaceUnmodifiedStone = true;
+  Boolean removeSurfaceChippedStone = true;
+  Boolean removeSurfaceRetouchedArtefacts = true;
+
   /** Saves the feature **/
   save() {
     Boolean enable_autosave = true;
@@ -1724,11 +1730,118 @@ stoneFeature() {
 
   /** Displays the dynamic views for the surface stone artefact description tab. **/
   displaySurfaceTabViews() {
-
+    // flag dynamic views for removal, which is later set to false only if the appropriate selections are detected
+    removeSurfaceChippedStone = true;
+    removeSurfaceRetouchedArtefacts = true;
+    removeSurfaceUnmodifiedStone = true;
+    removeSurfaceGroundStone = true;
+    // render the default views for the tab
+    String tabgroup = entityTabgroup;
+    String tab = "/surfaceDescription";
+    if (!hasView(tabgroup+tab+"/surfaceStoneArtefacts")) {
+      String callback = "onEvent(\""+tabgroup+tab+"/surfaceStoneArtefacts\", \"click\", \"stone.displaySurfaceTabViews();\");";
+      makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_In_Situ_-_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceStoneArtefacts}", callback, tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts", "vocab");
+    }
+    if (!hasView(tabgroup+tab+"/surfaceSurfaceModification")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceSurfaceModification", "Stone_-_In_Situ_-_Surface_Modification", "{stoneArtefactClustersUI_surfaceSurfaceModification}", null, tabgroup+tab+"/surfaceSurfaceModification", "Stone_-_In_Situ_-_Surface_Modification", "vocab");
+    }
+    // Only proceed to create dynamic views if the 'surface stone artefacts present' view exists
+    if (hasView(tabgroup+tab+"/surfaceStoneArtefacts")) {
+      // check the value of the surface stone artefacts and display the relevant dynamic views based on the selection
+      List assocSurfaceStone = getFieldValue(tabgroup+tab+"/surfaceStoneArtefacts");
+      for (selectedItem : assocSurfaceStone) {
+        for (type : surfaceStoneArtefactsVocabulary) {
+          if (selectedItem.getName().equals(type.get(0))) {
+            if (type.get(1).equals("{cs}")) {
+              if (!hasView(tabgroup+tab+"/surfaceChippedStoneArtfacts")) {
+                String callback = "onEvent(\""+tabgroup+tab+"/surfaceChippedStoneArtfacts\", \"click\", \"stone.displaySurfaceTabViews();\");";
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceChippedStoneArtfacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}", callback, tabgroup+tab+"/surfaceChippedStoneArtfacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "vocab");
+              }
+              if (!hasView(tabgroup+tab+"/surfaceChippedRawMaterial")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceChippedRawMaterial", "Stone_-_In_Situ_-_Chipped_Stone_Raw_Material", "{stoneArtefactClusterUI_surfaceChippedRawMaterial}", null, tabgroup+tab+"/surfaceChippedRawMaterial", "Stone_-_In_Situ_-_Chipped_Stone_Raw_Material", "vocab");  
+              }
+              removeSurfaceChippedStone = false;
+              // Only proceed to create the initu retouched stone if the surface chipped stone artefacts view is present
+              if (hasView(tabgroup+tab+"/surfaceChippedStoneArtfacts")) {
+                List chippedStone = getFieldValue(tabgroup+tab+"/surfaceChippedStoneArtfacts");
+                for (selectedItem : chippedStone) {
+                  for (type : surfaceChippedStoneVocabulary) {
+                    if (type.get(1).equals("{ru}")) {
+                      if (!hasView(tabgroup+tab+"/surfaceRetouchedArtefacts")) {
+                        makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceRetouchedArtefacts", "Stone_-_In_Situ_-_Retouched_Artefacts", "{stoneArtefactClustersUI_surfaceRetouchedArtefacts}", null, tabgroup+tab+"/surfaceRetouchedArtefacts", "Stone_-_In_Situ_-_Retouched_Artefacts", "vocab");
+                      }
+                      removeSurfaceRetouchedArtefacts = false;
+                    }
+                  }
+                }
+              }
+            } else if (type.get(1).equals("{um}")) {
+              if (!hasView(tabgroup+tab+"/surfaceUnmodifiedStoneTypes")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceUnmodifiedStoneTypes", "Stone_-_In_Situ_-_Unmodified_Stone_Types", "{stoneArtefactClustersUI_surfaceUnmodifiedStoneTypes}", null, tabgroup+tab+"/surfaceUnmodifiedStoneTypes", "Stone_-_In_Situ_-_Unmodified_Stone_Types", "vocab");
+              }
+              if (!hasView(tabgroup+tab+"/surfaceUnmodifiedRawMaterial")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceUnmodifiedRawMaterial", "Stone_-_In_Situ_-_Unmodified_Stone_Raw_Material", "{stoneArtefactClusterUI_surfaceUnmodifiedRawMaterial}", null, tabgroup+tab+"/surfaceUnmodifiedRawMaterial", "Stone_-_In_Situ_-_Unmodified_Stone_Raw_Material", "vocab");  
+              } 
+              removeSurfaceUnmodifiedStone = false;
+            } else if (type.get(1).equals("{gs}")) {
+              if (!hasView(tabgroup+tab+"/surfaceGroundStoneTypes")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceGroundStoneTypes", "Stone_-_In_Situ_-_Ground_Stone_Types", "{stoneArtefactClustersUI_surfaceGroundStoneTypes}", null, tabgroup+tab+"/surfaceGroundStoneTypes", "Stone_-_In_Situ_-_Ground_Stone_Types", "vocab");
+              }
+              if (!hasView(tabgroup+tab+"/surfaceGroundStoneStatus")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceGroundStoneStatus", "Stone_-_In_Situ_-_Ground_Stone_Status", "{stoneArtefactClustersUI_surfaceGroundStoneStatus}", null, tabgroup+tab+"/surfaceGroundStoneStatus", "Stone_-_In_Situ_-_Ground_Stone_Status", "vocab");
+              }
+              if (!hasView(tabgroup+tab+"/surfaceGroundRawMaterial")) {
+                makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceGroundRawMaterial", "Stone_-_In_Situ_-_Ground_Stone_Raw_Material", "{stoneArtefactClusterUI_surfaceGroundRawMaterial}", null, tabgroup+tab+"/surfaceGroundRawMaterial", "Stone_-_In_Situ_-_Ground_Stone_Raw_Material", "vocab");  
+              }
+              removeSurfaceGroundStone = false;
+            } else {
+              Log.e("stone.displaySurfaceTabViews()", "Error: no surface stone artefact selected");
+            }
+          }
+        }
+      }
+    }
+    removeSurfaceTabViews();
   }
 
-
-
+  /** Removes any surface views that are flagged. **/
+  removeSurfaceTabViews() {
+    String tabgroup = entityTabgroup;
+    String tab = "/surfaceDescription";
+    if (removeSurfaceChippedStone) {
+      if (hasView(tabgroup+tab+"/surfaceChippedStoneArtfacts")) {
+        removeView(tabgroup+tab+"/surfaceChippedStoneArtfacts");
+      }
+      if (hasView(tabgroup+tab+"/surfaceChippedRawMaterial")) {
+        removeView(tabgroup+tab+"/surfaceChippedRawMaterial");
+      }
+      removeSurfaceRetouchedArtefacts = true;
+    }
+    if (removeSurfaceRetouchedArtefacts) {
+      if (hasView(tabgroup+tab+"/surfaceRetouchedArtefacts")) {
+        removeView(tabgroup+tab+"/surfaceRetouchedArtefacts");
+      }
+    }
+    if (removeSurfaceUnmodifiedStone) {
+      if (hasView(tabgroup+tab+"/surfaceUnmodifiedStoneTypes")) {
+        removeView(tabgroup+tab+"/surfaceUnmodifiedStoneTypes");
+      }
+      if (hasView(tabgroup+tab+"/surfaceUnmodifiedRawMaterial")) {
+        removeView(tabgroup+tab+"/surfaceUnmodifiedRawMaterial");
+      }
+    }
+    if (removeSurfaceGroundStone) {
+      if (hasView(tabgroup+tab+"/surfaceGroundStoneTypes")) {
+        removeView(tabgroup+tab+"/surfaceGroundStoneTypes");
+      }
+      if (hasView(tabgroup+tab+"/surfaceGroundStoneStatus")) {
+        removeView(tabgroup+tab+"/surfaceGroundStoneStatus");
+      }
+      if (hasView(tabgroup+tab+"/surfaceGroundRawMaterial")) {
+        removeView(tabgroup+tab+"/surfaceGroundRawMaterial");
+      }
+    }
+  }
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
@@ -1741,6 +1854,9 @@ stoneFeature() {
     fetchVocabulary("Stone_-_Cluster_Type", clusterTypeVocabulary);
     fetchVocabulary("Stone_-_In_Situ_-_Stone_Artefacts", insituStoneArtefactsVocabulary);
     fetchVocabulary("Stone_-_In_Situ_-_Chipped_Stone_Artefacts", insituChippedStoneVocabulary);
+    fetchVocabulary("Stone_-_Surface_-_Stone_Artefacts", surfaceStoneArtefactsVocabulary);
+    fetchVocabulary("Stone_-_Surface_-_Chipped_Stone_Artefacts", surfaceChippedStoneVocabulary);
+
   }
 
   /** Populates the in-situ and surface associated materials list. **/

@@ -2674,6 +2674,21 @@ stone</description>
     <property name="Stone_-_Surface_-_Potential_Refits" type="measure">
       <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
+    <property name="Stone_-_Surface_-_Stone_Artefacts" type="enum">
+      <description/>
+      <lookup>
+        <term> {cs}
+          <description>Chipped stone</description>
+        </term>
+        <term> {um}
+          <description>Unmodified stone (manuport)</description>
+        </term>
+        <term> {gs}
+          <description>Ground stone</description>
+        </term>
+        <term> {other} <description/> </term>
+      </lookup>
+    </property>
     <property name="Stone_-_Surface_-_Chipped_Stone_Artefacts" type="enum">
       <description/>
       <lookup>
