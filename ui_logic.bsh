@@ -1555,8 +1555,8 @@ stoneFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedInsituList", id, stoneAssoc.insituArchentType, insituRelTypeName);
-    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedSurfaceList", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListInSitu", id, stoneAssoc.insituArchentType, insituRelTypeName);
+    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListSurface", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
 
   onEvent(entityTabgroup, "show", "stone.save();");
