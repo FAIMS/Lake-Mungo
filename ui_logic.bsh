@@ -586,7 +586,9 @@ hearthFeature() {
 
   onEvent(entityTabgroup, "show", "hearth.save();");
   onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"hearthAssociatedMaterials\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(hearth.id, hearth.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
 
   return this;
 }
@@ -1458,6 +1460,7 @@ middenFeature() {
   }
 
   onEvent(entityTabgroup                                                 , "show"  , "midden.save();");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(midden.id, midden.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
   onEvent(entityTabgroup + "/associatedMaterials"                        , "show"  , "midden.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"middenAssociatedMaterials\");");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList" , "click" , "showToast(\"Placeholder for loading an associated material\");");
@@ -1558,10 +1561,13 @@ stoneFeature() {
     listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListSurface", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
 
-  onEvent(entityTabgroup, "show", "stone.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "stone.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu", "click", "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup                                                        , "show"  , "stone.save();");
+  onEvent(entityTabgroup + "/associatedMaterials"                               , "show"  , "stone.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterialInSitu"          , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(stone.id, stone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterialSurface"         , "click" , "showTabGroup(\"stoneAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface" , "click" , "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu"  , "click" , "showToast(\"Placeholder for loading an associated material\");");
 
   return this;
 }
@@ -1788,6 +1794,7 @@ isolatedFeature() {
 
   onEvent(entityTabgroup, "show", "isolated.save();");
   onEvent(entityTabgroup + "/basicIdentification/occurrenceType", "click", "isolated.displayOrganicOrStone();");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated.id, isolated.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
 
   return this;
 }
@@ -1809,6 +1816,6 @@ for (tg : tabGroups) {
   onEvent(
       tg + "/topAndStratSetting/takePhoto",
       "click",
-      "attachPictureTo(\"" + tg + "/topAndStratSetting/takePhoto\")"
+      "attachPictureTo(\"" + tg + "/topAndStratSetting/photos\")"
   );
 }
