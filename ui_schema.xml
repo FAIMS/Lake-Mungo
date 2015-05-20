@@ -634,7 +634,7 @@
         <group ref="inSituChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
         </group>
-        <group ref="insituChippedRawMaterial">
+        <group ref="inSituChippedRawMaterial">
           <label>{stoneArtefactClusterUI_insituChippedRawMaterial}</label>
         </group>
         <group ref="inSituRetouchedArtefacts">
@@ -643,7 +643,7 @@
         <group ref="inSituUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_inSituUnmodifiedStoneTypes}</label>
         </group>
-        <group ref="insituUnmodifiedRawMaterial">
+        <group ref="inSituUnmodifiedRawMaterial">
           <label>{stoneArtefactClusterUI_insituUnmodifiedRawMaterial}</label>
         </group>
         <group ref="inSituGroundStoneTypes">
@@ -652,7 +652,7 @@
         <group ref="inSituGroundStoneStatus">
           <label>{stoneArtefactClustersUI_inSituGroundStoneStatus}</label>
         </group>
-        <group ref="insituGroundRawMaterial">
+        <group ref="inSituGroundRawMaterial">
           <label>{stoneArtefactClusterUI_insituGroundRawMaterial}</label>
         </group>
         <group ref="inSituSurfaceModification">
