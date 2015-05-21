@@ -350,21 +350,25 @@ newFeature() {
 }
 
 loadFeature() {
-  String entityID = getListItemValue();
-  if (!isNull(entityID)) {
-    fetchAll("select aenttypename from latestnondeletedarchent join aenttype using (aenttypeid) where uuid = '" + entityID + "';", new FetchCallback() {
+  String listID = getListItemValue();
+  if (!isNull(listID)) {
+    fetchAll("select aenttypename from latestnondeletedarchent join aenttype using (aenttypeid) where uuid = '" + listID + "';", new FetchCallback() {
       onFetch(result) {
-        entity_id = entityID;
         Log.d("loadFeature()", "Loading entity id: " + entityID);
         if (result.get(0).get(0).equals("Old Bone")) {
+          oldbone.id = listID;
           oldbone.load();
         } else if (result.get(0).get(0).equals("Hearth")) {
+          hearth.id = listID;
           hearth.load();
         } else if (result.get(0).get(0).equals("Midden")) {
-          midde.load();
+          midden.id = listID;
+          midden.load();
         } else if (result.get(0).get(0).equals("Stone Artefact Clusters")) {
+          stone.id = listID;
           stone.load();
         } else if (result.get(0).get(0).equals("Isolated")) {
+          isolated.id = listID;
           isolated.load();
         }
       }
@@ -658,12 +662,10 @@ oldboneFeature() {
 
   /** Loads a feature record. **/
   load() {
-    String selectedID = getListItemValue();
-    if (isNull(selectedID)) {
+    if (isNull(id)) {
       showToast("No entity selected");
       return;
     }
-    id = selectedID;
     dialog = showBusy("loading record", "please wait");
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
@@ -1546,12 +1548,10 @@ stoneFeature() {
 
   /** Loads a feature record. **/
   load() {
-    String selectedID = getListItemValue();
-    if (isNull(selectedID)) {
+    if (isNull(id)) {
       showToast("No entity selected");
         return;
     }
-    id = selectedID;
     dialog = showBusy("loading record", "please wait");
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
