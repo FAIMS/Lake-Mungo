@@ -2087,7 +2087,7 @@ stone</description>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Stone Associated Insitu">
     <description/>
-    <property name="Stone_-_In_Situ" type="enum">
+    <property name="Stone_-_In_Situ" type="enum" isIdentifier="true">
       <description/>
       <lookup>
         <term> {hs}
@@ -2231,7 +2231,7 @@ stone</description>
 
   <ArchaeologicalElement name="Stone Associated Surface">
     <description/>
-    <property name="Stone_-_Surface" type="enum">
+    <property name="Stone_-_Surface" type="enum" isIdentifier="true">
       <description/>
       <lookup>
         <term> {hs}
