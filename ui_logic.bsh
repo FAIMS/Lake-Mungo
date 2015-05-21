@@ -2128,15 +2128,99 @@ stoneAssociatedMaterials() {
 
 
   loadAssocCallback() {
-    showToast("placeholder for loading callback");
+    String tabgroup = insituTabgroup;
+    if (!isInsituMaterial) {
+      tabgroup = surfaceTabgroup;
+    }
+    // render the default views for each associated material tab
+    if (!hasView(tabgroup+"/associatedHearthstones/assocHearth")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "{stoneAssociatedMaterialsUI_assocHearth}", null, tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "vocab");
+    }
+    removeHearth = false;
+    if (!hasView(tabgroup+"/associatedLacustrineMaterial/assocLacust")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "{stoneAssociatedMaterialsUI_assocLacust}", null, tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "vocab");
+    }
+    removeLacust = false;
+    if (!hasView(tabgroup+"/associatedTerrestrialBone/assocTerrestrial")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "{stoneAssociatedMaterialsUI_assocTerrestrial}", null, tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "vocab");
+    }
+    removeTerrbo = false;
+    if (!hasView(tabgroup+"/associatedEggshell/assocEggshell")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "{stoneAssociatedMaterialsUI_assocEggshell}", null, tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "vocab");
+    }
+    removeEggshell = false;
+    if (!hasView(tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "{stoneAssociatedMaterialsUI_assocOtherwork}", null, tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "vocab");
+    }
+    removeOther = false;
+
+    // load the saved values into the rendered views
+    dialog = showBusy("loading record", "please wait");
+    showTabGroup(tabgroup, id, new FetchCallback() {
+      onFetch(result) {
+        // print("loaded assoc: " + result + " with attributes: " + result.getAttributes());
+        removeUnselectedMaterials();
+        dialog.dismiss();
+      }
+    });
   }
 
+  /** Removes the tabs for unselected materials when loading. **/
+  removeUnselectedMaterials() {
+    // only perform the removal if the associated materials are being loaded.
+    if (!loading) {
+      return;
+    }
+    Log.d("removeUnselectedMaterials()", "Removing unseletected materials from loaded associated material.");
+    // get the selected material list values 
+    selectedAssocMaterial = getSelectedAssocMaterial();
+    if (selectedAssocMaterial != null && !selectedAssocMaterial.isEmpty())
+    {
+      String tabgroup = insituTabgroup;
+      List vocabulary = insituMaterialVocabulary;
+      if (!isInsituMaterial) {
+        tabgroup = surfaceTabgroup;
+        vocabulary = surfaceMaterialVocabulary;
+      }
+      removeHearth = true;
+      removeLacust = true;
+      removeTerrbo = true;
+      removeEggshell = true;
+      removeOther = true;
+      // flag the selected values which shouldn't be removed.
+      for (selectedItem : selectedAssocMaterial) {
+        for (type : vocabulary) {
+          if (selectedItem.getName().equals(type.get(0))) {
+            if (type.get(1).equals("{hs}")) {
+              removeHearth = false;
+            } else if(type.get(1).equals("{lacust}")) {
+              removeLacust = false;
+            } else if(type.get(1).equals("{terrbo}")) {
+              removeTerrbo = false;
+            } else if(type.get(1).equals("{eggshell}")) {
+              removeEggshell = false;
+            } else if(type.get(1).equals("{otherwork}")) {
+              removeOther = false;
+            } else {
+              Log.e("removeUnselectedMaterials()", "Error: no matched insitu selected");
+            }
+          }
+        }
+      }
+      // remove the unselected tabs, switching the load flag mark that the 'loading' process has finished.
+      loading = false;
+      onShowAssociatedMaterials();
+    }
+  }
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
     fetchVocabulary("Stone_-_In_Situ", insituMaterialVocabulary);
     fetchVocabulary("Stone_-_Surface", surfaceMaterialVocabulary);
   }
+
+  onEvent(insituTabgroup, "show", "stoneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+insituTabgroup+"\"); stoneAssoc.save();");
+  onEvent(surfaceTabgroup, "show", "stoneAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+surfaceTabgroup+"\"); stoneAssoc.save();");
 
   return this;
 }
