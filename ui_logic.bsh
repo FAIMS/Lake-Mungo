@@ -531,22 +531,51 @@ hearthFeature() {
   String type = "Hearth";
   String desc = type + " record";
   String id = null;
+  Boolean finishedInitialSave = false;
   String relTypeName = "Hearth And Associated Materials";
   List hearthTypeVocabulary = new ArrayList();
   Boolean removeBriefDescription = true;  
   Boolean removeHeatRetainer = true;
   Boolean removeNonHeatRetainer = true;  
   
+  /** Saves the feature for the first time, with all dynamic views/attributes present. **/
+  initialSave() {
+    removeBriefDescription = false;
+    removeHeatRetainer = false;
+    removeNonHeatRetainer = false;
+    displayTabViews();
+    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("hearth.initialSave()", desc + " saved with id: " + id);
+        if (newRecord) {
+          Log.d("hearth.initialSave()", "New " + desc + " created");
+        }
+        finishedInitialSave = true;
+        // remove the dynamic views
+        removeBriefDescription = true;
+        removeHeatRetainer = true;
+        removeNonHeatRetainer = true;
+        removeTabViews();
+        save();
+        Log.d("hearth.initialSave()", "Finished initial save of hearth tabgroup");
+      }
+      onError(message) {
+        showToast(message);
+      } 
+    }, false);
+  }
+
   /** Saves the feature **/
   save() {
+    if (!finishedInitialSave) {
+      return; // exit if the first save isn't completed
+    }
     Boolean enable_autosave = true;
     saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
       onSave(uuid, newRecord) {
         id = uuid;
         Log.d("save()", desc + " saved with id: " + id);
-        if (newRecord) {
-          Log.d("save()", "New " + desc + " created");
-        }
       }
       onError(message) {
           showToast(message);
@@ -557,12 +586,13 @@ hearthFeature() {
   /** Creates a new feature record. **/
   create() {
     dialog = showBusy("creating a new record", "please wait");
-    newTabGroup(entityTabgroup);
     id = null;
+    finishedInitialSave = false;
+    newTabGroup(entityTabgroup);
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
-    keepTabGroupChanges(entityTabgroup);
-    save();
+    // keepTabGroupChanges(entityTabgroup);
+    initialSave();
     dialog.dismiss();
   }
 
