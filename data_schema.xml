@@ -1379,6 +1379,8 @@
   <ArchaeologicalElement name="Hearth Associated Materials">
     <description/>
     <property name="HearthAssoc_-_Associated_material" type="enum" isIdentifier="true">
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
         <term> {lacust}
@@ -2088,6 +2090,8 @@ stone</description>
   <ArchaeologicalElement name="Stone Associated Insitu">
     <description/>
     <property name="Stone_-_In_Situ" type="enum" isIdentifier="true">
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <description/>
       <lookup>
         <term> {hs}
@@ -2232,6 +2236,8 @@ stone</description>
   <ArchaeologicalElement name="Stone Associated Surface">
     <description/>
     <property name="Stone_-_Surface" type="enum" isIdentifier="true">
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <description/>
       <lookup>
         <term> {hs}
@@ -3127,6 +3133,8 @@ stone</description>
   <ArchaeologicalElement name="Midden Associated Materials">
     <description/>
     <property name="MiddenAssoc_-_Associated_material" type="enum" isIdentifier="true">
+      <formatString><![CDATA[$1]]></formatString>
+      <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <description>If material other than shell is associated, select those of the following that have been observed</description>
       <lookup>
         <term> {lacust}
