@@ -2645,32 +2645,6 @@ stone</description>
         </term>
       </lookup>
     </property>
-    <property name="Stone_-_In_Situ_-_Ground_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
-      <lookup>
-        <term> {silcfine}
-          <description>Quartz grains less than 0.25 mm</description>
-        </term>
-        <term> {silcmed}
-          <description>Quartz grains 0.25 – 0.5 mm</description>
-        </term>
-        <term> {silccoarse}
-          <description>Quartz grains greater than 0.5mm</description>
-        </term>
-        <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
-        </term>
-        <term> {ironst}
-          <description>Ironstone</description>
-        </term>
-        <term> {sandst}
-          <description>Sandstone</description>
-        </term>
-        <term> {other}
-          <description>Other material</description>
-        </term>
-      </lookup>
-    </property>
     <property name="Stone_-_Surface_-_Potential_Refits" type="measure">
       <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
