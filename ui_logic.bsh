@@ -569,10 +569,17 @@ hearthFeature() {
         return;
     }
     dialog = showBusy("loading record", "please wait");
+    // display all dynamic views
+    removeBriefDescription = false;
+    removeHeatRetainer = false;
+    removeNonHeatRetainer = false;
+    displayTabViews();
+    // load the entity and populate any dynamic views with their saved value
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
         Log.d("load()", "Loaded a " + desc + ", ID: " + id);
         showToast("Loaded a " + desc);
+        checkHearthType(); // remove any dynamic views that shouldn't be present
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
