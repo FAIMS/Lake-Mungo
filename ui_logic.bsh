@@ -152,59 +152,63 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
 
 /** Makes a dynamic vocab nested in the specified and populates it using a data_schema vocab, with a callbackFunction to execute after creating the dynamic view. **/
 makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container, String attributeName, String attributeType) {
-  viewDef = createViewDef();
-  if (type.equals("DropDown")) {
-    viewDef.createDropDown();
-  } else if (type.equals("CheckBoxGroup")) {
-    viewDef.createCheckboxGroup();
-  } else if (type.equals("RadioGroup")) {
-    viewDef.createRadioGroup();
-  } else if (type.equals("PictureGallery")) {
-    viewDef.createPictureGallery();
-  } else {
-    Log.e("makeDynamicVocab()", "Error: invalid vocab type provided.");
-    return;
-  }
-  // set the label for the dynamic view
-  if (!isNull(label)) {
-    viewDef.setLabel(label);
-  }
-  // link the dynamic view to a property in the data schema
-  if (!isNull(attributeName) && !isNull(attributeType)) {
-    viewDef.setAttributeName(attributeName).setAttributeType(attributeType);
-  }
-  // Add the certainty, annotation and description
-  viewDef.setAnnotationEnabled(true).setCertaintyEnabled(true).setInfoEnabled(true);
-  // populate the dynamic view choices with the contents of some vocabulary
-  String tabgroup = path.split("/")[0];
-  String tab = path.split("/")[1];
-  String view = path.split("/")[2];
-  fetchAll("select vocabid, vocabname, pictureurl from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
-    onFetch(result) {
-      if (!isNull(container)) {
-        Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in container '" + container + "'");
-        createView(path, viewDef, container);
-      } else {
-        Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in tab '" + tabgroup + "/" + tab + "'");
-        createView(path, viewDef);
-      }
-
+  executeViewTask(new ViewTask(){
+    doTask() {
+      viewDef = createViewDef();
       if (type.equals("DropDown")) {
-        populateDropDown(path, result);
+        viewDef.createDropDown();
       } else if (type.equals("CheckBoxGroup")) {
-        populateCheckBoxGroup(path, result);
+        viewDef.createCheckboxGroup();
       } else if (type.equals("RadioGroup")) {
-        populateRadioGroup(path, result);
+        viewDef.createRadioGroup();
       } else if (type.equals("PictureGallery")) {
-        populatePictureGallery(path, result);
-      }    
-
-      if (callbackFunction != null && !isNull(callbackFunction)) {
-        execute(callbackFunction);
+        viewDef.createPictureGallery();
+      } else {
+        Log.e("makeDynamicVocab()", "Error: invalid vocab type provided.");
+        return;
       }
+      // set the label for the dynamic view
+      if (!isNull(label)) {
+        viewDef.setLabel(label);
+      }
+      // link the dynamic view to a property in the data schema
+      if (!isNull(attributeName) && !isNull(attributeType)) {
+        viewDef.setAttributeName(attributeName).setAttributeType(attributeType);
+      }
+      // Add the certainty, annotation and description
+      viewDef.setAnnotationEnabled(true).setCertaintyEnabled(true).setInfoEnabled(true);
+      // populate the dynamic view choices with the contents of some vocabulary
+      String tabgroup = path.split("/")[0];
+      String tab = path.split("/")[1];
+      String view = path.split("/")[2];
+      fetchAll("select vocabid, vocabname, pictureurl from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
+        onFetch(result) {
+          if (!isNull(container)) {
+            Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in container '" + container + "'");
+            createView(path, viewDef, container);
+          } else {
+            Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in tab '" + tabgroup + "/" + tab + "'");
+            createView(path, viewDef);
+          }
+
+          if (type.equals("DropDown")) {
+            populateDropDown(path, result);
+          } else if (type.equals("CheckBoxGroup")) {
+            populateCheckBoxGroup(path, result);
+          } else if (type.equals("RadioGroup")) {
+            populateRadioGroup(path, result);
+          } else if (type.equals("PictureGallery")) {
+            populatePictureGallery(path, result);
+          }    
+
+          if (callbackFunction != null && !isNull(callbackFunction)) {
+            execute(callbackFunction);
+          }
+        }
+      });
+      refreshTabgroupCSS(tabgroup);
     }
   });
-  refreshTabgroupCSS(tabgroup);
 }
 
 /** Entity Relationship Saving **/
