@@ -153,7 +153,9 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
 /** Makes a dynamic vocab nested in the specified and populates it using a data_schema vocab, with a callbackFunction to execute after creating the dynamic view. **/
 makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container, String attributeName, String attributeType) {
   viewDef = createViewDef();
-  if (type.equals("CheckBoxGroup")) {
+  if (type.equals("DropDown")) {
+    viewDef.createDropDown();
+  } else if (type.equals("CheckBoxGroup")) {
     viewDef.createCheckboxGroup();
   } else if (type.equals("RadioGroup")) {
     viewDef.createRadioGroup();
@@ -187,7 +189,9 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
         createView(path, viewDef);
       }
 
-      if (type.equals("CheckBoxGroup")) {
+      if (type.equals("DropDown")) {
+        populateDropDown(path, result);
+      } else if (type.equals("CheckBoxGroup")) {
         populateCheckBoxGroup(path, result);
       } else if (type.equals("RadioGroup")) {
         populateRadioGroup(path, result);
@@ -523,7 +527,11 @@ hearthFeature() {
   String type = "Hearth";
   String desc = type + " record";
   String id = null;
-  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  String relTypeName = "Hearth And Associated Materials";
+  List hearthTypeVocabulary = new ArrayList();
+  Boolean removeBriefDescription = true;  
+  Boolean removeHeatRetainer = true;
+  Boolean removeNonHeatRetainer = true;  
   
   /** Saves the feature **/
   save() {
@@ -571,18 +579,93 @@ hearthFeature() {
     });
   }
 
-   /** Initialises the tabgroup vocabularies. **/
+  /** Flags the selected hearth type corresponding to dynamic views **/
+  checkHearthType() {
+    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/hearthType");
+    if (isNull(selectedItem)) {
+      removeBriefDescription = true;
+      removeHeatRetainer = true;
+      removeNonHeatRetainer = true;
+      removeTabViews();
+      return;
+    }
+    for (hearthType : hearthTypeVocabulary) {
+      if (selectedItem.equals(hearthType.get(0))) {
+        if (hearthType.get(1).equals("{hsother}") || hearthType.get(1).equals("{other}")) {
+          removeBriefDescription = false;
+        } else {
+          removeBriefDescription = true;
+        }
+        if (hearthType.get(1).equals("{hsterm}") || hearthType.get(1).equals("{hscarb}") || hearthType.get(1).equals("{hsclay}") || hearthType.get(1).equals("{hsother}") || hearthType.get(1).equals("{hsindet}")) {
+          removeHeatRetainer = false;
+        } else {
+          removeHeatRetainer = true;
+        }
+        if (hearthType.get(1).equals("{emupat}") || hearthType.get(1).equals("{bakedclay}") || hearthType.get(1).equals("{bakedsed}") || hearthType.get(1).equals("{ashlens}") || hearthType.get(1).equals("{ashpatch}") || hearthType.get(1).equals("{charclens}") || hearthType.get(1).equals("{staining}") || hearthType.get(1).equals("{other}")) {
+          removeNonHeatRetainer = false;
+        } else {
+          removeNonHeatRetainer = true;
+        }
+      }
+    }
+    // update dynamic views
+    displayTabViews();
+    removeTabViews();
+  }
+
+  /** Displays the flagged dynamic vieiws **/
+  displayTabViews() {
+    String tabgroup = entityTabgroup;
+    if (!removeBriefDescription) {
+      if (!hasView(tabgroup+"/basicIdentification/briefDescription")) {
+        viewDef = createViewDef();
+        viewDef.createTextField().setLabel("{hearthUI_briefDescription}").setAttributeName("Hearth_-_Brief_description").setAttributeType("measure").setAnnotationEnabled(true).setCertaintyEnabled(true).setInfoEnabled(true);
+        createView(tabgroup+"/basicIdentification/briefDescription", viewDef);
+      }
+    }
+    if (!removeHeatRetainer) {
+      if (!hasView(tabgroup+"/hearthStructure/heatRetainer")) {
+        makeDynamicVocab("CheckBoxGroup", tabgroup+"/hearthStructure/heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths", "{hearthUI_heatRetainer}", null, tabgroup+"/hearthStructure/heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths", "vocab");
+      }
+    }
+    if (!removeNonHeatRetainer) {
+      if (!hasView(tabgroup+"/hearthStructure/nonHeatRetainer")) {
+        makeDynamicVocab("DropDown", tabgroup+"/hearthStructure/nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths", "{hearthUI_nonHeatRetainer}", null, tabgroup+"/hearthStructure/nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths", "vocab");
+      }
+    }
+  }
+
+  /** Removes the flagged dynamic views **/
+  removeTabViews() {
+    String tabgroup = entityTabgroup;
+    if (removeBriefDescription) {
+      if (hasView(tabgroup+"/basicIdentification/briefDescription")) {
+        removeView(tabgroup+"/basicIdentification/briefDescription");
+      }
+    }
+    if (removeHeatRetainer) {
+      if (hasView(tabgroup+"/hearthStructure/heatRetainer")) {
+        removeView(tabgroup+"/hearthStructure/heatRetainer");
+      }
+    }
+    if (removeNonHeatRetainer) {
+      if (hasView(tabgroup+"/hearthStructure/nonHeatRetainer")) {
+        removeView(tabgroup+"/hearthStructure/nonHeatRetainer");
+      }
+    }
+  }
+
+  /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "hearthType"        , "Hearth_-_Hearth_Type");
     makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "charcoal"          , "Hearth_-_Charcoal");
     makeVocab("PictureGallery"       , entityTabgroup + "/hearthStructure/" + "insituProportion"      , "Hearth_-_Proportion_of_material_that_remains_in_situ");
-    makeVocab("CheckBoxGroup"        , entityTabgroup + "/hearthStructure/" + "heatRetainer"          , "Hearth_-_Modification_of_heat-retainer_hearths");
-    makeVocab("DropDown"             , entityTabgroup + "/hearthStructure/" + "nonHeatRetainer"       , "Hearth_-_Modification_of_non-heat_retainer_hearths");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Hearth_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Hearth_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Hearth_-_Stratigraphic_Unit");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Hearth_-_Vulnerability_To_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Hearth_-_Palaeotopographic_Setting");
+    fetchVocabulary("Hearth_-_Hearth_Type", hearthTypeVocabulary);
   }
 
   /** Populates the in-situ and surface associated materials list. **/
@@ -590,11 +673,12 @@ hearthFeature() {
     listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialList", id, hearthAssoc.archentType, relTypeName);
   }
 
-  onEvent(entityTabgroup, "show", "hearth.save();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "hearth.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "click" , "showTabGroup(\"hearthAssociatedMaterials\");");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList", "click", "showToast(\"Placeholder for loading an associated material\");");
-  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(hearth.id, hearth.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
+  onEvent(entityTabgroup                                                  , "show"  , "hearth.save();");
+  onEvent(entityTabgroup + "/basicIdentification/hearthType"              , "click" , "hearth.checkHearthType();");
+  onEvent(entityTabgroup + "/associatedMaterials"                         , "show"  , "hearth.listAssociatedMaterials();");
+  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"          , "click" , "showTabGroup(\"hearthAssociatedMaterials\");");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList"  , "click" , "showToast(\"Placeholder for loading an associated material\");");
+  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare"     , "click" , "calculateGridSquare(hearth.id, hearth.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
 
   return this;
 }

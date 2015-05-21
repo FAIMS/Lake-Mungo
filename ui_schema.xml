@@ -446,9 +446,9 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="briefDescription" faims_attribute_name="Hearth_-_Brief_description" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <group ref="briefDescription">
           <label>{hearthUI_briefDescription}</label>
-        </input>
+        </group>
         <select1 ref="charcoal" faims_attribute_name="Hearth_-_Charcoal" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_charcoal}</label>
           <item>
@@ -466,20 +466,12 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select ref="heatRetainer" faims_attribute_name="Hearth_-_Modification_of_heat-retainer_hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <group ref="heatRetainer">
           <label>{hearthUI_heatRetainer}</label>
-          <item>
-            <label>placeholder</label>
-            <value>placeholder</value>
-          </item>
-        </select>
-        <select1 ref="nonHeatRetainer" faims_attribute_name="Hearth_-_Modification_of_non-heat_retainer_hearths" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        </group>
+        <group ref="nonHeatRetainer">
           <label>{hearthUI_nonHeatRetainer}</label>
-          <item>
-            <label>placeholder</label>
-            <value>placeholder</value>
-          </item>
-        </select1>
+        </group>
       </group>
       <group ref="associatedMaterials">
         <label>{hearthUI_associatedMaterials}</label>
