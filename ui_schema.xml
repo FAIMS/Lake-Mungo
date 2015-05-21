@@ -154,9 +154,9 @@
             </topAndStratSetting>
           </stoneArtefactClusters>
           <stoneAssociatedInsituMaterials>
-            <control>
-              <assocMaterialInSitu/>
-            </control>
+            <nearbyMaterial>
+              <assocInsituMaterial/>
+            </nearbyMaterial>
             <associatedHearthstones>
               <assocHearth/>
             </associatedHearthstones>
@@ -174,9 +174,9 @@
             </associatedOtherWorkedMaterial>
           </stoneAssociatedInsituMaterials>
           <stoneAssociatedSurfaceMaterials>
-            <control>
-              <assocSurface/>
-            </control>
+            <nearbyMaterial>
+              <assocSurfaceMaterial/>
+            </nearbyMaterial>
             <associatedHearthstones>
               <assocHearth/>
             </associatedHearthstones>
@@ -783,9 +783,9 @@
     </group>
     <group ref="stoneAssociatedInsituMaterials" faims_archent_type="Stone Associated Insitu">
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
-      <group ref="control">
+      <group ref="nearbyMaterial">
         <label>{stoneAssociatedMaterialsUI_control}</label>
-        <group ref="assocMaterialInSitu">
+        <group ref="assocInsituMaterial">
           <label>{stoneAssociatedMaterialsUI_assocMaterialInSitu}</label>
         </group>
       </group>
@@ -822,9 +822,9 @@
     </group>
     <group ref="stoneAssociatedSurfaceMaterials" faims_archent_type="Stone Associated Surface">
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
-      <group ref="control">
+      <group ref="nearbyMaterial">
         <label>{stoneAssociatedMaterialsUI_control}</label>
-        <group ref="assocSurface">
+        <group ref="assocSurfaceMaterial">
           <label>{stoneAssociatedMaterialsUI_assocSurface}</label>
         </group>
       </group>
