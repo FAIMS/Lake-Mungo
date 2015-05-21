@@ -557,8 +557,11 @@ hearthFeature() {
   /** Creates a new feature record. **/
   create() {
     dialog = showBusy("creating a new record", "please wait");
-    newTabGroup(entityTabgroup);
+    removeBriefDescription = true;
+    removeHeatRetainer = true;
+    removeNonHeatRetainer = true;
     id = null;
+    newTabGroup(entityTabgroup);
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
