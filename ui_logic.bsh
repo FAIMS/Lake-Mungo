@@ -711,10 +711,276 @@ hearthAssociatedMaterials() {
   String relTypeName = hearth.relTypeName;
   String id = null;
   Boolean loading = false;
+  Boolean removeLacust = true;
+  Boolean removeTerrestrial = true;
+  Boolean removeEggshell = true;
+  Boolean removeStone = true;
+  Boolean removeOther = true;
+  Boolean removeChippedStone = true;
+  Boolean removeRetouchedStone = true;
+  Boolean removeUnmodifiedStone = true;
+  Boolean removeGroundStone = true;
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
 
+  }
+
+  /** Saves the associated materials record. **/
+  save() {
+    Boolean enable_autosave = true;
+    saveTabGroup(tabgroup, id, null, null, new SaveCallback() {
+      onSave(uuid, newRecord) {
+        id = uuid;
+        Log.d("hearthAssociatedMaterials.save()", "Saving the relation between hearth " + hearth.id + " and " + tabgroup + " " + id);
+        String callback = "hearth.listAssociatedMaterials();" + "showTab(\"hearth/associatedMaterials\");";
+        saveEntitiesToRel(relTypeName, hearth.id, id, callback);
+      }
+    }, enable_autosave);
+  }
+
+  /** Loads the associated materials record. **/
+  load() {
+    String selectedID = getListItemValue();
+    if (!isNull(selectedID) && !selectedID.equals("placeholder")) {
+      Log.d("load()", "Preparing to load associated material with ID: " + selectedID);
+      id = selectedID;
+      loading = true;
+      removeAllViewsAndContainers(tabgroup);
+      displayDynamicViews();
+    }
+  }
+
+  /** Creates an associated materials record. **/
+  create() {
+    if (!isNull(hearth.id)) {
+      fetchOne("select uuid, response " +
+        "from latestNonDeletedArchEntFormattedIdentifiers " +
+        "where aenttypename = '"+archentType+"' " +
+        "and uuid in  (select uuid " +
+        "FROM latestNonDeletedAentReln " +
+        "where relationshipid in (select relationshipid " +
+        "FROM latestNonDeletedAentReln " +
+        "JOIN relationship using (relationshipid) " +
+        "JOIN relntype using (relntypeid) " +
+        "where uuid = "+hearth.id+" " +
+        "and relntypeName = '"+relTypeName+"') " +
+        "and uuid != "+hearth.id+");",  new FetchCallback() {
+        onFetch(result) {
+          if(isNull(result)) {
+            id = null;
+            removeAllViewsAndContainers(tabgroup);
+            newTabGroup(tabgroup);
+            displayDynamicViews();
+          } else {
+            showToast("Only one associated material can be recorded");
+          }
+        }
+      });
+    }
+  }
+
+  /** Checks the selections that dynamic views are dependant upon and changes the flags as appropriate. **/
+  checkSelections() {
+    if (!hasView()) {
+      removeLacust = true;
+      removeTerrestrial = true;
+      removeEggshell = true;
+      removeStone = true;
+      removeOther = true;
+      removeChippedStone = true;
+      removeRetouchedStone = true;
+      removeUnmodifiedStone = true;
+      removeGroundStone = true;
+      return;
+    }
+    
+  }
+
+  /** Displays the flagged dynamic views for the tabgroup **/
+  displayDynamicViews() {
+    String view = tabgroup+"/nearbyMaterial/assocMaterial";
+    String label = "{hearthAssociatedMaterialsUI_assocMaterial}";
+    String vocab = "HearthAssoc_-_Associated_material";
+    if (!hasView(view)) {
+      makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+    }
+    if (!removeLacust) {
+      view = tabgroup+"/associatedLacustrineMaterial/assocLacust";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocLacust}";
+        vocab = "HearthAssoc_-_Associated_lacustrine_material";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+      view = tabgroup+"/associatedLacustrineMaterial/assocBurntLacust";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocBurntLacust}";
+        vocab = "HearthAssoc_-_Burnt_lacustrine_material";
+        makeDynamicVocab("RadioGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+    }
+    if (!removeTerrestrial) {
+      view = tabgroup+"/associatedTerrestrialBone/assocTerrestrial";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocTerrestrial}";
+        vocab = "HearthAssoc_-_Associated_terrestrial_bone";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+      view = tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocBurntTerrestrial}";
+        vocab = "HearthAssoc_-_Burnt_terrestrial_bone";
+        makeDynamicVocab("RadioGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+    }
+    if (!removeEggshell) {
+       view = tabgroup+"/associatedEggshell/assocEggshell";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocEggshell}";
+        vocab = "HearthAssoc_-_Associated_eggshell";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+      view = tabgroup+"/associatedEggshell/assocBurntEggshell";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocBurntEggshell}";
+        vocab = "HearthAssoc_-_Burnt_eggshell";
+        makeDynamicVocab("RadioGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+    }
+    if (!removeStone) {
+      view = tabgroup+"/associatedStoneArtefacts/assocStone";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocStone}";
+        vocab = "HearthAssoc_-_Associated_stone_artefacts";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+      if (!removeChippedStone) {
+        view = tabgroup+"/associatedStoneArtefacts/assocChippedStone";
+        if (!hasView(view)) {
+          label = "{hearthAssociatedMaterialsUI_assocChippedStone}";
+          vocab = "HearthAssoc_-_Associated_chipped_stone_artefacts";
+          makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+        }
+        if (!removeRetouchedStone) {
+          view = tabgroup+"/associatedStoneArtefacts/assocRetouchedStone";
+          if (!hasView(view)) {
+            label = "{hearthAssociatedMaterialsUI_assocRetouchedStone}";
+            vocab = "HearthAssoc_-_Associated_retouched_artefacts";
+            makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+          }
+        }
+      }
+      if (!removeUnmodifiedStone) {
+        view = tabgroup+"/associatedStoneArtefacts/assocUnmodifiedStone";
+        if (!hasView(view)) {
+          label = "{hearthAssociatedMaterialsUI_assocUnmodifiedStone}";
+          vocab = "HearthAssoc_-_Associated_unmodified_stone";
+          makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+        }
+      }
+      if (!removeGroundStone) {
+        view = tabgroup+"/associatedStoneArtefacts/assocGroundStoneType";
+        if (!hasView(view)) {
+          label = "{hearthAssociatedMaterialsUI_assocGroundStoneType}";
+          vocab = "HearthAssoc_-_Ground_stone_types_present";
+          makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+        }
+        view = tabgroup+"/associatedStoneArtefacts/assocGroundStoneStatus";
+        if (!hasView(view)) {
+          label = "{hearthAssociatedMaterialsUI_assocGroundStoneStatus}";
+          vocab = "HearthAssoc_-_Ground_stone_status";
+          makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+        }
+      }
+      view = tabgroup+"/associatedStoneArtefacts/assocRawMaterial";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocRawMaterial}";
+        vocab = "HearthAssoc_-_Raw_material_types_present";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+    }
+    if (!removeOther) {
+      view = tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork";
+      if (!hasView(view)) {
+        label = "{hearthAssociatedMaterialsUI_assocOtherwork}";
+        vocab = "HearthAssoc_-_Associated_other_worked_(or_transported)_material";
+        makeDynamicVocab("CheckBoxGroup", view, vocab, label, null, view, vocab, "vocab");
+      }
+    }
+  }
+
+  /** Removes the flagged dynamic views for the tabgroup **/
+  removeDynamicViews() {
+    if (removeLacust) {
+      String view = tabgroup+"/associatedLacustrineMaterial/assocLacust";
+      if (hasView(view)) {
+        removeView(view);
+      }
+      view = tabgroup+"/associatedLacustrineMaterial/assocBurntLacust";
+      if (hasView(view)) {
+        removeView(view);
+      }
+    }
+    if (removeTerrestrial) {
+      String view = tabgroup+"/associatedTerrestrialBone/assocTerrestrial";
+      if (hasView(view)) {
+        removeView(view);
+      }
+      view = tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial";
+      if (hasView(view)) {
+        removeView(view);
+      }
+    }
+    if (removeEggshell) {
+      String view = tabgroup+"/associatedEggshell/assocEggshell";
+      if (hasView(view)) {
+        removeView(view);
+      }
+      view = tabgroup+"/associatedEggshell/assocBurntEggshell";
+      if (hasView(view)) {
+        removeView(view);
+      }
+    }
+    if (removeStone) {
+      if (removeChippedStone) {
+        String view = tabgroup+"/associatedStoneArtefacts/assocChippedStone";
+        if (hasView(view)) {
+          removeView(view);
+        }
+        if (removeRetouchedStone) {
+          String view = tabgroup+"/associatedStoneArtefacts/assocRetouchedStone";
+          if (hasView(view)) {
+            removeView(view);
+          }
+        }
+      }
+      if (removeUnmodifiedStone) {
+        String view = tabgroup+"/associatedStoneArtefacts/assocUnmodifiedStone";
+        if (hasView(view)) {
+          removeView(view);
+        }
+      }
+      if (removeGroundStone) {
+        String view = tabgroup+"/associatedStoneArtefacts/assocGroundStoneType";
+        if (hasView(view)) {
+          removeView(view);
+        }
+        view = tabgroup+"/associatedStoneArtefacts/assocGroundStoneStatus";
+        if (hasView(view)) {
+          removeView(view);
+        }
+      }
+      String view = tabgroup+"/associatedStoneArtefacts/assocRawMaterial";
+      if (hasView(view)) {
+        removeView(view);
+      }   
+    }
+    if (removeOther) {
+      String view = tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork";
+      if (hasView(view)) {
+        removeView(view);
+      }
+    }
   }
 
   return this;
