@@ -831,7 +831,7 @@ oldboneFeature() {
       }
     }
   }
-  
+
   checkClusterType() {
     String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
     Boolean showAssocTab = false;
@@ -2498,18 +2498,20 @@ isolated.init();
 /******************************************************************************/
 /*                                   PHOTOS                                   */
 /******************************************************************************/
-ArrayList tabGroups = new ArrayList();
+// ArrayList tabGroups = new ArrayList();
+// tabGroups.add(hearth.entityTabgroup);
+// tabGroups.add(isolated.entityTabgroup);
+// tabGroups.add(midden.entityTabgroup);
+// tabGroups.add(oldbone.entityTabgroup);
+// tabGroups.add(stone.entityTabgroup);
+// for (tg : tabGroups) {
+//   onEvent(tg + "/topAndStratSetting/takePhoto", "click", "attachPictureTo(\"" + tg + "/topAndStratSetting/photos\");");
+// }
 
-tabGroups.add("hearth");
-tabGroups.add("isolatedOccurrences");
-tabGroups.add("midden");
-//tabGroups.add("oldBone");
-tabGroups.add("stoneArtefactClusters");
+onEvent("hearth/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"hearth/topAndStratSetting/photos\");");
+onEvent("stoneArtefactClusters/topAndStratSetting/takePhoto"  , "click", "attachPictureTo(\"stoneArtefactClusters/topAndStratSetting/photos\");");
+onEvent("isolatedOccurrences/topAndStratSetting/takePhoto"    , "click", "attachPictureTo(\"isolatedOccurrences/topAndStratSetting/photos\");");
+onEvent("midden/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"midden/topAndStratSetting/photos\");");
+onEvent("oldBone/topAndStratSetting/takePhoto"                , "click", "attachPictureTo(\"oldBone/topAndStratSetting/photos\");");
 
-for (tg : tabGroups) {
-  onEvent(
-      tg + "/topAndStratSetting/takePhoto",
-      "click",
-      "attachPictureTo(\"" + tg + "/topAndStratSetting/photos\")"
-  );
-}
+
