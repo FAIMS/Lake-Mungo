@@ -576,11 +576,12 @@ hearthFeature() {
         return;
     }
     dialog = showBusy("loading record", "please wait");
+    removeAllViewsAndContainers(entityTabgroup);
     // display all dynamic views
     removeBriefDescription = false;
     removeHeatRetainer = false;
     removeNonHeatRetainer = false;
-    displayTabViews();
+    displayDynamicViews();
     // load the entity and populate any dynamic views with their saved value
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
@@ -600,7 +601,7 @@ hearthFeature() {
       removeBriefDescription = true;
       removeHeatRetainer = true;
       removeNonHeatRetainer = true;
-      removeTabViews();
+      removeDynamicViews();
       return;
     }
     for (hearthType : hearthTypeVocabulary) {
@@ -623,12 +624,12 @@ hearthFeature() {
       }
     }
     // update dynamic views
-    displayTabViews();
-    removeTabViews();
+    displayDynamicViews();
+    removeDynamicViews();
   }
 
   /** Displays the flagged dynamic vieiws **/
-  displayTabViews() {
+  displayDynamicViews() {
     String tabgroup = entityTabgroup;
     if (!removeBriefDescription) {
       if (!hasView(tabgroup+"/basicIdentification/briefDescription")) {
@@ -654,7 +655,7 @@ hearthFeature() {
   }
 
   /** Removes the flagged dynamic views **/
-  removeTabViews() {
+  removeDynamicViews() {
     String tabgroup = entityTabgroup;
     if (removeBriefDescription) {
       if (hasView(tabgroup+"/basicIdentification/briefDescription")) {
