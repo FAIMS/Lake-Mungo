@@ -1059,17 +1059,20 @@
     <property name="Midden_-_Midden_Type" type="enum">
       <description/>
       <lookup>
+        <term> {dispers}
+          <description>Scattered shells eroding out across &gt; 1metre of exposure, with no associated material, probably non-cultural in origin</description>
+        </term>
         <term> {smallclust}
-          <description>A single discrete cluster of a handful of mussel shell</description>
+          <description>A single, discrete cluster containing a handful of mussel shells</description>
         </term>
         <term> {largeclust}
-          <description>A discrete cluster, or multiple clusters, of mussel shell that extends up to 1-2 metres</description>
+          <description>A discrete cluster, or multiple discrete clusters, of mussel shell that extend along an horizon for up to 1-2 metres</description>
         </term>
         <term> {extthin}
-          <description>A laterally extensive cluster (greater than 2 m), or multiple clusters, of mussel shell in a single or dispersed layer</description>
+          <description>A laterally extensive cluster, exposed along an horizon for more than 2 metres or multiple small clusters of mussel shell that occur in a single</description>
         </term>
         <term> {extthick}
-          <description>A laterally extensive cluster (greater than 2 m), or multiple clusters, of mussel shell with multiple layers</description>
+          <description>A laterally extensive cluster, exposed along an horizon for more than 2 metres or multiple small clusters of mussel shell that occur in a single</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -1092,11 +1095,14 @@
         <term> {none}
           <description>No charcoal visible</description>
         </term>
+        <term> {diss}
+          <description>Finely disseminated charcoal</description>
+        </term>
+        <term> {flecks}
+          <description>Flecks of charcoal, dispersed through the sediment or in clusters</description>
+        </term>
         <term> {lumps}
           <description>Large lumps of in situ charcoal present</description>
-        </term>
-        <term> {dissem}
-          <description>Finely disseminated charcoal present only</description>
         </term>
         <term> {indet}
           <description>Dark staining visible, but origin indeterminate</description>
@@ -1111,16 +1117,16 @@
           <description>The majority of the visible shell material is in situ</description>
         </term>
         <term> {some}
-          <description>At least some of the shell is in situ</description>
+          <description>At least some of the shells are in in situ</description>
         </term>
         <term> {surface}
-          <description>No shell material is embedded in sediment</description>
+          <description>None of the shells are embedded in sediment</description>
         </term>
         <term> {recement}
-          <description>The shell material appears to be in situ, but there is a high likelihood that it is actually cemented in redeposited sediment</description>
+          <description>Some shells appear to be in situ but there is a high likelihood that they have been cemented into redeposited sediment</description>
         </term>
         <term> {ambiguous}
-          <description>The shell material appears to be in situ, but it is impossible to say whether it is actually recemented</description>
+          <description>The shells appear to be in situ but it is impossible to determine whether they are actually recemented</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -3447,11 +3453,23 @@ stone</description>
         <term> {eggshell}
           <description>Emu, Genyornis or other eggshell</description>
         </term>
-        <term> {artefacts}
+        <term> {stoneart}
           <description>Chipped, unmodified or ground stone</description>
+        </term>
+        <term> {ochrediss}
+          <description>Soft, friable fragments of ochre embedded in sediment</description>
+        </term>
+        <term> {ochrenod}
+          <description>Hard nodule of ochre with no visible striations or facets</description>
+        </term>
+        <term> {ochrefacet}
+          <description>hard nodule of ochre with facets, indicating use as crayon</description>
         </term>
         <term> {otherwork}
           <description>Other worked or transported material</description>
+        </term>
+        <term> {other}
+          <description>Other material not listed above</description>
         </term>
       </lookup>
     </property>
@@ -3477,10 +3495,13 @@ stone</description>
       <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description>Calcined or charred material present</description>
         </term>
         <term> {No}
-          <description/>
+          <description>No burned material</description>
+        </term>
+        <term> {indet}
+          <description>Cannot determine because material is embedded in sediment, covered with other material or with a sand veneer</description>
         </term>
       </lookup>
     </property>
@@ -3503,7 +3524,7 @@ stone</description>
           <description>Cannot be identified by recorder</description>
         </term>
         <term> {undiag}
-          <description>Fragment is undiagnostic</description>
+          <description>Does not preserve any diagnostic features (teeth, long bone ends, muscle markings)</description>
         </term>
       </lookup>
     </property>
@@ -3511,10 +3532,13 @@ stone</description>
       <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
       <lookup>
         <term> {Yes}
-          <description/>
+          <description>Calcined or charred material present</description>
         </term>
         <term> {No}
-          <description/>
+          <description>No burned material</description>
+        </term>
+        <term> {indet}
+          <description>Cannot determine because material is embedded in sediment, covered with other material or with a sand veneer</description>
         </term>
       </lookup>
     </property>
@@ -3586,19 +3610,19 @@ stone</description>
       <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
       <lookup>
         <term> {notch}
-          <description>Notched artefact</description>
+          <description>Retouch that creates one or more concavities along the margin of the tool</description>
         </term>
         <term> {scraper}
-          <description>Other type of scraper</description>
+          <description>Flake with one or more margins of retouch</description>
         </term>
         <term> {backed}
-          <description>Backed artefact</description>
+          <description>Tool with steep, blunting retouch along one margin</description>
         </term>
         <term> {unifpt}
-          <description>Unifacial point</description>
+          <description>Retouch on one or more margins, which converge to a point in plan view, initiated from a single surface</description>
         </term>
-        <term> {bifac}
-          <description>Bifacially flaked artefact</description>
+        <term> {bifacpt}
+          <description>Retouch on one or more margins, which converge to a point in plan view, initiated from two surfaces</description>
         </term>
         <term> {otherru}
           <description>Any other type of retouch or use-wear</description>
@@ -3660,54 +3684,171 @@ stone</description>
         <term> {other} <description/> </term>
       </lookup>
     </property>
-    <property name="MiddenAssoc_-_Raw_material_types_present" type="enum">
-      <description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>
+    <property name="MiddenAssoc_-_Ground_stone_raw_material" type="enum">
       <lookup>
-        <term> {silcfine}
-          <description>Fine-grained silcrete</description>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
-        <term> {silccoarse}
-          <description>Coarse-grained silcrete</description>
-        </term>
-        <term> {silcgran}
-          <description>Granular silcrete</description>
-        </term>
-        <term> {qtzite}
-          <description>Quartzite</description>
-        </term>
-        <term> {qtz}
-          <description>Quartz</description>
+        <term> {quartzite}
+          <description>Metamorphosed sandstone, has a sugary texture</description>
         </term>
         <term> {ironst}
-          <description>Ironstone</description>
-        </term>
-        <term> {sandst}
-          <description>Sandstone</description>
+          <description>Sedimentary rock containing iron rich minerals</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>If material can be identified, enter into notes</description>
         </term>
+        <term> {indet}
+          <description>Material could not be identified</description>
+        </term>
+      </lookup>
+    </property>
+    <!-- Replaced by:
+           MiddenAssoc_-_Chipped_Stone_Raw_Material (NEW)
+           MiddenAssoc_-_Unmodified_Raw_Material    (NEW)
+    -->
+    <!--<property name="MiddenAssoc_-_Raw_material_types_present" type="enum">-->
+      <!--<description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>-->
+      <!--<lookup>-->
+        <!--<term> {silcfine}-->
+          <!--<description>Fine-grained silcrete</description>-->
+        <!--</term>-->
+        <!--<term> {silccoarse}-->
+          <!--<description>Coarse-grained silcrete</description>-->
+        <!--</term>-->
+        <!--<term> {silcgran}-->
+          <!--<description>Granular silcrete</description>-->
+        <!--</term>-->
+        <!--<term> {qtzite}-->
+          <!--<description>Quartzite</description>-->
+        <!--</term>-->
+        <!--<term> {qtz}-->
+          <!--<description>Quartz</description>-->
+        <!--</term>-->
+        <!--<term> {ironst}-->
+          <!--<description>Ironstone</description>-->
+        <!--</term>-->
+        <!--<term> {sandst}-->
+          <!--<description>Sandstone</description>-->
+        <!--</term>-->
+        <!--<term> {other}-->
+          <!--<description>Other material</description>-->
+        <!--</term>-->
+      <!--</lookup>-->
+    <!--</property>-->
+    <property name="MiddenAssoc_-_Chipped_Stone_Raw_Material" type="enum">
+      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains in the matrix are 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains in the matrix are &gt; 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>Naked eye cannot identify grains in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {qtz}
+          <description>A clear, white, milky white or rose coloured mineral</description>
+        </term>
+        <term> {other}
+          <description>If material can be identified, enter into notes</description>
+        </term>
+        <term> {indet}
+          <description>Material not identified</description>
+        </term>
+      </lookup>
+    </property>
+    <!-- NEW -->
+    <property name="MiddenAssoc_-_Unmodified_Raw_Material" type="enum">
+      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <lookup>
+        <term> {silcfine}
+          <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
+        </term>
+        <term> {silcmed}
+          <description>Quartz grains in the matrix are 0.25 – 0.5 mm</description>
+        </term>
+        <term> {silccoarse}
+          <description>Quartz grains in the matrix are &gt; 0.5mm</description>
+        </term>
+        <term> {silcmicroxtal}
+          <description>Naked eye cannot identify grains in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {qtz}
+          <description>A clear, white, milky white or rose coloured mineral</description>
+        </term>
+        <term> {ironst}
+          <description>Sedimentary rock containing iron rich minerals</description>
+        </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
+        <term> {other}
+          <description>If material can be identified, enter into notes</description>
+        </term>
+        <term> {indet}
+          <description>Material could not be identified</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="MiddenAssoc_-_Unmodified_Stone_Types" type="enum">
+      <description/>
+      <lookup>
+        <term> {nodule}
+          <description>Nodule a large, nodular or rounded cobble (&gt;64 mm)</description>
+        </term>
+        <term> {slab}
+          <description>A thick, flat piece of rock (&gt;64 mm)</description>
+        </term>
+        <term> {pebble}
+          <description>Small nodular or rounded piece, &lt; 64 mm maximum dimension, unlikely to be useful for artefact manufacture</description>
+        </term>
+        <term> {unident}
+          <description>Form cannot be determined because too deeply buried or covered with carbonate</description>
+        </term>
+        <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
       <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
       <lookup>
-        <term> {bone}
-          <description>Worked bone</description>
+        <term> {bonemod}
+          <description>Bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
         </term>
-        <term> {shell}
-          <description>Worked shell</description>
+        <term> {shellmod}
+          <description>Shell with notches or other evidence of working or use along one or more margins</description>
         </term>
-        <term> {ochre}
-          <description>Unworked ochre</description>
+        <term> {eggmod}
+          <description>Eggshell with modified surface, e.g. tooth mark or drill hole</description>
         </term>
-        <term> {facetochre}
-          <description>Facetted ochre</description>
+        <term> {ochrediss}
+          <description>Flecks or fragments of ochre disseminated through the sediment</description>
         </term>
-        <term> {qtzxtal}
+        <term> {ochrenod}
+          <description>Small nodule of ochre</description>
+        </term>
+        <term> {ochrefacet}
+          <description>Ochre with facets, indicating use as crayon</description>
+        </term>
+        <term> {qtzxal}
           <description>Unworked quartz crystal</description>
         </term>
-        <term> {other} <description/> </term>
+        <term> {turbo}
+          <description>Marine gastropod, round shell with white zigzag stripes, up to 4cm long</description>
+        </term>
+        <term> {other}
+          <description>Any other worked, utilised or transported material not listed above</description>
+        </term>
       </lookup>
     </property>
   </ArchaeologicalElement>
