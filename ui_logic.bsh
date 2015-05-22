@@ -1954,7 +1954,7 @@ stoneFeature() {
   onEvent(entityTabgroup + "/associatedMaterials"                               , "show"  , "stone.listAssociatedMaterials();"); 
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterialInSitu"          , "click" , "stoneAssoc.isInsituMaterial=true; stoneAssoc.create();");
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterialSurface"         , "click" , "stoneAssoc.isInsituMaterial=false; stoneAssoc.create();");
-    onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu", "click" , "stoneAssoc.isInsituMaterial=true; stoneAssoc.load();");
+  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListInSitu"   , "click" , "stoneAssoc.isInsituMaterial=true; stoneAssoc.load();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialListSurface" , "click" , "stoneAssoc.isInsituMaterial=false; stoneAssoc.load();");
 
 
