@@ -723,7 +723,7 @@ hearthAssociatedMaterials() {
   Boolean removeRetouchedStone = true;
   Boolean removeUnmodifiedStone = true;
   Boolean removeGroundStone = true;
-// 
+
   onEvent(tabgroup, "show", "hearthAssoc.renderTabgroup(); keepTabGroupChanges(\""+tabgroup+"\"); hearthAssoc.save();");
   onEvent(tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAssoc.renderTabgroup();");
 
@@ -924,23 +924,23 @@ hearthAssociatedMaterials() {
     // show the selected tabs
     if (!removeLacust) {
       showTab(tabgroup+"/associatedLacustrineMaterial");
-      removeHearth = true;
+      // removeLacust = true;
     }   
     if (!removeTerrestrial) {
       showTab(tabgroup+"/associatedTerrestrialBone");
-      removeLacust = true;
+      // removeTerrestrial = true;
     }
     if (!removeEggshell) {
       showTab(tabgroup+"/associatedEggshell");
-      removeTerrbo = true;
+      // removeEggshell = true;
     } 
     if (!removeStone) {
       showTab(tabgroup+"/associatedStoneArtefacts");
-      removeEggshell = true;
+      // removeStone = true;
     } 
     if (!removeOther) {
       showTab(tabgroup+"/associatedOtherWorkedMaterial");
-      removeOther = true;
+      // removeOther = true;
     }
     // switch to the control tab and save the tabgroup
     showTab(tabgroup+"/nearbyMaterial");
