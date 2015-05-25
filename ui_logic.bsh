@@ -1100,10 +1100,6 @@ hearthAssociatedMaterials() {
 
   /** Removes the relevent associated stone artefact views. **/
   removeDynamicAssociatedStone() {
-    String tabgroup = insituTabgroup;
-    if (!isInsituMaterial) {
-      tabgroup = surfaceTabgroup;
-    }
     if (removeChippedStone) {
       if (hasView(tabgroup+"/associatedStoneArtefacts/assocChippedStone")) {
         removeView(tabgroup+"/associatedStoneArtefacts/assocChippedStone");
@@ -1168,7 +1164,7 @@ hearthAssociatedMaterials() {
     }
   }
   
-  onEvent(tabgroup, "show", "hearthAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+insituTabgroup+"\"); hearthAssoc.save();");
+  onEvent(tabgroup, "show", "hearthAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+tabgroup+"\"); hearthAssoc.save();");
   onEvent(tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAssoc.renderAssocTabs();");
 
   return this;
