@@ -97,7 +97,9 @@
               <assocUnmodifiedStone/>
               <assocGroundStoneType/>
               <assocGroundStoneStatus/>
-              <assocRawMaterial/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
+              <assocUnmodifiedRawMaterial/>   <!-- NEW -->
+              <assocGroundRawMaterial/>       <!-- NEW -->
             </associatedStoneArtefacts>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -111,6 +113,7 @@
               <clusterType/>
             </basicIdentification>
             <inSituDescription>
+              <potentialRefits/>              <!-- NEW -->
               <inSituInSituStoneArtefacts/>
               <inSituChippedStoneArtfacts/>
               <inSituChippedRawMaterial/>
@@ -266,7 +269,8 @@
               <assocUnmodifiedStone/>
               <assocGroundStoneType/>
               <assocGroundStoneStatus/>
-              <assocRawMaterial/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
+              <assocUnmodifiedRawMaterial/>   <!-- NEW -->
             </associatedStoneArtefacts>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -597,8 +601,14 @@
         <group ref="assocGroundStoneStatus">
           <label>{hearthAssociatedMaterialsUI_assocGroundStoneStatus}</label>
         </group>
-        <group ref="assocRawMaterial">
-          <label>{hearthAssociatedMaterialsUI_assocRawMaterial}</label>
+        <group ref="assocChippedRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocChippedRawMaterial}</label>
+        </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
+        </group>
+        <group ref="assocGroundRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocGroundRawMaterial}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">
@@ -631,6 +641,9 @@
       </group>
       <group ref="inSituDescription">
         <label>{stoneArtefactClustersUI_inSituDescription}</label>
+        <group ref="potentialRefits">
+          <label>{stoneArtefactClustersUI_potentialRefits}</label>
+        </group>
         <group ref="inSituInSituStoneArtefacts">
           <label>{stoneArtefactClustersUI_inSituInSituStoneArtefacts}</label>
         </group>
@@ -1116,8 +1129,11 @@
         <group ref="assocGroundStoneStatus">
           <label>{middenAssociatedMaterialsUI_assocGroundStoneStatus}</label>
         </group>
-        <group ref="assocRawMaterial">
-          <label>{middenAssociatedMaterialsUI_assocRawMaterial}</label>
+        <group ref="assocChippedRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocChippedRawMaterial}</label>
+        </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">

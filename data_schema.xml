@@ -3735,6 +3735,7 @@ stone</description>
         <!--</term>-->
       <!--</lookup>-->
     <!--</property>-->
+    <!-- NEW -->
     <property name="MiddenAssoc_-_Chipped_Stone_Raw_Material" type="enum">
       <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
       <lookup>
