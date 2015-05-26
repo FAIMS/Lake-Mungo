@@ -1881,9 +1881,7 @@ middenFeature() {
   String id = null;
   String relTypeName = "Midden And Associated Materials";
   ArrayList middenTypeVocabulary = new ArrayList();
-  Boolean removeBriefDescription = true;  
-  Boolean removeHeatRetainer = true;
-  Boolean removeNonHeatRetainer = true;  
+  Boolean removeContinuity = true; 
   
   /** Saves the feature **/
   save() {
@@ -1905,9 +1903,7 @@ middenFeature() {
   /** Creates a new feature record. **/
   create() {
     dialog = showBusy("creating a new record", "please wait");
-    removeBriefDescription = true;
-    removeHeatRetainer = true;
-    removeNonHeatRetainer = true;
+    removeContinuity = true;
     id = null;
     newTabGroup(entityTabgroup);
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
@@ -1926,47 +1922,34 @@ middenFeature() {
     dialog = showBusy("loading record", "please wait");
     removeAllViewsAndContainers(entityTabgroup);
     // display all dynamic views
-    removeBriefDescription = false;
-    removeHeatRetainer = false;
-    removeNonHeatRetainer = false;
+    removeContinuity = false;
     displayDynamicViews();
     // load the entity and populate any dynamic views with their saved value
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
         Log.d("load()", "Loaded a " + desc + ", ID: " + id);
         showToast("Loaded a " + desc);
-        checkHearthType(); // remove any dynamic views that shouldn't be present
+        checkMiddenType(); // remove any dynamic views that shouldn't be present
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
     });
   }
 
-  checkHearthType() {
-    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/hearthType");
+  /** Checks the midden type selection and displays/removes the appropriate dynamic views **/
+  checkMiddenType() {
+    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/middenType");
     if (isNull(selectedItem)) {
-      removeBriefDescription = true;
-      removeHeatRetainer = true;
-      removeNonHeatRetainer = true;
+      removeContinuity = true;
       removeDynamicViews();
       return;
     }
-    for (hearthType : hearthTypeVocabulary) {
-      if (selectedItem.equals(hearthType.get(0))) {
-        if (hearthType.get(1).equals("{hsother}") || hearthType.get(1).equals("{other}")) {
-          removeBriefDescription = false;
+    for (middenType : middenTypeVocabulary) {
+      if (selectedItem.equals(middenType.get(0))) {
+        if (middenType.get(1).equals("{largeclust}") || middenType.get(1).equals("{extthin}") || middenType.get(1).equals("{extthick}")) {
+          removeContinuity = false;
         } else {
-          removeBriefDescription = true;
-        }
-        if (hearthType.get(1).equals("{hsterm}") || hearthType.get(1).equals("{hscarb}") || hearthType.get(1).equals("{hsclay}") || hearthType.get(1).equals("{hsother}") || hearthType.get(1).equals("{hsindet}")) {
-          removeHeatRetainer = false;
-        } else {
-          removeHeatRetainer = true;
-        }
-        if (hearthType.get(1).equals("{emupat}") || hearthType.get(1).equals("{bakedclay}") || hearthType.get(1).equals("{bakedsed}") || hearthType.get(1).equals("{ashlens}") || hearthType.get(1).equals("{ashpatch}") || hearthType.get(1).equals("{charclens}") || hearthType.get(1).equals("{staining}") || hearthType.get(1).equals("{other}")) {
-          removeNonHeatRetainer = false;
-        } else {
-          removeNonHeatRetainer = true;
+          removeContinuity = true;
         }
       }
     }
@@ -1975,105 +1958,22 @@ middenFeature() {
     removeDynamicViews();
   }
 
+  /** Displays the flagged dynamic views for the tab **/
   displayDynamicViews() {
     String tabgroup = entityTabgroup;
-    if (!removeBriefDescription) {
-      if (!hasView(tabgroup+"/basicIdentification/briefDescription")) {
-        executeViewTask(new ViewTask(){
-          doTask() {
-            viewDef = createViewDef();
-            viewDef.createTextField().setLabel("{hearthUI_briefDescription}").setAttributeName("Hearth_-_Brief_description").setAttributeType("measure").setAnnotationEnabled(true).setCertaintyEnabled(true).setInfoEnabled(true);
-            createView(tabgroup+"/basicIdentification/briefDescription", viewDef);
-          }
-        });
-      }
-    }
-    if (!removeHeatRetainer) {
-      if (!hasView(tabgroup+"/hearthStructure/heatRetainer")) {
-        makeDynamicVocab("CheckBoxGroup", tabgroup+"/hearthStructure/heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths", "{hearthUI_heatRetainer}", null, tabgroup+"/hearthStructure/heatRetainer", "Hearth_-_Modification_of_heat-retainer_hearths", "vocab");
-      }
-    }
-    if (!removeNonHeatRetainer) {
-      if (!hasView(tabgroup+"/hearthStructure/nonHeatRetainer")) {
-        makeDynamicVocab("DropDown", tabgroup+"/hearthStructure/nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths", "{hearthUI_nonHeatRetainer}", null, tabgroup+"/hearthStructure/nonHeatRetainer", "Hearth_-_Modification_of_non-heat_retainer_hearths", "vocab");
+    if (!removeContinuity) {
+      if (!hasView(tabgroup+"/basicIdentification/continuity")) {
+        makeDynamicVocab("CheckBoxGroup", entityTabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "{middenUI_continuity}", null, entityTabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "vocab");
       }
     }
   }
 
-  /** Removes the flagged dynamic views **/
+  /** Removes the flagged dynamic views for the tab **/
   removeDynamicViews() {
     String tabgroup = entityTabgroup;
-    if (removeBriefDescription) {
-      if (hasView(tabgroup+"/basicIdentification/briefDescription")) {
-        removeView(tabgroup+"/basicIdentification/briefDescription");
-      }
-    }
-    if (removeHeatRetainer) {
-      if (hasView(tabgroup+"/hearthStructure/heatRetainer")) {
-        removeView(tabgroup+"/hearthStructure/heatRetainer");
-      }
-    }
-    if (removeNonHeatRetainer) {
-      if (hasView(tabgroup+"/hearthStructure/nonHeatRetainer")) {
-        removeView(tabgroup+"/hearthStructure/nonHeatRetainer");
-      }
-    }
-  }
-
-  displayAssocMaterials() {
-    List checkedMaterials = getFieldValue("middenAssociatedMaterials/control/assocMaterial");
-    if (isNull(checkedMaterials))
-      return;
-  }
-
-  displayContinuity() {
-    String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/middenType");
-    if (isNull(selectedItem)) {
-      return;
-    }
-    if (middenTypeVocabulary == null) {
-      return;
-    }
-    String dynamicViewMiddenType = entityTabgroup + "/basicIdentification/continuity";
-
-    /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
-    String selectedItemName = "";
-    for (middenType : middenTypeVocabulary) {
-      if (selectedItem.equals(middenType.get(0))) {
-        selectedItemName = middenType.get(1);
-        break;
-      }
-    }
-
-    ArrayList extensiveAndLargeTypes = new ArrayList();
-
-    extensiveAndLargeTypes.add("{largeclust}");
-    extensiveAndLargeTypes.add("{extthin}");
-    extensiveAndLargeTypes.add("{extthick}");
-
-    String faimsAttribMiddenType = "Midden_-_Midden_Type";
-    String refMiddenType         = entityTabgroup + "/basicIdentification/middenType";
-    Boolean isSelectedExtensiveOrLarge = extensiveAndLargeTypes.contains(selectedItemName);
-
-    String faimsAttribContinuity = "Midden_-_Continuity";
-    String refContinuity         = entityTabgroup + "/basicIdentification/continuity";
-    if (isSelectedExtensiveOrLarge) {
-      if (!hasView(refContinuity)) {
-        String callback = "makeVocab(\"CheckBoxGroup\", \"" + refContinuity+"\", \"" + faimsAttribContinuity + "\");";
-        makeDynamicVocab(
-          "CheckBoxGroup",
-          refContinuity,
-          faimsAttribContinuity,
-          "{middenUI_continuity}",
-          callback,
-          refContinuity,
-          faimsAttribContinuity,
-          "vocab"
-        );
-      }
-    } else {
-      if (hasView(refContinuity)) {
-        removeView(refContinuity);
+    if (removeContinuity) {
+      if (hasView(tabgroup+"/basicIdentification/continuity")) {
+        removeView(tabgroup+"/basicIdentification/continuity");
       }
     }
   }
@@ -2082,17 +1982,14 @@ middenFeature() {
   init() {
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "presenceOfCharcoal"                    , "Midden_-_Presence_of_charcoal");
-    makeVocab("CheckBoxGroup"        , "middenAssociatedMaterials/control/assocMaterial", "MiddenAssoc_-_Associated_material");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion_of_material_that_remains_in_situ");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalvePreservation"                   , "Midden_-_Bivalve_preservation");
     makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
-
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Midden_-_Topographic_Setting");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Midden_-_Sediment_Type");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Midden_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Midden_-_Vulnerability_To_Erosion");
-    makeVocab("PictureGallery" , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Midden_-_Palaeotopographic_Setting");
-
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"                        , "Midden_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"                              , "Midden_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"                         , "Midden_-_Stratigraphic_Unit");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"                      , "Midden_-_Vulnerability_To_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"                   , "Midden_-_Palaeotopographic_Setting");
     fetchVocabulary("Midden_-_Midden_Type", middenTypeVocabulary);
   }
 
@@ -2106,7 +2003,7 @@ middenFeature() {
   onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList" , "click"      , "middenAssoc.load()");
   onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "delayclick" , "middenAssoc.create();");
   onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare"    , "click"      , "calculateGridSquare(midden.id        , midden.entityTabgroup , \""+entityTabgroup+"/basicIdentification/gridSquare\");");
-  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click"      , "midden.displayContinuity();");
+  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click"      , "midden.checkMiddenType();");
 
   return this;
 }
