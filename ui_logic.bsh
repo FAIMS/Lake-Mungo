@@ -1238,8 +1238,8 @@ oldboneFeature() {
     dialog = showBusy("loading record", "please wait");
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
-        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
-        showToast("Loaded a " + desc);
+        Log.d("load()", "Loaded an " + desc + ", ID: " + id);
+        showToast("Loaded an " + desc);
         checkClusterType();
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
@@ -3396,8 +3396,8 @@ isolatedFeature() {
     dialog = showBusy("loading record", "please wait");
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
-        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
-        showToast("Loaded a " + desc);
+        Log.d("load()", "Loaded an " + desc + ", ID: " + id);
+        showToast("Loaded an " + desc);
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
