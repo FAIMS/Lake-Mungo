@@ -3313,34 +3313,6 @@ isolatedFeature() {
     fetchVocabulary("Isolated_-_Occurrence_Type", occurrenceTypeVocabulary);
   }
 
-  /** Populates the in-situ and surface associated materials list. **/
-  listAssociatedMaterials() {
-    if(!isNull(id)) {
-      String assocListQuery = "select uuid, response " +
-        "from latestNonDeletedArchEntFormattedIdentifiers " +
-        "where aenttypename = '" + archentType + "Associated Materials' " +
-        "and uuid in  (select uuid " +
-        "FROM latestNonDeletedAentReln " +
-        "where relationshipid in (select relationshipid " +
-        "FROM latestNonDeletedAentReln " +
-        "JOIN relationship using (relationshipid) " +
-        "JOIN relntype using (relntypeid) " +
-        "where uuid = "+ id + " " +
-        "and relntypeName = '" + relTypeName + "') " +
-        "and uuid != "+ id +");";
-      fetchAll(assocListQuery, new FetchCallback() {
-        onFetch(result) {
-          populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-        }
-      });
-      Log.d("listAssociatedMaterials()", "Updated cursor list: associatedMaterialList");
-    } else {
-      result = new ArrayList();
-      result.add(new NameValuePair("{noRecordsFound}", ""));
-      populateList(entityTabgroup + "/associatedMaterials/associatedMaterialList", result);
-    } 
-  }
-
   /** Displays the insitu proportion view. **/
   displayOrganicOrStone() {
     //modificationtoStoneMaterial
