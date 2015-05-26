@@ -1079,7 +1079,7 @@ hearthAssociatedMaterials() {
         if (selectedItem.getName().equals(type.get(0))) {
           if (type.get(1).equals("{cs}")) {
             if (!hasView(tabgroup+"/associatedStoneArtefacts/assocChippedStone")) {
-              String callback = "onEvent(\""+tabgroup+"/associatedStoneArtefacts/assocChippedStone\", \"click\", \"hearthAssoc.renderAssocTabs();\");";
+              String callback = "onEvent(\""+tabgroup+"/associatedStoneArtefacts/assocChippedStone\", \"click\", \"hearthAssoc.updateDynamicChippedStone();\");";
               makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedStoneArtefacts/assocChippedStone", "HearthAssoc_-_Associated_chipped_stone_artefacts", "{hearthAssociatedMaterialsUI_assocChippedStone}", callback, tabgroup+"/associatedStoneArtefacts/assocChippedStone", "HearthAssoc_-_Associated_chipped_stone_artefacts", "vocab");
             }
             if (!hasView(tabgroup+"/associatedStoneArtefacts/assocChippedRawMaterial")) {
