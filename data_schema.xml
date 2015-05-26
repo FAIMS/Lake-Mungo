@@ -2069,166 +2069,166 @@ stone</description>
     <property name="Isolated_-_Topographic_Setting" type="enum">
       <description/>
       <lookup>
-        <term> {Lessthan_Six_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {Lessthan_Six_Degrees}
           <description>Slightly sloping surface</description>
         </term>
-        <term> {Six_To_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {Six_To_Twelve_Degrees}
           <description>Moderately sloping surface</description>
         </term>
-        <term> {Greaterthan_Twelve_Degrees}
+        <term pictureURL="files/data/images/missing.png"> {Greaterthan_Twelve_Degrees}
           <description>More steeply sloping surface</description>
         </term>
-        <term> {shallrill}
+        <term pictureURL="files/data/images/missing.png"> {shallrill}
           <description>Within a shallow rill</description>
         </term>
-        <term> {rillfloor}
+        <term pictureURL="files/data/images/missing.png"> {rillfloor}
           <description>In the floor of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {rillwall}
+        <term pictureURL="files/data/images/missing.png"> {rillwall}
           <description>In the wall of a deep rill (strong, vertical rilling in clay-rich sediments)</description>
         </term>
-        <term> {ridge}
+        <term pictureURL="files/data/images/missing.png"> {ridge}
           <description>On a narrow ridge in heavily eroded area</description>
         </term>
-        <term> {riderill}
+        <term pictureURL="files/data/images/missing.png"> {riderill}
           <description>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</description>
         </term>
-        <term> {shalgulfl}
+        <term pictureURL="files/data/images/missing.png"> {shalgulfl}
           <description>In the floor of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {shalgulwal}
+        <term pictureURL="files/data/images/missing.png"> {shalgulwal}
           <description>In the wall of a gully less than 1.5m wide or deep</description>
         </term>
-        <term> {deppgulfl}
+        <term pictureURL="files/data/images/missing.png"> {deppgulfl}
           <description>In the floor of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {deepgulwal}
+        <term pictureURL="files/data/images/missing.png"> {deepgulwal}
           <description>In the wall of a gully greater than 1.5m wide and deep</description>
         </term>
-        <term> {residtop}
+        <term pictureURL="files/data/images/missing.png"> {residtop}
           <description>Flat surface on top of a residual</description>
         </term>
-        <term> {residside}
+        <term pictureURL="files/data/images/missing.png"> {residside}
           <description>In the side of a residual</description>
         </term>
-        <term> {chanfloor}
+        <term pictureURL="files/data/images/missing.png"> {chanfloor}
           <description>In the floor of a modern outwash channel</description>
         </term>
-        <term> {chanwall}
+        <term pictureURL="files/data/images/missing.png"> {chanwall}
           <description>In the wall of a modern outwash channel</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Isolated_-_Sediment_Type" type="enum">
       <description/>
       <lookup>
-        <term> {redsoil}
+        <term pictureURL="files/data/images/missing.png"> {redsoil}
           <description>Soil of a reddish colour</description>
         </term>
-        <term> {brownsoil}
+        <term pictureURL="files/data/images/missing.png"> {brownsoil}
           <description>Soil of a brownish colour</description>
         </term>
-        <term> {redsand}
+        <term pictureURL="files/data/images/missing.png"> {redsand}
           <description>Sandy sediments of a reddish colour</description>
         </term>
-        <term> {brownsand}
+        <term pictureURL="files/data/images/missing.png"> {brownsand}
           <description>Sandy sediments of a brownish colour</description>
         </term>
-        <term> {whitesand}
+        <term pictureURL="files/data/images/missing.png"> {whitesand}
           <description>Sandy sediments that are clean and whitish</description>
         </term>
-        <term> {othersand}
+        <term pictureURL="files/data/images/missing.png"> {othersand}
           <description>Sandy sediments that are of another colour</description>
         </term>
-        <term> {greenclay}
+        <term pictureURL="files/data/images/missing.png"> {greenclay}
           <description>Clay sediments of a greenish colour</description>
         </term>
-        <term> {otherclay}
+        <term pictureURL="files/data/images/missing.png"> {otherclay}
           <description>Clay sediments of another colour (usually brown)</description>
         </term>
-        <term> {sandyclay}
+        <term pictureURL="files/data/images/missing.png"> {sandyclay}
           <description>Sandy clay</description>
         </term>
-        <term> {alternat}
+        <term pictureURL="files/data/images/missing.png"> {alternat}
           <description>Alternating layers of sand and clay</description>
         </term>
-        <term> {claylens}
+        <term pictureURL="files/data/images/missing.png"> {claylens}
           <description>Distinct clay lens within other sediments</description>
         </term>
-        <term> {sandlens}
+        <term pictureURL="files/data/images/missing.png"> {sandlens}
           <description>Distinct sand lens within other sediments</description>
         </term>
-        <term> {cobble}
+        <term pictureURL="files/data/images/missing.png"> {cobble}
           <description>A relatively continuous bed of cobbles or coarse gravel</description>
         </term>
-        <term> {gglag}
+        <term pictureURL="files/data/images/missing.png"> {gglag}
           <description>A surface lag of carbonate derived from Golgol sediments</description>
         </term>
-        <term> {carblag}
+        <term pictureURL="files/data/images/missing.png"> {carblag}
           <description>Any other surface lag of hard carbonate nodules</description>
         </term>
-        <term> {ggC}
+        <term pictureURL="files/data/images/missing.png"> {ggC}
           <description>In situ soil carbonate (C-horizon) associated with Golgol sediments</description>
         </term>
-        <term> {Chorizon}
+        <term pictureURL="files/data/images/missing.png"> {Chorizon}
           <description>In situ nodular soil carbonate in any other sediment</description>
         </term>
-        <term> {carbsoft}
+        <term pictureURL="files/data/images/missing.png"> {carbsoft}
           <description>In situ soil carbonate in a diffuse horizon</description>
         </term>
-        <term> {carbpavemt}
+        <term pictureURL="files/data/images/missing.png"> {carbpavemt}
           <description>Well developed in situ soil carbonate forming a pavement</description>
         </term>
-        <term> {carbrework}
+        <term pictureURL="files/data/images/missing.png"> {carbrework}
           <description>A carbonate lag that has been reworked and reburied</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
       <description/>
       <lookup>
-        <term> {low}
+        <term pictureURL="files/data/images/missing.png"> {low}
           <description>On a relatively stable, flat surface or gentle slope that is not being eroded by rills</description>
         </term>
-        <term> {moderate}
+        <term pictureURL="files/data/images/missing.png"> {moderate}
           <description>Wider area is being eaten away by ongoing erosion, e.g. near edge of platform exposure, gully head, expanding rill system</description>
         </term>
-        <term> {high}
+        <term pictureURL="files/data/images/missing.png"> {high}
           <description>High probability of material being removed by erosion, or losing its integrity, e.g. relatively steep slope with incipient rills</description>
         </term>
-        <term> {extreme}
+        <term pictureURL="files/data/images/missing.png"> {extreme}
           <description>Cluster is in imminent danger of rapid removal and loss of material, e.g. edge of eroding residual or deep rill, in gully wall, on a steep, slope-washed surface</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Isolated_-_Palaeotopographic_Setting" type="enum">
       <description/>
       <lookup>
-        <term> {foredune}
+        <term pictureURL="files/data/images/missing.png"> {foredune}
           <description>Stratigraphic layers are sloping towards the lakebed</description>
         </term>
-        <term> {backdune}
+        <term pictureURL="files/data/images/missing.png"> {backdune}
           <description>Stratigraphic layers are sloping towards the hinterland</description>
         </term>
-        <term> {beach}
+        <term pictureURL="files/data/images/missing.png"> {beach}
           <description>An area of rounded cobbles or gravels in distinct horizon</description>
         </term>
-        <term> {lakebed}
+        <term pictureURL="files/data/images/missing.png"> {lakebed}
           <description>Lakebed sediments</description>
         </term>
-        <term> {crest}
+        <term pictureURL="files/data/images/missing.png"> {crest}
           <description>Crest of dune, stratigraphic layers slope away, towards both lakebed and hinterland</description>
         </term>
-        <term> {spit}
+        <term pictureURL="files/data/images/missing.png"> {spit}
           <description>Projection from dune into lakebed</description>
         </term>
-        <term> {indet}
+        <term pictureURL="files/data/images/missing.png"> {indet}
           <description>Indeterminate</description>
         </term>
-        <term> {other} <description/> </term>
+        <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Isolated_-_Notes" type="measure">
