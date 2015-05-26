@@ -445,7 +445,7 @@ calculateGridSquare(String id, String tabgroup, String gridSquareViewPath) {
     return;
   }
   // record the gps geometry 
-  dialog = showBusy("Caculating grid square", "please wait");
+  dialog = showBusy("Calculating grid square", "please wait");
   Object projPosition = getGPSPositionProjected();
   Log.d("calculateGridSquare()", "Projected position: " + projPosition.toString());
   Double latitude = position.getLatitude();
