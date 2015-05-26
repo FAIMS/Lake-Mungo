@@ -2888,7 +2888,6 @@ stoneFeature() {
 
   /** Populates the in-situ and surface associated materials list. **/
   listAssociatedMaterials() {
-    Log.d("stone.listAssociatedMaterials", "Listing associated materials");
     listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListInSitu", id, stoneAssoc.insituArchentType, insituRelTypeName);
     listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialListSurface", id, stoneAssoc.surfaceArchentType, surfaceRelTypeName);
   }
