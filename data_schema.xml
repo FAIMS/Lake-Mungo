@@ -3005,7 +3005,7 @@ stone</description>
         <term> {unifpt}
           <description>Retouch on one or more margins, which converge to a point in plan view, initiated from a single surface</description>
         </term>
-        <term> {bifact}
+        <term> {bifac}
           <description>Retouch on one or more margins, which converge to a point in plan view, initiated from two surfaces</description>
         </term>
         <term> {otherru}
