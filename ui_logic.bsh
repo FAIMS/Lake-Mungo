@@ -2721,7 +2721,11 @@ stoneFeature() {
         .setLabel("{stoneArtefactClustersUI_potentialRefits}")
         .setAttributeName("Stone_-_In_Situ_-_Potential_Refits")
         .setAttributeType("measure");
-      createView(tabgroup+tab+"/potentialRefits", defRefits);
+      createView(
+          tabgroup+tab+"/potentialRefits",
+          defRefits,
+          tabgroup+tab+"/potentialRefits"
+      );
     }
     if (!hasView(tabgroup+tab+"/inSituInSituStoneArtefacts")) {
       String callback = "onEvent(\""+tabgroup+tab+"/inSituInSituStoneArtefacts\", \"click\", \"stone.displayInsituTabViews();\");";
@@ -2838,6 +2842,18 @@ stoneFeature() {
     // render the default views for the tab
     String tabgroup = entityTabgroup;
     String tab = "/surfaceDescription";
+    if (!hasView(tabgroup+tab+"/potentialRefits")) {
+      defRefits = createViewDef()
+        .createTextField("integer")
+        .setLabel("{stoneArtefactClustersUI_potentialRefits}")
+        .setAttributeName("Stone_-_Surface_-_Potential_Refits")
+        .setAttributeType("measure");
+      createView(
+          tabgroup+tab+"/potentialRefits",
+          defRefits,
+          tabgroup+tab+"/potentialRefits"
+      );
+    }
     if (!hasView(tabgroup+tab+"/surfaceStoneArtefacts")) {
       String callback = "onEvent(\""+tabgroup+tab+"/surfaceStoneArtefacts\", \"click\", \"stone.displaySurfaceTabViews();\");";
       makeDynamicVocab("CheckBoxGroup", tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceStoneArtefacts}", callback, tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts", "vocab");
