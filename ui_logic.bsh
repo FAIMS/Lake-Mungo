@@ -784,6 +784,8 @@ hearthAssociatedMaterials() {
           }
         }
       });
+    } else {
+      showToast("This record needs to be saved before recording an associated material");
     }
   }
 
@@ -1433,6 +1435,8 @@ oldboneAssociatedMaterials() {
           }
         }
       });
+    } else {
+      showToast("This record needs to be saved before recording an associated material");
     }
   }
 
@@ -2188,6 +2192,8 @@ middenAssociatedMaterials() {
           }
         }
       });
+    } else {
+      showToast("This record needs to be saved before recording an associated material");
     }
   }
 
@@ -3097,6 +3103,8 @@ stoneAssociatedMaterials() {
           }
         }
       });
+    } else {
+      showToast("This record needs to be saved before recording an associated material");
     }
   }
 
