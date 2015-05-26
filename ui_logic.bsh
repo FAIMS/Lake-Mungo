@@ -2314,7 +2314,7 @@ middenAssociatedMaterials() {
     }
     // switch to the control tab and save the tabgroup
     if (tabChanged) {
-      showTab(tabgroup+"/nearbyMaterial");
+      showTab(tabgroup+"/control");
     }
     middenAssoc.save();
   }
@@ -2584,7 +2584,7 @@ middenAssociatedMaterials() {
   }
   
   onEvent(tabgroup, "show", "middenAssoc.onShowAssociatedMaterials(); keepTabGroupChanges(\""+tabgroup+"\"); middenAssoc.save();");
-  onEvent(tabgroup+"/nearbyMaterial/assocMaterial", "click", "middenAssoc.renderAssocTabs();");
+  onEvent(tabgroup+"/control/assocMaterial", "click", "middenAssoc.renderAssocTabs();");
 
   return this;
 }
