@@ -3927,10 +3927,10 @@ stone</description>
           <description>Cranial elements (with or without maxilla) but no teeth</description>
         </term>
         <term> {mandAndteeth}
-          <description>lower jaw, with teeth</description>
+          <description>Lower jaw, with teeth</description>
         </term>
         <term> {mandNoteeth}
-          <description>lower jaw without teeth</description>
+          <description>Lower jaw without teeth</description>
         </term>
         <term> {limb}
           <description>Limb bones</description>
