@@ -2537,8 +2537,9 @@ stoneFeature() {
   /** Creates a new feature record. **/
   create() {
     dialog = showBusy("creating a new record", "please wait");
-    newTabGroup(entityTabgroup);
     id = null;
+    removeAllViewsAndContainers(entityTabgroup);
+    newTabGroup(entityTabgroup);
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
@@ -2557,6 +2558,7 @@ stoneFeature() {
       onFetch(result) {
         Log.d("load()", "Loaded a " + desc + ", ID: " + id);
         showToast("Loaded a " + desc);
+        removeAllViewsAndContainers(entityTabgroup);
         checkClusterType();
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
