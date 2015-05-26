@@ -93,12 +93,12 @@
             <associatedStoneArtefacts>
               <assocStone/>
               <assocChippedStone/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocRetouchedStone/>
               <assocUnmodifiedStone/>
-              <assocGroundStoneType/>
-              <assocGroundStoneStatus/>
-              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocUnmodifiedRawMaterial/>   <!-- NEW -->
+              <assocGroundStoneType/>
+              <assocGroundStoneStatus/>              
               <assocGroundRawMaterial/>       <!-- NEW -->
             </associatedStoneArtefacts>
             <associatedOtherWorkedMaterial>
@@ -265,12 +265,13 @@
             <associatedStoneArtefacts>
               <assocStone/>
               <assocChippedStone/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocRetouchedStone/>
               <assocUnmodifiedStone/>
+              <assocUnmodifiedRawMaterial/>   <!-- NEW -->
               <assocGroundStoneType/>
               <assocGroundStoneStatus/>
-              <assocChippedRawMaterial/>      <!-- NEW -->
-              <assocUnmodifiedRawMaterial/>   <!-- NEW -->
+              <assocGroundRawMaterial/>       <!-- NEW -->         
             </associatedStoneArtefacts>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -589,24 +590,24 @@
         <group ref="assocChippedStone">
           <label>{hearthAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocChippedRawMaterial}</label>
+        </group>
         <group ref="assocRetouchedStone">
           <label>{hearthAssociatedMaterialsUI_assocRetouchedStone}</label>
         </group>
         <group ref="assocUnmodifiedStone">
           <label>{hearthAssociatedMaterialsUI_assocUnmodifiedStone}</label>
         </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
+        </group>
         <group ref="assocGroundStoneType">
           <label>{hearthAssociatedMaterialsUI_assocGroundStoneType}</label>
         </group>
         <group ref="assocGroundStoneStatus">
           <label>{hearthAssociatedMaterialsUI_assocGroundStoneStatus}</label>
-        </group>
-        <group ref="assocChippedRawMaterial">
-          <label>{hearthAssociatedMaterialsUI_assocChippedRawMaterial}</label>
-        </group>
-        <group ref="assocUnmodifiedRawMaterial">
-          <label>{hearthAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
-        </group>
+        </group>        
         <group ref="assocGroundRawMaterial">
           <label>{hearthAssociatedMaterialsUI_assocGroundRawMaterial}</label>
         </group>
@@ -1117,11 +1118,17 @@
         <group ref="assocChippedStone">
           <label>{middenAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocChippedRawMaterial}</label>
+        </group>
         <group ref="assocRetouchedStone">
           <label>{middenAssociatedMaterialsUI_assocRetouchedStone}</label>
         </group>
         <group ref="assocUnmodifiedStone">
           <label>{middenAssociatedMaterialsUI_assocUnmodifiedStone}</label>
+        </group>
+        <group ref="assocUnmodifiedRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
         </group>
         <group ref="assocGroundStoneType">
           <label>{middenAssociatedMaterialsUI_assocGroundStoneType}</label>
@@ -1129,11 +1136,8 @@
         <group ref="assocGroundStoneStatus">
           <label>{middenAssociatedMaterialsUI_assocGroundStoneStatus}</label>
         </group>
-        <group ref="assocChippedRawMaterial">
-          <label>{middenAssociatedMaterialsUI_assocChippedRawMaterial}</label>
-        </group>
-        <group ref="assocUnmodifiedRawMaterial">
-          <label>{middenAssociatedMaterialsUI_assocUnmodifiedRawMaterial}</label>
+        <group ref="assocGroundRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocGroundRawMaterial}</label>
         </group>
       </group>
       <group ref="associatedOtherWorkedMaterial">
