@@ -676,9 +676,9 @@ hearthFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "hearthType"        , "Hearth_-_Hearth_Type");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/" + "charcoal"          , "Hearth_-_Charcoal");
-    makeVocab("PictureGallery"       , entityTabgroup + "/hearthStructure/" + "insituProportion"      , "Hearth_-_Proportion_of_material_that_remains_in_situ");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/hearthType"             , "Hearth_-_Hearth_Type");
+    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/charcoal"               , "Hearth_-_Charcoal");
+    makeVocab("PictureGallery"       , entityTabgroup + "/hearthStructure/insituProportion"           , "Hearth_-_Proportion_of_material_that_remains_in_situ");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Hearth_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Hearth_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Hearth_-_Stratigraphic_Unit");
@@ -1980,11 +1980,11 @@ middenFeature() {
 
    /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "middenType"                          , "Midden_-_Midden_Type");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "presenceOfCharcoal"                    , "Midden_-_Presence_of_charcoal");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "proportionOfMaterialThatRemainsInSitu" , "Midden_-_Proportion_of_material_that_remains_in_situ");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalvePreservation"                   , "Midden_-_Bivalve_preservation");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/" + "bivalveDispersal"                      , "Midden_-_Bivalve_dispersal");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/middenType"                               , "Midden_-_Midden_Type");
+    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/presenceOfCharcoal"                         , "Midden_-_Presence_of_charcoal");
+    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/proportionOfMaterialThatRemainsInSitu"      , "Midden_-_Proportion_of_material_that_remains_in_situ");
+    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/bivalvePreservation"                        , "Midden_-_Bivalve_preservation");
+    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/bivalveDispersal"                           , "Midden_-_Bivalve_dispersal");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"                        , "Midden_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"                              , "Midden_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"                         , "Midden_-_Stratigraphic_Unit");
@@ -2872,12 +2872,12 @@ stoneFeature() {
 
   /** Initialises the tabgroup vocabularies. **/
   init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/" + "clusterType"             , "Stone_-_Cluster_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "topographicSetting"      , "Stone_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "sedimentType"            , "Stone_-_Sediment_Type");
-    makeVocab("PictureGallery"             , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Stone_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/"  + "paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
+    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/clusterType"            , "Stone_-_Cluster_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Stone_-_Topographic_Setting");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Stone_-_Sediment_Type");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Stone_-_Stratigraphic_Unit");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
     fetchVocabulary("Stone_-_Cluster_Type", clusterTypeVocabulary);
     fetchVocabulary("Stone_-_In_Situ_-_Stone_Artefacts", insituStoneArtefactsVocabulary);
     fetchVocabulary("Stone_-_In_Situ_-_Chipped_Stone_Artefacts", insituChippedStoneVocabulary);
