@@ -1876,7 +1876,7 @@ middenFeature() {
   String archentType = "Midden";
   String desc = archentType + " record";
   String id = null;
-  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
+  String relTypeName = "Midden And Associated Materials";
   ArrayList middenTypeVocabulary = new ArrayList();
   Boolean removeBriefDescription = true;  
   Boolean removeHeatRetainer = true;
