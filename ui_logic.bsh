@@ -1318,7 +1318,6 @@ oldboneFeature() {
   onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
   onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone.id, oldbone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
   onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.checkClusterType();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "showToast(\"Placeholder for loading an associated material\");");
   onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc.isInsituMaterial=true; oldboneAssoc.create();");
   onEvent(entityTabgroup + "/associatedMaterials/recordSurfaceMaterial", "click", "oldboneAssoc.isInsituMaterial=false; oldboneAssoc.create();");
   onEvent(entityTabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc.isInsituMaterial=true; oldboneAssoc.load();");
