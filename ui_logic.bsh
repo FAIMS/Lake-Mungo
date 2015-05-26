@@ -2242,7 +2242,7 @@ middenAssociatedMaterials() {
             } else if(type.get(1).equals("{stoneart}")) {
               if (!hasView( tabgroup+"/associatedStoneArtefacts/assocStone")) {
                 String callback = "onEvent(\""+tabgroup+"/associatedStoneArtefacts/assocStone\", \"click\", \"middenAssoc.updateDynamicAssociatedStone();\");";
-                makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedStoneArtefacts/assocStone", "MiddenAssoc_-_Associated_stone_artefacts", "{middenAssociatedMaterialsUI_assocStone}", null, tabgroup+"/associatedStoneArtefacts/assocStone", "MiddenAssoc_-_Associated_stone_artefacts", "vocab");
+                makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedStoneArtefacts/assocStone", "MiddenAssoc_-_Associated_stone_artefacts", "{middenAssociatedMaterialsUI_assocStone}", callback, tabgroup+"/associatedStoneArtefacts/assocStone", "MiddenAssoc_-_Associated_stone_artefacts", "vocab");
               }
               removeStone = false;
             } else if(type.get(1).equals("{otherwork}")) {
