@@ -2876,7 +2876,7 @@ stoneFeature() {
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Stone_-_Topographic_Setting");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Stone_-_Sediment_Type");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Stone_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Stone_-_Vulnerability_to_Erosion");
+    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Stone_-_Vulnerability_To_Erosion");
     makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
     fetchVocabulary("Stone_-_Cluster_Type", clusterTypeVocabulary);
     fetchVocabulary("Stone_-_In_Situ_-_Stone_Artefacts", insituStoneArtefactsVocabulary);
