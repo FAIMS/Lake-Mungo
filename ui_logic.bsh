@@ -2133,9 +2133,9 @@ middenAssociatedMaterials() {
     /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("CheckBoxGroup", tabgroup+"/control/assocMaterial", "MiddenAssoc_-_Associated_material");
-    fetchVocabulary("HearthAssoc_-_Associated_material", assocMaterialVocabulary);
-    fetchVocabulary("HearthAssoc_-_Associated_stone_artefacts", stoneArtefactsVocabulary);
-    fetchVocabulary("HearthAssoc_-_Associated_chipped_stone_artefacts", chippedStoneVocabulary);
+    fetchVocabulary("MiddenAssoc_-_Associated_material", assocMaterialVocabulary);
+    fetchVocabulary("MiddenAssoc_-_Associated_stone_artefacts", stoneArtefactsVocabulary);
+    fetchVocabulary("MiddenAssoc_-_Associated_chipped_stone_artefacts", chippedStoneVocabulary);
   }
 
   /** Saves the associated materials record. **/
