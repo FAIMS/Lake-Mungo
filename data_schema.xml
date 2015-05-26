@@ -2807,6 +2807,7 @@ stone</description>
         <term> {refit}
           <description>Broken fragments can be refitted back together and/or texture, colour, thickness and/or surface modifications suggest that they are part of the same artefact</description>
         </term>
+        <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Raw_Material" type="enum">
@@ -3074,6 +3075,7 @@ stone</description>
         <term> {refit}
           <description>Broken fragments can be refitted back together and/or texture, colour, thickness and/or surface modifications suggest that they are part of the same artefact</description>
         </term>
+        <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Surface_-_Modification" type="enum">
