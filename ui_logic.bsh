@@ -3251,8 +3251,9 @@ isolatedFeature() {
   String archentType = "Isolated";
   String desc = archentType + " record";
   String id = null;
-  String relTypeName = ""; // NEED TO REPLACE THIS WITH THE ACTUAL RELATIONSHIP NAME!!!
   List occurrenceTypeVocabulary = new ArrayList();
+  Boolean removeOrganicMaterial = true;
+  Boolean removeStoneMaterial = true;
 
   /** Saves the feature **/
   save() {
@@ -3274,8 +3275,10 @@ isolatedFeature() {
   /** Creates a new feature record. **/
   create() {
     dialog = showBusy("creating a new record", "please wait");
-    newTabGroup(entityTabgroup);
+    removeOrganicMaterial = true;
+    removeStoneMaterial = true;
     id = null;
+    newTabGroup(entityTabgroup);
     setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
     setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
     keepTabGroupChanges(entityTabgroup);
@@ -3290,17 +3293,92 @@ isolatedFeature() {
         return;
     }
     dialog = showBusy("loading record", "please wait");
+    removeAllViewsAndContainers(entityTabgroup);
+    // display all dynamic views
+    removeOrganicMaterial = false;
+    removeStoneMaterial = false;
+    displayDynamicViews();
+    // load the entity and populate any dynamic views with their saved value
     showTabGroup(entityTabgroup, id, new FetchCallback() {
       onFetch(result) {
         Log.d("load()", "Loaded an " + desc + ", ID: " + id);
         showToast("Loaded an " + desc);
+        checkOccurrenceType(); // remove any dynamic views that shouldn't be present
         keepTabGroupChanges(entityTabgroup);
         dialog.dismiss();
       }
     });
   }
 
-   /** Initialises the tabgroup vocabularies. **/
+  /** Checks the occurrence type selection and displays/removes the appropriate dynamic views **/
+  checkOccurrenceType() {
+    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/occurrenceType");
+    if (isNull(selectedItem)) {
+      removeOrganicMaterial = true;
+      removeStoneMaterial = true;
+      removeDynamicViews();
+      return;
+    }
+    for (occurrenceType : occurrenceTypeVocabulary) {
+      if (selectedItem.equals(occurrenceType.get(0))) {
+        String selectedName = occurrenceType.get(1);
+        if (selectedName.equals("{bettong}")    || selectedName.equals("{bivalve}")   || selectedName.equals("{carnivore}") || selectedName.equals("{eggemu}") 
+         || selectedName.equals("{egggenyo}")   || selectedName.equals("{eggindet}")  || selectedName.equals("{eggother}")  || selectedName.equals("{emu}")       
+         || selectedName.equals("{exoskel}")    || selectedName.equals("{fishbone}")  || selectedName.equals("{glith}")     || selectedName.equals("{indetbone}")
+         || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}") 
+         || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")) {
+          removeOrganicMaterial = false;
+        } else {
+          removeOrganicMaterial = true;
+        }
+        if (selectedName.equals("{backed}")   || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
+         || selectedName.equals("{debris}")   || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
+         || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
+         || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
+         || selectedName.equals("{ochre}")    || selectedName.equals("{otehrru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
+         || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")) {
+          removeStoneMaterial = false;
+        } else {
+          removeStoneMaterial = true;
+        }
+      }
+    }
+    // update dynamic views
+    displayDynamicViews();
+    removeDynamicViews();
+  }
+
+  /** Displays the flagged dynamic views for the tab **/
+  displayDynamicViews() {
+    String tabgroup = entityTabgroup;
+    if (!removeOrganicMaterial) {
+      if (!hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
+        makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "{isolatedOccurrencesUI_modificationtoOrganicMaterial}", null, tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "vocab");
+      }
+    }
+    if (!removeStoneMaterial) {
+      if (!hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
+        makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "{isolatedOccurrencesUI_modificationtoStoneMaterial}", null, tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "vocab");
+      }
+    }
+  }
+
+  /** Removes the flagged dynamic views for the tab **/
+  removeDynamicViews() {
+    String tabgroup = entityTabgroup;
+    if (removeOrganicMaterial) {
+      if (hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
+        removeView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial");
+      }
+    }
+    if (removeStoneMaterial) {
+      if (hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
+        removeView(tabgroup+"/basicIdentification/modificationtoStoneMaterial");
+      }
+    }
+  }
+
+  /** Initialises the tabgroup vocabularies. **/
   init() {
     makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
     makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
@@ -3312,101 +3390,8 @@ isolatedFeature() {
     fetchVocabulary("Isolated_-_Occurrence_Type", occurrenceTypeVocabulary);
   }
 
-  /** Displays the insitu proportion view. **/
-  displayOrganicOrStone() {
-    //modificationtoStoneMaterial
-    String selectedItem = getFieldValue(entityTabgroup + "/basicIdentification/occurrenceType");
-    if (isNull(selectedItem)) {
-      return;
-    }
-    if (occurrenceTypeVocabulary == null) {
-      return;
-    }
-    String dynamicViewOrganic = entityTabgroup + "/basicIdentification/modificationtoOrganicMaterial";
-    String dynamicViewStone   = entityTabgroup + "/basicIdentification/modificationtoStoneMaterial";
-
-    /* Figure out the selected occurrence type (not the occurrence type's vocabid) */
-    String selectedItemName = "";
-    for (occurrenceType : occurrenceTypeVocabulary) {
-      if (selectedItem.equals(occurrenceType.get(0))) {
-        selectedItemName = occurrenceType.get(1);
-        break;
-      }
-    }
-
-    /* Figure out if an organic material is selected by comparing it to `selectedItemName` */
-    ArrayList organicMaterials = new ArrayList();
-    ArrayList stoneMaterials   = new ArrayList();
-
-    organicMaterials.add("{bettong}");
-    organicMaterials.add("{bivalve}");
-    organicMaterials.add("{carnivore}");
-    organicMaterials.add("{eggemu}");
-    organicMaterials.add("{egggenyo}");
-    organicMaterials.add("{eggindet}");
-    organicMaterials.add("{eggother}");
-    organicMaterials.add("{emu}");
-    organicMaterials.add("{exoskel}");
-    organicMaterials.add("{fishbone}");
-    organicMaterials.add("{glith}");
-    organicMaterials.add("{indetbone}");
-    organicMaterials.add("{macropod}");
-    organicMaterials.add("{otherbird}");
-    organicMaterials.add("{reptile}");
-    organicMaterials.add("{rodent}");
-    organicMaterials.add("{smallmars}");
-    organicMaterials.add("{wombat}");
-
-    stoneMaterials.add("{backed}");
-    stoneMaterials.add("{bifac}");
-    stoneMaterials.add("{bonetool}");
-    stoneMaterials.add("{core}");
-    stoneMaterials.add("{debris}");
-    stoneMaterials.add("{eggmod}");
-    stoneMaterials.add("{facetochre}");
-    stoneMaterials.add("{groundst}");
-    stoneMaterials.add("{hammer}");
-    stoneMaterials.add("{hscarb}");
-    stoneMaterials.add("{hsclay}");
-    stoneMaterials.add("{hsother}");
-    stoneMaterials.add("{hsterm}");
-    stoneMaterials.add("{indet}");
-    stoneMaterials.add("{mport}");
-    stoneMaterials.add("{notch}");
-    stoneMaterials.add("{ochre}");
-    stoneMaterials.add("{otehrru}");
-    stoneMaterials.add("{qtzxtal}");
-    stoneMaterials.add("{scraper}");
-    stoneMaterials.add("{shellmod}");
-    stoneMaterials.add("{unifpt}");
-
-    Boolean isSelectedOrganicMaterial = organicMaterials.contains(selectedItemName);
-    Boolean isSelectedStoneMaterial   = stoneMaterials.contains(selectedItemName);
-
-    /* Update the UI based on the selected item */
-    if (isSelectedOrganicMaterial) {
-      if (hasView(dynamicViewStone)) {     // First, remove the stone view if it exists
-        removeView(dynamicViewStone);
-      }
-      if (!hasView(dynamicViewOrganic)) {  // Then, add in the organic view if it doesn't exist yet
-        String vocab = "Isolated_-_Modification_to_Organic_Material";
-        String callback = "makeVocab(\"CheckBoxGroup\", \""+dynamicViewOrganic+"\", \""+vocab+"\");";
-        makeDynamicVocab("CheckBoxGroup", dynamicViewOrganic, vocab, "{isolatedOccurrencesUI_modificationtoOrganicMaterial}", callback, dynamicViewOrganic, vocab, "vocab"); 
-      }
-    } else if (isSelectedStoneMaterial) {
-      if (hasView(dynamicViewOrganic)) {     // First, remove the *organic* view if it exists
-        removeView(dynamicViewOrganic);
-      }
-      if (!hasView(dynamicViewStone)) {       // Then, add in the *stone* view if it doesn't exist yet
-        String vocab = "Isolated_-_Modification_to_Stone_Material";
-        String callback = "makeVocab(\"CheckBoxGroup\", \""+dynamicViewStone+"\", \""+vocab+"\");";
-        makeDynamicVocab("CheckBoxGroup", dynamicViewStone, vocab, "{isolatedOccurrencesUI_modificationtoStoneMaterial}", callback, dynamicViewStone, vocab, "vocab"); 
-      }
-    }
-  }
-
   onEvent(entityTabgroup, "show", "isolated.save();");
-  onEvent(entityTabgroup + "/basicIdentification/occurrenceType", "click", "isolated.displayOrganicOrStone();");
+  onEvent(entityTabgroup + "/basicIdentification/occurrenceType", "click", "isolated.checkOccurrenceType();");
   onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated.id, isolated.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
 
   return this;
