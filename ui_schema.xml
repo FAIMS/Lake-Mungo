@@ -547,7 +547,7 @@
       <label>{hearthAssociatedMaterialsUI_hearthAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{hearthAssociatedMaterialsUI_nearbyMaterial}</label>
-        <select ref="assocMaterial" faims_attribute_name="HearthAssoc_-_Associated_material" faims_attribute_type="vocab">
+        <select ref="assocMaterial" faims_attribute_name="HearthAssoc_-_Associated_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{hearthAssociatedMaterialsUI_assocMaterial}</label>
           <item>
             <label>placeholder</label>
@@ -1075,7 +1075,7 @@
       <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
-        <select ref="assocMaterial" faims_attribute_name="MiddenAssoc_-_Associated_material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="assocMaterial" faims_attribute_name="MiddenAssoc_-_Associated_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
           <item>
             <label>placeholder</label>
