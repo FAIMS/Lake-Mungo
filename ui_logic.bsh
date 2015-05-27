@@ -2885,11 +2885,11 @@ oldbone_checkClusterType() {
     }
   }
   if (showAssocTab) {
-    Log.d("oldBone.oldbone_checkClusterType()", "Showing associated materials tab");
+    Log.d("oldbone_checkClusterType()", "Showing associated materials tab");
     showTab("oldBone/associatedMaterials");
     showTab("oldBone/basicIdentification");
   } else {
-    Log.d("oldBone.oldbone_checkClusterType()", "Cancelling associated materials tab");
+    Log.d("oldbone_checkClusterType()", "Cancelling associated materials tab");
     cancelTab("oldBone/associatedMaterials", false);
   }
 }
@@ -3437,7 +3437,7 @@ oldboneAssoc_removeRetouchedArtefacts() {
   if (!oldboneAssoc_isInsituMaterial) {
     tabgroup = oldboneAssoc_surfaceTabgroup;
   }
-  if (oldboneAssoc_removeRetouchedArtefacts) {
+  if (oldboneAssoc_removeRetouchedStone) {
     if (hasView(tabgroup+"/associatedStoneArtefacts/assocRetouchedStone")) {
       removeView(tabgroup+"/associatedStoneArtefacts/assocRetouchedStone");
     }
