@@ -839,78 +839,126 @@
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{stoneAssociatedMaterialsUI_control}</label>
-        <group ref="assocInsituMaterial">
+        <select ref="assocInsituMaterial" faims_attribute_name="Stone_-_In_Situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocMaterialInSitu}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedHearthstones">
         <label>{stoneAssociatedMaterialsUI_associatedHearthstones}</label>
-        <group ref="assocHearth">
+        <select ref="assocHearth" faims_attribute_name="Stone_-_Hearth" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocHearth}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
-        <group ref="assocLacust">
+        <select ref="assocLacust" faims_attribute_name="Stone_-_Lacustrine" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocLacust}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{stoneAssociatedMaterialsUI_associatedTerrestrialBone}</label>
-        <group ref="assocTerrestrial">
+        <select ref="assocTerrestrial" faims_attribute_name="Stone_-_Terrestrial" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocTerrestrial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedEggshell">
         <label>{stoneAssociatedMaterialsUI_associatedEggshell}</label>
-        <group ref="assocEggshell">
+        <select ref="assocEggshell" faims_attribute_name="Stone_-_Eggshell" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocEggshell}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork">
+        <select ref="assocOtherwork" faims_attribute_name="Stone_-_Other_Worked_or_Transported_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocOtherwork}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
     </group>
     <group ref="stoneAssociatedSurfaceMaterials" faims_archent_type="Stone Associated Surface">
       <label>{stoneAssociatedMaterialsUI_stoneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{stoneAssociatedMaterialsUI_control}</label>
-        <group ref="assocSurfaceMaterial">
+        <select ref="assocSurfaceMaterial" faims_attribute_name="Stone_-_Surface" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocSurface}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedHearthstones">
         <label>{stoneAssociatedMaterialsUI_associatedHearthstones}</label>
-        <group ref="assocHearth">
+        <select ref="assocHearth" faims_attribute_name="Stone_-_Hearth" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocHearth}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
-        <group ref="assocLacust">
+        <select ref="assocLacust" faims_attribute_name="Stone_-_Lacustrine" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocLacust}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{stoneAssociatedMaterialsUI_associatedTerrestrialBone}</label>
-        <group ref="assocTerrestrial">
+        <select ref="assocTerrestrial" faims_attribute_name="Stone_-_Terrestrial" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocTerrestrial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedEggshell">
         <label>{stoneAssociatedMaterialsUI_associatedEggshell}</label>
-        <group ref="assocEggshell">
+        <select ref="assocEggshell" faims_attribute_name="Stone_-_Eggshell" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocEggshell}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork">
+        <select ref="assocOtherwork" faims_attribute_name="Stone_-_Other_Worked_or_Transported_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneAssociatedMaterialsUI_assocOtherwork}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
     </group>
     <group ref="isolatedOccurrences" faims_archent_type="Isolated">

@@ -2434,39 +2434,20 @@ stoneAssoc_create() {
 
 /** Retrieves the dynamic associated material selection or null if it does not exist. **/
 List stoneAssoc_getSelectedAssocMaterial() {
-  String dynamicView = stoneAssoc_insituTabgroup+"/nearbyMaterial/assocInsituMaterial";;
+  String view = stoneAssoc_insituTabgroup+"/nearbyMaterial/assocInsituMaterial";;
   if (!stoneAssoc_isInsituMaterial) {
-    dynamicView = stoneAssoc_surfaceTabgroup+"/nearbyMaterial/assocSurfaceMaterial";
+    view = stoneAssoc_surfaceTabgroup+"/nearbyMaterial/assocSurfaceMaterial";
   }
-  if (hasView(dynamicView)) {
-    return getFieldValue(dynamicView);
-  } else {
-    Log.e("stoneAssoc_getSelectedAssocMaterial()", "No dynamic view "+dynamicView+" exists");
-    return null;
-  }
+  return getFieldValue(view);
 }
 
 /** Display the associated material list and attach a callback to render the other tabs when appropriate. **/
 stoneAssoc_renderControlTab() {
-  String tabgroup = stoneAssoc_insituTabgroup;
-  String dynamicView = stoneAssoc_insituTabgroup+"/nearbyMaterial/assocInsituMaterial";
-  String vocab = "Stone_-_In_Situ";
-  String label = "{stoneAssociatedMaterialsUI_assocMaterialInSitu}";
-  if (!stoneAssoc_isInsituMaterial) {
-    tabgroup = stoneAssoc_surfaceTabgroup;
-    dynamicView = stoneAssoc_surfaceTabgroup+"/nearbyMaterial/assocSurfaceMaterial";
-    vocab = "Stone_-_Surface";
-    label = "{stoneAssociatedMaterialsUI_assocSurface}";
+  stoneAssoc_renderAssocTabs();
+  if (stoneAssoc_loading) {
+    Log.d("stoneAssoc_renderControlTab()", "Preparing to load");
+    stoneAssoc_loadAssocCallback();
   }
-  if (!hasView(dynamicView)) {
-    String callback = "onEvent(\""+dynamicView+"\", \"click\", \"stoneAssoc_renderAssocTabs();\"); stoneAssoc_renderAssocTabs();";
-    Log.d("stoneAssoc_renderControlTab()", "Making the dynamic view "+dynamicView+", as it doesn't exist");
-    makeDynamicVocab("CheckBoxGroup", dynamicView, vocab, label, callback, null, vocab, "vocab");
-    if (stoneAssoc_loading) {
-      Log.d("stoneAssoc_renderControlTab()", "Preparing to load");
-      stoneAssoc_loadAssocCallback();
-    }
-  } else {Log.d("stoneAssoc_renderControlTab()", "Not making dynamic view "+dynamicView+", as it already exists");}
 }
 
 /** Displays the associated material tabs when appropriate. **/
@@ -2484,29 +2465,14 @@ stoneAssoc_renderAssocTabs() {
         if (selectedItem.getName().equals(type.get(0))) {
           Log.d("stoneAssoc_renderAssocTabs()", "Selected "+tabgroup+" "+type.get(1));
           if (type.get(1).equals("{hs}")) {
-            if (!hasView(tabgroup+"/associatedHearthstones/assocHearth")) {
-              makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "{stoneAssociatedMaterialsUI_assocHearth}", null, tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "vocab");
-            }
             stoneAssoc_removeHearth = false;
           } else if (type.get(1).equals("{lacust}")) {
-            if (!hasView(tabgroup+"/associatedLacustrineMaterial/assocLacust")) {
-              makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "{stoneAssociatedMaterialsUI_assocLacust}", null, tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "vocab");
-            }
             stoneAssoc_removeLacust = false;
           } else if (type.get(1).equals("{terrbo}")) {
-            if (!hasView(tabgroup+"/associatedTerrestrialBone/assocTerrestrial")) {
-              makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "{stoneAssociatedMaterialsUI_assocTerrestrial}", null, tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "vocab");
-            }
             stoneAssoc_removeTerrbo = false;
           } else if (type.get(1).equals("{eggshell}")) {
-            if (!hasView(tabgroup+"/associatedEggshell/assocEggshell")) {
-              makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "{stoneAssociatedMaterialsUI_assocEggshell}", null, tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "vocab");
-            }
             stoneAssoc_removeEggshell = false;
           } else if (type.get(1).equals("{otherwork}")) {
-            if (!hasView(tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork")) {
-              makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "{stoneAssociatedMaterialsUI_assocOtherwork}", null, tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "vocab");
-            }
             stoneAssoc_removeOther = false;
           } else {
             Log.e("stoneAssoc_renderAssocTabs()", "Error: no matched insitu selected");
@@ -2578,28 +2544,6 @@ stoneAssoc_loadAssocCallback() {
   if (!stoneAssoc_isInsituMaterial) {
     tabgroup = stoneAssoc_surfaceTabgroup;
   }
-  // render the default views for each associated material tab
-  if (!hasView(tabgroup+"/associatedHearthstones/assocHearth")) {
-    makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "{stoneAssociatedMaterialsUI_assocHearth}", null, tabgroup+"/associatedHearthstones/assocHearth", "Stone_-_Hearth", "vocab");
-  }
-  stoneAssoc_removeHearth = false;
-  if (!hasView(tabgroup+"/associatedLacustrineMaterial/assocLacust")) {
-    makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "{stoneAssociatedMaterialsUI_assocLacust}", null, tabgroup+"/associatedLacustrineMaterial/assocLacust", "Stone_-_Lacustrine", "vocab");
-  }
-  stoneAssoc_removeLacust = false;
-  if (!hasView(tabgroup+"/associatedTerrestrialBone/assocTerrestrial")) {
-    makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "{stoneAssociatedMaterialsUI_assocTerrestrial}", null, tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "Stone_-_Terrestrial", "vocab");
-  }
-  stoneAssoc_removeTerrbo = false;
-  if (!hasView(tabgroup+"/associatedEggshell/assocEggshell")) {
-    makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "{stoneAssociatedMaterialsUI_assocEggshell}", null, tabgroup+"/associatedEggshell/assocEggshell", "Stone_-_Eggshell", "vocab");
-  }
-  stoneAssoc_removeEggshell = false;
-  if (!hasView(tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork")) {
-    makeDynamicVocab("CheckBoxGroup", tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "{stoneAssociatedMaterialsUI_assocOtherwork}", null, tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "Stone_-_Other_Worked_or_Transported_Material", "vocab");
-  }
-  stoneAssoc_removeOther = false;
-
   // load the saved values into the rendered views
   dialog = showBusy("loading record", "please wait");
   showTabGroup(tabgroup, stoneAssoc_id, new FetchCallback() {
@@ -2661,12 +2605,26 @@ stoneAssoc_removeUnselectedMaterials() {
 
 /** Initialises the tabgroup vocabularies. **/
 stoneAssoc_init() {
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/nearbyMaterial/assocInsituMaterial"           , "Stone_-_In_Situ");
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedHearthstones/assocHearth"           , "Stone_-_Hearth");
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedLacustrineMaterial/assocLacust"     , "Stone_-_Lacustrine");
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedTerrestrialBone/assocTerrestrial"   , "Stone_-_Terrestrial");
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell"             , "Stone_-_Eggshell");
+  makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedOtherWorkedMaterial/assocOtherwork" , "Stone_-_Other_Worked_or_Transported_Material");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/nearbyMaterial/assocSurfaceMaterial"          , "Stone_-_Surface");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedHearthstones/assocHearth"           , "Stone_-_Hearth");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedLacustrineMaterial/assocLacust"     , "Stone_-_Lacustrine");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedTerrestrialBone/assocTerrestrial"   , "Stone_-_Terrestrial");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell"             , "Stone_-_Eggshell");
+  makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedOtherWorkedMaterial/assocOtherwork" , "Stone_-_Other_Worked_or_Transported_Material");
   fetchVocabulary("Stone_-_In_Situ", stoneAssoc_insituMaterialVocabulary);
   fetchVocabulary("Stone_-_Surface", stoneAssoc_surfaceMaterialVocabulary);
 }
 
-onEvent(stoneAssoc_insituTabgroup, "show", "stoneAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\"); stoneAssoc_save();");
+onEvent(stoneAssoc_insituTabgroup,  "show", "stoneAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\"); stoneAssoc_save();");
 onEvent(stoneAssoc_surfaceTabgroup, "show", "stoneAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+stoneAssoc_surfaceTabgroup+"\"); stoneAssoc_save();");
+onEvent(stoneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial"   , "click", "stoneAssoc_renderAssocTabs();");
+onEvent(stoneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial"  , "click", "stoneAssoc_renderAssocTabs();");
 stoneAssoc_init();
 
 /*********************************************/
