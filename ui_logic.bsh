@@ -894,7 +894,15 @@ List hearthAssoc_chippedStoneVocabulary = new ArrayList();
 
 /** Initialises the tabgroup vocabularies. **/
 hearthAssoc_init() {
-  makeVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "HearthAssoc_-_Associated_material");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial",                     "HearthAssoc_-_Associated_material");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust",         "HearthAssoc_-_Associated_lacustrine_material");
+  makeVocab("RadioGroup",     hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust",    "HearthAssoc_-_Burnt_lacustrine_material");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial",       "HearthAssoc_-_Associated_terrestrial_bone");
+  makeVocab("RadioGroup",     hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial",  "HearthAssoc_-_Burnt_terrestrial_bone");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell",                 "HearthAssoc_-_Associated_eggshell");
+  makeVocab("RadioGroup",     hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell",            "HearthAssoc_-_Burnt_eggshell");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone",              "HearthAssoc_-_Associated_stone_artefacts");
+  makeVocab("CheckBoxGroup",  hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork",     "HearthAssoc_-_Associated_other_worked_(or_transported)_material");
   fetchVocabulary("HearthAssoc_-_Associated_material", hearthAssoc_assocMaterialVocabulary);
   fetchVocabulary("HearthAssoc_-_Associated_stone_artefacts", hearthAssoc_stoneArtefactsVocabulary);
   fetchVocabulary("HearthAssoc_-_Associated_chipped_stone_artefacts", hearthAssoc_chippedStoneVocabulary);
@@ -980,39 +988,14 @@ hearthAssoc_renderAssocTabs() {
         if (selectedItem.getName().equals(type.get(0))) {
           Log.d("hearthAssoc_renderAssocTabs()", "Selected "+hearthAssoc_tabgroup+" "+type.get(1));
           if (type.get(1).equals("{lacust}")) {
-            if (!hasView(hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust")) {
-              makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust", "HearthAssoc_-_Associated_lacustrine_material", "{hearthAssociatedMaterialsUI_assocLacust}", null, hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust", "HearthAssoc_-_Associated_lacustrine_material", "vocab");
-            }
-            if (!hasView(hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust")) {
-              makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust", "HearthAssoc_-_Burnt_lacustrine_material", "{hearthAssociatedMaterialsUI_assocBurntLacust}", null, hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust", "HearthAssoc_-_Burnt_lacustrine_material", "vocab");
-            }
             hearthAssoc_removeLacust = false;
           } else if(type.get(1).equals("{terrbone}")) {
-            if (!hasView(hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial")) {
-              makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "HearthAssoc_-_Associated_terrestrial_bone", "{hearthAssociatedMaterialsUI_assocTerrestrial}", null, hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "HearthAssoc_-_Associated_terrestrial_bone", "vocab");
-            }
-            if (!hasView(hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial")) {
-              makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial", "HearthAssoc_-_Burnt_terrestrial_bone", "{hearthAssociatedMaterialsUI_assocBurntTerrestrial}", null, hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial", "HearthAssoc_-_Burnt_terrestrial_bone", "vocab");
-            }
             hearthAssoc_removeTerrestrial = false;
           } else if(type.get(1).equals("{eggshell}")) {
-            if (!hasView(hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell")) {
-              makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell", "HearthAssoc_-_Associated_eggshell", "{hearthAssociatedMaterialsUI_assocEggshell}", null, hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell", "HearthAssoc_-_Associated_eggshell", "vocab");
-            }
-            if (!hasView(hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell")) {
-              makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell", "HearthAssoc_-_Burnt_eggshell", "{hearthAssociatedMaterialsUI_assocBurntEggshell}", null, hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell", "HearthAssoc_-_Burnt_eggshell", "vocab");
-            }
             hearthAssoc_removeEggshell = false;
           } else if(type.get(1).equals("{stoneart}")) {
-            if (!hasView( hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone")) {
-              String callback = "onEvent(\""+hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone\", \"click\", \"hearthAssoc_updateDynamicAssociatedStone();\");";
-              makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "HearthAssoc_-_Associated_stone_artefacts", "{hearthAssociatedMaterialsUI_assocStone}", callback, hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "HearthAssoc_-_Associated_stone_artefacts", "vocab");
-            }
             hearthAssoc_removeStone = false;
           } else if(type.get(1).equals("{otherwork}")) {
-            if (!hasView(hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork")) {
-              makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "HearthAssoc_-_Associated_other_worked_(or_transported)_material", "{hearthAssociatedMaterialsUI_assocOtherwork}", null, hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "HearthAssoc_-_Associated_other_worked_(or_transported)_material", "vocab");
-            }
             hearthAssoc_removeOther = false;
           } else {
             Log.e("hearthAssoc_renderAssocTabs()", "Error: no matched insitu selected");
@@ -1084,36 +1067,10 @@ hearthAssoc_onShowAssociatedMaterials() {
 }
 
 hearthAssoc_loadAssocCallback() {
-  // render the default views for each associated material tab
-  if (!hasView(hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust")) {
-    makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust", "HearthAssoc_-_Associated_lacustrine_material", "{hearthAssociatedMaterialsUI_assocLacust}", null, hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust", "HearthAssoc_-_Associated_lacustrine_material", "vocab");
-  }
-  if (!hasView(hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust")) {
-    makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust", "HearthAssoc_-_Burnt_lacustrine_material", "{hearthAssociatedMaterialsUI_assocBurntLacust}", null, hearthAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust", "HearthAssoc_-_Burnt_lacustrine_material", "vocab");
-  }
   hearthAssoc_removeLacust = false;
-  if (!hasView(hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial")) {
-    makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "HearthAssoc_-_Associated_terrestrial_bone", "{hearthAssociatedMaterialsUI_assocTerrestrial}", null, hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial", "HearthAssoc_-_Associated_terrestrial_bone", "vocab");
-  }
-  if (!hasView(hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial")) {
-    makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial", "HearthAssoc_-_Burnt_terrestrial_bone", "{hearthAssociatedMaterialsUI_assocBurntTerrestrial}", null, hearthAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial", "HearthAssoc_-_Burnt_terrestrial_bone", "vocab");
-  }
   hearthAssoc_removeTerrestrial = false;
-  if (!hasView(hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell")) {
-    makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell", "HearthAssoc_-_Associated_eggshell", "{hearthAssociatedMaterialsUI_assocEggshell}", null, hearthAssoc_tabgroup+"/associatedEggshell/assocEggshell", "HearthAssoc_-_Associated_eggshell", "vocab");
-  }
-  if (!hasView(hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell")) {
-    makeDynamicVocab("RadioGroup", hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell", "HearthAssoc_-_Burnt_eggshell", "{hearthAssociatedMaterialsUI_assocBurntEggshell}", null, hearthAssoc_tabgroup+"/associatedEggshell/assocBurntEggshell", "HearthAssoc_-_Burnt_eggshell", "vocab");
-  }
   hearthAssoc_removeEggshell = false;
-  if (!hasView( hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone")) {
-    String callback = "onEvent(\""+hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone\", \"click\", \"hearthAssoc_updateDynamicAssociatedStone();\");";
-    makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "HearthAssoc_-_Associated_stone_artefacts", "{hearthAssociatedMaterialsUI_assocStone}", callback, hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "HearthAssoc_-_Associated_stone_artefacts", "vocab");
-  }
   hearthAssoc_removeStone = false;
-  if (!hasView(hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork")) {
-    makeDynamicVocab("CheckBoxGroup", hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "HearthAssoc_-_Associated_other_worked_(or_transported)_material", "{hearthAssociatedMaterialsUI_assocOtherwork}", null, hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial/assocOtherwork", "HearthAssoc_-_Associated_other_worked_(or_transported)_material", "vocab");
-  }
   hearthAssoc_removeOther = false;
   // render the 'selection-dependent' views for the stone tab
   if (!hasView(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocChippedStone")) {
@@ -1349,6 +1306,7 @@ hearthAssoc_removeRetouchedArtefacts() {
 
 onEvent(hearthAssoc_tabgroup, "show", "hearthAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+hearthAssoc_tabgroup+"\"); hearthAssoc_save();");
 onEvent(hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAssoc_renderAssocTabs();");
+onEvent(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "hearthAssoc_updateDynamicAssociatedStone();");
 hearthAssoc_init();
 
 /**********************************************/
