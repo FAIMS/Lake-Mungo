@@ -1475,8 +1475,8 @@ List middenAssoc_chippedStoneVocabulary = new ArrayList();
 /** Initialises the tabgroup vocabularies. **/
 middenAssoc_init() {
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/control/assocMaterial",                          "MiddenAssoc_-_Associated_material");
-  makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust",  "MiddenAssoc_-_Associated_lacustrine_material");
-  makeVocab("RadioGroup",     middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust",       "MiddenAssoc_-_Burnt_lacustrine_material");
+  makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust",       "MiddenAssoc_-_Associated_lacustrine_material");
+  makeVocab("RadioGroup",     middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust",  "MiddenAssoc_-_Burnt_lacustrine_material");
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial",     "MiddenAssoc_-_Associated_terrestrial_bone");
   makeVocab("RadioGroup",     middenAssoc_tabgroup+"/associatedTerrestrialBone/assocBurntTerrestrial","MiddenAssoc_-_Burnt_terrestrial_bone");
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedEggshell/assocEggshell",               "MiddenAssoc_-_Associated_eggshell");
@@ -2295,8 +2295,8 @@ stone_init() {
   makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/paleotopographicSetting"   , "Stone_-_Palaeotopographic_Setting");
   makeVocab("CheckBoxGroup"        , stone_tabgroup + "/inSituDescription/inSituInSituStoneArtefacts" , "Stone_-_In_Situ_-_Stone_Artefacts");
   makeVocab("CheckBoxGroup"        , stone_tabgroup + "/inSituDescription/inSituSurfaceModification"  , "Stone_-_In_Situ_-_Surface_Modification");
-  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/inSituInSituStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts");
-  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/surfaceStoneArtefacts"     , "Stone_-_Surface_-_Surface_Modification");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/surfaceStoneArtefacts"     , "Stone_-_Surface_-_Stone_Artefacts");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/surfaceSurfaceModification", "Stone_-_Surface_-_Surface_Modification");
   fetchVocabulary("Stone_-_Cluster_Type", stone_clusterTypeVocabulary);
   fetchVocabulary("Stone_-_In_Situ_-_Stone_Artefacts", stone_insituStoneArtefactsVocabulary);
   fetchVocabulary("Stone_-_In_Situ_-_Chipped_Stone_Artefacts", stone_insituChippedStoneVocabulary);
