@@ -1117,36 +1117,64 @@
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{middenAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
-        <group ref="assocLacust">
+        <select ref="assocLacust" faims_attribute_name="MiddenAssoc_-_Associated_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocLacust}</label>
-        </group>
-        <group ref="assocBurntLacust">
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select1 ref="assocBurntLacust" faims_attribute_name="MiddenAssoc_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntLacust}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{middenAssociatedMaterialsUI_associatedTerrestrialBone}</label>
-        <group ref="assocTerrestrial">
+        <select ref="assocTerrestrial" faims_attribute_name="MiddenAssoc_-_Associated_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocTerrestrial}</label>
-        </group>
-        <group ref="assocBurntTerrestrial">
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select1 ref="assocBurntTerrestrial" faims_attribute_name="MiddenAssoc_-_Burnt_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntTerrestrial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedEggshell">
         <label>{middenAssociatedMaterialsUI_associatedEggshell}</label>
-        <group ref="assocEggshell">
+        <select ref="assocEggshell" faims_attribute_name="MiddenAssoc_-_Associated_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocEggshell}</label>
-        </group>
-        <group ref="assocBurntEggshell">
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+        <select1 ref="assocBurntEggshell" faims_attribute_name="MiddenAssoc_-_Burnt_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntEggshell}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{middenAssociatedMaterialsUI_associatedStoneArtefacts}</label>
-        <group ref="assocStone">
+        <select ref="assocStone" faims_attribute_name="MiddenAssoc_-_Associated_stone_artefacts" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocStone}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
         <group ref="assocChippedStone">
           <label>{middenAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
@@ -1174,9 +1202,13 @@
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{middenAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork">
+        <select ref="assocOtherwork" faims_attribute_name="MiddenAssoc_-_Associated_other_worked_(or_transported)_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocOtherwork}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
     </group>
     <group ref="oldBone" faims_archent_type="Old Bone">
