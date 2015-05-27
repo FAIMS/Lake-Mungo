@@ -268,6 +268,9 @@
         <term> {ironst}
           <description>Ironstone</description>
         </term>
+        <term> {sandst}
+          <description>Sandstone</description>
+        </term>
         <term> {other}
           <description>Other material</description>
         </term>
@@ -572,6 +575,9 @@
         </term>
         <term> {ironst}
           <description>Ironstone</description>
+        </term>
+        <term> {sandst}
+          <description>Sandstone</description>
         </term>
         <term> {other}
           <description>Other material</description>
@@ -1724,6 +1730,9 @@
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
         </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
         </term>
@@ -2872,6 +2881,9 @@ stone</description>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
         </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
         </term>
@@ -2898,6 +2910,9 @@ stone</description>
         </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
+        </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>Other material</description>
@@ -3097,6 +3112,9 @@ stone</description>
         </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
+        </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
@@ -3731,6 +3749,9 @@ stone</description>
         </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
+        </term>
+        <term> {sandst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
