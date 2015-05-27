@@ -352,13 +352,13 @@ loadSearch() {
 newFeature() {
   String type = getFieldValue("control/control/entityTypes");
   if (type.equals("Old Bone")) {
-    oldbone.create();
+    oldbone_create();
   } else if (type.equals("Hearth")) {
     hearth_create();
   } else if (type.equals("Midden")) {
-    midden.create();
+    midden_create();
   } else if (type.equals("Stone Artefact Clusters")) {
-    stone.create();
+    stone_create();
   } else if (type.equals("Isolated")) {
     isolated_create();
   }
@@ -1355,8 +1355,143 @@ hearthAssoc_init();
 /** End Hearth Associated Materials Tabgroup **/
 /**********************************************/
 
+/**********************/
+/*** MIDDEN FEATURE ***/
+/**********************/
+String midden_tabgroup = "midden";
+String midden_archentType = "Midden";
+String midden_desc = midden_archentType + " record";
+String midden_id = null;
+String midden_relTypeName = "Midden And Associated Materials";
+ArrayList midden_typeVocabulary = new ArrayList();
+Boolean midden_removeContinuity = true;
 
+/** Saves the feature **/
+midden_save() {
+  Boolean enable_autosave = true;
+  saveTabGroup(midden_tabgroup, midden_id, null, null, new SaveCallback() {
+    onSave(uuid, newRecord) {
+      midden_id = uuid;
+      Log.d("midden_save()", midden_desc + " saved with midden_id: " + midden_id);
+      if (newRecord) {
+        Log.d("midden_save()", "New " + midden_desc + " created");
+      }
+    }
+    onError(message) {
+        showToast(message);
+    }  
+  }, enable_autosave);
+}
 
+/** Creates a new feature record. **/
+midden_create() {
+  dialog = showBusy("creating a new record", "please wait");
+  midden_removeContinuity = true;
+  midden_id = null;
+  newTabGroup(midden_tabgroup);
+  setFieldValue(midden_tabgroup + "/basicIdentification/idNumber", "0");
+  setFieldValue(midden_tabgroup + "/basicIdentification/gridSquare", "0");
+  keepTabGroupChanges(midden_tabgroup);
+  midden_save();
+  dialog.dismiss();
+}
+
+/** Loads a feature record. **/
+midden_load() {
+  if (isNull(midden_id)) {
+    showToast("No entity selected");
+      return;
+  }
+  dialog = showBusy("loading record", "please wait");
+  removeAllViewsAndContainers(midden_tabgroup);
+  // display all dynamic views
+  midden_removeContinuity = false;
+  midden_displayDynamicViews();
+  // load the entity and populate any dynamic views with their saved value
+  showTabGroup(midden_tabgroup, midden_id, new FetchCallback() {
+    onFetch(result) {
+      Log.d("midden_load()", "Loaded a " + midden_desc + ", ID: " + midden_id);
+      showToast("Loaded a " + midden_desc);
+      midden_checkType(); // remove any dynamic views that shouldn't be present
+      keepTabGroupChanges(midden_tabgroup);
+      dialog.dismiss();
+    }
+  });
+}
+
+/** Checks the midden type selection and displays/removes the appropriate dynamic views **/
+midden_checkType() {
+  String selectedItem = getFieldValue(midden_tabgroup+"/basicIdentification/middenType");
+  if (isNull(selectedItem)) {
+    midden_removeContinuity = true;
+    midden_removeDynamicViews();
+    return;
+  }
+  for (middenType : midden_typeVocabulary) {
+    if (selectedItem.equals(middenType.get(0))) {
+      if (middenType.get(1).equals("{largeclust}") || middenType.get(1).equals("{extthin}") || middenType.get(1).equals("{extthick}")) {
+        midden_removeContinuity = false;
+      } else {
+        midden_removeContinuity = true;
+      }
+    }
+  }
+  // update dynamic views
+  midden_displayDynamicViews();
+  midden_removeDynamicViews();
+}
+
+/** Displays the flagged dynamic views for the tab **/
+midden_displayDynamicViews() {
+  String tabgroup = midden_tabgroup;
+  if (!midden_removeContinuity) {
+    if (!hasView(tabgroup+"/basicIdentification/continuity")) {
+      makeDynamicVocab("CheckBoxGroup", midden_tabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "{middenUI_continuity}", null, midden_tabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "vocab");
+    }
+  }
+}
+
+/** Removes the flagged dynamic views for the tab **/
+midden_removeDynamicViews() {
+  String tabgroup = midden_tabgroup;
+  if (midden_removeContinuity) {
+    if (hasView(tabgroup+"/basicIdentification/continuity")) {
+      removeView(tabgroup+"/basicIdentification/continuity");
+    }
+  }
+}
+
+/** Initialises the tabgroup vocabularies. **/
+midden_init() {
+  makeVocab("HierarchicalDropDown" , midden_tabgroup + "/basicIdentification/middenType"                               , "Midden_-_Midden_Type");
+  makeVocab("DropDown"             , midden_tabgroup + "/middenDescription/presenceOfCharcoal"                         , "Midden_-_Presence_of_charcoal");
+  makeVocab("DropDown"             , midden_tabgroup + "/middenDescription/proportionOfMaterialThatRemainsInSitu"      , "Midden_-_Proportion_of_material_that_remains_in_situ");
+  makeVocab("DropDown"             , midden_tabgroup + "/middenDescription/bivalvePreservation"                        , "Midden_-_Bivalve_preservation");
+  makeVocab("DropDown"             , midden_tabgroup + "/middenDescription/bivalveDispersal"                           , "Midden_-_Bivalve_dispersal");
+  makeVocab("PictureGallery"       , midden_tabgroup + "/topAndStratSetting/topographicSetting"                        , "Midden_-_Topographic_Setting");
+  makeVocab("PictureGallery"       , midden_tabgroup + "/topAndStratSetting/sedimentType"                              , "Midden_-_Sediment_Type");
+  makeVocab("PictureGallery"       , midden_tabgroup + "/topAndStratSetting/stratigraphicUnit"                         , "Midden_-_Stratigraphic_Unit");
+  makeVocab("PictureGallery"       , midden_tabgroup + "/topAndStratSetting/erosionVulnerability"                      , "Midden_-_Vulnerability_To_Erosion");
+  makeVocab("PictureGallery"       , midden_tabgroup + "/topAndStratSetting/paleotopographicSetting"                   , "Midden_-_Palaeotopographic_Setting");
+  fetchVocabulary("Midden_-_Midden_Type", midden_typeVocabulary);
+}
+
+/** Populates the in-situ and surface associated materials list. **/
+midden_listAssociatedMaterials() {
+  listAssociatedMaterials(midden_tabgroup+"/associatedMaterials/associatedMaterialList", midden_id, middenAssoc_archentType, midden_relTypeName);
+}
+
+onEvent(midden_tabgroup                                                 , "show"       , "midden_save();");
+onEvent(midden_tabgroup + "/associatedMaterials"                        , "show"       , "midden_listAssociatedMaterials();");
+onEvent(midden_tabgroup + "/associatedMaterials/associatedMaterialList" , "click"      , "middenAssoc_load()");
+onEvent(midden_tabgroup + "/associatedMaterials/recordMaterial"         , "delayclick" , "middenAssoc_create();");
+onEvent(midden_tabgroup + "/basicIdentification/calculateGridSquare"    , "click"      , "calculateGridSquare(midden_id, midden_tabgroup , \""+midden_tabgroup+"/basicIdentification/gridSquare\");");
+onEvent(midden_tabgroup + "/basicIdentification/middenType"              , "click"      , "midden_checkType();");
+midden_init();
+
+/********************/
+/** End Midden Tab **/
+/********************/
 
 /***********************************/
 /*** MIDDEN ASSOCIATED MATERIALS ***/
@@ -1393,9 +1528,9 @@ middenAssoc_save() {
   saveTabGroup(middenAssoc_tabgroup, middenAssoc_id, null, null, new SaveCallback() {
     onSave(uuid, newRecord) {
       middenAssoc_id = uuid;
-      Log.d("middenAssociatedMaterials.middenAssoc_save()", "Saving the relation between midden " + midden.midden_id + " and " + middenAssoc_tabgroup + " " + middenAssoc_id);
-      String callback = "midden.listAssociatedMaterials();" + "showTab(\"midden/associatedMaterials\");";
-      saveEntitiesToRel(middenAssoc_relTypeName, midden.middenAssoc_id, midden_id, callback);
+      Log.d("middenAssociatedMaterials.middenAssoc_save()", "Saving the relation between midden " + midden_id + " and " + middenAssoc_tabgroup + " " + middenAssoc_id);
+      String callback = "midden_listAssociatedMaterials();" + "showTab(\"midden/associatedMaterials\");";
+      saveEntitiesToRel(middenAssoc_relTypeName, midden_id, middenAssoc_id, callback);
     }
   }, enable_autosave);
 }
@@ -1414,7 +1549,7 @@ middenAssoc_save() {
 
 /** Creates a midden associated materials record. **/
 middenAssoc_create() {
-  if (!isNull(midden.middenAssoc_id)) {
+  if (!isNull(midden_id)) {
     fetchOne("select uuid, response " +
       "from latestNonDeletedArchEntFormattedIdentifiers " +
       "where aenttypename = '"+middenAssoc_archentType+"' " +
@@ -1424,9 +1559,9 @@ middenAssoc_create() {
       "FROM latestNonDeletedAentReln " +
       "JOIN relationship using (relationshipid) " +
       "JOIN relntype using (relntypeid) " +
-      "where uuid = "+midden.middenAssoc_id+" " +
+      "where uuid = "+midden_id+" " +
       "and relntypeName = '"+middenAssoc_relTypeName+"') " +
-      "and uuid != "+midden.middenAssoc_id+");",  new FetchCallback() {
+      "and uuid != "+midden_id+");",  new FetchCallback() {
       onFetch(result) {
         if(isNull(result)) {
           middenAssoc_id = null;
@@ -1841,6 +1976,9 @@ middenAssoc_init();
 /**********************************************/
 /** End Midden Associated Materials Tabgroup **/
 /**********************************************/
+
+
+
 
 
 
@@ -2531,142 +2669,6 @@ oldboneAssociatedMaterials() {
 oldboneAssoc = oldboneAssociatedMaterials();
 oldboneAssoc.init();
 
-/*** MIDDEN FEATURE ***/
-middenFeature() {
-  String entityTabgroup = "midden";
-  String archentType = "Midden";
-  String desc = archentType + " record";
-  String id = null;
-  String relTypeName = "Midden And Associated Materials";
-  ArrayList middenTypeVocabulary = new ArrayList();
-  Boolean removeContinuity = true; 
-  
-  /** Saves the feature **/
-  save() {
-    Boolean enable_autosave = true;
-    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
-      onSave(uuid, newRecord) {
-        id = uuid;
-        Log.d("save()", desc + " saved with id: " + id);
-        if (newRecord) {
-          Log.d("save()", "New " + desc + " created");
-        }
-      }
-      onError(message) {
-          showToast(message);
-      }  
-    }, enable_autosave);
-  }
-
-  /** Creates a new feature record. **/
-  create() {
-    dialog = showBusy("creating a new record", "please wait");
-    removeContinuity = true;
-    id = null;
-    newTabGroup(entityTabgroup);
-    setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
-    setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
-    keepTabGroupChanges(entityTabgroup);
-    save();
-    dialog.dismiss();
-  }
-
-  /** Loads a feature record. **/
-  load() {
-    if (isNull(id)) {
-      showToast("No entity selected");
-        return;
-    }
-    dialog = showBusy("loading record", "please wait");
-    removeAllViewsAndContainers(entityTabgroup);
-    // display all dynamic views
-    removeContinuity = false;
-    displayDynamicViews();
-    // load the entity and populate any dynamic views with their saved value
-    showTabGroup(entityTabgroup, id, new FetchCallback() {
-      onFetch(result) {
-        Log.d("load()", "Loaded a " + desc + ", ID: " + id);
-        showToast("Loaded a " + desc);
-        checkMiddenType(); // remove any dynamic views that shouldn't be present
-        keepTabGroupChanges(entityTabgroup);
-        dialog.dismiss();
-      }
-    });
-  }
-
-  /** Checks the midden type selection and displays/removes the appropriate dynamic views **/
-  checkMiddenType() {
-    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/middenType");
-    if (isNull(selectedItem)) {
-      removeContinuity = true;
-      removeDynamicViews();
-      return;
-    }
-    for (middenType : middenTypeVocabulary) {
-      if (selectedItem.equals(middenType.get(0))) {
-        if (middenType.get(1).equals("{largeclust}") || middenType.get(1).equals("{extthin}") || middenType.get(1).equals("{extthick}")) {
-          removeContinuity = false;
-        } else {
-          removeContinuity = true;
-        }
-      }
-    }
-    // update dynamic views
-    displayDynamicViews();
-    removeDynamicViews();
-  }
-
-  /** Displays the flagged dynamic views for the tab **/
-  displayDynamicViews() {
-    String tabgroup = entityTabgroup;
-    if (!removeContinuity) {
-      if (!hasView(tabgroup+"/basicIdentification/continuity")) {
-        makeDynamicVocab("CheckBoxGroup", entityTabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "{middenUI_continuity}", null, entityTabgroup+"/basicIdentification/continuity", "Midden_-_Continuity", "vocab");
-      }
-    }
-  }
-
-  /** Removes the flagged dynamic views for the tab **/
-  removeDynamicViews() {
-    String tabgroup = entityTabgroup;
-    if (removeContinuity) {
-      if (hasView(tabgroup+"/basicIdentification/continuity")) {
-        removeView(tabgroup+"/basicIdentification/continuity");
-      }
-    }
-  }
-
-   /** Initialises the tabgroup vocabularies. **/
-  init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/middenType"                               , "Midden_-_Midden_Type");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/presenceOfCharcoal"                         , "Midden_-_Presence_of_charcoal");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/proportionOfMaterialThatRemainsInSitu"      , "Midden_-_Proportion_of_material_that_remains_in_situ");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/bivalvePreservation"                        , "Midden_-_Bivalve_preservation");
-    makeVocab("DropDown"             , entityTabgroup + "/middenDescription/bivalveDispersal"                           , "Midden_-_Bivalve_dispersal");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"                        , "Midden_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"                              , "Midden_-_Sediment_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"                         , "Midden_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"                      , "Midden_-_Vulnerability_To_Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"                   , "Midden_-_Palaeotopographic_Setting");
-    fetchVocabulary("Midden_-_Midden_Type", middenTypeVocabulary);
-  }
-
-  /** Populates the in-situ and surface associated materials list. **/
-  listAssociatedMaterials() {
-    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedMaterialList", id, middenAssoc.archentType, relTypeName);
-  }
-
-  onEvent(entityTabgroup                                                 , "show"       , "midden.save();");
-  onEvent(entityTabgroup + "/associatedMaterials"                        , "show"       , "midden.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedMaterialList" , "click"      , "middenAssoc.load()");
-  onEvent(entityTabgroup + "/associatedMaterials/recordMaterial"         , "delayclick" , "middenAssoc.create();");
-  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare"    , "click"      , "calculateGridSquare(midden.id        , midden.entityTabgroup , \""+entityTabgroup+"/basicIdentification/gridSquare\");");
-  onEvent(entityTabgroup + "/basicIdentification/middenType"             , "click"      , "midden.checkMiddenType();");
-
-  return this;
-}
-midden = middenFeature();
-midden.init();
 
 
 
@@ -3459,10 +3461,3 @@ stoneAssociatedMaterials() {
 }
 stoneAssoc = stoneAssociatedMaterials();
 stoneAssoc.init();
-
-
-
-
-
-
-
