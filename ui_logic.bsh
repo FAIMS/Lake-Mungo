@@ -2765,154 +2765,151 @@ stoneAssoc_init();
 /** End Stone Associated Materials Tabgroup **/
 /*********************************************/
 
-
-
-
-
-
-
-
+/************************/
 /*** OLD BONE FEATURE ***/
-oldboneFeature() {
-  String entityTabgroup = "oldBone";
-  String archentType = "Old Bone";
-  String desc = archentType + " record";
-  String id = null;
-  String insituRelTypeName = "Old Bone And Associated Insitu Materials";
-  String surfaceRelTypeName = "Old Bone And Associated Surface Materials";
-  String assocInsituTabgroup = "oldboneAssociatedInsituMaterials";
-  String assocSurfaceTabgroup = "oldboneAssociatedSurfaceMaterials";
-  List clusterTypeVocabulary = new ArrayList();
+/************************/
+String oldbone_tabgroup = "oldBone";
+String oldbone_archentType = "Old Bone";
+String oldbone_desc = oldbone_archentType + " record";
+String oldbone_id = null;
+String oldbone_insituRelTypeName = "Old Bone And Associated Insitu Materials";
+String oldbone_surfaceRelTypeName = "Old Bone And Associated Surface Materials";
+String oldbone_assocInsituTabgroup = "oldboneAssociatedInsituMaterials";
+String oldbone_assocSurfaceTabgroup = "oldboneAssociatedSurfaceMaterials";
+List oldbone_clusterTypeVocabulary = new ArrayList();
 
-  /** Saves the feature **/
-  save() {
-    Boolean enable_autosave = true;
-    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
-      onSave(uuid, newRecord) {
-        id = uuid;
-        Log.d("save()", desc + " saved with id: " + id);
-        if (newRecord) {
-          Log.d("save()", "New " + desc + " created");
-        }
-      }
-      onError(message) {
-          showToast(message);
-      }  
-    }, enable_autosave);
-  }
-
-  /** Creates a new feature record. **/
-  create() {
-    dialog = showBusy("creating a new record", "please wait");
-    newTabGroup(entityTabgroup);
-    id = null;
-    setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
-    setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
-    keepTabGroupChanges(entityTabgroup);
-    save();
-    dialog.dismiss();
-  }
-
-  /** Loads a feature record. **/
-  load() {
-    if (isNull(id)) {
-      showToast("No entity selected");
-      return;
-    }
-    dialog = showBusy("loading record", "please wait");
-    showTabGroup(entityTabgroup, id, new FetchCallback() {
-      onFetch(result) {
-        Log.d("load()", "Loaded an " + desc + ", ID: " + id);
-        showToast("Loaded an " + desc);
-        checkClusterType();
-        keepTabGroupChanges(entityTabgroup);
-        dialog.dismiss();
-      }
-    });
-  }
-
-  /** Initialises the tabgroup vocabularies. **/
-  init() {
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster_Type");
-    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body_Parts_Identifed");
-    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon_Identified");
-    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone_Preservation");
-    makeVocab("CheckBoxGroup"        , entityTabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone_-_Deliberate_Surface_Modification");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
-    fetchVocabulary("OldBone_-_Cluster_Type", clusterTypeVocabulary);
-  }
-
-  /** Populates the in-situ and surface associated materials list. **/
-  listAssociatedMaterials() {
-    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedInsituList", id, oldboneAssoc.insituArchentType, insituRelTypeName);
-    listAssociatedMaterials(entityTabgroup+"/associatedMaterials/associatedSurfaceList", id, oldboneAssoc.surfaceArchentType, surfaceRelTypeName);
-  }
-
-  /** Displays the insitu proportion view. **/
-  displayInsituProportion() {
-    String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
-    if (isNull(selectedItem)) {
-      Log.e("updateInsituProportion()", "Null field value for: \"oldBone/basicIdentification/clusterType\"");
-      return;
-    } else if (clusterTypeVocabulary == null) {
-      Log.e("updateInsituProportion()", "Null value for: \"clusterTypeVocabulary\"");
-      return;
-    }
-    String dynamicView = "oldBone/insituAndSurfaceBone/insituProportion";
-    Boolean removeDynamicView = true;
-    // iterate through the cluster type vocab and display the insitu proportion view if insitu values are seletced
-    for (clusterType : clusterTypeVocabulary) {
-      if (selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitBO}") || clusterType.get(1).equals("{insitAndSurf}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
-        removeDynamicView = false;
-        if (!hasView(dynamicView)) {
-          String vocab = "OldBone_-_Proportion_of_material_that_remains_in_situ";
-          makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", null, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
-          Log.d("displayInsituProportion()", "Making insituProportion picture gallery");
-        }
+/** Saves the feature **/
+oldbone_save() {
+  Boolean enable_autosave = true;
+  saveTabGroup(oldbone_tabgroup, oldbone_id, null, null, new SaveCallback() {
+    onSave(uuid, newRecord) {
+      oldbone_id = uuid;
+      Log.d("oldbone_save()", oldbone_desc + " saved with oldbone_id: " + oldbone_id);
+      if (newRecord) {
+        Log.d("oldbone_save()", "New " + oldbone_desc + " created");
       }
     }
-    if (removeDynamicView) {
-      if (hasView(dynamicView)) {
-        removeView(dynamicView);
-      }
-    }
-  }
-
-  checkClusterType() {
-    String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
-    Boolean showAssocTab = false;
-    for (clusterType : clusterTypeVocabulary) {
-      if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{boneAndOtherMaterial}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{surfAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
-        showAssocTab = true;
-      }
-    }
-    if (showAssocTab) {
-      Log.d("oldBone.checkClusterType()", "Showing associated materials tab");
-      showTab("oldBone/associatedMaterials");
-      showTab("oldBone/basicIdentification");
-    } else {
-      Log.d("oldBone.checkClusterType()", "Cancelling associated materials tab");
-      cancelTab("oldBone/associatedMaterials", false);
-    }
-  }
-
-  onEvent(entityTabgroup, "show", "oldbone.save(); oldbone.checkClusterType();");
-  onEvent(entityTabgroup + "/associatedMaterials", "show", "oldbone.listAssociatedMaterials();");
-  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone.id, oldbone.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
-  onEvent(entityTabgroup + "/basicIdentification/clusterType", "click", "oldbone.displayInsituProportion(); oldbone.checkClusterType();");
-  onEvent(entityTabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc.isInsituMaterial=true; oldboneAssoc.create();");
-  onEvent(entityTabgroup + "/associatedMaterials/recordSurfaceMaterial", "click", "oldboneAssoc.isInsituMaterial=false; oldboneAssoc.create();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc.isInsituMaterial=true; oldboneAssoc.load();");
-  onEvent(entityTabgroup + "/associatedMaterials/associatedSurfaceList", "click", "oldboneAssoc.isInsituMaterial=false; oldboneAssoc.load();");
-
-  return this;
+    onError(message) {
+        showToast(message);
+    }  
+  }, enable_autosave);
 }
-oldbone = oldboneFeature();
-oldbone.init();
+
+/** Creates a new feature record. **/
+oldbone_create() {
+  dialog = showBusy("creating a new record", "please wait");
+  newTabGroup(oldbone_tabgroup);
+  oldbone_id = null;
+  setFieldValue(oldbone_tabgroup + "/basicIdentification/idNumber", "0");
+  setFieldValue(oldbone_tabgroup + "/basicIdentification/gridSquare", "0");
+  keepTabGroupChanges(oldbone_tabgroup);
+  oldbone_save();
+  dialog.dismiss();
+}
+
+/** Loads a feature record. **/
+oldbone_load() {
+  if (isNull(oldbone_id)) {
+    showToast("No entity selected");
+    return;
+  }
+  dialog = showBusy("loading record", "please wait");
+  showTabGroup(oldbone_tabgroup, oldbone_id, new FetchCallback() {
+    onFetch(result) {
+      Log.d("oldbone_load()", "Loaded an " + oldbone_desc + ", ID: " + oldbone_id);
+      showToast("Loaded an " + oldbone_desc);
+      oldbone_checkClusterType();
+      keepTabGroupChanges(oldbone_tabgroup);
+      dialog.dismiss();
+    }
+  });
+}
+
+/** Initialises the tabgroup vocabularies. **/
+oldbone_init() {
+  makeVocab("HierarchicalDropDown" , oldbone_tabgroup + "/basicIdentification/clusterType"                    , "OldBone_-_Cluster_Type");
+  makeVocab("CheckBoxGroup"        , oldbone_tabgroup + "/insituAndSurfaceBone/bodyPartsIdentified"           , "OldBone_-_Body_Parts_Identifed");
+  makeVocab("CheckBoxGroup"        , oldbone_tabgroup + "/insituAndSurfaceBone/taxonIdentified"               , "OldBone_-_Taxon_Identified");
+  makeVocab("CheckBoxGroup"        , oldbone_tabgroup + "/insituAndSurfaceBone/bonePreservation"              , "OldBone_-_Bone_Preservation");
+  makeVocab("CheckBoxGroup"        , oldbone_tabgroup + "/insituAndSurfaceBone/deliberateSurfaceModification" , "OldBone_-_Deliberate_Surface_Modification");
+  makeVocab("PictureGallery"       , oldbone_tabgroup + "/topAndStratSetting/topographicSetting"              , "OldBone_-_Topographic_Setting");
+  makeVocab("PictureGallery"       , oldbone_tabgroup + "/topAndStratSetting/sedimentType"                    , "OldBone_-_Sediment_Type");
+  makeVocab("PictureGallery"       , oldbone_tabgroup + "/topAndStratSetting/stratigraphicUnit"               , "OldBone_-_Stratigraphic_Unit");
+  makeVocab("PictureGallery"       , oldbone_tabgroup + "/topAndStratSetting/erosionVulnerability"            , "OldBone_-_Vulnerability_To_Erosion");
+  makeVocab("PictureGallery"       , oldbone_tabgroup + "/topAndStratSetting/paleotopographicSetting"         , "OldBone_-_Palaeotopographic_Setting");
+  fetchVocabulary("OldBone_-_Cluster_Type", oldbone_clusterTypeVocabulary);
+}
+
+/** Populates the in-situ and surface associated materials list. **/
+oldbone_listAssociatedMaterials() {
+  listAssociatedMaterials(oldbone_tabgroup+"/associatedMaterials/associatedInsituList", oldbone_id, oldboneAssoc_insituArchentType, oldbone_insituRelTypeName);
+  listAssociatedMaterials(oldbone_tabgroup+"/associatedMaterials/associatedSurfaceList", oldbone_id, oldboneAssoc_surfaceArchentType, oldbone_surfaceRelTypeName);
+}
+
+/** Displays the insitu proportion view. **/
+oldbone_displayInsituProportion() {
+  String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
+  if (isNull(selectedItem)) {
+    Log.e("updateInsituProportion()", "Null field value for: \"oldBone/basicIdentification/clusterType\"");
+    return;
+  } else if (oldbone_clusterTypeVocabulary == null) {
+    Log.e("updateInsituProportion()", "Null value for: \"oldbone_clusterTypeVocabulary\"");
+    return;
+  }
+  String dynamicView = "oldBone/insituAndSurfaceBone/insituProportion";
+  Boolean removeDynamicView = true;
+  // iterate through the cluster type vocab and display the insitu proportion view if insitu values are seletced
+  for (clusterType : oldbone_clusterTypeVocabulary) {
+    if (selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitBO}") || clusterType.get(1).equals("{insitAndSurf}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
+      removeDynamicView = false;
+      if (!hasView(dynamicView)) {
+        String vocab = "OldBone_-_Proportion_of_material_that_remains_in_situ";
+        makeDynamicVocab("PictureGallery", dynamicView, vocab, "{oldBoneUI_insituProportion}", null, "oldBone/insituAndSurfaceBone/insituProportion", vocab, "vocab"); 
+        Log.d("oldbone_displayInsituProportion()", "Making insituProportion picture gallery");
+      }
+    }
+  }
+  if (removeDynamicView) {
+    if (hasView(dynamicView)) {
+      removeView(dynamicView);
+    }
+  }
+}
+
+oldbone_checkClusterType() {
+  String selectedItem = getFieldValue("oldBone/basicIdentification/clusterType");
+  Boolean showAssocTab = false;
+  for (clusterType : oldbone_clusterTypeVocabulary) {
+    if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{boneAndOtherMaterial}") || clusterType.get(1).equals("{inistAndOth}") || clusterType.get(1).equals("{surfAndOth}") || clusterType.get(1).equals("{bothAndOth}"))) {
+      showAssocTab = true;
+    }
+  }
+  if (showAssocTab) {
+    Log.d("oldBone.oldbone_checkClusterType()", "Showing associated materials tab");
+    showTab("oldBone/associatedMaterials");
+    showTab("oldBone/basicIdentification");
+  } else {
+    Log.d("oldBone.oldbone_checkClusterType()", "Cancelling associated materials tab");
+    cancelTab("oldBone/associatedMaterials", false);
+  }
+}
+
+onEvent(oldbone_tabgroup, "show", "oldbone_save(); oldbone_checkClusterType();");
+onEvent(oldbone_tabgroup + "/associatedMaterials", "show", "oldbone_listAssociatedMaterials();");
+onEvent(oldbone_tabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone_id, oldbone_tabgroup, \""+oldbone_tabgroup+"/basicIdentification/gridSquare\");");
+onEvent(oldbone_tabgroup + "/basicIdentification/clusterType", "click", "oldbone_displayInsituProportion(); oldbone_checkClusterType();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_create();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/recordSurfaceMaterial", "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_create();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_load();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/associatedSurfaceList", "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_load();");
+oldbone_init();
+
+/***************************/
+/** End Old Bone Tabgroup **/
+/***************************/
+
+
+
 
 /*** OLDBONE ASSOCIATED MATERIALS ***/
 oldboneAssociatedMaterials() {
@@ -3456,3 +3453,4 @@ oldboneAssociatedMaterials() {
 }
 oldboneAssoc = oldboneAssociatedMaterials();
 oldboneAssoc.init();
+
