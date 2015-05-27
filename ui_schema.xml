@@ -677,9 +677,13 @@
         <group ref="potentialRefits">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
         </group>
-        <group ref="inSituInSituStoneArtefacts">
+        <select ref="inSituInSituStoneArtefacts" faims_attribute_name="Stone_-_In_Situ_-_Stone_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_inSituInSituStoneArtefacts}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
         <group ref="inSituChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
         </group>
@@ -704,18 +708,26 @@
         <group ref="inSituGroundRawMaterial">
           <label>{stoneArtefactClusterUI_insituGroundRawMaterial}</label>
         </group>
-        <group ref="inSituSurfaceModification">
+        <select ref="inSituSurfaceModification" faims_attribute_name="Stone_-_In_Situ_-_Surface_Modification" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_inSituSurfaceModification}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="surfaceDescription">
         <label>{stoneArtefactClustersUI_surfaceDescription}</label>
         <group ref="potentialRefits">
           <label>{stoneArtefactClustersUI_potentialRefits}</label>
         </group>
-        <group ref="surfaceStoneArtefacts">
+        <select ref="surfaceStoneArtefacts" faims_attribute_name="Stone_-_Surface_-_Stone_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_surfaceStoneArtefacts}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
         <group ref="surfaceChippedStoneArtfacts">
           <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
         </group>
@@ -740,9 +752,13 @@
         <group ref="surfaceGroundRawMaterial">
           <label>{stoneArtefactClusterUI_surfaceGroundRawMaterial}</label>
         </group>
-        <group ref="surfaceSurfaceModification">
+        <select ref="surfaceSurfaceModification" faims_attribute_name="Stone_-_Surface_-_Surface_Modification" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_surfaceSurfaceModification}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedMaterials">
         <label>{stoneArtefactClustersUI_associatedMaterials}</label>

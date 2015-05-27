@@ -2076,13 +2076,6 @@ stone_displayInsituTabViews() {
         stone_tabgroup+tab+"/potentialRefits"
     );
   }
-  if (!hasView(stone_tabgroup+tab+"/inSituInSituStoneArtefacts")) {
-    String callback = "onEvent(\""+stone_tabgroup+tab+"/inSituInSituStoneArtefacts\", \"click\", \"stone_displayDynamicViews();\");";
-    makeDynamicVocab("CheckBoxGroup", stone_tabgroup+tab+"/inSituInSituStoneArtefacts", "Stone_-_In_Situ_-_Stone_Artefacts", "{stoneArtefactClustersUI_inSituInSituStoneArtefacts}", callback, stone_tabgroup+tab+"/inSituInSituStoneArtefacts", "Stone_-_In_Situ_-_Stone_Artefacts", "vocab");
-  }
-  if (!hasView(stone_tabgroup+tab+"/inSituSurfaceModification")) {
-    makeDynamicVocab("CheckBoxGroup", stone_tabgroup+tab+"/inSituSurfaceModification", "Stone_-_In_Situ_-_Surface_Modification", "{stoneArtefactClustersUI_inSituSurfaceModification}", null, stone_tabgroup+tab+"/inSituSurfaceModification", "Stone_-_In_Situ_-_Surface_Modification", "vocab");
-  }
   // Only proceed to create dynamic views if the 'insitu stone artefacts present' view exists
   if (hasView(stone_tabgroup+tab+"/inSituInSituStoneArtefacts")) {
     // check the value of the insitu stone artefacts and display the relevant dynamic views based on the selection
@@ -2201,13 +2194,6 @@ stone_displaySurfaceTabViews() {
         stone_tabgroup+tab+"/potentialRefits"
     );
   }
-  if (!hasView(stone_tabgroup+tab+"/surfaceStoneArtefacts")) {
-    String callback = "onEvent(\""+stone_tabgroup+tab+"/surfaceStoneArtefacts\", \"click\", \"stone_displayDynamicViews();\");";
-    makeDynamicVocab("CheckBoxGroup", stone_tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceStoneArtefacts}", callback, stone_tabgroup+tab+"/surfaceStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts", "vocab");
-  }
-  if (!hasView(stone_tabgroup+tab+"/surfaceSurfaceModification")) {
-    makeDynamicVocab("CheckBoxGroup", stone_tabgroup+tab+"/surfaceSurfaceModification", "Stone_-_Surface_-_Surface_Modification", "{stoneArtefactClustersUI_surfaceSurfaceModification}", null, stone_tabgroup+tab+"/surfaceSurfaceModification", "Stone_-_Surface_-_Surface_Modification", "vocab");
-  }
   // Only proceed to create dynamic views if the 'surface stone artefacts present' view exists
   if (hasView(stone_tabgroup+tab+"/surfaceStoneArtefacts")) {
     // check the value of the surface stone artefacts and display the relevant dynamic views based on the selection
@@ -2307,12 +2293,16 @@ stone_removeSurfaceTabViews() {
 
 /** Initialises the stone_tabgroup vocabularies. **/
 stone_init() {
-  makeVocab("HierarchicalDropDown" , stone_tabgroup + "/basicIdentification/clusterType"            , "Stone_-_Cluster_Type");
-  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/topographicSetting"      , "Stone_-_Topographic_Setting");
-  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/sedimentType"            , "Stone_-_Sediment_Type");
-  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Stone_-_Stratigraphic_Unit");
-  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/erosionVulnerability"    , "Stone_-_Vulnerability_To_Erosion");
-  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/paleotopographicSetting" , "Stone_-_Palaeotopographic_Setting");
+  makeVocab("HierarchicalDropDown" , stone_tabgroup + "/basicIdentification/clusterType"              , "Stone_-_Cluster_Type");
+  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/topographicSetting"        , "Stone_-_Topographic_Setting");
+  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/sedimentType"              , "Stone_-_Sediment_Type");
+  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/stratigraphicUnit"         , "Stone_-_Stratigraphic_Unit");
+  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/erosionVulnerability"      , "Stone_-_Vulnerability_To_Erosion");
+  makeVocab("PictureGallery"       , stone_tabgroup + "/topAndStratSetting/paleotopographicSetting"   , "Stone_-_Palaeotopographic_Setting");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/inSituDescription/inSituInSituStoneArtefacts" , "Stone_-_In_Situ_-_Stone_Artefacts");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/inSituDescription/inSituSurfaceModification"  , "Stone_-_In_Situ_-_Surface_Modification");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/inSituInSituStoneArtefacts", "Stone_-_Surface_-_Stone_Artefacts");
+  makeVocab("CheckBoxGroup"        , stone_tabgroup + "/surfaceDescription/surfaceStoneArtefacts"     , "Stone_-_Surface_-_Surface_Modification");
   fetchVocabulary("Stone_-_Cluster_Type", stone_clusterTypeVocabulary);
   fetchVocabulary("Stone_-_In_Situ_-_Stone_Artefacts", stone_insituStoneArtefactsVocabulary);
   fetchVocabulary("Stone_-_In_Situ_-_Chipped_Stone_Artefacts", stone_insituChippedStoneVocabulary);
@@ -2336,6 +2326,8 @@ onEvent(stone_tabgroup + "/associatedMaterials/recordMaterialInSitu"          , 
 onEvent(stone_tabgroup + "/associatedMaterials/recordMaterialSurface"         , "click" , "stoneAssoc_isInsituMaterial=false; stoneAssoc_create();");
 onEvent(stone_tabgroup + "/associatedMaterials/associatedMaterialListInSitu"  , "click" , "stoneAssoc_isInsituMaterial=true; stoneAssoc_load();");
 onEvent(stone_tabgroup + "/associatedMaterials/associatedMaterialListSurface" , "click" , "stoneAssoc_isInsituMaterial=false; stoneAssoc_load();");
+onEvent(stone_tabgroup + "/inSituDescription/inSituInSituStoneArtefacts"      , "click" , "stone_displayDynamicViews();");
+onEvent(stone_tabgroup + "/surfaceDescription/surfaceStoneArtefacts"          , "click" , "stone_displayDynamicViews();");
 stone_init();
 
 /************************/
