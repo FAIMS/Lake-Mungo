@@ -1409,33 +1409,53 @@
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
-        <group ref="assocInsituMaterial">
+        <select ref="assocInsituMaterial" faims_attribute_name="OldBone_-_Associated_in_situ_material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocInsituMaterial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedMussel">
         <label>{oldBoneUI_associatedMussel}</label>
-        <group ref="assocMussel">
+        <select ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocMussel}</label>
-        </group>
-      </group>
-      <group ref="associatedEggshell">
-        <label>{oldBoneUI_associatedEggshell}</label>
-        <group ref="assocEggshell">
-          <label>{oldBoneUI_assocEggshell}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
-        <group ref="assocHearth">
+        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocHearth}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{oldBoneUI_associatedEggshell}</label>
+        <select ref="assocEggshell" faims_attribute_name="OldBone_-_Associated_Eggshell" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_assocEggshell}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{oldBoneUI_associatedStoneArtefacts}</label>
-        <group ref="assocStone">
+        <select ref="assocStone" faims_attribute_name="OldBone_-_Associated_Stone_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocStone}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
         <group ref="assocChippedStone">
           <label>{oldBoneUI_assocChippedStone}</label>
         </group>
@@ -1463,42 +1483,66 @@
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{oldBoneUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork">
+        <select ref="assocOtherwork" faims_attribute_name="OldBone_-_Associated_Other_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocOtherwork}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
     </group>
     <group ref="oldboneAssociatedSurfaceMaterials" faims_archent_type="Old Bone Associated Surface Materials">
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
-        <group ref="assocSurfaceMaterial">
+        <select ref="assocSurfaceMaterial" faims_attribute_name="OldBone_-_Associated_surface_material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocSurfaceMaterial}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedMussel">
         <label>{oldBoneUI_associatedMussel}</label>
-        <group ref="assocMussel">
+        <select ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocMussel}</label>
-        </group>
-      </group>
-      <group ref="associatedEggshell">
-        <label>{oldBoneUI_associatedEggshell}</label>
-        <group ref="assocEggshell">
-          <label>{oldBoneUI_assocEggshell}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
-        <group ref="assocHearth">
+        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocHearth}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+      </group>
+      <group ref="associatedEggshell">
+        <label>{oldBoneUI_associatedEggshell}</label>
+        <select ref="assocEggshell" faims_attribute_name="OldBone_-_Associated_Eggshell" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{oldBoneUI_assocEggshell}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{oldBoneUI_associatedStoneArtefacts}</label>
-        <group ref="assocStone">
+        <select ref="assocStone" faims_attribute_name="OldBone_-_Associated_Stone_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocStone}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
         <group ref="assocChippedStone">
           <label>{oldBoneUI_assocChippedStone}</label>
         </group>
@@ -1526,9 +1570,13 @@
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{oldBoneUI_associatedOtherWorkedMaterial}</label>
-        <group ref="assocOtherwork">
+        <select ref="assocOtherwork" faims_attribute_name="OldBone_-_Associated_Other_Artefacts" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocOtherwork}</label>
-        </group>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
       </group>
     </group>
   </h:body>
