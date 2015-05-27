@@ -265,17 +265,8 @@
         <term> {silcmicroxtal}
           <description>No grains visible in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Quartzite</description>
-        </term>
-        <term> {qtz}
-          <description>Quartz</description>
-        </term>
         <term> {ironst}
           <description>Ironstone</description>
-        </term>
-        <term> {sandst}
-          <description>Sandstone</description>
         </term>
         <term> {other}
           <description>Other material</description>
@@ -579,17 +570,8 @@
         <term> {silcmicroxtal}
           <description>No grains visible in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Quartzite</description>
-        </term>
-        <term> {qtz}
-          <description>Quartz</description>
-        </term>
         <term> {ironst}
           <description>Ironstone</description>
-        </term>
-        <term> {sandst}
-          <description>Sandstone</description>
         </term>
         <term> {other}
           <description>Other material</description>
@@ -1739,17 +1721,8 @@
         <term> {silcmicroxtal}
           <description>Naked eye cannot identify grains in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Sugary texture, variable grain size and colour</description>
-        </term>
-        <term> {qtz}
-          <description>A clear, white, milky white or rose coloured mineral</description>
-        </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
-        </term>
-        <term> {sandst}
-          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
@@ -2896,17 +2869,8 @@ stone</description>
         <term> {silcmicroxtal}
           <description>Naked eye cannot identify grains in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Sugary texture, variable grain size and colour</description>
-        </term>
-        <term> {qtz}
-          <description>A clear, white, milky white or rose coloured mineral</description>
-        </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
-        </term>
-        <term> {sandst}
-          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
@@ -2932,17 +2896,8 @@ stone</description>
         <term> {silcmicroxtal}
           <description>No grains visible in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Sugary texture, variable grain size and colour</description>
-        </term>
-        <term> {qtz}
-          <description>A clear, white, milky white or rose coloured mineral</description>
-        </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
-        </term>
-        <term> {sandst}
-          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>Other material</description>
@@ -3140,17 +3095,8 @@ stone</description>
         <term> {silcmicroxtal}
           <description>Naked eye cannot identify grains in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Sugary texture, variable grain size and colour</description>
-        </term>
-        <term> {qtz}
-          <description>A clear, white, milky white or rose coloured mineral</description>
-        </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
-        </term>
-        <term> {sandst}
-          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
@@ -3783,17 +3729,8 @@ stone</description>
         <term> {silcmicroxtal}
           <description>Naked eye cannot identify grains in the matrix</description>
         </term>
-        <term> {qtzite}
-          <description>Sugary texture, variable grain size and colour</description>
-        </term>
-        <term> {qtz}
-          <description>A clear, white, milky white or rose coloured mineral</description>
-        </term>
         <term> {ironst}
           <description>Sedimentary rock containing iron rich minerals</description>
-        </term>
-        <term> {sandst}
-          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
           <description>If material can be identified, enter into notes</description>
