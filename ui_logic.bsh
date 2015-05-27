@@ -154,6 +154,13 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
 makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container, String attributeName, String attributeType) {
   executeViewTask(new ViewTask(){
     doTask() {
+
+      // Check if view exists before trying to create it
+      if (hasView(path)) {
+        Log.e("makeDynamicVocab()", "The view '"+path+"' already exists. Exiting function.");
+        return;
+      }
+
       viewDef = createViewDef();
       if (type.equals("DropDown")) {
         viewDef.createDropDown();
