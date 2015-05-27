@@ -1194,7 +1194,7 @@
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
-        </select>
+        </select1>
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{middenAssociatedMaterialsUI_associatedTerrestrialBone}</label>
@@ -1211,7 +1211,7 @@
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
-        </select>
+        </select1>
       </group>
       <group ref="associatedEggshell">
         <label>{middenAssociatedMaterialsUI_associatedEggshell}</label>
@@ -1228,7 +1228,7 @@
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
-        </select>
+        </select1>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{middenAssociatedMaterialsUI_associatedStoneArtefacts}</label>
@@ -1419,13 +1419,13 @@
       </group>
       <group ref="associatedMussel">
         <label>{oldBoneUI_associatedMussel}</label>
-        <select ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocMussel}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
-        </select>
+        </select1>
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
@@ -1506,13 +1506,13 @@
       </group>
       <group ref="associatedMussel">
         <label>{oldBoneUI_associatedMussel}</label>
-        <select ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="assocMussel" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocMussel}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
-        </select>
+        </select1>
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
