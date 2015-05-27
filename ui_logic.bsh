@@ -360,7 +360,7 @@ newFeature() {
   } else if (type.equals("Stone Artefact Clusters")) {
     stone.create();
   } else if (type.equals("Isolated")) {
-    isolated.create();
+    isolated_create();
   }
 }
 
@@ -383,8 +383,8 @@ loadFeature() {
           stone.id = listID;
           stone.load();
         } else if (result.get(0).get(0).equals("Isolated")) {
-          isolated.id = listID;
-          isolated.load();
+          isolated_id = listID;
+          isolated_load();
         }
       }
     });
@@ -531,6 +531,170 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
   }
 }
 
+/******************************************************************************/
+/*                                   PHOTOS                                   */
+/******************************************************************************/
+
+onEvent("hearth/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"hearth/topAndStratSetting/photos\");");
+onEvent("stoneArtefactClusters/topAndStratSetting/takePhoto"  , "click", "attachPictureTo(\"stoneArtefactClusters/topAndStratSetting/photos\");");
+onEvent("isolatedOccurrences/topAndStratSetting/takePhoto"    , "click", "attachPictureTo(\"isolatedOccurrences/topAndStratSetting/photos\");");
+onEvent("midden/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"midden/topAndStratSetting/photos\");");
+onEvent("oldBone/topAndStratSetting/takePhoto"                , "click", "attachPictureTo(\"oldBone/topAndStratSetting/photos\");");
+
+/************************/
+/*** ISOLATED FEATURE ***/
+/************************/
+String isolated_tabgroup = "isolatedOccurrences";
+String isolated_archentType = "Isolated";
+String isolated_desc = isolated_archentType + " record";
+String isolated_id = null;
+List isolated_occurrenceTypeVocabulary = new ArrayList();
+Boolean isolated_removeOrganicMaterial = true;
+Boolean isolated_removeStoneMaterial = true;
+
+/** Saves the feature **/
+isolated_save() {
+  Boolean enable_autosave = true;
+  saveTabGroup(isolated_tabgroup, isolated_id, null, null, new SaveCallback() {
+    onSave(uuid, newRecord) {
+      isolated_id = uuid;
+      Log.d("isolated_save()", isolated_desc + " saved with id: " + isolated_id);
+      if (newRecord) {
+        Log.d("isolated_save()", "New " + isolated_desc + " created");
+      }
+    }
+    onError(message) {
+        showToast(message);
+    }  
+  }, enable_autosave);
+}
+
+/** Creates a new feature record. **/
+isolated_create() {
+  dialog = showBusy("creating a new record", "please wait");
+  isolated_removeOrganicMaterial = true;
+  isolated_removeStoneMaterial = true;
+  isolated_id = null;
+  newTabGroup(isolated_tabgroup);
+  setFieldValue(isolated_tabgroup + "/basicIdentification/idNumber", "0");
+  setFieldValue(isolated_tabgroup + "/basicIdentification/gridSquare", "0");
+  keepTabGroupChanges(isolated_tabgroup);
+  isolated_save();
+  dialog.dismiss();
+}
+
+/** Loads a feature record. **/
+isolated_load() {
+  if (isNull(isolated_id)) {
+    showToast("No entity selected");
+      return;
+  }
+  dialog = showBusy("loading record", "please wait");
+  removeAllViewsAndContainers(isolated_tabgroup);
+  // display all dynamic views
+  isolated_removeOrganicMaterial = false;
+  isolated_removeStoneMaterial = false;
+  isolated_displayDynamicViews();
+  // load the entity and populate any dynamic views with their saved value
+  showTabGroup(isolated_tabgroup, isolated_id, new FetchCallback() {
+    onFetch(result) {
+      Log.d("isolated_load()", "Loaded an " + isolated_desc + ", ID: " + isolated_id);
+      showToast("Loaded an " + isolated_desc);
+      isolated_checkOccurrenceType(); // remove any dynamic views that shouldn't be present
+      keepTabGroupChanges(isolated_tabgroup);
+      dialog.dismiss();
+    }
+  });
+}
+
+/** Checks the occurrence type selection and displays/removes the appropriate dynamic views **/
+isolated_checkOccurrenceType() {
+  String selectedItem = getFieldValue(isolated_tabgroup+"/basicIdentification/occurrenceType");
+  if (isNull(selectedItem)) {
+    isolated_removeOrganicMaterial = true;
+    isolated_removeStoneMaterial = true;
+    isolated_removeDynamicViews();
+    return;
+  }
+  for (occurrenceType : isolated_occurrenceTypeVocabulary) {
+    if (selectedItem.equals(occurrenceType.get(0))) {
+      String selectedName = occurrenceType.get(1);
+      if (selectedName.equals("{bettong}")    || selectedName.equals("{bivalve}")   || selectedName.equals("{carnivore}") || selectedName.equals("{eggemu}") 
+       || selectedName.equals("{egggenyo}")   || selectedName.equals("{eggindet}")  || selectedName.equals("{eggother}")  || selectedName.equals("{emu}")       
+       || selectedName.equals("{exoskel}")    || selectedName.equals("{fishbone}")  || selectedName.equals("{glith}")     || selectedName.equals("{indetbone}")
+       || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}") 
+       || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")) {
+        isolated_removeOrganicMaterial = false;
+      } else {
+        isolated_removeOrganicMaterial = true;
+      }
+      if (selectedName.equals("{backed}")   || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
+       || selectedName.equals("{debris}")   || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
+       || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
+       || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
+       || selectedName.equals("{ochre}")    || selectedName.equals("{otehrru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
+       || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")) {
+        isolated_removeStoneMaterial = false;
+      } else {
+        isolated_removeStoneMaterial = true;
+      }
+    }
+  }
+  // update dynamic views
+  isolated_displayDynamicViews();
+  isolated_removeDynamicViews();
+}
+
+/** Displays the flagged dynamic views for the tab **/
+isolated_displayDynamicViews() {
+  String tabgroup = isolated_tabgroup;
+  if (!isolated_removeOrganicMaterial) {
+    if (!hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "{isolatedOccurrencesUI_modificationtoOrganicMaterial}", null, tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "vocab");
+    }
+  }
+  if (!isolated_removeStoneMaterial) {
+    if (!hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
+      makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "{isolatedOccurrencesUI_modificationtoStoneMaterial}", null, tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "vocab");
+    }
+  }
+}
+
+/** Removes the flagged dynamic views for the tab **/
+isolated_removeDynamicViews() {
+  String tabgroup = isolated_tabgroup;
+  if (isolated_removeOrganicMaterial) {
+    if (hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
+      removeView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial");
+    }
+  }
+  if (isolated_removeStoneMaterial) {
+    if (hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
+      removeView(tabgroup+"/basicIdentification/modificationtoStoneMaterial");
+    }
+  }
+}
+
+/** Initialises the tabgroup vocabularies. **/
+isolated_init() {
+  makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
+  makeVocab("HierarchicalDropDown" , isolated_tabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
+  makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
+  fetchVocabulary("Isolated_-_Occurrence_Type", isolated_occurrenceTypeVocabulary);
+}
+
+onEvent(isolated_tabgroup, "show", "isolated_save();");
+onEvent(isolated_tabgroup + "/basicIdentification/occurrenceType", "click", "isolated_checkOccurrenceType();");
+onEvent(isolated_tabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated_id, isolated_tabgroup, \""+isolated_tabgroup+"/basicIdentification/gridSquare\");");
+isolated_init();
+
+/**************************************/
+/** End Isolated Occurrence Tabgroup **/
+/**************************************/
 
 /**********************/
 /*** HEARTH FEATURE ***/
@@ -1194,6 +1358,7 @@ hearthAssoc_init();
 /**********************************************/
 /** End Hearth Associated Materials Tabgroup **/
 /**********************************************/
+
 
 
 
@@ -3300,178 +3465,7 @@ stoneAssociatedMaterials() {
 stoneAssoc = stoneAssociatedMaterials();
 stoneAssoc.init();
 
-/*** ISOLATED FEATURE ***/
-isolatedFeature() {
-  String entityTabgroup = "isolatedOccurrences";
-  String archentType = "Isolated";
-  String desc = archentType + " record";
-  String id = null;
-  List occurrenceTypeVocabulary = new ArrayList();
-  Boolean removeOrganicMaterial = true;
-  Boolean removeStoneMaterial = true;
 
-  /** Saves the feature **/
-  save() {
-    Boolean enable_autosave = true;
-    saveTabGroup(entityTabgroup, id, null, null, new SaveCallback() {
-      onSave(uuid, newRecord) {
-        id = uuid;
-        Log.d("save()", desc + " saved with id: " + id);
-        if (newRecord) {
-          Log.d("save()", "New " + desc + " created");
-        }
-      }
-      onError(message) {
-          showToast(message);
-      }  
-    }, enable_autosave);
-  }
-
-  /** Creates a new feature record. **/
-  create() {
-    dialog = showBusy("creating a new record", "please wait");
-    removeOrganicMaterial = true;
-    removeStoneMaterial = true;
-    id = null;
-    newTabGroup(entityTabgroup);
-    setFieldValue(entityTabgroup + "/basicIdentification/idNumber", "0");
-    setFieldValue(entityTabgroup + "/basicIdentification/gridSquare", "0");
-    keepTabGroupChanges(entityTabgroup);
-    save();
-    dialog.dismiss();
-  }
-
-  /** Loads a feature record. **/
-  load() {
-    if (isNull(id)) {
-      showToast("No entity selected");
-        return;
-    }
-    dialog = showBusy("loading record", "please wait");
-    removeAllViewsAndContainers(entityTabgroup);
-    // display all dynamic views
-    removeOrganicMaterial = false;
-    removeStoneMaterial = false;
-    displayDynamicViews();
-    // load the entity and populate any dynamic views with their saved value
-    showTabGroup(entityTabgroup, id, new FetchCallback() {
-      onFetch(result) {
-        Log.d("load()", "Loaded an " + desc + ", ID: " + id);
-        showToast("Loaded an " + desc);
-        checkOccurrenceType(); // remove any dynamic views that shouldn't be present
-        keepTabGroupChanges(entityTabgroup);
-        dialog.dismiss();
-      }
-    });
-  }
-
-  /** Checks the occurrence type selection and displays/removes the appropriate dynamic views **/
-  checkOccurrenceType() {
-    String selectedItem = getFieldValue(entityTabgroup+"/basicIdentification/occurrenceType");
-    if (isNull(selectedItem)) {
-      removeOrganicMaterial = true;
-      removeStoneMaterial = true;
-      removeDynamicViews();
-      return;
-    }
-    for (occurrenceType : occurrenceTypeVocabulary) {
-      if (selectedItem.equals(occurrenceType.get(0))) {
-        String selectedName = occurrenceType.get(1);
-        if (selectedName.equals("{bettong}")    || selectedName.equals("{bivalve}")   || selectedName.equals("{carnivore}") || selectedName.equals("{eggemu}") 
-         || selectedName.equals("{egggenyo}")   || selectedName.equals("{eggindet}")  || selectedName.equals("{eggother}")  || selectedName.equals("{emu}")       
-         || selectedName.equals("{exoskel}")    || selectedName.equals("{fishbone}")  || selectedName.equals("{glith}")     || selectedName.equals("{indetbone}")
-         || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}") 
-         || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")) {
-          removeOrganicMaterial = false;
-        } else {
-          removeOrganicMaterial = true;
-        }
-        if (selectedName.equals("{backed}")   || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
-         || selectedName.equals("{debris}")   || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
-         || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
-         || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
-         || selectedName.equals("{ochre}")    || selectedName.equals("{otehrru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
-         || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")) {
-          removeStoneMaterial = false;
-        } else {
-          removeStoneMaterial = true;
-        }
-      }
-    }
-    // update dynamic views
-    displayDynamicViews();
-    removeDynamicViews();
-  }
-
-  /** Displays the flagged dynamic views for the tab **/
-  displayDynamicViews() {
-    String tabgroup = entityTabgroup;
-    if (!removeOrganicMaterial) {
-      if (!hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
-        makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "{isolatedOccurrencesUI_modificationtoOrganicMaterial}", null, tabgroup+"/basicIdentification/modificationtoOrganicMaterial", "Isolated_-_Modification_to_Organic_Material", "vocab");
-      }
-    }
-    if (!removeStoneMaterial) {
-      if (!hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
-        makeDynamicVocab("CheckBoxGroup", tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "{isolatedOccurrencesUI_modificationtoStoneMaterial}", null, tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "vocab");
-      }
-    }
-  }
-
-  /** Removes the flagged dynamic views for the tab **/
-  removeDynamicViews() {
-    String tabgroup = entityTabgroup;
-    if (removeOrganicMaterial) {
-      if (hasView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial")) {
-        removeView(tabgroup+"/basicIdentification/modificationtoOrganicMaterial");
-      }
-    }
-    if (removeStoneMaterial) {
-      if (hasView(tabgroup+"/basicIdentification/modificationtoStoneMaterial")) {
-        removeView(tabgroup+"/basicIdentification/modificationtoStoneMaterial");
-      }
-    }
-  }
-
-  /** Initialises the tabgroup vocabularies. **/
-  init() {
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
-    makeVocab("HierarchicalDropDown" , entityTabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
-    makeVocab("DropDown"             , entityTabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
-    makeVocab("PictureGallery"       , entityTabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
-    fetchVocabulary("Isolated_-_Occurrence_Type", occurrenceTypeVocabulary);
-  }
-
-  onEvent(entityTabgroup, "show", "isolated.save();");
-  onEvent(entityTabgroup + "/basicIdentification/occurrenceType", "click", "isolated.checkOccurrenceType();");
-  onEvent(entityTabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated.id, isolated.entityTabgroup, \""+entityTabgroup+"/basicIdentification/gridSquare\");");
-
-  return this;
-}
-isolated = isolatedFeature();
-isolated.init();
-
-/******************************************************************************/
-/*                                   PHOTOS                                   */
-/******************************************************************************/
-// ArrayList tabGroups = new ArrayList();
-// tabGroups.add(hearth.entityTabgroup);
-// tabGroups.add(isolated.entityTabgroup);
-// tabGroups.add(midden.entityTabgroup);
-// tabGroups.add(oldbone.entityTabgroup);
-// tabGroups.add(stone.entityTabgroup);
-// for (tg : tabGroups) {
-//   onEvent(tg + "/topAndStratSetting/takePhoto", "click", "attachPictureTo(\"" + tg + "/topAndStratSetting/photos\");");
-// }
-
-onEvent("hearth/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"hearth/topAndStratSetting/photos\");");
-onEvent("stoneArtefactClusters/topAndStratSetting/takePhoto"  , "click", "attachPictureTo(\"stoneArtefactClusters/topAndStratSetting/photos\");");
-onEvent("isolatedOccurrences/topAndStratSetting/takePhoto"    , "click", "attachPictureTo(\"isolatedOccurrences/topAndStratSetting/photos\");");
-onEvent("midden/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"midden/topAndStratSetting/photos\");");
-onEvent("oldBone/topAndStratSetting/takePhoto"                , "click", "attachPictureTo(\"oldBone/topAndStratSetting/photos\");");
 
 
 
