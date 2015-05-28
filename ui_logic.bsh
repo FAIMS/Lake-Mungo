@@ -957,6 +957,20 @@ hearthAssoc_prepareLoading() {
   hearthAssoc_makeDynamicViews();
 }
 
+/** Resets all tab and view flags for the tabgroup **/
+hearthAssoc_resetFlags() {
+  // set flags to default
+  hearthAssoc_removeLacust = true;
+  hearthAssoc_removeTerrestrial = true;
+  hearthAssoc_removeEggshell = true;
+  hearthAssoc_removeStone = true;
+  hearthAssoc_removeOther = true;
+  hearthAssoc_removeChippedStone = true;
+  hearthAssoc_removeUnmodifiedStone = true;
+  hearthAssoc_removeGroundStone = true;
+  hearthAssoc_removeRetouchedStone = true;
+}
+
 /** Creates a hearth associated materials record. **/
 hearthAssoc_create() {
   if (!isNull(hearth_id)) {
@@ -974,9 +988,15 @@ hearthAssoc_create() {
       "and uuid != "+hearth_id+");",  new FetchCallback() {
       onFetch(result) {
         if(isNull(result)) {
+          dialog = showBusy("preparing record", "please wait");
           hearthAssoc_id = null;
+          hearthAssoc_loading = false;
           removeAllViewsAndContainers(hearthAssoc_tabgroup);
           newTabGroup(hearthAssoc_tabgroup);
+          hearthAssoc_resetFlags();
+          hearthAssoc_removeDynamicViews();
+          hearthAssoc_toggleTabs();
+          dialog.dismiss();
         } else {
           showToast("Only one associated material can be recorded");
         }
@@ -1014,17 +1034,8 @@ hearthAssoc_renderViews() {
 
 /** Checks the selections that dynamic views are dependant upon and changes the flags as appropriate. **/
 hearthAssoc_checkSelections() {
-  // set flags to default
-  hearthAssoc_removeLacust = true;
-  hearthAssoc_removeTerrestrial = true;
-  hearthAssoc_removeEggshell = true;
-  hearthAssoc_removeStone = true;
-  hearthAssoc_removeOther = true;
-  hearthAssoc_removeChippedStone = true;
-  hearthAssoc_removeUnmodifiedStone = true;
-  hearthAssoc_removeGroundStone = true;
-  hearthAssoc_removeRetouchedStone = true;
-  // check associated materials
+  hearthAssoc_resetFlags();
+  // check selected associated materials
   selectedMaterials = getFieldValue(hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial");  
   for (selectedItem : selectedMaterials) {
     for (type : hearthAssoc_assocMaterialVocabulary) {
@@ -1046,9 +1057,9 @@ hearthAssoc_checkSelections() {
       }
     }
   }
-  // check associates stone
+  // check selected associated stone
   if (!hearthAssoc_removeStone) {
-  selectedStone = getFieldValue(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone");
+    selectedStone = getFieldValue(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone");
     for (selectedItem : selectedStone) {
       for (type : hearthAssoc_stoneArtefactsVocabulary) {
         if (selectedItem.getName().equals(type.get(0))) {
@@ -1065,14 +1076,16 @@ hearthAssoc_checkSelections() {
       }
     }
   }
-  // check chipped stone
+  // check selected chipped stone, but first check it exists since it is a dynamic view
   if (!hearthAssoc_removeChippedStone) {
-    chippedStone = getFieldValue(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocChippedStone");
-    for (selectedItem : chippedStone) {
-      for (type : hearthAssoc_chippedStoneVocabulary) {
-        if (selectedItem.getName().equals(type.get(0))) {
-          if (type.get(1).equals("{ru}")) {
-            hearthAssoc_removeRetouchedStone = false;
+    if (hasView(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocChippedStone")) {
+      chippedStone = getFieldValue(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocChippedStone");
+      for (selectedItem : chippedStone) {
+        for (type : hearthAssoc_chippedStoneVocabulary) {
+          if (selectedItem.getName().equals(type.get(0))) {
+            if (type.get(1).equals("{ru}")) {
+              hearthAssoc_removeRetouchedStone = false;
+            }
           }
         }
       }
@@ -1082,10 +1095,6 @@ hearthAssoc_checkSelections() {
 
 /** Shows or cancels the associated material tabs. **/
 hearthAssoc_toggleTabs() {
-  if (hearthAssoc_loading) {
-    Log.d("hearthAssoc_onShowAssociatedMaterials()", "Exiting function, loading associated material");
-    return;
-  }
   Boolean tabChanged = false;
   // remove unselected tabs
   if (hearthAssoc_removeLacust) {
@@ -1106,27 +1115,22 @@ hearthAssoc_toggleTabs() {
   // show the selected tabs
   if (!hearthAssoc_removeLacust) {
     showTab(hearthAssoc_tabgroup+"/associatedLacustrineMaterial");
-    hearthAssoc_removeLacust = true;
     tabChanged = true;
   }   
   if (!hearthAssoc_removeTerrestrial) {
     showTab(hearthAssoc_tabgroup+"/associatedTerrestrialBone");
-    hearthAssoc_removeTerrestrial = true;
     tabChanged = true;
   }
   if (!hearthAssoc_removeEggshell) {
     showTab(hearthAssoc_tabgroup+"/associatedEggshell");
-    hearthAssoc_removeEggshell = true;
     tabChanged = true;
   } 
   if (!hearthAssoc_removeStone) {
     showTab(hearthAssoc_tabgroup+"/associatedStoneArtefacts");
-    hearthAssoc_removeStone = true;
     tabChanged = true;
   } 
   if (!hearthAssoc_removeOther) {
     showTab(hearthAssoc_tabgroup+"/associatedOtherWorkedMaterial");
-    hearthAssoc_removeOther = true;
     tabChanged = true;
   }
   // switch to the control tab and save the tabgroup
