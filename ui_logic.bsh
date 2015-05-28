@@ -935,6 +935,7 @@ hearthAssoc_load() {
     onFetch(result) {
       hearthAssoc_checkSelections();
       hearthAssoc_removeDynamicViews();
+      hearthAssoc_toggleTabs();
       hearthAssoc_loading = false;
       dialog.dismiss();
     }
@@ -1095,6 +1096,7 @@ hearthAssoc_checkSelections() {
 
 /** Shows or cancels the associated material tabs. **/
 hearthAssoc_toggleTabs() {
+  Log.d("hearthAssoc_toggleTab()", "Toggling the tabs with values lacust:"+hearthAssoc_removeLacust.toString()+" terrestrial:"+hearthAssoc_removeTerrestrial.toString()+" eggshell:"+hearthAssoc_removeEggshell.toString()+" stone:"+hearthAssoc_removeStone.toString()+" other:"+hearthAssoc_removeOther.toString());
   Boolean tabChanged = false;
   // remove unselected tabs
   if (hearthAssoc_removeLacust) {
