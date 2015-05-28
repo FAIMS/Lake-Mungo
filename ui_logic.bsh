@@ -2761,13 +2761,13 @@ oldbone_checkClusterType() {
 }
 
 onEvent(oldbone_tabgroup, "show", "oldbone_save(); oldbone_checkClusterType();");
-onEvent(oldbone_tabgroup + "/associatedMaterials", "show", "oldbone_listAssociatedMaterials();");
-onEvent(oldbone_tabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(oldbone_id, oldbone_tabgroup, \""+oldbone_tabgroup+"/basicIdentification/gridSquare\");");
-onEvent(oldbone_tabgroup + "/basicIdentification/clusterType", "click", "oldbone_displayInsituProportion(); oldbone_checkClusterType();");
-onEvent(oldbone_tabgroup + "/associatedMaterials/recordInsituMaterial", "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_create();");
-onEvent(oldbone_tabgroup + "/associatedMaterials/recordSurfaceMaterial", "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_create();");
-onEvent(oldbone_tabgroup + "/associatedMaterials/associatedInsituList", "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_load();");
-onEvent(oldbone_tabgroup + "/associatedMaterials/associatedSurfaceList", "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_load();");
+onEvent(oldbone_tabgroup + "/associatedMaterials",                        "show", "oldbone_listAssociatedMaterials();");
+onEvent(oldbone_tabgroup + "/basicIdentification/calculateGridSquare",    "click", "calculateGridSquare(oldbone_id, oldbone_tabgroup, \""+oldbone_tabgroup+"/basicIdentification/gridSquare\");");
+onEvent(oldbone_tabgroup + "/basicIdentification/clusterType",            "click", "oldbone_displayInsituProportion(); oldbone_checkClusterType();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/recordInsituMaterial",   "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_create();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/recordSurfaceMaterial",  "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_create();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/associatedInsituList",   "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_load();");
+onEvent(oldbone_tabgroup + "/associatedMaterials/associatedSurfaceList",  "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_load();");
 oldbone_init();
 
 /***************************/
@@ -3279,10 +3279,10 @@ oldboneAssoc_removeRetouchedArtefacts() {
   
 onEvent(oldboneAssoc_insituTabgroup,  "show", "oldboneAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+oldboneAssoc_insituTabgroup+"\"); oldboneAssoc_save();");
 onEvent(oldboneAssoc_surfaceTabgroup, "show", "oldboneAssoc_onShowAssociatedMaterials(); keepTabGroupChanges(\""+oldboneAssoc_surfaceTabgroup+"\"); oldboneAssoc_save();");
-onEvent(oldboneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial",  "click", "oldboneAssoc_renderAssocTabs();");
-onEvent(oldboneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial",  "click", "oldboneAssoc_updateDynamicAssociatedStone()");
-onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial", "click", "oldboneAssoc_renderAssocTabs();");
-onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial", "click", "oldboneAssoc_updateDynamicAssociatedStone()");
+onEvent(oldboneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial",    "click", "oldboneAssoc_renderAssocTabs();");
+onEvent(oldboneAssoc_insituTabgroup   + "/associatedStoneArtefacts/assocStone",   "click", "oldboneAssoc_updateDynamicAssociatedStone();");
+onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial",   "click", "oldboneAssoc_renderAssocTabs();");
+onEvent(oldboneAssoc_surfaceTabgroup  + "/associatedStoneArtefacts/assocStone",   "click", "oldboneAssoc_updateDynamicAssociatedStone();");
 oldboneAssoc_init();
 
 /***********************************************/
