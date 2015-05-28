@@ -1010,13 +1010,12 @@ hearthAssoc_renderAssocTabs() {
 
 /** Shows or cancels the associated material tabs. **/
 hearthAssoc_onShowAssociatedMaterials() {
-  Boolean tabChanged = false;
-
   // if the tab show is triggered after loading, don't execute the rest of this function.
   if (hearthAssoc_loading) {
     Log.d("hearthAssoc_onShowAssociatedMaterials()", "Exiting function, loading associated material");
     return;
   }
+  Boolean tabChanged = false;
   // remove unselected tabs
   if (hearthAssoc_removeLacust) {
     cancelTab(hearthAssoc_tabgroup+"/associatedLacustrineMaterial", false);
@@ -1590,13 +1589,12 @@ middenAssoc_renderAssocTabs() {
 
 /** Shows or cancels the associated material tabs. **/
 middenAssoc_onShowAssociatedMaterials() {
-  Boolean tabChanged = false;
-
   // if the tab show is triggered after loading, don't execute the rest of this function.
   if (middenAssoc_loading) {
     Log.d("middenAssoc_onShowAssociatedMaterials()", "Exiting function, loading associated material");
     return;
   }
+  Boolean tabChanged = false;
   // remove unselected tabs
   if (middenAssoc_removeLacust) {
     cancelTab(middenAssoc_tabgroup+"/associatedLacustrineMaterial", false);
@@ -2490,6 +2488,7 @@ stoneAssoc_onShowAssociatedMaterials() {
   if (!stoneAssoc_isInsituMaterial) {
     tabgroup = stoneAssoc_surfaceTabgroup;
   }
+  Boolean tabChanged = false;
   // remove unselected tabs
   if (stoneAssoc_removeHearth) {
     cancelTab(tabgroup+"/associatedHearthstones", false);
@@ -2510,25 +2509,32 @@ stoneAssoc_onShowAssociatedMaterials() {
   if (!stoneAssoc_removeHearth) {
     showTab(tabgroup+"/associatedHearthstones");
     stoneAssoc_removeHearth = true;
+    tabChanged = true;
   }   
   if (!stoneAssoc_removeLacust) {
     showTab(tabgroup+"/associatedLacustrineMaterial");
     stoneAssoc_removeLacust = true;
+    tabChanged = true;
   }
   if (!stoneAssoc_removeTerrbo) {
     showTab(tabgroup+"/associatedTerrestrialBone");
     stoneAssoc_removeTerrbo = true;
+    tabChanged = true;
   } 
   if (!stoneAssoc_removeEggshell) {
     showTab(tabgroup+"/associatedEggshell");
     stoneAssoc_removeEggshell = true;
+    tabChanged = true;
   } 
   if (!stoneAssoc_removeOther) {
     showTab(tabgroup+"/associatedOtherWorkedMaterial");
     stoneAssoc_removeOther = true;
+    tabChanged = true;
   }
   // switch to the control tab and save the tabgroup
-  showTab(tabgroup+"/nearbyMaterial");
+  if (tabChanged) {
+    showTab(tabgroup+"/nearbyMaterial");
+  }
   stoneAssoc_save();
 }
 
@@ -2952,6 +2958,7 @@ oldboneAssoc_onShowAssociatedMaterials() {
     Log.d("oldboneAssoc_onShowAssociatedMaterials()", "Exiting function, loading associated material");
     return;
   }
+  Boolean tabChanged = false;
   String tabgroup = oldboneAssoc_insituTabgroup;
   if (!oldboneAssoc_isInsituMaterial) {
     tabgroup = oldboneAssoc_surfaceTabgroup;
@@ -2976,25 +2983,32 @@ oldboneAssoc_onShowAssociatedMaterials() {
   if (!oldboneAssoc_removeAssocMussel) {
     showTab(tabgroup+"/associatedMussel");
     oldboneAssoc_removeAssocMussel = true;
+    tabChanged = true;
   }   
   if (!oldboneAssoc_removeAssocHearth) {
     showTab(tabgroup+"/associatedHearthMaterial");
     oldboneAssoc_removeAssocHearth = true;
+    tabChanged = true;
   }
   if (!oldboneAssoc_removeAssocEggshell) {
     showTab(tabgroup+"/associatedEggshell");
     oldboneAssoc_removeAssocEggshell = true;
+    tabChanged = true;
   } 
   if (!oldboneAssoc_removeAssocStone) {
     showTab(tabgroup+"/associatedStoneArtefacts");
     oldboneAssoc_removeAssocStone = true;
+    tabChanged = true;
   } 
   if (!oldboneAssoc_removeAssocOther) {
     showTab(tabgroup+"/associatedOtherWorkedMaterial");
     oldboneAssoc_removeAssocOther = true;
+    tabChanged = true;
   }
   // switch to the control tab and save the tabgroup
-  showTab(tabgroup+"/nearbyMaterial");
+  if (tabChanged) {
+    showTab(tabgroup+"/nearbyMaterial");
+  }
   oldboneAssoc_save();
 }
 
