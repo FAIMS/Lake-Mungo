@@ -1874,21 +1874,22 @@ stone_renderViews() {
 stone_checkSelections() {
   stone_resetFlags();
   // check the cluster type
-  String selectedItem = getFieldValue(stone_tabgroup+"/basicIdentification/clusterType");
+  String selectedType = getFieldValue(stone_tabgroup+"/basicIdentification/clusterType");
   for (clusterType : stone_clusterTypeVocabulary) {
-    if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitu}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+    if (!isNull(selectedType) && selectedType.equals(clusterType.get(0)) && (clusterType.get(1).equals("{insitu}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{both_oth}"))) {
       stone_showInsituTab = true;
     }
-    if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{surf}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{surfrefit}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+    if (!isNull(selectedType) && selectedType.equals(clusterType.get(0)) && (clusterType.get(1).equals("{surf}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{surfrefit}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
       stone_showSurfaceTab = true;
     }
-    if (!isNull(selectedItem) && selectedItem.equals(clusterType.get(0)) && (clusterType.get(1).equals("{Stone_artefacts_and_other_material}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
+    if (!isNull(selectedType) && selectedType.equals(clusterType.get(0)) && (clusterType.get(1).equals("{Stone_artefacts_and_other_material}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
       stone_showAssocTab = true;
     }
   }
   if (stone_showInsituTab) {
     // check the selected insitu stone
     List assocInsituStone = getFieldValue(stone_tabgroup+"/inSituDescription/inSituInSituStoneArtefacts");
+    Log.e("stone_checkSelections()", "assocInsituStone = " + assocInsituStone.toString());
     for (selectedItem : assocInsituStone) {
       for (type : stone_insituStoneArtefactsVocabulary) {
         if (selectedItem.getName().equals(type.get(0))) {
@@ -1987,7 +1988,7 @@ stone_makeDynamicViews() {
   if (!stone_removeInsituChippedStone) {
     if (!hasView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts")) {
       String callback = "onEvent(\""+stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts\", \"click\", \"stone_renderViews();\");";
-      makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "{stoneArtefactClustersUI_inSituChippedStoneArtfacts}", callback, stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "vocab");
+      makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "{stoneArtefactClustersUI_inSituChippedStoneArtefacts}", callback, stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts", "Stone_-_In_Situ_-_Chipped_Stone_Artefacts", "vocab");
     }
     if (!hasView(stone_tabgroup+"/inSituDescription/inSituChippedRawMaterial")) {
       makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/inSituDescription/inSituChippedRawMaterial", "Stone_-_In_Situ_-_Chipped_Stone_Raw_Material", "{stoneArtefactClusterUI_insituChippedRawMaterial}", null, stone_tabgroup+"/inSituDescription/inSituChippedRawMaterial", "Stone_-_In_Situ_-_Chipped_Stone_Raw_Material", "vocab");  
@@ -2021,7 +2022,7 @@ stone_makeDynamicViews() {
   if (!stone_removeSurfaceChippedStone) {
     if (!hasView(stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts")) {
       String callback = "onEvent(\""+stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts\", \"click\", \"stone_renderViews();\");";
-      makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/surfaceDescription/surfaceChippedStoneAretfacts", "Stone_-_Surface_-_Chipped_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceChippedStoneArtefacts}", callback, stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts", "Stone_-_Surface_-_Chipped_Stone_Artefacts", "vocab");
+      makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts", "Stone_-_Surface_-_Chipped_Stone_Artefacts", "{stoneArtefactClustersUI_surfaceChippedStoneArtefacts}", callback, stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts", "Stone_-_Surface_-_Chipped_Stone_Artefacts", "vocab");
     }
     if (!hasView(stone_tabgroup+"/surfaceDescription/surfaceChippedRawMaterial")) {
       makeDynamicVocab("CheckBoxGroup", stone_tabgroup+"/surfaceDescription/surfaceChippedRawMaterial", "Stone_-_Surface_-_Chipped_Stone_Raw_Material", "{stoneArtefactClusterUI_surfaceChippedRawMaterial}", null, stone_tabgroup+"/surfaceDescription/surfaceChippedRawMaterial", "Stone_-_Surface_-_Chipped_Stone_Raw_Material", "vocab");  
@@ -2057,8 +2058,8 @@ stone_makeDynamicViews() {
 stone_removeDynamicViews() {
   // remove insitu tab views
   if (stone_removeInsituChippedStone) {
-    if (hasView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtfacts")) {
-      removeView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtfacts");
+    if (hasView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts")) {
+      removeView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts");
     }
     if (hasView(stone_tabgroup+"/inSituDescription/inSituChippedRawMaterial")) {
       removeView(stone_tabgroup+"/inSituDescription/inSituChippedRawMaterial");

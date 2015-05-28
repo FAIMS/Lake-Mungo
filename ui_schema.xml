@@ -115,7 +115,7 @@
             <inSituDescription>
               <potentialRefits/>              <!-- NEW -->
               <inSituInSituStoneArtefacts/>
-              <inSituChippedStoneArtfacts/>
+              <inSituChippedStoneArtefacts/>
               <inSituChippedRawMaterial/>
               <inSituRetouchedArtefacts/>
               <inSituUnmodifiedStoneTypes/>
@@ -128,7 +128,7 @@
             <surfaceDescription>
               <potentialRefits/>
               <surfaceStoneArtefacts/>
-              <surfaceChippedStoneArtfacts/>
+              <surfaceChippedStoneArtefacts/>
               <surfaceChippedRawMaterial/>
               <surfaceRetouchedArtefacts/>
               <surfaceUnmodifiedStoneTypes/>
@@ -684,8 +684,8 @@
             <value>placeholder</value>
           </item>
         </select>
-        <group ref="inSituChippedStoneArtfacts">
-          <label>{stoneArtefactClustersUI_inSituChippedStoneArtfacts}</label>
+        <group ref="inSituChippedStoneArtefacts">
+          <label>{stoneArtefactClustersUI_inSituChippedStoneArtefacts}</label>
         </group>
         <group ref="inSituChippedRawMaterial">
           <label>{stoneArtefactClusterUI_insituChippedRawMaterial}</label>
@@ -728,8 +728,8 @@
             <value>placeholder</value>
           </item>
         </select>
-        <group ref="surfaceChippedStoneArtfacts">
-          <label>{stoneArtefactClustersUI_surfaceChippedStoneArtfacts}</label>
+        <group ref="surfaceChippedStoneArtefacts">
+          <label>{stoneArtefactClustersUI_surfaceChippedStoneArtefacts}</label>
         </group>
         <group ref="surfaceChippedRawMaterial">
           <label>{stoneArtefactClusterUI_surfaceChippedRawMaterial}</label>
