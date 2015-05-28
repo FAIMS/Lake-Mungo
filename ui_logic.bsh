@@ -2619,7 +2619,7 @@ oldboneAssoc_load() {
         oldboneAssoc_removeDynamicViews();
         oldboneAssoc_toggleTabs();
         oldboneAssoc_loading = false;
-        dialog.dismsiss();
+        dialog.dismiss();
       }
     });
   }
@@ -2731,11 +2731,14 @@ oldboneAssoc_checkSelections() {
   oldboneAssoc_resetFlags();
   String tabgroup = oldboneAssoc_insituTabgroup;
   List vocabulary = oldboneAssoc_insituMaterialVocabulary;
+  String assocMaterialView = "/assocInsituMaterial";
   if (!oldboneAssoc_isInsituMaterial) {
     tabgroup = oldboneAssoc_surfaceTabgroup;
     vocabulary = oldboneAssoc_surfaceMaterialVocabulary;
+    assocMaterialView = "/assocSurfaceMaterial";
   }
   // check selected associated materials
+  selectedAssocMaterial = getFieldValue(tabgroup+"/nearbyMaterial"+assocMaterialView);
   for (selectedItem : selectedAssocMaterial) {
     for (type : vocabulary) {
       if (selectedItem.getName().equals(type.get(0))) {
@@ -2838,7 +2841,7 @@ oldboneAssoc_toggleTabs() {
   }
   // switch to the control tab and save the tabgroup
   if (tabChanged) {
-    showTab(oldboneAssoc_tabgroup+"/nearbyMaterial");
+    showTab(tabgroup+"/nearbyMaterial");
   }
   oldboneAssoc_save();
 }
