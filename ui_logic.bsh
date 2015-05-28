@@ -1214,7 +1214,7 @@ hearthAssoc_removeDynamicViews() {
   }
 }
 
-onEvent(hearthAssoc_tabgroup, "show", "keepTabGroupChanges(\""+hearthAssoc_tabgroup+"\"); hearthAssoc_save();");
+onEvent(hearthAssoc_tabgroup, "show", "hearthAssoc_toggleTabs(); keepTabGroupChanges(\""+hearthAssoc_tabgroup+"\"); hearthAssoc_save();");
 onEvent(hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAssoc_renderTabsAndViews();");
 onEvent(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "hearthAssoc_renderViews();");
 hearthAssoc_init();
@@ -1526,7 +1526,7 @@ middenAssoc_renderViews() {
 middenAssoc_checkSelections() {
   middenAssoc_resetFlags();
   // check selected associated materials
-  selectedMaterials = getFieldValue(middenAssoc_tabgroup+"/nearbyMaterial/assocMaterial");  
+  selectedMaterials = getFieldValue(middenAssoc_tabgroup+"/control/assocMaterial");  
   for (selectedItem : selectedMaterials) {
     for (type : middenAssoc_assocMaterialVocabulary) {
       if (selectedItem.getName().equals(type.get(0))) {
@@ -1625,7 +1625,7 @@ middenAssoc_toggleTabs() {
   }
   // switch to the control tab and save the tabgroup
   if (tabChanged) {
-    showTab(middenAssoc_tabgroup+"/nearbyMaterial");
+    showTab(middenAssoc_tabgroup+"/control");
   }
   middenAssoc_save();
 }
@@ -1703,7 +1703,7 @@ middenAssoc_removeDynamicViews() {
   }
 }
 
-onEvent(middenAssoc_tabgroup, "show", "keepTabGroupChanges(\""+middenAssoc_tabgroup+"\"); middenAssoc_save();");
+onEvent(middenAssoc_tabgroup, "show", "middenAssoc_toggleTabs(); keepTabGroupChanges(\""+middenAssoc_tabgroup+"\"); middenAssoc_save();");
 onEvent(middenAssoc_tabgroup+"/control/assocMaterial", "click", "middenAssoc_renderTabsAndViews();");
 onEvent(middenAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "middenAssoc_renderViews();");
 middenAssoc_init();
@@ -2129,7 +2129,7 @@ stone_listAssociatedMaterials() {
   listAssociatedMaterials(stone_tabgroup+"/associatedMaterials/associatedMaterialListSurface", stone_id, stoneAssoc_surfaceArchentType, stone_surfaceRelTypeName);
 }
 
-onEvent(stone_tabgroup                                                        , "show"  , "keepTabGroupChanges(\""+stone_tabgroup+"\"); stone_save();");
+onEvent(stone_tabgroup                                                        , "show"  , "stone_toggleTabs(); keepTabGroupChanges(\""+stone_tabgroup+"\"); stone_save();");
 onEvent(stone_tabgroup + "/basicIdentification/clusterType"                   , "click" , "stone_renderTabsAndViews();");
 onEvent(stone_tabgroup + "/basicIdentification/calculateGridSquare"           , "click" , "calculateGridSquare(stone_id, stone_tabgroup, \""+stone_tabgroup+"/basicIdentification/gridSquare\");");
 onEvent(stone_tabgroup + "/associatedMaterials"                               , "show"  , "stone_listAssociatedMaterials();"); 
@@ -2382,8 +2382,8 @@ stoneAssoc_init() {
   fetchVocabulary("Stone_-_Surface", stoneAssoc_surfaceMaterialVocabulary);
 }
 
-onEvent(stoneAssoc_insituTabgroup,  "show", "keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\"); stoneAssoc_save();");
-onEvent(stoneAssoc_surfaceTabgroup, "show", "keepTabGroupChanges(\""+stoneAssoc_surfaceTabgroup+"\"); stoneAssoc_save();");
+onEvent(stoneAssoc_insituTabgroup,  "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\"); stoneAssoc_save();");
+onEvent(stoneAssoc_surfaceTabgroup, "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_surfaceTabgroup+"\"); stoneAssoc_save();");
 onEvent(stoneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial"   , "click", "stoneAssoc_renderTabs();");
 onEvent(stoneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial"  , "click", "stoneAssoc_renderTabs();");
 stoneAssoc_init();
