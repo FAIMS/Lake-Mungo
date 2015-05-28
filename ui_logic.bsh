@@ -954,7 +954,6 @@ hearthAssoc_prepareLoading() {
   hearthAssoc_removeUnmodifiedStone = false;
   hearthAssoc_removeGroundStone = false;
   hearthAssoc_removeRetouchedStone = false;
-  hearthAssoc_toggleTabs();
   hearthAssoc_makeDynamicViews();
 }
 
@@ -1445,7 +1444,6 @@ middenAssoc_prepareLoading() {
   middenAssoc_removeRetouchedStone = false;
   middenAssoc_removeUnmodifiedStone = false;
   middenAssoc_removeGroundStone = false;
-  middenAssoc_toggleTabs();
   middenAssoc_makeDynamicViews();
 }
 
@@ -1706,7 +1704,7 @@ middenAssoc_removeDynamicViews() {
 }
 
 onEvent(middenAssoc_tabgroup, "show", "keepTabGroupChanges(\""+middenAssoc_tabgroup+"\"); middenAssoc_save();");
-onEvent(middenAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "click", "middenAssoc_renderTabsAndViews();");
+onEvent(middenAssoc_tabgroup+"/control/assocMaterial", "click", "middenAssoc_renderTabsAndViews();");
 onEvent(middenAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "middenAssoc_renderViews();");
 middenAssoc_init();
 /**********************************************/
