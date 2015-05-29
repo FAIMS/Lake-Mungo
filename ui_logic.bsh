@@ -308,8 +308,11 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
     }
     actionOn() {
         stopGPS();
-        showToast("{External_GPS_Disabled}");
-
+        if (isBluetoothConnected()) {
+          showToast("{External_GPS_Disabled}");
+        } else {
+          showToast("{Please_Enable_Bluetooth}");
+        }
     }
     isActionOff() {
         isExternalGPSOn();
@@ -326,7 +329,7 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
             showToast("{External_GPS_Enabled}");
         } else {
             showToast("{Please_Enable_Bluetooth}");
-            this.isActionOff();
+            this.actionOn();
         }
     }
 });
