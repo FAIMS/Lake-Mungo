@@ -99,7 +99,8 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
   }
 
   if (type.equals("HierarchicalDropDown")) {
-    populateHierarchicalDropDown(path, attrib);
+    // populateHierarchicalDropDown(path, attrib);
+    populateHierarchicalDropDown(path, attrib, true);
     if (callbackFunction != null && !isNull(callbackFunction)) {
       execute(callbackFunction);
     }
@@ -125,7 +126,8 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
         if(type.equals("CheckBoxGroup")) {
           populateCheckBoxGroup(path, result);
         } else if(type.equals("DropDown")) {
-          populateDropDown(path, result);
+          // populateDropDown(path, result);
+          populateDropDown(path, result, true);
         } else if(type.equals("RadioGroup")) {
           populateRadioGroup(path, result);
         } else if(type.equals("List")) {
@@ -200,7 +202,8 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
           }
 
           if (type.equals("DropDown")) {
-            populateDropDown(path, result);
+            // populateDropDown(path, result);
+            populateDropDown(path, result, true);
           } else if (type.equals("CheckBoxGroup")) {
             populateCheckBoxGroup(path, result);
           } else if (type.equals("RadioGroup")) {
