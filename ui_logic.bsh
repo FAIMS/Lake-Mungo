@@ -434,6 +434,7 @@ listAssociatedMaterials(String listPath, String id, String associatedAenttypenam
   } 
 }
 
+onEvent("control"                    , "show"       , "removeNavigationButtons();");
 onEvent("control/control/newEntity"  , "delayclick" , "newFeature();");
 onEvent("control/search"             , "show"       , "loadSearch();");
 onEvent("control/search/entityList"  , "click"      , "loadFeature();");
@@ -538,6 +539,112 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
   } finally {
     db.close();
   }
+}
+
+/*********************/
+/* Navigation Drawer */
+/*********************/
+getRecordId(String tabgroup) {
+  if (tabgroup.equals(oldbone_tabgroup)) {
+    return oldbone_id;
+  } else if (tabgroup.equals(hearth_tabgroup)) {
+    return hearth_id;
+  } else if (tabgroup.equals(midden_tabgroup)) {
+    return midden_id;
+  } else if (tabgroup.equals(stone_tabgroup)) {
+    return stone_id;
+  } else if (tabgroup.equals(isolated_tabgroup)) {
+    return isolated_id;
+  } else {
+    Log.e("Lake Mungo Module", "Can't get id of unknown tabgroup '"+tabgroup+"'");
+    return null;
+  }
+}
+
+newRecord(String tabgroup) {
+  if (tabgroup.equals(oldbone_tabgroup)) {
+    oldbone_create();
+  } else if (tabgroup.equals(hearth_tabgroup)) {
+    hearth_create();
+  } else if (tabgroup.equals(midden_tabgroup)) {
+    midden_create();
+  } else if (tabgroup.equals(stone_tabgroup)) {
+    isolated_create();
+  } else if (tabgroup.equals(isolated_tabgroup)) {
+    isolated_create();
+  } else {
+    Log.e("Lake Mungo Module", "Can't make new record for unknown tabgroup '"+tabgroup+"'");
+  }
+}
+
+/* Generates a confirmation prompt for deleting the current record */
+deleteRecord(String tabgroup, String id) {
+  Log.d("Lake Mungo Module", "Generating a record deletion prompt for tabgroup '"+tabgroup+"' with id '"+id+"'");
+  if (!isNull(id)) {
+    showAlert("Confirmation", "Do you really want to delete the record?", "reallyDeleteRecord(\""+tabgroup+"\", \""+id+"\")", "showToast(\"Cancelled record deletion\")");
+  } else {
+    // showToast("An unsaved record cannot be deleted");
+    cancelTabGroup(tabgroup, false);
+    showToast("Removed unsaved record");
+  }
+}
+
+/* Deletes the specified record */
+reallyDeleteRecord(String tabgroup, String id) {
+  Log.d("Lake Mungo Module", "deleting tabgroup '"+tabgroup+"' with id '"+id+"'");
+  deleteArchEnt(id, new DeleteCallback() {
+    onDelete(uuid) {
+      showToast("Record deleted");
+      cancelTabGroup(tabgroup, false);
+    }
+  });
+}
+
+/* Removes sidebar navigation buttons */
+removeNavigationButtons() {
+  removeNavigationButton("new");
+  // removeNavigationButton("duplicate");
+  removeNavigationButton("delete");
+}
+
+addNaviationButtons(String tabgroup) {
+  removeNavigationButtons();
+  // New record button
+  addNavigationButton("new", new ActionButtonCallback() {
+    actionOnLabel() {
+      "New";
+    }
+    actionOn() {
+      if(!isNull(getRecordId(tabgroup))) {
+          newRecord(tabgroup);
+          showToast("New record created");
+      } else {
+          showAlert("Warning", "Any unsaved changes will be lost!", "newRecord(\""+tabgroup+"\")", "");
+      }
+    }
+  }, "success");
+  // Duplicate record button
+  // addNavigationButton("duplicate", new ActionButtonCallback() {
+  //   actionOnLabel() {
+  //     "Duplicate";
+  //   }
+  //   actionOn() {
+  //     if(!isNull(getRecordId(tabgroup))) {
+  //         // duplicateSample();
+  //     } else {
+  //         showWarning("Warning", "The record could not be duplicated");
+  //     }
+  //   }
+  // }, "primary");
+  // Delete record button
+  addNavigationButton("delete", new ActionButtonCallback() {
+    actionOnLabel() {
+      "Delete";
+    }
+    actionOn() {
+      deleteRecord(tabgroup, getRecordId(tabgroup));
+    }
+  }, "danger");
 }
 
 /******************************************************************************/
@@ -694,7 +801,7 @@ isolated_init() {
   fetchVocabulary("Isolated_-_Occurrence_Type", isolated_occurrenceTypeVocabulary);
 }
 
-onEvent(isolated_tabgroup, "show", "isolated_save();");
+onEvent(isolated_tabgroup, "show", "addNaviationButtons(\""+isolated_tabgroup+"\"); isolated_save();");
 onEvent(isolated_tabgroup + "/basicIdentification/occurrenceType", "click", "isolated_checkOccurrenceType();");
 onEvent(isolated_tabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated_id, isolated_tabgroup, \""+isolated_tabgroup+"/basicIdentification/gridSquare\");");
 isolated_init();
@@ -869,7 +976,7 @@ hearth_listAssociatedMaterials() {
   listAssociatedMaterials(hearth_tabgroup+"/associatedMaterials/associatedMaterialList", hearth_id, hearthAssoc_archentType, hearth_relTypeName);
 }
 
-onEvent(hearth_tabgroup                                                 , "show"       , "hearth_save();");
+onEvent(hearth_tabgroup                                                 , "show"       , "addNaviationButtons(\""+hearth_tabgroup+"\"); hearth_save();");
 onEvent(hearth_tabgroup + "/associatedMaterials"                        , "show"       , "hearth_listAssociatedMaterials();");
 onEvent(hearth_tabgroup + "/associatedMaterials/associatedMaterialList" , "click"      , "hearthAssoc_load()");
 onEvent(hearth_tabgroup + "/associatedMaterials/recordMaterial"         , "delayclick" , "hearthAssoc_create();");
@@ -1223,7 +1330,7 @@ hearthAssoc_removeDynamicViews() {
   }
 }
 
-onEvent(hearthAssoc_tabgroup, "show", "hearthAssoc_toggleTabs(); keepTabGroupChanges(\""+hearthAssoc_tabgroup+"\"); hearthAssoc_save();");
+onEvent(hearthAssoc_tabgroup, "show", "hearthAssoc_toggleTabs(); keepTabGroupChanges(\""+hearthAssoc_tabgroup+"\"); removeNavigationButtons(); hearthAssoc_save();");
 onEvent(hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAssoc_renderTabsAndViews();");
 onEvent(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "hearthAssoc_renderViews();");
 hearthAssoc_init();
@@ -1358,7 +1465,7 @@ midden_listAssociatedMaterials() {
   listAssociatedMaterials(midden_tabgroup+"/associatedMaterials/associatedMaterialList", midden_id, middenAssoc_archentType, midden_relTypeName);
 }
 
-onEvent(midden_tabgroup                                                 , "show"       , "midden_save();");
+onEvent(midden_tabgroup                                                 , "show"       , "addNaviationButtons(\""+midden_tabgroup+"\"); midden_save();");
 onEvent(midden_tabgroup + "/associatedMaterials"                        , "show"       , "midden_listAssociatedMaterials();");
 onEvent(midden_tabgroup + "/associatedMaterials/associatedMaterialList" , "click"      , "middenAssoc_load()");
 onEvent(midden_tabgroup + "/associatedMaterials/recordMaterial"         , "delayclick" , "middenAssoc_create();");
@@ -1712,7 +1819,7 @@ middenAssoc_removeDynamicViews() {
   }
 }
 
-onEvent(middenAssoc_tabgroup, "show", "middenAssoc_toggleTabs(); keepTabGroupChanges(\""+middenAssoc_tabgroup+"\"); middenAssoc_save();");
+onEvent(middenAssoc_tabgroup, "show", "middenAssoc_toggleTabs(); keepTabGroupChanges(\""+middenAssoc_tabgroup+"\"); removeNavigationButtons(); middenAssoc_save();");
 onEvent(middenAssoc_tabgroup+"/control/assocMaterial", "click", "middenAssoc_renderTabsAndViews();");
 onEvent(middenAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "middenAssoc_renderViews();");
 middenAssoc_init();
@@ -2139,7 +2246,7 @@ stone_listAssociatedMaterials() {
   listAssociatedMaterials(stone_tabgroup+"/associatedMaterials/associatedMaterialListSurface", stone_id, stoneAssoc_surfaceArchentType, stone_surfaceRelTypeName);
 }
 
-onEvent(stone_tabgroup                                                        , "show"  , "stone_toggleTabs(); keepTabGroupChanges(\""+stone_tabgroup+"\"); stone_save();");
+onEvent(stone_tabgroup                                                        , "show"  , "stone_toggleTabs(); keepTabGroupChanges(\""+stone_tabgroup+"\"); addNaviationButtons(\""+stone_tabgroup+"\"); stone_save();");
 onEvent(stone_tabgroup + "/basicIdentification/clusterType"                   , "click" , "stone_renderTabsAndViews();");
 onEvent(stone_tabgroup + "/basicIdentification/calculateGridSquare"           , "click" , "calculateGridSquare(stone_id, stone_tabgroup, \""+stone_tabgroup+"/basicIdentification/gridSquare\");");
 onEvent(stone_tabgroup + "/associatedMaterials"                               , "show"  , "stone_listAssociatedMaterials();"); 
@@ -2392,8 +2499,8 @@ stoneAssoc_init() {
   fetchVocabulary("Stone_-_Surface", stoneAssoc_surfaceMaterialVocabulary);
 }
 
-onEvent(stoneAssoc_insituTabgroup,  "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\"); stoneAssoc_save();");
-onEvent(stoneAssoc_surfaceTabgroup, "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_surfaceTabgroup+"\"); stoneAssoc_save();");
+onEvent(stoneAssoc_insituTabgroup,  "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_insituTabgroup+"\");  removeNavigationButtons(); stoneAssoc_save();");
+onEvent(stoneAssoc_surfaceTabgroup, "show", "stoneAssoc_toggleTabs(); keepTabGroupChanges(\""+stoneAssoc_surfaceTabgroup+"\"); removeNavigationButtons(); stoneAssoc_save();");
 onEvent(stoneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial"   , "click", "stoneAssoc_renderTabs();");
 onEvent(stoneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial"  , "click", "stoneAssoc_renderTabs();");
 stoneAssoc_init();
@@ -2531,8 +2638,8 @@ oldbone_checkClusterType() {
   }
 }
 
-onEvent(oldbone_tabgroup, "show", "oldbone_save(); oldbone_checkClusterType();");
-onEvent(oldbone_tabgroup + "/associatedMaterials",                        "show", "oldbone_listAssociatedMaterials();");
+onEvent(oldbone_tabgroup, "show", "addNaviationButtons(\""+oldbone_tabgroup+"\"); oldbone_save(); oldbone_checkClusterType();");
+onEvent(oldbone_tabgroup + "/associatedMaterials",                        "show" , "oldbone_listAssociatedMaterials();");
 onEvent(oldbone_tabgroup + "/basicIdentification/calculateGridSquare",    "click", "calculateGridSquare(oldbone_id, oldbone_tabgroup, \""+oldbone_tabgroup+"/basicIdentification/gridSquare\");");
 onEvent(oldbone_tabgroup + "/basicIdentification/clusterType",            "click", "oldbone_displayInsituProportion(); oldbone_checkClusterType();");
 onEvent(oldbone_tabgroup + "/associatedMaterials/recordInsituMaterial",   "click", "oldboneAssoc_isInsituMaterial=true; oldboneAssoc_create();");
@@ -2937,8 +3044,8 @@ oldboneAssoc_removeDynamicViews() {
   }
 }
 
-onEvent(oldboneAssoc_insituTabgroup,  "show", "oldboneAssoc_toggleTabs(); keepTabGroupChanges(\""+oldboneAssoc_insituTabgroup+"\"); oldboneAssoc_save();");
-onEvent(oldboneAssoc_surfaceTabgroup, "show", "oldboneAssoc_toggleTabs(); keepTabGroupChanges(\""+oldboneAssoc_surfaceTabgroup+"\"); oldboneAssoc_save();");
+onEvent(oldboneAssoc_insituTabgroup,  "show", "oldboneAssoc_toggleTabs(); keepTabGroupChanges(\""+oldboneAssoc_insituTabgroup+"\");  removeNavigationButtons(); oldboneAssoc_save();");
+onEvent(oldboneAssoc_surfaceTabgroup, "show", "oldboneAssoc_toggleTabs(); keepTabGroupChanges(\""+oldboneAssoc_surfaceTabgroup+"\"); removeNavigationButtons(); oldboneAssoc_save();");
 onEvent(oldboneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial",    "click", "oldboneAssoc_renderTabsAndViews();");
 onEvent(oldboneAssoc_insituTabgroup   + "/associatedStoneArtefacts/assocStone",   "click", "oldboneAssoc_renderViews();");
 onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial",   "click", "oldboneAssoc_renderTabsAndViews();");
