@@ -18,6 +18,7 @@ makeLocalID();
 /*** Uneditable - you can edit the code below with extreme precaution ***/
 /*** USER ***/
 loadUsers() {
+  Log.d("Lake Mungo Module", "loadUsers");
     fetchAll("select userid, fname || ' ' || lname from user where userdeleted is null;", new FetchCallback() {
         onFetch(result) {
             populateList("user/usertab/users", result);
@@ -39,8 +40,8 @@ login() {
     });
 }
 
-loadUsers();
-
+// loadUsers();
+onEvent("user/usertab"      , "show" , "loadUsers()");
 onEvent("user/usertab/users", "click", "login()");
 
 /*** SYNC ***/
