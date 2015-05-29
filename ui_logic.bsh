@@ -332,6 +332,8 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
 });
 
 /*** MODULE CONTROL ***/
+// Start Internal GPS by default
+startInternalGPS();
 // List of feature entities for recording.
 entityTypes = new ArrayList();
 entityTypes.add(new NameValuePair("{oldBone}", "Old Bone"));
