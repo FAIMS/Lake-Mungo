@@ -26,11 +26,11 @@
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
+        <term> {hearthmaterial}
+          <description>Hearthstones, baked sediment or charcoal</description>
+        </term>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
-        </term>
-        <term> {hs}
-          <description>Hearthstones or charcoal</description>
         </term>
         <term> {eggshell}
           <description>Emu, Genyornis or other eggshell</description>
@@ -38,49 +38,69 @@
         <term> {stoneart}
           <description>Chipped, unmodified or ground stone</description>
         </term>
-        <term> {otherart}
+        <term> {otherwork}
           <description>Other worked or transported material</description>
+        </term>
+        <term> {all}
+          <description></description>
         </term>
       </lookup>
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
       <description/>
       <lookup>
-        <term> {frag}
-          <description>majority of shell is highly fragmented</description>
+        <term> {good}
+          <description>Majority of shell is highly fragmented</description>
         </term>
-        <term> {modfrag}
-          <description>mixture of fragmented and near whole shell</description>
+        <term> {moderate}
+          <description>Mixture of fragmented and near whole shell</description>
         </term>
-        <term> {whole}
-          <description>majority of shell is whole or near whole</description>
+        <term> {poor}
+          <description>Majority of shell is whole or near whole</description>
         </term>
         <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="OldBone_-_Burned_Mussel" type="enum">
+      <description/>
+      <lookup>
+        <term> {yes}
+          <description/>
+        </term>
+        <term> {no}
+          <description/>
+        </term>
+        <term> {indet}
+          <description/>
+        </term>
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Hearth_Material" type="enum">
       <description>If hearthstone material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
-        <term> {clay}
-          <description>Baked clay or sandy clay hearthstones</description>
+        <term> {hsclay}
+          <description></description>
         </term>
-        <term> {carb}
-          <description>Carbonate hearthstones</description>
+        <term> {hscarb}
+          <description></description>
         </term>
-        <term> {term}
-          <description>Termite nest hearthstones (holes and channels visible)</description>
+        <term> {hsterm}
+          <description></description>
         </term>
-        <term> {other}
-          <description>Hearthstones of other material, e.g. stone</description>
+        <term> {hsother}
+          <description></description>
         </term>
-        <term> {baked_sed}
-          <description>baked sed</description>
+        <term> {hsindet}
+          <description></description>
         </term>
-        <term> {staining}
-          <description>staining</description>
+        <term> {bakedclay}
+          <description>Thin layer or small lumps of burnt clay, orange in colour when freshly exposed, broken surfaces may be smooth</description>
+        </term>
+        <term> {bakedsed}
+          <description>Ashy sediment, baked hard</description>
         </term>
         <term> {indet}
-          <description>Hearthstones of indeterminate raw material</description>
+          <description>Baked, ashy or charcoal or organic rich sediment not described above</description>
         </term>
       </lookup>
     </property>
@@ -88,16 +108,30 @@
       <description>If eggshell is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {emu}
-          <description>Emu eggshell</description>
+          <description>shell with3-layered structure &amp; orange peel texture; texture only removed if weathering reduces shell thickness to &lt; 0.8mm</description>
         </term>
         <term> {genyo}
-          <description>Genyornis eggshell</description>
+          <description>Shell with single layer, pores appear as short, parallel grooves like pin-pricks</description>
         </term>
         <term> {other}
           <description>Other eggshell, clearly not emu or Genyornis</description>
         </term>
         <term> {indet}
-          <description>Indeterminate eggshell, features unclear due to surface modification</description>
+          <description>Features unclear due to surface modification or shell &amp; 0.8mm thick and smooth in texture</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="OldBone_-_Burned_Eggshel" type="enum">
+      <description/>
+      <lookup>
+        <term> {yes}
+          <description/>
+        </term>
+        <term> {no}
+          <description/>
+        </term>
+        <term> {indet}
+          <description/>
         </term>
       </lookup>
     </property>
@@ -112,6 +146,15 @@
         </term>
         <term> {ground}
           <description>Ground stone</description>
+        </term>
+        <term> {csgs}
+          <description>Chipped and ground stone</description>
+        </term>
+        <term> {csumgs}
+          <description>Chipped stone, unmodified rock and groundstone</description>
+        </term>
+        <term> {umgs}
+          <description>Umodified rock and ground stone</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -132,7 +175,19 @@
           <description>Hammerstone</description>
         </term>
         <term> {indet}
-          <description>Indeterminate</description>
+          <description>Artefact too deeply buried, encursted or covered with sand veneer to determine type</description>
+        </term>
+        <term> {ruco}
+          <description>Retouched artfact(s) and core(s)</description>
+        </term>
+        <term> {rudeb}
+          <description>Retouched artefact(s) and debitage</description>
+        </term>
+        <term> {codeb}
+          <description>Core(s) and debitate</description>
+        </term>
+        <term> {rucodeb}
+          <description>Retouched artefact(s), core(s) and debitage</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -141,40 +196,54 @@
       <description/>
       <lookup>
         <term> {notch}
-          <description>Notched artefact</description>
+          <description>Retouch that creates one or more concavities along the margin of the tool</description>
         </term>
         <term> {scraper}
-          <description>Other type of scraper</description>
+          <description>Flake (or other blank) with one or more margins of retouch</description>
         </term>
         <term> {backed}
-          <description>Backed artefact</description>
+          <description>Flake (or other blank) with one or more margins of retouch</description>
         </term>
         <term> {unifpt}
-          <description>Unifacial point</description>
+          <description>Retouch on one or more margins, which converges to a point in plan view, initiated from a single surface</description>
         </term>
         <term> {bifac}
-          <description>Bifacially flaked artefact</description>
+          <description>Artefact with bifacial retouch</description>
         </term>
         <term> {otherru}
           <description>Any other type of retouch or use-wear</description>
         </term>
-        <term> {other} <description/> </term>
+        <term> {indet}
+          <description>Artefact too deeply buried or surface too encrusted to determine type</description>
+        </term>
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Unmodified_Stone" type="enum">
       <description>If unmodified stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {nodule}
-          <description>Nodular or rounded cobble</description>
+          <description>A large, nodular or rounded cobble (&gt;64 mm)</description>
         </term>
         <term> {slab}
-          <description>Angular piece</description>
+          <description>A thick, flat piece of rock (&gt;64 mm)</description>
         </term>
         <term> {pebble}
-          <description>Small nodular or rounded piece, unlikely to be useful for artefact manufacture</description>
+          <description>Small nodular or rounded piece, &lt; 64 mm maximum dimension, unlikely to be useful for artefact manufacture</description>
+        </term>
+        <term> {nodslab}
+          <description>Nodule and slab as defined above</description>
+        </term>
+        <term> {nodpeb}
+          <description>Nodule and pebble as defined above</description>
+        </term>
+        <term> {slabpeb}
+          <description>Slab and pebble as defined above</description>
+        </term>
+        <term> {all}
+          <description></description>
         </term>
         <term> {indet}
-          <description>Indeterminate unmodified stone</description>
+          <description>Rock is too deeply buried or encrusted to determine its size and shape</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -203,6 +272,9 @@
         <term> {undiag}
           <description>Fragmentary, not complete enough to distinguish nature of ground surface</description>
         </term>
+        <term> {indet}
+          <description>Artefact is too deeply buried or encrusted to determine type</description>
+        </term>
         <term> {other} <description/> </term>
       </lookup>
     </property>
@@ -213,12 +285,11 @@
           <description/>
         </term>
         <term> {fragment}
-          <description/>
+          <description>One or more fragments of a larger artefact or fragments of more than one artefact that do not refit</description>
         </term>
         <term> {refits}
-          <description/>
+          <description>Broken fragments can be refitted back together and/or texture, colour, thickness and/or surface modifications suggest that they are part of the same artefact</description>
         </term>
-        <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Chipped_Stone_Raw_Material" type="enum">
@@ -234,19 +305,22 @@
           <description>Quartz grains greater than 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
         </term>
         <term> {qtzite}
-          <description>Quartzite</description>
+          <description>Sugary texture, variable grain size and colour</description>
         </term>
         <term> {qtz}
-          <description>Quartz</description>
-        </term>
-        <term> {ironst}
-          <description>Ironstone</description>
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate, chalcedony</description>
+        </term>
+        <term> {unident}
+          <description></description>
+        </term>
+        <term> {indet}
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -263,42 +337,48 @@
           <description>Quartz grains greater than 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {qtz}
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
         <term> {ironst}
-          <description>Ironstone</description>
+          <description>Sedimentary rock containing iron rich minerals</description>
         </term>
         <term> {sandst}
-          <description>Sandstone</description>
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate or raw material not identified (enter into annotations)</description>
+        </term>
+        <term> {indet}
+          <description>Artefact is too deeply buried to identify raw material</description>
         </term>
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Raw_Material" type="enum">
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
-        <term> {silcfine}
-          <description>Quartz grains less than 0.25 mm</description>
-        </term>
-        <term> {silcmed}
-          <description>Quartz grains 0.25 – 0.5 mm</description>
-        </term>
-        <term> {silccoarse}
-          <description>Quartz grains greater than 0.5mm</description>
-        </term>
-        <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
-        </term>
-        <term> {ironst}
-          <description>Ironstone</description>
+        <term> {silcrete}
+          <description>Scattered quartz grains in a dense matrix</description>
         </term>
         <term> {sandst}
-          <description>Sandstone</description>
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {ironst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate or raw material not identified (enter into annotations)</description>
+        </term>
+        <term> {indet}
+          <description>Too deeply buried to determine raw material type</description>
         </term>
       </lookup>
     </property>
@@ -306,24 +386,32 @@
       <description>If other worked or transported material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {bonemod}
-          <description>bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
+          <description>Bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
         </term>
         <term> {shellmod}
-          <description>shell with notches or other evidence of working or use along one or more margins</description>
+          <description>Thick fragment of shell with notches or other evidence of working or use along one or more margins</description>
+        </term>
+        <term> {eggmod}
+          <description>Eggshell with modified surface, e.g. tooth mark or drill hole</description>
         </term>
         <term> {ochrediss}
-          <description>flecks or fragments of ochre disseminated through the sediment</description>
+          <description>Flecks or fragments of ochre disseminated through the sediment</description>
         </term>
         <term> {ochrenod}
-          <description>small nodule of ochre</description>
+          <description>Small nodule of ochre</description>
         </term>
         <term> {ochrefacet}
-          <description>ochre with facets, indicating use as crayon</description>
+          <description>Ochre with facets, indicating use as crayon</description>
         </term>
         <term> {qtzxtal}
-          <description>unworked quartz crystal</description>
+          <description>Unworked quartz crystal</description>
         </term>
-        <term> {other} <description/> </term>
+        <term> {turbo}
+          <description>Marine gastropod, round shell with white zigzag stripes, up to 4cm long</description>
+        </term>
+        <term> {other}
+          <description>Any other worked, utilised or transported material not listed above</description>
+        </term>
       </lookup>
     </property>
   </ArchaeologicalElement>
@@ -334,11 +422,11 @@
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
+        <term> {hearthmaterial}
+          <description>Hearthstones, baked sediment or charcoal</description>
+        </term>
         <term> {mussel}
           <description>Mussel shell or shell fragment</description>
-        </term>
-        <term> {hs}
-          <description>Hearthstones or charcoal</description>
         </term>
         <term> {eggshell}
           <description>Emu, Genyornis or other eggshell</description>
@@ -346,49 +434,72 @@
         <term> {stoneart}
           <description>Chipped, unmodified or ground stone</description>
         </term>
-        <term> {otherart}
+        <term> {otherwork}
           <description>Other worked or transported material</description>
+        </term>
+        <term> {all}
+          <description></description>
         </term>
       </lookup>
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
       <description/>
       <lookup>
-        <term> {frag}
-          <description>majority of shell is highly fragmented</description>
+        <term> {good}
+          <description>Majority of shell is highly fragmented</description>
         </term>
-        <term> {modfrag}
-          <description>mixture of fragmented and near whole shell</description>
+        <term> {moderate}
+          <description>Mixture of fragmented and near whole shell</description>
         </term>
-        <term> {whole}
-          <description>majority of shell is whole or near whole</description>
+        <term> {poor}
+          <description>Majority of shell is whole or near whole</description>
         </term>
         <term> {other} <description/> </term>
+      </lookup>
+    </property>
+    <property name="OldBone_-_Burned_Mussel" type="enum">
+      <description/>
+      <lookup>
+        <term> {yes}
+          <description/>
+        </term>
+        <term> {no}
+          <description/>
+        </term>
+        <term> {indet}
+          <description/>
+        </term>
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Hearth_Material" type="enum">
       <description>If hearthstone material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
-        <term> {clay}
-          <description>Baked clay or sandy clay hearthstones</description>
+        <term> {hsclay}
+          <description></description>
         </term>
-        <term> {carb}
-          <description>Carbonate hearthstones</description>
+        <term> {hscarb}
+          <description></description>
         </term>
-        <term> {term}
-          <description>Termite nest hearthstones (holes and channels visible)</description>
+        <term> {hsterm}
+          <description></description>
         </term>
-        <term> {other}
-          <description>Hearthstones of other material, e.g. stone</description>
+        <term> {hsother}
+          <description></description>
         </term>
-        <term> {baked_sed}
-          <description>baked sed</description>
+        <term> {hsindet}
+          <description></description>
+        </term>
+        <term> {bakedclay}
+          <description>Thin layer or small lumps of burnt clay, orange in colour when freshly exposed, broken surfaces may be smooth</description>
+        </term>
+        <term> {bakedsed}
+          <description>Ashy sediment, baked hard</description>
         </term>
         <term> {staining}
-          <description>staining</description>
+          <description>Staining</description>
         </term>
         <term> {indet}
-          <description>Hearthstones of indeterminate raw material</description>
+          <description>Baked, ashy or charcoal or organic rich sediment not described above</description>
         </term>
       </lookup>
     </property>
@@ -396,16 +507,30 @@
       <description>If eggshell is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {emu}
-          <description>Emu eggshell</description>
+          <description>shell with3-layered structure &amp; orange peel texture; texture only removed if weathering reduces shell thickness to &lt; 0.8mm</description>
         </term>
         <term> {genyo}
-          <description>Genyornis eggshell</description>
+          <description>Shell with single layer, pores appear as short, parallel grooves like pin-pricks</description>
         </term>
         <term> {other}
           <description>Other eggshell, clearly not emu or Genyornis</description>
         </term>
         <term> {indet}
-          <description>Indeterminate eggshell, features unclear due to surface modification</description>
+          <description>Features unclear due to surface modification or shell &amp; 0.8mm thick and smooth in texture</description>
+        </term>
+      </lookup>
+    </property>
+    <property name="OldBone_-_Burned_Eggshel" type="enum">
+      <description/>
+      <lookup>
+        <term> {yes}
+          <description/>
+        </term>
+        <term> {no}
+          <description/>
+        </term>
+        <term> {indet}
+          <description/>
         </term>
       </lookup>
     </property>
@@ -420,6 +545,15 @@
         </term>
         <term> {ground}
           <description>Ground stone</description>
+        </term>
+        <term> {csgs}
+          <description>Chipped and ground stone</description>
+        </term>
+        <term> {csumgs}
+          <description>Chipped stone, unmodified rock and groundstone</description>
+        </term>
+        <term> {umgs}
+          <description>Umodified rock and ground stone</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -440,7 +574,19 @@
           <description>Hammerstone</description>
         </term>
         <term> {indet}
-          <description>Indeterminate</description>
+          <description>Artefact too deeply buried, encursted or covered with sand veneer to determine type</description>
+        </term>
+        <term> {ruco}
+          <description>Retouched artfact(s) and core(s)</description>
+        </term>
+        <term> {rudeb}
+          <description>Retouched artefact(s) and debitage</description>
+        </term>
+        <term> {codeb}
+          <description>Core(s) and debitate</description>
+        </term>
+        <term> {rucodeb}
+          <description>Retouched artefact(s), core(s) and debitage</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -449,40 +595,54 @@
       <description/>
       <lookup>
         <term> {notch}
-          <description>Notched artefact</description>
+          <description>Retouch that creates one or more concavities along the margin of the tool</description>
         </term>
         <term> {scraper}
-          <description>Other type of scraper</description>
+          <description>Flake (or other blank) with one or more margins of retouch</description>
         </term>
         <term> {backed}
-          <description>Backed artefact</description>
+          <description>Flake (or other blank) with one or more margins of retouch</description>
         </term>
         <term> {unifpt}
-          <description>Unifacial point</description>
+          <description>Retouch on one or more margins, which converges to a point in plan view, initiated from a single surface</description>
         </term>
         <term> {bifac}
-          <description>Bifacially flaked artefact</description>
+          <description>Artefact with bifacial retouch</description>
         </term>
         <term> {otherru}
           <description>Any other type of retouch or use-wear</description>
         </term>
-        <term> {other} <description/> </term>
+        <term> {indet}
+          <description>Artefact too deeply buried or surface too encrusted to determine type</description>
+        </term>
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Unmodified_Stone" type="enum">
       <description>If unmodified stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
       <lookup>
         <term> {nodule}
-          <description>Nodular or rounded cobble</description>
+          <description>A large, nodular or rounded cobble (&gt;64 mm)</description>
         </term>
         <term> {slab}
-          <description>Angular piece</description>
+          <description>A thick, flat piece of rock (&gt;64 mm)</description>
         </term>
         <term> {pebble}
-          <description>Small nodular or rounded piece, unlikely to be useful for artefact manufacture</description>
+          <description>Small nodular or rounded piece, &lt; 64 mm maximum dimension, unlikely to be useful for artefact manufacture</description>
+        </term>
+        <term> {nodslab}
+          <description>Nodule and slab as defined above</description>
+        </term>
+        <term> {nodpeb}
+          <description>Nodule and pebble as defined above</description>
+        </term>
+        <term> {slabpeb}
+          <description>Slab and pebble as defined above</description>
+        </term>
+        <term> {all}
+          <description></description>
         </term>
         <term> {indet}
-          <description>Indeterminate unmodified stone</description>
+          <description>Rock is too deeply buried or encrusted to determine its size and shape</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
@@ -511,6 +671,9 @@
         <term> {undiag}
           <description>Fragmentary, not complete enough to distinguish nature of ground surface</description>
         </term>
+        <term> {indet}
+          <description>Artefact is too deeply buried or encrusted to determine type</description>
+        </term>
         <term> {other} <description/> </term>
       </lookup>
     </property>
@@ -521,12 +684,11 @@
           <description/>
         </term>
         <term> {fragment}
-          <description/>
+          <description>One or more fragments of a larger artefact or fragments of more than one artefact that do not refit</description>
         </term>
         <term> {refits}
-          <description/>
+          <description>Broken fragments can be refitted back together and/or texture, colour, thickness and/or surface modifications suggest that they are part of the same artefact</description>
         </term>
-        <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Chipped_Stone_Raw_Material" type="enum">
@@ -542,19 +704,22 @@
           <description>Quartz grains greater than 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
         </term>
         <term> {qtzite}
-          <description>Quartzite</description>
+          <description>Sugary texture, variable grain size and colour</description>
         </term>
         <term> {qtz}
-          <description>Quartz</description>
-        </term>
-        <term> {ironst}
-          <description>Ironstone</description>
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate, chalcedony</description>
+        </term>
+        <term> {unident}
+          <description></description>
+        </term>
+        <term> {indet}
+          <description></description>
         </term>
       </lookup>
     </property>
@@ -571,42 +736,48 @@
           <description>Quartz grains greater than 0.5mm</description>
         </term>
         <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
+          <description>Naked eye cannot identify grains in the matrix</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {qtz}
+          <description>A clear, white, milky white or rose coloured mineral</description>
         </term>
         <term> {ironst}
-          <description>Ironstone</description>
+          <description>Sedimentary rock containing iron rich minerals</description>
         </term>
         <term> {sandst}
-          <description>Sandstone</description>
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate or raw material not identified (enter into annotations)</description>
+        </term>
+        <term> {indet}
+          <description>Artefact is too deeply buried to identify raw material</description>
         </term>
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Raw_Material" type="enum">
       <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
       <lookup>
-        <term> {silcfine}
-          <description>Quartz grains less than 0.25 mm</description>
-        </term>
-        <term> {silcmed}
-          <description>Quartz grains 0.25 – 0.5 mm</description>
-        </term>
-        <term> {silccoarse}
-          <description>Quartz grains greater than 0.5mm</description>
-        </term>
-        <term> {silcmicroxtal}
-          <description>No grains visible in the matrix</description>
-        </term>
-        <term> {ironst}
-          <description>Ironstone</description>
+        <term> {silcrete}
+          <description>Scattered quartz grains in a dense matrix</description>
         </term>
         <term> {sandst}
-          <description>Sandstone</description>
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
+        </term>
+        <term> {qtzite}
+          <description>Sugary texture, variable grain size and colour</description>
+        </term>
+        <term> {ironst}
+          <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
         </term>
         <term> {other}
-          <description>Other material</description>
+          <description>For example, carbonate or raw material not identified (enter into annotations)</description>
+        </term>
+        <term> {indet}
+          <description>Too deeply buried to determine raw material type</description>
         </term>
       </lookup>
     </property>
@@ -3839,20 +4010,20 @@ stone</description>
         </term>
         <term> {boneAndOtherMaterial}
           <description/>
-          <term> {inistAndOth}
+          <term pictureURL="files/data/images/missing.png"> {inistAndOth}
             <description>In situ bone cluster as defined above, associated with other material, either in situ or on the surface</description>
           </term>
-          <term> {surfAndOth}
+          <term pictureURL="files/data/images/missing.png"> {surfAndOth}
             <description>Surface bone cluster as defined above, associated with other material, either in situ or on the surface</description>
           </term>
-          <term> {bothAndOth}
+          <term pictureURL="files/data/images/missing.png"> {bothAndOth}
             <description>In situ and surface bone cluster as defined above, associated with other material, either in situ or on the surface</description>
           </term>
         </term>
       </lookup>
     </property>
     <property name="OldBone_-_Proportion_of_material_that_remains_in_situ" type="enum">
-      <description>Select the proportion of visible shell material that remains in situ</description>
+      <description>Select the proportion of visible bone that remains insitu</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {most}
           <description>The majority of the visible bone is in situ</description>
@@ -3875,9 +4046,6 @@ stone</description>
     <property name="OldBone_-_Body_Parts_Identifed" type="enum">
       <description>Select those of the following that have been observed, both in situ and on the surface</description>
       <lookup>
-        <term> {fragsonly}
-          <description>Only unidentifiable fragments present</description>
-        </term>
         <term> {cranAndTooth}
           <description>Cranial elements, including maxilla with teeth</description>
         </term>
@@ -3899,11 +4067,8 @@ stone</description>
         <term> {allparts}
           <description>Some elements of each of cranial, limb and axial bones</description>
         </term>
-        <term> {otol}
+        <term> {otoliths}
           <description>Fish otoliths</description>
-        </term>
-        <term> {otolfrag}
-          <description>Fish otolith and other bone fragments</description>
         </term>
         <term> {glith}
           <description>Gastroliths</description>
@@ -3914,35 +4079,43 @@ stone</description>
         <term> {scute}
           <description>Bony plate (overlain with horn) from the shell of a turtle</description>
         </term>
-        <term> {other} <description/> </term>
+        <term> {other}
+          <description/>
+        </term>
+        <term> {undiag}
+          <description>Fragments are too small to preserve diagnostic features</description>
+        </term>
+        <term> {unident}
+          <description>Potentially diagnostic features (size/shape, articular ends, muscle markings, teeth) could not be identified</description>
+        </term>
       </lookup>
     </property>
     <property name="OldBone_-_Taxon_Identified" type="enum">
       <description>Select those of the following that can be identified:</description>
       <lookup>
-        <term> {unident}
-          <description>The taxon cannot be identified by the recorder</description>
-        </term>
-        <term> {macropod}
-          <description>e.g. Western Grey, Eastern Grey, Red Kangaroo</description>
+        <term> {wombat}
+          <description/>
         </term>
         <term> {bettong}
           <description/>
         </term>
-        <term> {wombat}
-          <description/>
+        <term> {macropod}
+          <description>e.g. Western Grey, Eastern Grey, Red Kangaroo</description>
         </term>
         <term> {smallmars}
           <description>Small marsupial</description>
         </term>
-        <term> {carnivore}
-          <description>e.g. Thylacine, Tasmanian Devil</description>
-        </term>
         <term> {emu}
           <description/>
         </term>
-        <term> {otherbird}
+        <term> {birdother}
           <description>Bird other than emu (swan, duck, etc)</description>
+        </term>
+        <term> {carnivore}
+          <description>e.g. Thylacine, Tasmanian Devil</description>
+        </term>
+        <term> {rodent}
+          <description></description>
         </term>
         <term> {reptile}
           <description/>
@@ -3953,17 +4126,20 @@ stone</description>
         <term> {crustac}
           <description>Crustacean</description>
         </term>
-        <term> {undiag}
-          <description>The bone is undiagnostic of taxon</description>
-        </term>
         <term> {mega}
           <description>Megafauna</description>
+        </term>
+        <term> {undiag}
+          <description>Shape and size are not diagnostic of taxon and no other diagnostic features are preserved (teeth, muscle markings, articular ends)</description>
+        </term>
+        <term> {unident}
+          <description>Potentially diagnostic features (size/shape, articular ends, muscle markings, teeth) could not be identified</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
     </property>
     <property name="OldBone_-_Bone_Preservation" type="enum">
-      <description>Select those types of modification that are common on the Good preservation visible bone:</description>
+      <description>Select those types of modification that are common on the visible bone:</description>
       <lookup>
         <term> {good}
           <description>Good preservation</description>
@@ -3992,6 +4168,15 @@ stone</description>
         <term> {carb}
           <description>carbonate encrustation on surface of bone</description>
         </term>
+        <term> {polish}
+          <description>Smoothed surface with glossy appearance</description>
+        </term>
+        <term> {abraded}
+          <description>Scored or scratched surface, muted, rounded edges and/or muscle markings</description>
+        </term>
+        <term> {indet}
+          <description>Modification not described by any of the above</description>
+        </term>
         <term> {other} <description/> </term>
       </lookup>
     </property>
@@ -4011,7 +4196,10 @@ stone</description>
           <description>Stone tool-inflicted cut marks</description>
         </term>
         <term> {impact}
-          <description>Percussion fractures</description>
+          <description>Impact feature, flake scar or flake (on bone) resulting from hammerstone impact</description>
+        </term>
+        <term> {indet}
+          <description>Object is too deeply buried or encrusted to determine modification</description>
         </term>
         <term> {other} <description/> </term>
       </lookup>
