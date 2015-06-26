@@ -1,4 +1,8 @@
-/*** 'Editable' - you can edit the code below based on the needs ***/
+/******************************************************************************/
+/**                                TOP MATTER                                **/
+/**                                                                          **/
+/** Almost exclusively boilerplate code.                                     **/
+/******************************************************************************/
 import java.util.concurrent.Callable;
 import android.util.Log;
 import java.io.File;
@@ -15,46 +19,9 @@ makeLocalID(){
 }
 makeLocalID();
 
-/*** Uneditable - you can edit the code below with extreme precaution ***/
-/*** USER ***/
-loadUsers() {
-  Log.d("Lake Mungo Module", "loadUsers");
-    fetchAll("select userid, fname || ' ' || lname from user where userdeleted is null;", new FetchCallback() {
-        onFetch(result) {
-            populateList("user/usertab/users", result);
-        }
-    });
-}
-
-String username = "";
-String device = "";
-
-login() {
-    fetchOne("select userid,fname,lname,email from user where userid='" + getListItemValue() + "';", new FetchCallback() {
-        onFetch(result) {
-            user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
-            setUser(user);
-            username = result.get(1) + " " + result.get(2);
-            showTabGroup("control");
-        }
-    });
-}
-
-// loadUsers();
-onEvent("user/usertab"      , "show" , "loadUsers()");
-onEvent("user/usertab/users", "click", "login()");
-
-/*** SYNC ***/
-startSync() {
-    setSyncEnabled(true);
-    setFileSyncEnabled(true);
-}
-
-stopSync() {
-    setSyncEnabled(false);
-    setFileSyncEnabled(false);
-}
-
+/******************************************************************************/
+/**                                   UTIL                                   **/
+/******************************************************************************/
 /** Fetches the contents of a specifed vocabulary and stores it in the given list. **/
 fetchVocabulary(String vocabName, List storageList) {
   fetchAll("select vocabid, vocabname from vocabulary left join attributekey using (attributeid) where attributename = '" + vocabName + "';", new FetchCallback() {
@@ -225,41 +192,86 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
 /** Entity Relationship Saving **/
 /** Saves two entity id's as a relation. **/
 saveEntitiesToRel(String type, String entity1, String entity2) {
-    if (isNull(entity1) || isNull(entity2)) return;
-    saveRel(null, type, null, null, new SaveCallback() {
-        onSave(rel_id, newRecord) {
-            addReln(entity1, rel_id, null);
-            addReln(entity2, rel_id, null);
-        }
-    });
+    String callback = null;
+    saveEntitiesToRel(type, entity1, entity2, callback);
 }
 
 /** Saves two entity id's as a relation with some callback executed. **/
 saveEntitiesToRel(String type, String entity1, String entity2, String callback) {
-    if (isNull(entity1) || isNull(entity2)) return;
-    saveRel(null, type, null, null, new SaveCallback() {
-        onSave(rel_id, newRecord) {
-            addReln(entity1, rel_id, null);
-            addReln(entity2, rel_id, null);
-            if(!isNull(callback)) {
-               execute(callback);
-            }
-        }
-    });
+    String e1verb = null;
+    String e2verb = null;
+    saveEntitiesToHierRel(type, entity1, entity2, e1verb, e2verb, callback);
 }
 
-/** Saves two entity id's as a hierachical relation. **/
-saveEntitiesToHierRel(String type, String entity1, String entity2, String e1verb, String e2verb) {
+/** Saves two entity id's as a hierarchical relation with some callback executed. **/
+saveEntitiesToHierRel(String type, String entity1, String entity2, String e1verb, String e2verb, String callback) {
     if (isNull(entity1) || isNull(entity2)) return;
+
     saveRel(null, type, null, null, new SaveCallback() {
         onSave(rel_id, newRecord) {
             addReln(entity1, rel_id, e1verb);
             addReln(entity2, rel_id, e2verb);
+            if(!isNull(callback)) {
+               execute(callback);
+            }
+        }
+        onError(message) {
+            Log.e("saveEntitiesToHierRel", message);
+            showToast(message);
         }
     });
 }
 
-/** Action Bar **/
+/******************************************************************************/
+/**                                USER LOGIN                                **/
+/******************************************************************************/
+/* Populates the user cursorlist */
+loadUsers() {
+  Log.d("Lake Mungo Module", "loadUsers");
+    fetchAll("select userid, fname || ' ' || lname from user where userdeleted is null;", new FetchCallback() {
+        onFetch(result) {
+            populateList("user/usertab/users", result);
+        }
+    });
+}
+
+String username = "";
+String device = "";
+
+/* Gets the user's login information from the database, sets some globals then
+ * shows the control tabgroup
+ */
+login() {
+    fetchOne("select userid,fname,lname,email from user where userid='" + getListItemValue() + "';", new FetchCallback() {
+        onFetch(result) {
+            user = new User(result.get(0),result.get(1),result.get(2),result.get(3));
+            setUser(user);
+            username = result.get(1) + " " + result.get(2);
+            showTabGroup("control");
+        }
+    });
+}
+
+// loadUsers();
+onEvent("user/usertab"      , "show" , "loadUsers()");
+onEvent("user/usertab/users", "click", "login()");
+
+/******************************************************************************/
+/**                                   SYNC                                   **/
+/******************************************************************************/
+startSync() {
+    setSyncEnabled(true);
+    setFileSyncEnabled(true);
+}
+
+stopSync() {
+    setSyncEnabled(false);
+    setFileSyncEnabled(false);
+}
+
+/******************************************************************************/
+/**                                ACTION BAR                                **/
+/******************************************************************************/
 addActionBarItem("sync", new ToggleActionButtonCallback() {
     actionOnLabel() {
         "{Disable_Sync}";
@@ -337,7 +349,9 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
     }
 });
 
-/*** MODULE CONTROL ***/
+/******************************************************************************/
+/**                              MODULE CONTROL                              **/
+/******************************************************************************/
 // Start Internal GPS by default
 startInternalGPS();
 // List of feature entities for recording.
@@ -373,9 +387,16 @@ newFeature() {
   }
 }
 
+/* Loads one of oldbone, hearth, midden, stone, or isolated based on the uuid
+ * returned from getListItemValue() (The last tapped item in a cursorlist).
+ */
 loadFeature() {
-  String listID = getListItemValue();
-  if (!isNull(listID)) {
+    String listID = getListItemValue();
+    if (isNull(listID)) {
+        Log.e("loadFeature()", "Error: cannot load an entity with a null ID.");
+        return;
+    }
+
     fetchAll("select aenttypename from latestnondeletedarchent join aenttype using (aenttypeid) where uuid = '" + listID + "';", new FetchCallback() {
       onFetch(result) {
         Log.d("loadFeature()", "Loading entity id: " + entityID);
@@ -397,9 +418,6 @@ loadFeature() {
         }
       }
     });
-  } else {
-    Log.e("loadFeature()", "Error: cannot load an entity with a null ID.");
-  }
 }
 
 /** Populates the in-situ and surface associated materials list. **/
@@ -440,8 +458,9 @@ onEvent("control/search"             , "show"       , "loadSearch();");
 onEvent("control/search/entityList"  , "click"      , "loadFeature();");
 onEvent("control/search/entityTypes" , "click"      , "loadSearch();");
 
-/*******************/
-/* Grid Square GPS */
+/******************************************************************************/
+/**                             GRID SQUARE GPS                              **/
+/******************************************************************************/
 /** Calculates the grid square that the feature is in. **/
 calculateGridSquare(String id, String tabgroup, String gridSquareViewPath) {
   // check that GPS is on and a position can be found.
@@ -541,9 +560,9 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
   }
 }
 
-/*********************/
-/* Navigation Drawer */
-/*********************/
+/******************************************************************************/
+/**                            NAVIGATION DRAWER                             **/
+/******************************************************************************/
 getRecordId(String tabgroup) {
   if (tabgroup.equals(oldbone_tabgroup)) {
     return oldbone_id;
@@ -648,7 +667,7 @@ addNaviationButtons(String tabgroup) {
 }
 
 /******************************************************************************/
-/*                                   PHOTOS                                   */
+/**                                  PHOTOS                                  **/
 /******************************************************************************/
 
 onEvent("hearth/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"hearth/topAndStratSetting/photos\");");
@@ -657,9 +676,9 @@ onEvent("isolatedOccurrences/topAndStratSetting/takePhoto"    , "click", "attach
 onEvent("midden/topAndStratSetting/takePhoto"                 , "click", "attachPictureTo(\"midden/topAndStratSetting/photos\");");
 onEvent("oldBone/topAndStratSetting/takePhoto"                , "click", "attachPictureTo(\"oldBone/topAndStratSetting/photos\");");
 
-/************************/
-/*** ISOLATED FEATURE ***/
-/************************/
+/******************************************************************************/
+/**                             ISOLATED FEATURE                             **/
+/******************************************************************************/
 String isolated_tabgroup = "isolatedOccurrences";
 String isolated_archentType = "Isolated";
 String isolated_desc = isolated_archentType + " record";
@@ -806,13 +825,9 @@ onEvent(isolated_tabgroup + "/basicIdentification/occurrenceType", "click", "iso
 onEvent(isolated_tabgroup + "/basicIdentification/calculateGridSquare", "click", "calculateGridSquare(isolated_id, isolated_tabgroup, \""+isolated_tabgroup+"/basicIdentification/gridSquare\");");
 isolated_init();
 
-/**************************************/
-/** End Isolated Occurrence Tabgroup **/
-/**************************************/
-
-/**********************/
-/*** HEARTH FEATURE ***/
-/**********************/
+/******************************************************************************/
+/**                              HEARTH FEATURE                              **/
+/******************************************************************************/
 String hearth_tabgroup = "hearth";
 String hearth_type = "Hearth";
 String hearth_desc = hearth_type + " record";
@@ -983,13 +998,10 @@ onEvent(hearth_tabgroup + "/associatedMaterials/recordMaterial"         , "delay
 onEvent(hearth_tabgroup + "/basicIdentification/calculateGridSquare"    , "click"      , "calculateGridSquare(hearth_id, hearth_tabgroup , \""+hearth_tabgroup+"/basicIdentification/gridSquare\");");
 onEvent(hearth_tabgroup + "/basicIdentification/hearthType"             , "click"      , "hearth_checkType();");
 hearth_init();
-/************************/
-/** End Hearth Feature **/
-/************************/
 
-/***********************************/
-/*** HEARTH ASSOCIATED MATERIALS ***/
-/***********************************/
+/******************************************************************************/
+/**                       HEARTH ASSOCIATED MATERIALS                        **/
+/******************************************************************************/
 String hearthAssoc_tabgroup = "hearthAssociatedMaterials";
 String hearthAssoc_archentType = "Hearth Associated Materials";
 String hearthAssoc_relTypeName = "Hearth And Associated Materials";
@@ -1335,13 +1347,9 @@ onEvent(hearthAssoc_tabgroup+"/nearbyMaterial/assocMaterial", "click", "hearthAs
 onEvent(hearthAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "hearthAssoc_renderViews();");
 hearthAssoc_init();
 
-/**********************************************/
-/** End Hearth Associated Materials Tabgroup **/
-/**********************************************/
-
-/**********************/
-/*** MIDDEN FEATURE ***/
-/**********************/
+/******************************************************************************/
+/**                              MIDDEN FEATURE                              **/
+/******************************************************************************/
 String midden_tabgroup = "midden";
 String midden_archentType = "Midden";
 String midden_desc = midden_archentType + " record";
@@ -1473,13 +1481,9 @@ onEvent(midden_tabgroup + "/basicIdentification/calculateGridSquare"    , "click
 onEvent(midden_tabgroup + "/basicIdentification/middenType"              , "click"      , "midden_checkType();");
 midden_init();
 
-/********************/
-/** End Midden Tab **/
-/********************/
-
-/***********************************/
-/*** MIDDEN ASSOCIATED MATERIALS ***/
-/***********************************/
+/******************************************************************************/
+/**                       MIDDEN ASSOCIATED MATERIALS                        **/
+/******************************************************************************/
 String middenAssoc_tabgroup = "middenAssociatedMaterials";
 String middenAssoc_archentType = "Midden Associated Materials";
 String middenAssoc_relTypeName = "Midden And Associated Materials";
@@ -1823,13 +1827,10 @@ onEvent(middenAssoc_tabgroup, "show", "middenAssoc_toggleTabs(); keepTabGroupCha
 onEvent(middenAssoc_tabgroup+"/control/assocMaterial", "click", "middenAssoc_renderTabsAndViews();");
 onEvent(middenAssoc_tabgroup+"/associatedStoneArtefacts/assocStone", "click", "middenAssoc_renderViews();");
 middenAssoc_init();
-/**********************************************/
-/** End Midden Associated Materials Tabgroup **/
-/**********************************************/
 
-/******************************/
-/*** STONE ARTEFACT FEATURE ***/
-/******************************/
+/******************************************************************************/
+/**                          STONE ARTEFACT FEATURE                          **/
+/******************************************************************************/
 String stone_tabgroup = "stoneArtefactClusters";
 String stone_archentType = "Stone Artefact Clusters";
 String stone_desc = stone_archentType + " record";
@@ -2258,13 +2259,9 @@ onEvent(stone_tabgroup + "/inSituDescription/inSituInSituStoneArtefacts"      , 
 onEvent(stone_tabgroup + "/surfaceDescription/surfaceStoneArtefacts"          , "click" , "stone_renderViews();");
 stone_init();
 
-/************************/
-/** End Stone Tabgroup **/
-/************************/
-
-/**********************************/
-/*** STONE ASSOCIATED MATERIALS ***/
-/**********************************/
+/******************************************************************************/
+/**                        STONE ASSOCIATED MATERIALS                        **/
+/******************************************************************************/
 String stoneAssoc_insituTabgroup = "stoneAssociatedInsituMaterials";
 String stoneAssoc_insituArchentType = "Stone Associated Insitu";
 String stoneAssoc_insituRelTypeName = "Stone And Associated Insitu Materials";
@@ -2505,13 +2502,9 @@ onEvent(stoneAssoc_insituTabgroup   + "/nearbyMaterial/assocInsituMaterial"   , 
 onEvent(stoneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial"  , "click", "stoneAssoc_renderTabs();");
 stoneAssoc_init();
 
-/*********************************************/
-/** End Stone Associated Materials Tabgroup **/
-/*********************************************/
-
-/************************/
-/*** OLD BONE FEATURE ***/
-/************************/
+/******************************************************************************/
+/**                             OLD BONE FEATURE                             **/
+/******************************************************************************/
 String oldbone_tabgroup = "oldBone";
 String oldbone_archentType = "Old Bone";
 String oldbone_desc = oldbone_archentType + " record";
@@ -2648,13 +2641,9 @@ onEvent(oldbone_tabgroup + "/associatedMaterials/associatedInsituList",   "click
 onEvent(oldbone_tabgroup + "/associatedMaterials/associatedSurfaceList",  "click", "oldboneAssoc_isInsituMaterial=false; oldboneAssoc_load();");
 oldbone_init();
 
-/***************************/
-/** End Old Bone Tabgroup **/
-/***************************/
-
-/************************************/
-/*** OLDBONE ASSOCIATED MATERIALS ***/
-/************************************/
+/******************************************************************************/
+/**                       OLDBONE ASSOCIATED MATERIALS                       **/
+/******************************************************************************/
 String oldboneAssoc_insituTabgroup = "oldboneAssociatedInsituMaterials";
 String oldboneAssoc_insituArchentType = "Old Bone Associated Insitu Materials";
 String oldboneAssoc_insituRelTypeName = "Old Bone And Associated Insitu Materials";
@@ -3051,8 +3040,3 @@ onEvent(oldboneAssoc_insituTabgroup   + "/associatedStoneArtefacts/assocStone", 
 onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial",   "click", "oldboneAssoc_renderTabsAndViews();");
 onEvent(oldboneAssoc_surfaceTabgroup  + "/associatedStoneArtefacts/assocStone",   "click", "oldboneAssoc_renderViews();");
 oldboneAssoc_init();
-
-/***********************************************/
-/** End Old Bone Associate Materials Tabgroup **/
-/***********************************************/
-
