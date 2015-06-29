@@ -686,6 +686,7 @@ String isolated_id = null;
 List isolated_occurrenceTypeVocabulary = new ArrayList();
 Boolean isolated_removeOrganicMaterial = true;
 Boolean isolated_removeStoneMaterial = true;
+Boolean isolated_removeStoneRawMaterialType = true;
 
 /** Saves the feature **/
 isolated_save() {
@@ -748,6 +749,7 @@ isolated_checkOccurrenceType() {
   if (isNull(selectedItem)) {
     isolated_removeOrganicMaterial = true;
     isolated_removeStoneMaterial = true;
+    isolated_removeStoneRawMaterialType = true;
     isolated_removeDynamicViews();
     return;
   }
@@ -773,6 +775,11 @@ isolated_checkOccurrenceType() {
       } else {
         isolated_removeStoneMaterial = true;
       }
+      if (selectedName.equals("{notch}") || selectedName.equals("{scraper}") || selectedName.equals("{backed}") || selectedName.equals("{unifpt}") || selectedName.equals("{bifac}") || selectedName.equals("{otherru}") || selectedName.equals("{debris}") || selectedName.equals("{core}") || selectedName.equals("{hammer}") || selectedName.equals("{mport}") || selectedName.equals("{groundst}") || selectedName.equals("{indet}")) {
+        isolated_removeStoneRawMaterialType = false;
+      } else {
+        isolated_removeStoneRawMaterialType = true;
+      }
     }
   }
   // update dynamic views
@@ -792,6 +799,11 @@ isolated_displayDynamicViews() {
       makeDynamicVocab("CheckBoxGroup", isolated_tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "{isolatedOccurrencesUI_modificationtoStoneMaterial}", null, isolated_tabgroup+"/basicIdentification/modificationtoStoneMaterial", "Isolated_-_Modification_to_Stone_Material", "vocab");
     }
   }
+  if (!isolated_removeStoneRawMaterialType) {
+      if (!hasView(isolated_tabgroup+"/basicIdentification/stoneRawMaterialType")) {
+        makeDynamicVocab("DropDown", isolated_tabgroup+"/basicIdentification/stoneRawMaterialType", "Isolated_-_Stone_Raw_Material_Type", "{isolatedOccurrencesUI_stoneRawMaterialType}", null, isolated_tabgroup+"/basicIdentification/stoneRawMaterialType", "Isolated_-_Stone_Raw_Material_Type", "vocab");
+      }
+  }
 }
 
 /** Removes the flagged dynamic views for the tab **/
@@ -806,13 +818,18 @@ isolated_removeDynamicViews() {
       removeView(isolated_tabgroup+"/basicIdentification/modificationtoStoneMaterial");
     }
   }
+  if (isolated_removeStoneRawMaterialType) {
+    if (hasView(isolated_tabgroup+"/basicIdentification/stoneRawMaterialType")) {
+      removeView(isolated_tabgroup+"/basicIdentification/stoneRawMaterialType");
+    }
+  }
 }
 
 /** Initialises the tabgroup vocabularies. **/
 isolated_init() {
   makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
   makeVocab("HierarchicalDropDown" , isolated_tabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
-  makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
+  //makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
   makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
   makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
   makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");

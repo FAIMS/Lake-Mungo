@@ -988,13 +988,9 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="stoneRawMaterialType" faims_attribute_name="Isolated_-_Stone_Raw_Material_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <group ref="stoneRawMaterialType">
           <label>{isolatedOccurrencesUI_stoneRawMaterialType}</label>
-          <item>
-            <label>placeholder</label>
-            <value>placeholder</value>
-          </item>
-        </select1>
+        </group>
         <group ref="modificationtoOrganicMaterial">
           <label>{isolatedOccurrencesUI_modificationtoOrganicMaterial}</label>
         </group>
