@@ -4069,7 +4069,7 @@ stone</description>
       <description>Select those types of modification that are common on the visible bone:</description>
       <lookup>
         <term> {good}
-          <description>Good preservation</description>
+          <description>Select those types of modification that are common on the visible bone</description>
         </term>
         <term> {weathpost}
           <description>Signs of post-exposure weathering and/or breakage</description>
