@@ -9,17 +9,17 @@
   <RelationshipElement name="Stone And Associated Surface Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Stone Artefact Clusters and Stone Associated Surface</description>
   </RelationshipElement>
-  <RelationshipElement name="Old Bone And Associated Insitu Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Insitu Materials</description>
+  <RelationshipElement name="Bone And Associated Insitu Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Bone and Bone Associated Insitu Materials</description>
   </RelationshipElement>
-  <RelationshipElement name="Old Bone And Associated Surface Materials" type="bidirectional">
-    <description>Implements a 1:N relationship between Old Bone and Old Bone Associated Surface Materials</description>
+  <RelationshipElement name="Bone And Associated Surface Materials" type="bidirectional">
+    <description>Implements a 1:N relationship between Bone and Bone Associated Surface Materials</description>
   </RelationshipElement>
   <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
   </RelationshipElement>
   
-  <ArchaeologicalElement name="Old Bone Associated Insitu Materials">
+  <ArchaeologicalElement name="Bone Associated Insitu Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_in_situ_material" type="enum" isIdentifier="true">
       <description>Select those of the following that have been observed in situ</description>
@@ -415,7 +415,7 @@
       </lookup>
     </property>
   </ArchaeologicalElement>
-  <ArchaeologicalElement name="Old Bone Associated Surface Materials">
+  <ArchaeologicalElement name="Bone Associated Surface Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_surface_material" type="enum" isIdentifier="true">
       <description>Select those of the following that have been observed on the surface</description>
@@ -3910,7 +3910,7 @@ stone</description>
       </lookup>
     </property>
   </ArchaeologicalElement>
-  <ArchaeologicalElement name="Old Bone">
+  <ArchaeologicalElement name="Bone">
     <description/>
     <property name="OldBone_-_Grid_Square" type="measure" isIdentifier="true">
       <description>Letter code as marked in south-west corner of square</description>
@@ -3918,7 +3918,7 @@ stone</description>
     </property>
     <property name="OldBone_-_ID_Number" type="measure" isIdentifier="true">
       <description>Feature identification code as marked on tag</description>
-      <formatString><![CDATA[Old Bone $2]]></formatString>
+      <formatString><![CDATA[Bone $2]]></formatString>
     </property>  
     <property name="OldBone_-_Cluster_Type" type="enum">
       <description/>
