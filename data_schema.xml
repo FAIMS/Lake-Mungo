@@ -891,22 +891,22 @@
       </lookup>
     </property>
     <property name="Hearth_-_Proportion_of_material_that_remains_in_situ" type="enum">
-      <description>Select the proportion of visible shell material that remains in situ</description>
+      <description>Select the proportion of visible hearth material that remains in situ</description>
       <lookup>
         <term pictureURL="files/data/images/missing.png"> {most}
-          <description>The majority of the visible shell material is in situ</description>
+          <description>The majority of the visible hearth material is in situ</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {some}
-          <description>At least some of the shell is in situ</description>
+          <description>At least some of the hearth is in situ</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {surface}
-          <description>No shell material is embedded in sediment</description>
+          <description>No hearth material is embedded in sediment</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {recement}
-          <description>The shell material appears to be in situ, but there is a high likelihood that it is actually cemented in redeposited sediment</description>
+          <description>The hearth material appears to be in situ, but there is a high likelihood that it is actually cemented in redeposited sediment</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {ambiguous}
-          <description>The shell material appears to be in situ, but it is impossible to say whether it is actually recemented</description>
+          <description>The hearth material appears to be in situ, but it is impossible to say whether it is actually recemented</description>
         </term>
         <term pictureURL="files/data/images/missing.png"> {other} <description/> </term>
       </lookup>
