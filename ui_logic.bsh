@@ -767,7 +767,7 @@ isolated_checkOccurrenceType() {
        || selectedName.equals("{debris}")   || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
        || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
        || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
-       || selectedName.equals("{ochre}")    || selectedName.equals("{otehrru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
+       || selectedName.equals("{ochre}")    || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
        || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")) {
         isolated_removeStoneMaterial = false;
       } else {
