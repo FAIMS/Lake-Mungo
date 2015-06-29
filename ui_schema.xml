@@ -1275,7 +1275,7 @@
         </select>
       </group>
     </group>
-    <group ref="oldBone" faims_archent_type="Old Bone">
+    <group ref="oldBone" faims_archent_type="Bone">
       <label>{oldBoneUI_oldBone}</label>
       <group ref="basicIdentification">
         <label>{oldBoneUI_basicIdentification}</label>
@@ -1405,7 +1405,7 @@
         </trigger>
       </group>
     </group>
-    <group ref="oldboneAssociatedInsituMaterials" faims_archent_type="Old Bone Associated Insitu Materials">
+    <group ref="oldboneAssociatedInsituMaterials" faims_archent_type="Bone Associated Insitu Materials">
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
@@ -1492,7 +1492,7 @@
         </select>
       </group>
     </group>
-    <group ref="oldboneAssociatedSurfaceMaterials" faims_archent_type="Old Bone Associated Surface Materials">
+    <group ref="oldboneAssociatedSurfaceMaterials" faims_archent_type="Bone Associated Surface Materials">
       <label>{oldBoneUI_oldboneAssociatedMaterials}</label>
       <group ref="nearbyMaterial">
         <label>{oldBoneUI_nearbyMaterial}</label>
