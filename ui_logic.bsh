@@ -356,7 +356,7 @@ addActionBarItem("external_gps", new ToggleActionButtonCallback() {
 startInternalGPS();
 // List of feature entities for recording.
 entityTypes = new ArrayList();
-entityTypes.add(new NameValuePair("{oldBone}", "Old Bone"));
+entityTypes.add(new NameValuePair("{oldBone}", "Bone"));
 entityTypes.add(new NameValuePair("{hearth}", "Hearth"));
 entityTypes.add(new NameValuePair("{midden}", "Midden"));
 entityTypes.add(new NameValuePair("{stone}", "Stone Artefact Clusters"));
@@ -374,7 +374,7 @@ loadSearch() {
 /** Creates a record for the selected feature type. **/
 newFeature() {
   String type = getFieldValue("control/control/entityTypes");
-  if (type.equals("Old Bone")) {
+  if (type.equals("Bone")) {
     oldbone_create();
   } else if (type.equals("Hearth")) {
     hearth_create();
@@ -400,7 +400,7 @@ loadFeature() {
     fetchAll("select aenttypename from latestnondeletedarchent join aenttype using (aenttypeid) where uuid = '" + listID + "';", new FetchCallback() {
       onFetch(result) {
         Log.d("loadFeature()", "Loading entity id: " + entityID);
-        if (result.get(0).get(0).equals("Old Bone")) {
+        if (result.get(0).get(0).equals("Bone")) {
           oldbone_id = listID;
           oldbone_load();
         } else if (result.get(0).get(0).equals("Hearth")) {
@@ -2506,11 +2506,11 @@ stoneAssoc_init();
 /**                             OLD BONE FEATURE                             **/
 /******************************************************************************/
 String oldbone_tabgroup = "oldBone";
-String oldbone_archentType = "Old Bone";
+String oldbone_archentType = "Bone";
 String oldbone_desc = oldbone_archentType + " record";
 String oldbone_id = null;
-String oldbone_insituRelTypeName = "Old Bone And Associated Insitu Materials";
-String oldbone_surfaceRelTypeName = "Old Bone And Associated Surface Materials";
+String oldbone_insituRelTypeName = "Bone And Associated Insitu Materials";
+String oldbone_surfaceRelTypeName = "Bone And Associated Surface Materials";
 String oldbone_assocInsituTabgroup = "oldboneAssociatedInsituMaterials";
 String oldbone_assocSurfaceTabgroup = "oldboneAssociatedSurfaceMaterials";
 List oldbone_clusterTypeVocabulary = new ArrayList();
@@ -2645,11 +2645,11 @@ oldbone_init();
 /**                       OLDBONE ASSOCIATED MATERIALS                       **/
 /******************************************************************************/
 String oldboneAssoc_insituTabgroup = "oldboneAssociatedInsituMaterials";
-String oldboneAssoc_insituArchentType = "Old Bone Associated Insitu Materials";
-String oldboneAssoc_insituRelTypeName = "Old Bone And Associated Insitu Materials";
+String oldboneAssoc_insituArchentType = "Bone Associated Insitu Materials";
+String oldboneAssoc_insituRelTypeName = "Bone And Associated Insitu Materials";
 String oldboneAssoc_surfaceTabgroup = "oldboneAssociatedSurfaceMaterials";
-String oldboneAssoc_surfaceArchentType = "Old Bone Associated Surface Materials";
-String oldboneAssoc_surfaceRelTypeName = "Old Bone And Associated Surface Materials";
+String oldboneAssoc_surfaceArchentType = "Bone Associated Surface Materials";
+String oldboneAssoc_surfaceRelTypeName = "Bone And Associated Surface Materials";
 String oldboneAssoc_id = null;
 Boolean oldboneAssoc_loading = false;
 Boolean oldboneAssoc_isInsituMaterial = true;
