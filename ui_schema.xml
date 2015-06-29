@@ -1047,20 +1047,20 @@
         </trigger>
       </group>
     </group>
-    <group ref="midden" faims_archent_type="Midden">
+    <group ref="midden" faims_archent_type="Shell">
       <label>{middenUI_midden}</label>
       <group ref="basicIdentification">
         <label>{middenUI_basicIdentification}</label>
-        <input ref="idNumber" faims_attribute_name="Midden_-_ID_Number" faims_attribute_type="measure">
+        <input ref="idNumber" faims_attribute_name="Shell_-_ID_Number" faims_attribute_type="measure">
           <label>{middenUI_idNumber}</label>
         </input>
-        <input ref="gridSquare" faims_attribute_name="Midden_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
+        <input ref="gridSquare" faims_attribute_name="Shell_-_Grid_Square" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_gridSquare}</label>
         </input>
         <trigger ref="calculateGridSquare">
           <label>{middenUI_calculateGridSquare}</label>
         </trigger>
-        <select1 ref="middenType" faims_attribute_name="Midden_-_Midden_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 ref="middenType" faims_attribute_name="Shell_-_Shell_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_middenType}</label>
           <item>
             <label>placeholder</label>
@@ -1073,28 +1073,28 @@
       </group>
       <group ref="middenDescription">
         <label>{middenUI_middenDescription}</label>
-        <select1 ref="presenceOfCharcoal" faims_attribute_name="Midden_-_Presence_of_charcoal" faims_attribute_type="vocab">
+        <select1 ref="presenceOfCharcoal" faims_attribute_name="Shell_-_Presence_of_charcoal" faims_attribute_type="vocab">
           <label>{middenUI_presenceOfCharcoal}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="proportionOfMaterialThatRemainsInSitu" faims_attribute_name="Midden_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab">
+        <select1 ref="proportionOfMaterialThatRemainsInSitu" faims_attribute_name="Shell_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab">
           <label>{middenUI_proportionOfMaterialThatRemainsInSitu}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="bivalvePreservation" faims_attribute_name="Midden_-_Bivalve_preservation" faims_attribute_type="vocab">
+        <select1 ref="bivalvePreservation" faims_attribute_name="Shell_-_Bivalve_preservation" faims_attribute_type="vocab">
           <label>{middenUI_bivalvePreservation}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 ref="bivalveDispersal" faims_attribute_name="Midden_-_Bivalve_dispersal" faims_attribute_type="vocab">
+        <select1 ref="bivalveDispersal" faims_attribute_name="Shell_-_Bivalve_dispersal" faims_attribute_type="vocab">
           <label>{middenUI_bivalveDispersal}</label>
           <item>
             <label>placeholder</label>
@@ -1117,45 +1117,45 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{middenUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Midden_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Shell_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Midden_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Shell_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Midden_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Shell_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Midden_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Shell_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Midden_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Shell_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Midden_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Shell_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_notes}</label>
         </input>
-        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Midden_-_Photos" faims_attribute_type="measure">
+        <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Shell_-_Photos" faims_attribute_type="measure">
           <label>{middenUI_photos}</label>
           <item>
             <label>placeholder</label>
@@ -1167,11 +1167,11 @@
         </trigger>
       </group>
     </group>
-    <group ref="middenAssociatedMaterials" faims_archent_type="Midden Associated Materials">
+    <group ref="middenAssociatedMaterials" faims_archent_type="Shell Associated Materials">
       <label>{middenAssociatedMaterialsUI_middenAssociatedMaterials}</label>
       <group ref="control">
         <label>{middenAssociatedMaterialsUI_control}</label>
-        <select ref="assocMaterial" faims_attribute_name="MiddenAssoc_-_Associated_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocMaterial" faims_attribute_name="ShellAssoc_-_Associated_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
           <item>
             <label>placeholder</label>
@@ -1181,14 +1181,14 @@
       </group>
       <group ref="associatedLacustrineMaterial">
         <label>{middenAssociatedMaterialsUI_associatedLacustrineMaterial}</label>
-        <select ref="assocLacust" faims_attribute_name="MiddenAssoc_-_Associated_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocLacust" faims_attribute_name="ShellAssoc_-_Associated_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocLacust}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="MiddenAssoc_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="ShellAssoc_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntLacust}</label>
           <item>
             <label>placeholder</label>
@@ -1198,14 +1198,14 @@
       </group>
       <group ref="associatedTerrestrialBone">
         <label>{middenAssociatedMaterialsUI_associatedTerrestrialBone}</label>
-        <select ref="assocTerrestrial" faims_attribute_name="MiddenAssoc_-_Associated_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocTerrestrial" faims_attribute_name="ShellAssoc_-_Associated_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocTerrestrial}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="assocBurntTerrestrial" appearance="full" faims_attribute_name="MiddenAssoc_-_Burnt_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select1 ref="assocBurntTerrestrial" appearance="full" faims_attribute_name="ShellAssoc_-_Burnt_terrestrial_bone" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntTerrestrial}</label>
           <item>
             <label>placeholder</label>
@@ -1215,14 +1215,14 @@
       </group>
       <group ref="associatedEggshell">
         <label>{middenAssociatedMaterialsUI_associatedEggshell}</label>
-        <select ref="assocEggshell" faims_attribute_name="MiddenAssoc_-_Associated_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocEggshell" faims_attribute_name="ShellAssoc_-_Associated_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocEggshell}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="MiddenAssoc_-_Burnt_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="ShellAssoc_-_Burnt_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocBurntEggshell}</label>
           <item>
             <label>placeholder</label>
@@ -1232,7 +1232,7 @@
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{middenAssociatedMaterialsUI_associatedStoneArtefacts}</label>
-        <select ref="assocStone" faims_attribute_name="MiddenAssoc_-_Associated_stone_artefacts" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocStone" faims_attribute_name="ShellAssoc_-_Associated_stone_artefacts" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocStone}</label>
           <item>
             <label>placeholder</label>
@@ -1266,7 +1266,7 @@
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{middenAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
-        <select ref="assocOtherwork" faims_attribute_name="MiddenAssoc_-_Associated_other_worked_(or_transported)_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select ref="assocOtherwork" faims_attribute_name="ShellAssoc_-_Associated_other_worked_(or_transported)_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocOtherwork}</label>
           <item>
             <label>placeholder</label>
