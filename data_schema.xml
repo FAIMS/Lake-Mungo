@@ -22,7 +22,7 @@
   <ArchaeologicalElement name="Old Bone Associated Insitu Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_in_situ_material" type="enum" isIdentifier="true">
-      <description>If material other than old bone is associated, select those of the following that have been observed in situ</description>
+      <description>Select those of the following that have been observed in situ</description>
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
@@ -76,7 +76,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Hearth_Material" type="enum">
-      <description>If hearthstone material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {hsclay}
           <description></description>
@@ -105,7 +105,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Eggshell" type="enum">
-      <description>If eggshell is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {emu}
           <description>shell with3-layered structure &amp; orange peel texture; texture only removed if weathering reduces shell thickness to &lt; 0.8mm</description>
@@ -136,7 +136,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Stone_Artefacts" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -160,7 +160,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Chipped_Stone_Artefacts" type="enum">
-      <description>If chipped stone is present, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact</description>
@@ -219,7 +219,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Unmodified_Stone" type="enum">
-      <description>If unmodified stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {nodule}
           <description>A large, nodular or rounded cobble (&gt;64 mm)</description>
@@ -249,7 +249,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Types_Present" type="enum">
-      <description>If ground stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -279,7 +279,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Status" type="enum">
-      <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
+      <description>Is the ground material...:</description>
       <lookup>
         <term> {whole}
           <description/>
@@ -293,7 +293,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains less than 0.25 mm</description>
@@ -325,7 +325,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Unmodified_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains less than 0.25 mm</description>
@@ -360,7 +360,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcrete}
           <description>Scattered quartz grains in a dense matrix</description>
@@ -383,7 +383,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Other_Artefacts" type="enum">
-      <description>If other worked or transported material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {bonemod}
           <description>Bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
@@ -418,7 +418,7 @@
   <ArchaeologicalElement name="Old Bone Associated Surface Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_surface_material" type="enum" isIdentifier="true">
-      <description>If material other than old bone is associated, select those of the following that have been observed on the surface</description>
+      <description>Select those of the following that have been observed on the surface</description>
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
@@ -472,7 +472,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Hearth_Material" type="enum">
-      <description>If hearthstone material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {hsclay}
           <description></description>
@@ -504,7 +504,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Eggshell" type="enum">
-      <description>If eggshell is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {emu}
           <description>shell with3-layered structure &amp; orange peel texture; texture only removed if weathering reduces shell thickness to &lt; 0.8mm</description>
@@ -535,7 +535,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Stone_Artefacts" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -559,7 +559,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Chipped_Stone_Artefacts" type="enum">
-      <description>If chipped stone is present, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact</description>
@@ -618,7 +618,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Unmodified_Stone" type="enum">
-      <description>If unmodified stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {nodule}
           <description>A large, nodular or rounded cobble (&gt;64 mm)</description>
@@ -648,7 +648,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Types_Present" type="enum">
-      <description>If ground stone is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -678,7 +678,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Status" type="enum">
-      <description>If ground stone is associated, either in situ or on the surface, is the ground material...:</description>
+      <description>Is the ground material...:</description>
       <lookup>
         <term> {whole}
           <description/>
@@ -692,7 +692,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains less than 0.25 mm</description>
@@ -724,7 +724,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Unmodified_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains less than 0.25 mm</description>
@@ -759,7 +759,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Ground_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcrete}
           <description>Scattered quartz grains in a dense matrix</description>
@@ -782,7 +782,7 @@
       </lookup>
     </property>
     <property name="OldBone_-_Associated_Other_Artefacts" type="enum">
-      <description>If other worked or transported material is associated, either in situ or on the surface, select those of the following that have been observed:</description>
+      <description>Select those of the following that have been observed:</description>
       <lookup>
         <term> {bonemod}
           <description>bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
@@ -1237,7 +1237,7 @@
       </lookup>
     </property>
     <property name="Midden_-_Continuity" type="enum">
-      <description>If the midden is extensive or large, does it form a continuous blanket or is it patchy?</description>
+      <description>Does it form a continuous blanket or is it patchy?</description>
       <lookup>
         <term> {continuous}
           <description>A large or extensive cluster of mussel shells that forms a continuous deposit</description>
@@ -1559,7 +1559,7 @@
   </ArchaeologicalElement>
 
   <ArchaeologicalElement name="Hearth Associated Materials">
-    <description>If material other than shell is associated, select those of the following that have been observed</description>
+    <description>Select those of the following that have been observed</description>
     <property name="HearthAssoc_-_Associated_material" type="enum" isIdentifier="true">
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
@@ -1600,7 +1600,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_lacustrine_material" type="enum">
-      <description>If lacustrine material other than mussel is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {fishbone}
           <description>Fish bone</description>
@@ -1618,7 +1618,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Burnt_lacustrine_material" type="enum">
-      <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description>Calcined or charred material present</description>
@@ -1632,7 +1632,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_terrestrial_bone" type="enum">
-      <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
+      <description>Select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
           <description/>
@@ -1655,7 +1655,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Burnt_terrestrial_bone" type="enum">
-      <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description>Calcined or charred material present</description>
@@ -1669,7 +1669,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_eggshell" type="enum">
-      <description>If eggshell is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {emu}
           <description>Emu eggshell</description>
@@ -1686,7 +1686,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Burnt_eggshell" type="enum">
-      <description>If eggshell is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description>Calcined or charred material present</description>
@@ -1700,7 +1700,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_stone_artefacts" type="enum">
-      <description>If stone artefacts are present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -1715,7 +1715,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_chipped_stone_artefacts" type="enum">
-      <description>If chipped stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact</description>
@@ -1736,7 +1736,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_retouched_artefacts" type="enum">
-      <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {notch}
           <description>Retouch that creates one or more concavities along the margin of the tool</description>
@@ -1760,7 +1760,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_unmodified_stone" type="enum">
-      <description>If unmodified stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -1775,7 +1775,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Ground_stone_types_present" type="enum">
-      <description>If ground stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -1819,42 +1819,8 @@
         <term> {other} <description/> </term>
       </lookup>
     </property>
-    <!-- Replaced by:
-           HearthAssoc_-_Chipped_Stone_Raw_Material (NEW)
-           HearthAssoc_-_Unmodified_Raw_Material    (NEW)
-    -->
-    <!--<property name="HearthAssoc_-_Raw_material_types_present" type="enum">-->
-      <!--<description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>-->
-      <!--<lookup>-->
-        <!--<term> {silcfine}-->
-          <!--<description>Quartz grains in the matrix are &lt; 0.25 mm</description>-->
-        <!--</term>-->
-        <!--<term> {silcmed}-->
-          <!--<description>Quartz grains in the matrix are 0.25 – 0.5 mm</description>-->
-        <!--</term>-->
-        <!--<term> {silccoarse}-->
-          <!--<description>Quartz grains in the matrix are &gt; 0.5mm</description>-->
-        <!--</term>-->
-        <!--<term> {silcmicroxtal}-->
-          <!--<description>Naked eye cannot identify grains in the matrix</description>-->
-        <!--</term>-->
-        <!--<term> {qtzite}-->
-          <!--<description>Sugary texture, variable grain size and colour</description>-->
-        <!--</term>-->
-        <!--<term> {qtz}-->
-          <!--<description>A clear, white, milky white or rose coloured mineral</description>-->
-        <!--</term>-->
-        <!--<term> {other}-->
-          <!--<description>If material can be identified, enter into notes</description>-->
-        <!--</term>-->
-        <!--<term> {indet}-->
-          <!--<description>Material could not be identified</description>-->
-        <!--</term>-->
-      <!--</lookup>-->
-    <!--</property>-->
-    <!-- NEW -->
     <property name="HearthAssoc_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <description>Select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -1882,9 +1848,8 @@
         </term>
       </lookup>
     </property>
-    <!-- NEW -->
     <property name="HearthAssoc_-_Unmodified_Raw_Material" type="enum">
-      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <description>Select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -1912,7 +1877,6 @@
         </term>
       </lookup>
     </property>
-    <!-- NEW -->
     <property name="HearthAssoc_-_Ground_stone_raw_material" type="enum">
       <lookup>
         <term> {sandst}
@@ -1933,7 +1897,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
-      <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {bonemod}
           <description>Bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
@@ -3001,12 +2965,11 @@ stone</description>
         <term> {other} <description/> </term>
       </lookup>
     </property>
-    <!-- NEW -->
     <property name="Stone_-_In_Situ_-_Potential_Refits" type="measure">
-      <description>If ‘surf’ or ‘surfrefit’ was selected from Cluster type, list the number of refits for each raw material, or the number of artefacts likely to have been struck from the same core</description>
+      <description>List the number of refits for each raw material, or the number of artefacts likely to have been struck from the same core.</description>
     </property>
     <property name="Stone_-_In_Situ_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3035,7 +2998,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_In_Situ_-_Unmodified_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3063,9 +3026,8 @@ stone</description>
         </term>
       </lookup>
     </property>
-    <!-- NEW -->
     <property name="Stone_-_In_Situ_-_Unmodified_Raw_Materials" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains &lt; 0.25 mm</description>
@@ -3094,7 +3056,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Potential_Refits" type="measure">
-      <description>If ‘surfrefit’ was selected from Cluster type, indicate the number of artefact present that may have been derived from the same piece of stone</description>
+      <description>Indicate the number of artefact present that may have been derived from the same piece of stone</description>
     </property>
     <property name="Stone_-_Surface_-_Stone_Artefacts" type="enum">
       <description/>
@@ -3238,7 +3200,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3267,7 +3229,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Unmodified_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3296,7 +3258,7 @@ stone</description>
       </lookup>
     </property>
     <property name="Stone_-_Surface_-_Ground_Stone_Raw_Material" type="enum">
-      <description>If stone artefacts are associated, either in situ or on the surface, select those types of raw material that have been observed:</description>
+      <description>Select those types of raw material that have been observed:</description>
       <lookup>
         <term> {sandst}
           <description>A clastic sedimentary rock made up of sand-sized minerals or grains</description>
@@ -3573,7 +3535,7 @@ stone</description>
   <ArchaeologicalElement name="Midden Associated Materials">
     <description/>
     <property name="MiddenAssoc_-_Associated_material" type="enum" isIdentifier="true">
-      <description>If material other than shell is associated, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
@@ -3610,7 +3572,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_lacustrine_material" type="enum">
-      <description>If lacustrine material other than mussel is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {fishbone}
           <description>Fish bone</description>
@@ -3628,7 +3590,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Burnt_lacustrine_material" type="enum">
-      <description>If lacustrine material other than mussel is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description>Calcined or charred material present</description>
@@ -3642,7 +3604,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_terrestrial_bone" type="enum">
-      <description>If terrestrial bone is present in the midden, select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
+      <description>Select those of the following that have been identified (see Old Bone Reference Manual for more illustrations)</description>
       <lookup>
         <term> {mammal}
           <description/>
@@ -3665,7 +3627,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Burnt_terrestrial_bone" type="enum">
-      <description>If terrestrial bone is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description>Calcined or charred material present</description>
@@ -3679,7 +3641,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_eggshell" type="enum">
-      <description>If eggshell is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {emu}
           <description>Emu eggshell</description>
@@ -3696,7 +3658,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Burnt_eggshell" type="enum">
-      <description>If eggshell is present in the midden, is any of it burnt?</description>
+      <description>Is any of it burnt?</description>
       <lookup>
         <term> {Yes}
           <description/>
@@ -3707,7 +3669,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_stone_artefacts" type="enum">
-      <description>If stone artefacts are present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {cs}
           <description>Chipped stone</description>
@@ -3722,7 +3684,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_chipped_stone_artefacts" type="enum">
-      <description>If chipped stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {ru}
           <description>Retouched/utilised artefact</description>
@@ -3743,7 +3705,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_retouched_artefacts" type="enum">
-      <description>If retouched or utilised chipped stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {notch}
           <description>Retouch that creates one or more concavities along the margin of the tool</description>
@@ -3767,7 +3729,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_unmodified_stone" type="enum">
-      <description>If unmodified stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {nodule}
           <description>Nodular or rounded cobble</description>
@@ -3782,7 +3744,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Ground_stone_types_present" type="enum">
-      <description>If ground stone is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {millstone}
           <description>Large, concave to flattish ground surface</description>
@@ -3839,42 +3801,8 @@ stone</description>
         </term>
       </lookup>
     </property>
-    <!-- Replaced by:
-           MiddenAssoc_-_Chipped_Stone_Raw_Material (NEW)
-           MiddenAssoc_-_Unmodified_Raw_Material    (NEW)
-    -->
-    <!--<property name="MiddenAssoc_-_Raw_material_types_present" type="enum">-->
-      <!--<description>If stone artefacts are present in the midden, select those types of raw material that have been observed</description>-->
-      <!--<lookup>-->
-        <!--<term> {silcfine}-->
-          <!--<description>Fine-grained silcrete</description>-->
-        <!--</term>-->
-        <!--<term> {silccoarse}-->
-          <!--<description>Coarse-grained silcrete</description>-->
-        <!--</term>-->
-        <!--<term> {silcgran}-->
-          <!--<description>Granular silcrete</description>-->
-        <!--</term>-->
-        <!--<term> {qtzite}-->
-          <!--<description>Quartzite</description>-->
-        <!--</term>-->
-        <!--<term> {qtz}-->
-          <!--<description>Quartz</description>-->
-        <!--</term>-->
-        <!--<term> {ironst}-->
-          <!--<description>Ironstone</description>-->
-        <!--</term>-->
-        <!--<term> {sandst}-->
-          <!--<description>Sandstone</description>-->
-        <!--</term>-->
-        <!--<term> {other}-->
-          <!--<description>Other material</description>-->
-        <!--</term>-->
-      <!--</lookup>-->
-    <!--</property>-->
-    <!-- NEW -->
     <property name="MiddenAssoc_-_Chipped_Stone_Raw_Material" type="enum">
-      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <description>Select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3902,9 +3830,8 @@ stone</description>
         </term>
       </lookup>
     </property>
-    <!-- NEW -->
     <property name="MiddenAssoc_-_Unmodified_Raw_Material" type="enum">
-      <description>If chipped stone artefacts are present, select those types of raw material that have been observed</description>
+      <description>Select those types of raw material that have been observed</description>
       <lookup>
         <term> {silcfine}
           <description>Quartz grains in the matrix are &lt; 0.25 mm</description>
@@ -3951,7 +3878,7 @@ stone</description>
       </lookup>
     </property>
     <property name="MiddenAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
-      <description>If other worked or transported material is present in the midden, select those of the following that have been observed</description>
+      <description>Select those of the following that have been observed</description>
       <lookup>
         <term> {bonemod}
           <description>Bone with ground or polished surface(s), may be bevelled or pointed at one or both ends</description>
