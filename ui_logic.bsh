@@ -2027,8 +2027,10 @@ stone_checkSelections() {
       List chippedStone = getFieldValue(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts");
       for (selectedItem : chippedStone) {
         for (type : stone_insituChippedStoneVocabulary) {
-          if (type.get(1).equals("{ru}")) {
-            stone_removeInsituRetouchedArtefacts = false;
+          if (selectedItem.getName().equals(type.get(0))) {
+            if (type.get(1).equals("{ru}")) {
+              stone_removeInsituRetouchedArtefacts = false;
+            }
           }
         }
       }
@@ -2057,8 +2059,10 @@ stone_checkSelections() {
       List chippedStone = getFieldValue(stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts");
       for (selectedItem : chippedStone) {
         for (type : stone_surfaceChippedStoneVocabulary) {
-          if (type.get(1).equals("{ru}")) {
-            stone_removeSurfaceRetouchedArtefacts = false;
+          if (selectedItem.getName().equals(type.get(0))) {
+            if (type.get(1).equals("{ru}")) {
+              stone_removeSurfaceRetouchedArtefacts = false;
+            }
           }
         }
       }
