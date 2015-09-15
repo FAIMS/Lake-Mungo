@@ -93,8 +93,8 @@
             <associatedStoneArtefacts>
               <assocStone/>
               <assocChippedStone/>
-              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocRetouchedStone/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocUnmodifiedStone/>
               <assocUnmodifiedRawMaterial/>   <!-- NEW -->
               <assocGroundStoneType/>
@@ -265,8 +265,8 @@
             <associatedStoneArtefacts>
               <assocStone/>
               <assocChippedStone/>
-              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocRetouchedStone/>
+              <assocChippedRawMaterial/>      <!-- NEW -->
               <assocUnmodifiedStone/>
               <assocUnmodifiedRawMaterial/>   <!-- NEW -->
               <assocGroundStoneType/>
@@ -618,11 +618,11 @@
         <group ref="assocChippedStone">
           <label>{hearthAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
-        <group ref="assocChippedRawMaterial">
-          <label>{hearthAssociatedMaterialsUI_assocChippedRawMaterial}</label>
-        </group>
         <group ref="assocRetouchedStone">
           <label>{hearthAssociatedMaterialsUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{hearthAssociatedMaterialsUI_assocChippedRawMaterial}</label>
         </group>
         <group ref="assocUnmodifiedStone">
           <label>{hearthAssociatedMaterialsUI_assocUnmodifiedStone}</label>
@@ -1238,11 +1238,11 @@
         <group ref="assocChippedStone">
           <label>{middenAssociatedMaterialsUI_assocChippedStone}</label>
         </group>
-        <group ref="assocChippedRawMaterial">
-          <label>{middenAssociatedMaterialsUI_assocChippedRawMaterial}</label>
-        </group>
         <group ref="assocRetouchedStone">
           <label>{middenAssociatedMaterialsUI_assocRetouchedStone}</label>
+        </group>
+        <group ref="assocChippedRawMaterial">
+          <label>{middenAssociatedMaterialsUI_assocChippedRawMaterial}</label>
         </group>
         <group ref="assocUnmodifiedStone">
           <label>{middenAssociatedMaterialsUI_assocUnmodifiedStone}</label>
