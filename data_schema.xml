@@ -10098,17 +10098,6 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{staining}<description><![CDATA[
-<div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/320_staining_burnt%20bone.jpg" alt="files/data/gallery/320_staining_burnt%20bone.jpg" />
-    </div>
-    <div>
-        <p>in situ sediment exhibits organic staining with or without charcoal (do not select if associated hearth material is only surface)</p>
-    </div>
-    <hr/>
-</div>
-]]></description></term>
         <term>{other}</term>
       </lookup>
     </property>
