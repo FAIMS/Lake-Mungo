@@ -14923,54 +14923,6 @@
         <term>{unident}</term>
       </lookup>
     </property>
-    <property name="ShellAssoc_-_Unmodified_Stone_Types" type="enum">
-      <description/>
-      <lookup>
-        <term>{nodule}<description><![CDATA[
-<div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/191_nodule.jpg" alt="files/data/gallery/191_nodule.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/192_nodule.jpg" alt="files/data/gallery/192_nodule.jpg" />
-    </div>
-    <div>
-        <p>A large, nodular or rounded cobble (>64 mm maximum dimension)</p>
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{slab}<description><![CDATA[
-<div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/193_slab.jpg" alt="files/data/gallery/193_slab.jpg" />
-    </div>
-    <div>
-        <p>A thick, flat piece of rock (>64 mm maximum dimension)</p>
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{pebble}<description><![CDATA[
-<div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/194_pebble.jpg" alt="files/data/gallery/194_pebble.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/195_pebble.jpg" alt="files/data/gallery/195_pebble.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/196_pebble.jpg" alt="files/data/gallery/196_pebble.jpg" />
-    </div>
-    <div>
-        <p>Small nodular or rounded piece, < 64 mm maximum dimension, unlikely to be useful for artefact manufacture</p>
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{other}</term>
-      </lookup>
-    </property>
     <property name="ShellAssoc_-_Associated_other_worked_(or_transported)_material" type="enum">
       <description><![CDATA[
 <div>
