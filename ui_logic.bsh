@@ -2694,6 +2694,7 @@ oldboneAssoc_init() {
   makeVocab("RadioGroup"   , oldboneAssoc_insituTabgroup  + "/associatedMussel/burnedMussel",                 "OldBone_-_Burned_Mussel");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_Hearth_Material");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell",              "OldBone_-_Associated_Eggshell");
+  makeVocab("RadioGroup"   , oldboneAssoc_insituTabgroup  + "/associatedEggshell/assocBurntEggshell",         "OldBone_-_Burned_Eggshel");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedStoneArtefacts/assocStone",           "OldBone_-_Associated_Stone_Artefacts");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedOtherWorkedMaterial/assocOtherwork",  "OldBone_-_Associated_Other_Artefacts");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/nearbyMaterial/assocSurfaceMaterial",           "OldBone_-_Associated_surface_material");
@@ -2701,6 +2702,7 @@ oldboneAssoc_init() {
   makeVocab("RadioGroup"   , oldboneAssoc_surfaceTabgroup + "/associatedMussel/burnedMussel",                 "OldBone_-_Burned_Mussel");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_Hearth_Material");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell",              "OldBone_-_Associated_Eggshell");
+  makeVocab("RadioGroup"   , oldboneAssoc_surfaceTabgroup + "/associatedEggshell/assocBurntEggshell",         "OldBone_-_Burned_Eggshel");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedStoneArtefacts/assocStone",           "OldBone_-_Associated_Stone_Artefacts");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedOtherWorkedMaterial/assocOtherwork",  "OldBone_-_Associated_Other_Artefacts");
   fetchVocabulary("OldBone_-_Associated_in_situ_material", oldboneAssoc_insituMaterialVocabulary);

@@ -318,6 +318,7 @@
             </associatedMussel>
             <associatedEggshell>
               <assocEggshell/>
+              <assocBurntEggshell/>
             </associatedEggshell>
             <associatedHearthMaterial>
               <assocHearth/>
@@ -347,6 +348,7 @@
             </associatedMussel>
             <associatedEggshell>
               <assocEggshell/>
+              <assocBurntEggshell/>
             </associatedEggshell>
             <associatedHearthMaterial>
               <assocHearth/>
@@ -1451,6 +1453,13 @@
             <value>placeholder</value>
           </item>
         </select>
+        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="OldBone_-_Burned_Eggshel" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+          <label>{OldBone_-_Burned_Eggshel}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{oldBoneUI_associatedStoneArtefacts}</label>
@@ -1545,6 +1554,13 @@
             <value>placeholder</value>
           </item>
         </select>
+        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="OldBone_-_Burned_Eggshel" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+          <label>{OldBone_-_Burned_Eggshel}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
       </group>
       <group ref="associatedStoneArtefacts">
         <label>{oldBoneUI_associatedStoneArtefacts}</label>
