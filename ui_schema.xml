@@ -116,8 +116,8 @@
               <potentialRefits/>              <!-- NEW -->
               <inSituInSituStoneArtefacts/>
               <inSituChippedStoneArtefacts/>
-              <inSituChippedRawMaterial/>
               <inSituRetouchedArtefacts/>
+              <inSituChippedRawMaterial/>
               <inSituUnmodifiedStoneTypes/>
               <inSituUnmodifiedRawMaterial/>
               <inSituGroundStoneTypes/>
@@ -687,11 +687,11 @@
         <group ref="inSituChippedStoneArtefacts">
           <label>{stoneArtefactClustersUI_inSituChippedStoneArtefacts}</label>
         </group>
-        <group ref="inSituChippedRawMaterial">
-          <label>{stoneArtefactClusterUI_insituChippedRawMaterial}</label>
-        </group>
         <group ref="inSituRetouchedArtefacts">
           <label>{stoneArtefactClustersUI_inSituRetouchedArtefacts}</label>
+        </group>
+        <group ref="inSituChippedRawMaterial">
+          <label>{stoneArtefactClusterUI_insituChippedRawMaterial}</label>
         </group>
         <group ref="inSituUnmodifiedStoneTypes">
           <label>{stoneArtefactClustersUI_inSituUnmodifiedStoneTypes}</label>
