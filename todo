@@ -1,5 +1,5 @@
 DONE  LINE       ETA     NOTES
-      155-157    1 hr    Straightforward addition of field to UI schema, logic
+.     155-157    1 hr    Straightforward addition of field to UI schema, logic
       158        ----    Seems to refer to <description> modification.  The original
                          description (which the client wants replaced) does not seem
                          to be present in the data schema.
@@ -26,4 +26,4 @@ DONE  LINE       ETA     NOTES
                          dynamic UI hell.
 .     1159-1160  1 hr    Deletion of <property>.  Entails removal of stuff from UI
                          logic and schema.
-                 24 hr
+4 hr             24 hr

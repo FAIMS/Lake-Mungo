@@ -314,6 +314,7 @@
             </nearbyMaterial>
             <associatedMussel>
               <bivalvePreservation/>
+              <burnedMussel/>
             </associatedMussel>
             <associatedEggshell>
               <assocEggshell/>
@@ -342,6 +343,7 @@
             </nearbyMaterial>
             <associatedMussel>
               <bivalvePreservation/>
+              <burnedMussel/>
             </associatedMussel>
             <associatedEggshell>
               <assocEggshell/>
@@ -1422,6 +1424,13 @@
             <value>placeholder</value>
           </item>
         </select1>
+        <select1 ref="burnedMussel" appearance="full" faims_attribute_name="OldBone_-_Burned_Mussel" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{OldBone_-_Burned_Mussel}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
@@ -1504,6 +1513,13 @@
         <label>{oldBoneUI_associatedMussel}</label>
         <select1 ref="bivalvePreservation" appearance="full" faims_attribute_name="OldBone_-_Bivalve_preservation" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_bivalvePreservation}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 ref="burnedMussel" appearance="full" faims_attribute_name="OldBone_-_Burned_Mussel" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{OldBone_-_Burned_Mussel}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
