@@ -1,0 +1,29 @@
+LINE       ETA     NOTES
+155-157    1 hr    Straightforward addition of field to UI schema, logic
+158        ----    Seems to refer to <description> modification.  The original
+                   description (which the client wants replaced) does not seem
+                   to be present in the data schema.
+172        3 hr    (Hellish) dynamic UI change.
+183-185    1 hr    Straightforward addition of field to UI schema, logic
+440        ----    Appears to already be implemented.
+508        ----    Probably currently impossible because of the way the FAIMS
+                   app has been made.
+524        4 hr    Addition of <term>s to pre-existing <property> followed by
+                   dynamic UI hell.
+551-556    4 hr    Addition of <term>s to pre-existing <property> followed by
+                   dynamic UI hell.
+820        ½ hr    Should be able to get away with swapping some lines in the UI
+                   schema---But stuff in dynamic UI hell isn't always as easy as
+                   it seems.
+873-876    1 hr    Deletion of <property>.  Entails removal of stuff from UI
+                   logic and schema.
+906        ½ hr    Should be able to get away with swapping some lines in the UI
+                   schema---But stuff in dynamic UI hell isn't always as easy as
+                   it seems.
+978        4 hr    Addition of <term>s to pre-existing <property> followed by
+                   dynamic UI hell.
+1056       4 hr    Addition of <term>s to pre-existing <property> followed by
+                   dynamic UI hell.
+1156-1160  1 hr    Deletion of <property>.  Entails removal of stuff from UI
+                   logic and schema.
+           23½ hr
