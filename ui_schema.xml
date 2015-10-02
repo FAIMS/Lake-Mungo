@@ -210,6 +210,7 @@
             <topAndStratSetting>
               <topographicSetting/>
               <sedimentType/>
+              <stratigraphicUnit/>
               <erosionVulnerability/>
               <paleotopographicSetting/>
               <notes/>
@@ -1013,6 +1014,13 @@
         </select1>
         <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{isolatedOccurrencesUI_sedimentType}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Isolated_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{isolatedOccurrencesUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>

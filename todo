@@ -4,7 +4,7 @@ DONE  LINE       ETA     NOTES
                          description (which the client wants replaced) does not seem
                          to be present in the data schema.
       172        3 hr    (Hellish) dynamic UI change.
-      183-185    1 hr    Straightforward addition of field to UI schema, logic
+.     183-185    1 hr    Straightforward addition of field to UI schema, logic
       440        ----    Appears to already be implemented.
       508        ----    Probably currently impossible because of the way the FAIMS
                          app has been made.
@@ -26,4 +26,4 @@ DONE  LINE       ETA     NOTES
                          dynamic UI hell.
 .     1159-1160  1 hr    Deletion of <property>.  Entails removal of stuff from UI
                          logic and schema.
-4 hr             24 hr
+5 hr             24 hr
