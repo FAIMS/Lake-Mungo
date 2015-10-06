@@ -830,10 +830,11 @@ isolated_init() {
   makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/inSituOrSurface"        , "Isolated_-_In_Situ_or_Surface");
   makeVocab("HierarchicalDropDown" , isolated_tabgroup + "/basicIdentification/occurrenceType"         , "Isolated_-_Occurrence_Type");
   //makeVocab("DropDown"             , isolated_tabgroup + "/basicIdentification/stoneRawMaterialType"   , "Isolated_-_Stone_Raw_Material_Type");
-  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
-  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
   makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/erosionVulnerability"    , "Isolated_-_Vulnerability_to_Erosion");
   makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/paleotopographicSetting" , "Isolated_-_Palaeotopographic_Setting");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/sedimentType"            , "Isolated_-_Sediment_Type");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/stratigraphicUnit"       , "Isolated_-_Stratigraphic_Unit");
+  makeVocab("PictureGallery"       , isolated_tabgroup + "/topAndStratSetting/topographicSetting"      , "Isolated_-_Topographic_Setting");
   fetchVocabulary("Isolated_-_Occurrence_Type", isolated_occurrenceTypeVocabulary);
 }
 
@@ -2876,13 +2877,13 @@ oldboneAssoc_checkSelections() {
         Log.d("oldboneAssoc_checkSelections()", "Selected "+tabgroup+" "+type.get(1));
         if (type.get(1).equals("{mussel}")) {
           oldboneAssoc_removeAssocMussel = false;
-        } else if(type.get(1).equals("{hs}")) {
+        } else if(type.get(1).equals("{hearthmaterial}")) {
           oldboneAssoc_removeAssocHearth = false;
         } else if(type.get(1).equals("{eggshell}")) {
           oldboneAssoc_removeAssocEggshell = false;
         } else if(type.get(1).equals("{stoneart}")) {
           oldboneAssoc_removeAssocStone = false;
-        } else if(type.get(1).equals("{otherart}")) {
+        } else if(type.get(1).equals("{otherwork}")) {
           oldboneAssoc_removeAssocOther = false;
         } else {
           Log.e("oldboneAssoc_checkSelections()", "Error: no matched material selected");
