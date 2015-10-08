@@ -757,10 +757,11 @@ isolated_checkOccurrenceType() {
     if (selectedItem.equals(occurrenceType.get(0))) {
       String selectedName = occurrenceType.get(1);
       if (selectedName.equals("{bettong}")    || selectedName.equals("{bivalve}")   || selectedName.equals("{carnivore}") || selectedName.equals("{eggemu}") 
-       || selectedName.equals("{egggenyo}")   || selectedName.equals("{eggindet}")  || selectedName.equals("{eggother}")  || selectedName.equals("{emu}")       
+       || selectedName.equals("{egggenyo}")   || selectedName.equals("{eggindet}")  || selectedName.equals("{eggother}")  || selectedName.equals("{emu}")
        || selectedName.equals("{exoskel}")    || selectedName.equals("{fishbone}")  || selectedName.equals("{glith}")     || selectedName.equals("{indetbone}")
-       || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}") 
-       || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")) {
+       || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}")
+       || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")    || selectedName.equals("{bonemod}")   || selectedName.equals("{shellmod}")
+       || selectedName.equals("{eggmod}")) {
         isolated_removeOrganicMaterial = false;
       } else {
         isolated_removeOrganicMaterial = true;
@@ -770,7 +771,8 @@ isolated_checkOccurrenceType() {
        || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
        || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
        || selectedName.equals("{ochre}")    || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
-       || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")) {
+       || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")  || selectedName.equals("{ochrediss}")  || selectedName.equals("{ochrenod}")
+       || selectedName.equals("{ochrefact}")|| selectedName.equals("{qtzxal}")) {
         isolated_removeStoneMaterial = false;
       } else {
         isolated_removeStoneMaterial = true;
@@ -1036,7 +1038,7 @@ Boolean hearthAssoc_removeUnmodifiedStone = true;
 Boolean hearthAssoc_removeGroundStone = true;
 List hearthAssoc_assocMaterialVocabulary = new ArrayList();
 List hearthAssoc_stoneArtefactsVocabulary = new ArrayList();
-List hearthAssoc_chippedStoneVocabulary = new ArrayList(); 
+List hearthAssoc_chippedStoneVocabulary = new ArrayList();
 
 /** Initialises the tabgroup vocabularies. **/
 hearthAssoc_init() {
@@ -1863,10 +1865,12 @@ List stone_insituStoneArtefactsVocabulary = new ArrayList();
 List stone_insituChippedStoneVocabulary = new ArrayList();
 List stone_surfaceStoneArtefactsVocabulary = new ArrayList();
 List stone_surfaceChippedStoneVocabulary = new ArrayList();
+Boolean stone_removeInsituRefits = true;
 Boolean stone_removeInsituGroundStone = true;
 Boolean stone_removeInsituUnmodifiedStone = true;
 Boolean stone_removeInsituChippedStone = true;
 Boolean stone_removeInsituRetouchedArtefacts = true;
+Boolean stone_removeSurfaceRefits = true;
 Boolean stone_removeSurfaceGroundStone = true;
 Boolean stone_removeSurfaceUnmodifiedStone = true;
 Boolean stone_removeSurfaceChippedStone = true;
@@ -1936,10 +1940,12 @@ stone_load() {
 
 /** Prepares the tabgroup for loading by making all dynamic views which values can be loaded into. **/
 stone_prepareLoading() {
+  stone_removeInsituRefits = false;
   stone_removeInsituGroundStone = false;
   stone_removeInsituUnmodifiedStone = false;
   stone_removeInsituChippedStone = false;
   stone_removeInsituRetouchedArtefacts = false;
+  stone_removeSurfaceRefits = false;
   stone_removeSurfaceGroundStone = false;
   stone_removeSurfaceUnmodifiedStone = false;
   stone_removeSurfaceChippedStone = false;
@@ -1952,10 +1958,12 @@ stone_prepareLoading() {
 
 /** Resets all tab and view flags for the tabgroup **/
 stone_resetFlags() {
+  stone_removeInsituRefits = true;
   stone_removeInsituGroundStone = true;
   stone_removeInsituUnmodifiedStone = true;
   stone_removeInsituChippedStone = true;
   stone_removeInsituRetouchedArtefacts = true;
+  stone_removeSurfaceRefits = true;
   stone_removeSurfaceGroundStone = true;
   stone_removeSurfaceUnmodifiedStone = true;
   stone_removeSurfaceChippedStone = true;
@@ -2016,6 +2024,9 @@ stone_checkSelections() {
     }
     if (!isNull(selectedType) && selectedType.equals(clusterType.get(0)) && (clusterType.get(1).equals("{surf}") || clusterType.get(1).equals("{both}") || clusterType.get(1).equals("{surfrefit}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
       stone_showSurfaceTab = true;
+      if (clusterType.get(1).equals("{surfrefit}")) {
+        stone_removeSurfaceRefits = false;
+      }
     }
     if (!isNull(selectedType) && selectedType.equals(clusterType.get(0)) && (clusterType.get(1).equals("{Stone_artefacts_and_other_material}") || clusterType.get(1).equals("{insit_oth}") || clusterType.get(1).equals("{surf_oth}") || clusterType.get(1).equals("{both_oth}"))) {
       stone_showAssocTab = true;
@@ -2124,6 +2135,24 @@ stone_toggleTabs() {
 /** Displays the flagged dynamic views for the tabgroup **/
 stone_makeDynamicViews() {
   // make the insitu tab dynamic views
+  if (!stone_removeInsituRefits) {
+    String vRef = stone_tabgroup + "/inSituDescription/potentialRefits";
+    if (!hasView(vRef)) {
+      executeViewTask(new ViewTask(){
+        doTask() {
+          viewDef = createViewDef();
+          viewDef.createTextField()
+              .setLabel("{stoneArtefactClustersUI_potentialRefits}")
+              .setAttributeName("Stone_-_In_Situ_-_Potential_Refits")
+              .setAttributeType("measure")
+              .setAnnotationEnabled(true)
+              .setCertaintyEnabled(true)
+              .setInfoEnabled(true);
+          createView(vRef, viewDef, vRef);
+        }
+      });
+    }
+  }
   if (!stone_removeInsituChippedStone) {
     if (!hasView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts")) {
       String callback = "onEvent(\""+stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts\", \"click\", \"stone_renderViews();\");";
@@ -2158,6 +2187,24 @@ stone_makeDynamicViews() {
     }
   }
   // make the surface tab dynamic views
+  if (!stone_removeSurfaceRefits) {
+    String vRef = stone_tabgroup + "/surfaceDescription/potentialRefits";
+    if (!hasView(vRef)) {
+      executeViewTask(new ViewTask(){
+        doTask() {
+          viewDef = createViewDef();
+          viewDef.createTextField()
+              .setLabel("{stoneArtefactClustersUI_potentialRefits}")
+              .setAttributeName("Stone_-_Surface_-_Potential_Refits")
+              .setAttributeType("measure")
+              .setAnnotationEnabled(true)
+              .setCertaintyEnabled(true)
+              .setInfoEnabled(true);
+          createView(vRef, viewDef, vRef);
+        }
+      });
+    }
+  }
   if (!stone_removeSurfaceChippedStone) {
     if (!hasView(stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts")) {
       String callback = "onEvent(\""+stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts\", \"click\", \"stone_renderViews();\");";
@@ -2196,6 +2243,12 @@ stone_makeDynamicViews() {
 /** Removes the flagged dynamic views for the tabgroup **/
 stone_removeDynamicViews() {
   // remove insitu tab views
+  if (stone_removeInsituRefits) {
+    String vRef = stone_tabgroup+"/inSituDescription/potentialRefits";
+    if (hasView(vRef)) {
+      removeView(vRef);
+    }
+  }
   if (stone_removeInsituChippedStone) {
     if (hasView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts")) {
       removeView(stone_tabgroup+"/inSituDescription/inSituChippedStoneArtefacts");
@@ -2229,6 +2282,12 @@ stone_removeDynamicViews() {
     }
   }
   // remove surface tab views
+  if (stone_removeSurfaceRefits) {
+    String vRef = stone_tabgroup+"/surfaceDescription/potentialRefits";
+    if (hasView(vRef)) {
+      removeView(vRef);
+    }
+  }
   if (stone_removeSurfaceChippedStone) {
     if (hasView(stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts")) {
       removeView(stone_tabgroup+"/surfaceDescription/surfaceChippedStoneArtefacts");
@@ -2693,7 +2752,7 @@ oldboneAssoc_init() {
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/nearbyMaterial/assocInsituMaterial",            "OldBone_-_Associated_in_situ_material");
   makeVocab("RadioGroup"   , oldboneAssoc_insituTabgroup  + "/associatedMussel/bivalvePreservation",          "OldBone_-_Bivalve_preservation");
   makeVocab("RadioGroup"   , oldboneAssoc_insituTabgroup  + "/associatedMussel/burnedMussel",                 "OldBone_-_Burned_Mussel");
-  makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_Hearth_Material");
+  makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_In_Situ_Hearth_Material");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell",              "OldBone_-_Associated_Eggshell");
   makeVocab("RadioGroup"   , oldboneAssoc_insituTabgroup  + "/associatedEggshell/assocBurntEggshell",         "OldBone_-_Burned_Eggshel");
   makeVocab("CheckBoxGroup", oldboneAssoc_insituTabgroup  + "/associatedStoneArtefacts/assocStone",           "OldBone_-_Associated_Stone_Artefacts");
@@ -2701,7 +2760,7 @@ oldboneAssoc_init() {
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/nearbyMaterial/assocSurfaceMaterial",           "OldBone_-_Associated_surface_material");
   makeVocab("RadioGroup"   , oldboneAssoc_surfaceTabgroup + "/associatedMussel/bivalvePreservation",          "OldBone_-_Bivalve_preservation");
   makeVocab("RadioGroup"   , oldboneAssoc_surfaceTabgroup + "/associatedMussel/burnedMussel",                 "OldBone_-_Burned_Mussel");
-  makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_Hearth_Material");
+  makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedHearthMaterial/assocHearth",          "OldBone_-_Associated_Surface_Hearth_Material");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell",              "OldBone_-_Associated_Eggshell");
   makeVocab("RadioGroup"   , oldboneAssoc_surfaceTabgroup + "/associatedEggshell/assocBurntEggshell",         "OldBone_-_Burned_Eggshel");
   makeVocab("CheckBoxGroup", oldboneAssoc_surfaceTabgroup + "/associatedStoneArtefacts/assocStone",           "OldBone_-_Associated_Stone_Artefacts");

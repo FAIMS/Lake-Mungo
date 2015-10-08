@@ -1444,7 +1444,7 @@
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
-        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_In_Situ_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocHearth}</label>
           <item>
             <label>placeholder</label>
@@ -1545,7 +1545,7 @@
       </group>
       <group ref="associatedHearthMaterial">
         <label>{oldBoneUI_associatedHearthMaterial}</label>
-        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select ref="assocHearth" faims_attribute_name="OldBone_-_Associated_Surface_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_assocHearth}</label>
           <item>
             <label>placeholder</label>

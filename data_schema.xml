@@ -173,7 +173,7 @@
 ]]></description></term>
       </lookup>
     </property>
-    <property name="OldBone_-_Associated_Hearth_Material" type="enum">
+    <property name="OldBone_-_Associated_In_Situ_Hearth_Material" type="enum">
       <description><![CDATA[
 <div>
     <p>Select those of the following that have been observed:</p>
@@ -1499,7 +1499,7 @@
 ]]></description></term>
       </lookup>
     </property>
-    <property name="OldBone_-_Associated_Hearth_Material" type="enum">
+    <property name="OldBone_-_Associated_Surface_Hearth_Material" type="enum">
       <description><![CDATA[
 <div>
     <p>Select those of the following that have been observed:</p>
@@ -1589,17 +1589,6 @@
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/487_hearth%20material_baked%20sed.JPG" alt="files/data/gallery/487_hearth%20material_baked%20sed.JPG" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{staining}<description><![CDATA[
-<div>
-    <div>
-        <p>Sediment exhibits organic staining with or without charcoal</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/320_staining_burnt%20bone.jpg" alt="files/data/gallery/320_staining_burnt%20bone.jpg" />
     </div>
     <hr/>
 </div>
