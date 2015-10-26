@@ -1391,7 +1391,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
