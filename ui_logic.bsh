@@ -2564,6 +2564,7 @@ stoneAssoc_init() {
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/nearbyMaterial/assocInsituMaterial"             , "Stone_-_In_Situ");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedHearthstones/assocHearth"             , "Stone_-_Hearth");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedLacustrineMaterial/assocLacust"       , "Stone_-_Lacustrine");
+  makeVocab("RadioGroup",    stoneAssoc_insituTabgroup  + "/associatedLacustrineMaterial/assocBurntLacust"  , "Stone_-_Burnt_lacustrine_material");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedTerrestrialBone/assocTerrestrial"     , "Stone_-_Terrestrial");
   makeVocab("RadioGroup",    stoneAssoc_insituTabgroup  + "/associatedTerrestrialBone/assocBurntTerrestrial", "Stone_-_Burnt_terrestrial_bone");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell"               , "Stone_-_Eggshell");
@@ -2571,6 +2572,7 @@ stoneAssoc_init() {
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/nearbyMaterial/assocSurfaceMaterial"            , "Stone_-_Surface");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedHearthstones/assocHearth"             , "Stone_-_Hearth");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedLacustrineMaterial/assocLacust"       , "Stone_-_Lacustrine");
+  makeVocab("RadioGroup",    stoneAssoc_surfaceTabgroup + "/associatedLacustrineMaterial/assocBurntLacust"  , "Stone_-_Burnt_lacustrine_material");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedTerrestrialBone/assocTerrestrial"     , "Stone_-_Terrestrial");
   makeVocab("RadioGroup",    stoneAssoc_surfaceTabgroup + "/associatedTerrestrialBone/assocBurntTerrestrial", "Stone_-_Burnt_terrestrial_bone");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell"               , "Stone_-_Eggshell");
