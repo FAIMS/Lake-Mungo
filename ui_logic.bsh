@@ -2490,7 +2490,7 @@ stoneAssoc_checkSelections() {
     for (type : vocabulary) {
       if (selectedItem.getName().equals(type.get(0))) {
         Log.d("stoneAssoc_renderAssocTabs()", "Selected "+tabgroup+" "+type.get(1));
-        if (type.get(1).equals("{hs}")) {
+        if (type.get(1).equals("{hearthmaterial}")) {
           stoneAssoc_removeHearth = false;
         } else if (type.get(1).equals("{lacust}")) {
           stoneAssoc_removeLacust = false;
