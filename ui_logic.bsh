@@ -2568,6 +2568,7 @@ stoneAssoc_init() {
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedTerrestrialBone/assocTerrestrial"     , "Stone_-_Terrestrial");
   makeVocab("RadioGroup",    stoneAssoc_insituTabgroup  + "/associatedTerrestrialBone/assocBurntTerrestrial", "Stone_-_Burnt_terrestrial_bone");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell"               , "Stone_-_Eggshell");
+  makeVocab("RadioGroup",    stoneAssoc_insituTabgroup  + "/associatedEggshell/assocEggshell"               , "Stone_-_Burnt_eggshell");
   makeVocab("CheckBoxGroup", stoneAssoc_insituTabgroup  + "/associatedOtherWorkedMaterial/assocOtherwork"   , "Stone_-_Other_Worked_or_Transported_Material");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/nearbyMaterial/assocSurfaceMaterial"            , "Stone_-_Surface");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedHearthstones/assocHearth"             , "Stone_-_Hearth");
@@ -2576,6 +2577,7 @@ stoneAssoc_init() {
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedTerrestrialBone/assocTerrestrial"     , "Stone_-_Terrestrial");
   makeVocab("RadioGroup",    stoneAssoc_surfaceTabgroup + "/associatedTerrestrialBone/assocBurntTerrestrial", "Stone_-_Burnt_terrestrial_bone");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell"               , "Stone_-_Eggshell");
+  makeVocab("RadioGroup",    stoneAssoc_surfaceTabgroup + "/associatedEggshell/assocEggshell"               , "Stone_-_Burnt_eggshell");
   makeVocab("CheckBoxGroup", stoneAssoc_surfaceTabgroup + "/associatedOtherWorkedMaterial/assocOtherwork"   , "Stone_-_Other_Worked_or_Transported_Material");
   fetchVocabulary("Stone_-_In_Situ", stoneAssoc_insituMaterialVocabulary);
   fetchVocabulary("Stone_-_Surface", stoneAssoc_surfaceMaterialVocabulary);

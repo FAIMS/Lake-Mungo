@@ -173,6 +173,7 @@
             </associatedTerrestrialBone>
             <associatedEggshell>
               <assocEggshell/>
+              <assocBurntEggshell/>
             </associatedEggshell>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -195,6 +196,7 @@
             </associatedTerrestrialBone>
             <associatedEggshell>
               <assocEggshell/>
+              <assocBurntEggshell/>
             </associatedEggshell>
             <associatedOtherWorkedMaterial>
               <assocOtherwork/>
@@ -909,6 +911,13 @@
             <value>placeholder</value>
           </item>
         </select>
+        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="Stone_-_Burnt_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+          <label>{stoneAssociatedMaterialsUI_assocBurntEggshell}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
@@ -986,6 +995,13 @@
             <value>placeholder</value>
           </item>
         </select>
+        <select1 ref="assocBurntEggshell" appearance="full" faims_attribute_name="Stone_-_Burnt_eggshell" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+          <label>{stoneAssociatedMaterialsUI_assocBurntEggshell}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select1>
       </group>
       <group ref="associatedOtherWorkedMaterial">
         <label>{stoneAssociatedMaterialsUI_associatedOtherWorkedMaterial}</label>
