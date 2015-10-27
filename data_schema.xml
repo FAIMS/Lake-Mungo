@@ -10230,6 +10230,52 @@
 ]]></description></term>
       </lookup>
     </property>
+    <property name="Stone_-_Burnt_terrestrial_bone" type="enum">
+      <description><![CDATA[
+<div>
+    <p>Is any of it burnt?</p>
+    <hr/>
+</div>
+]]></description>
+    <lookup>
+        <term>{Yes}<description><![CDATA[
+<div>
+    <div>
+        <p>Calcined or charred material present</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/474_burned.jpg" alt="files/data/gallery/474_burned.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/476_burned.jpg" alt="files/data/gallery/476_burned.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{No}<description><![CDATA[
+<div>
+    <div>
+        <p>none of the material is charred or calcined</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/457_good.jpg" alt="files/data/gallery/457_good.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{indet}<description><![CDATA[
+<div>
+    <div>
+        <p>Cannot determine because material is embedded in sediment, covered with other material or with a sand veneer</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/464_carb.jpg" alt="files/data/gallery/464_carb.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+      </lookup>
+    </property>
     <property name="Stone_-_Eggshell" type="enum">
       <description/>
       <lookup>
@@ -10971,6 +11017,52 @@
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/426_unident_teeth.jpg" alt="files/data/gallery/426_unident_teeth.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+      </lookup>
+    </property>
+    <property name="Stone_-_Burnt_terrestrial_bone" type="enum">
+      <description><![CDATA[
+<div>
+    <p>Is any of it burnt?</p>
+    <hr/>
+</div>
+]]></description>
+    <lookup>
+        <term>{Yes}<description><![CDATA[
+<div>
+    <div>
+        <p>Calcined or charred material present</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/474_burned.jpg" alt="files/data/gallery/474_burned.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/476_burned.jpg" alt="files/data/gallery/476_burned.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{No}<description><![CDATA[
+<div>
+    <div>
+        <p>none of the material is charred or calcined</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/457_good.jpg" alt="files/data/gallery/457_good.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{indet}<description><![CDATA[
+<div>
+    <div>
+        <p>Cannot determine because material is embedded in sediment, covered with other material or with a sand veneer</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/464_carb.jpg" alt="files/data/gallery/464_carb.jpg" />
     </div>
     <hr/>
 </div>
