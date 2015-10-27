@@ -10244,7 +10244,10 @@
         <p>Calcined or charred material present</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/451_fishbone%20otoliths.jpg" alt="files/data/gallery/451_fishbone%20otoliths.jpg" />
+        <img style="width:100%" src="files/data/gallery/474_burned.jpg" alt="files/data/gallery/474_burned.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/476_burned.jpg" alt="files/data/gallery/476_burned.jpg" />
     </div>
     <hr/>
 </div>
@@ -10255,12 +10258,22 @@
         <p>none of the material is charred or calcined</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/496_no.jpg" alt="files/data/gallery/496_no.jpg" />
+        <img style="width:100%" src="files/data/gallery/457_good.jpg" alt="files/data/gallery/457_good.jpg" />
     </div>
     <hr/>
 </div>
 ]]></description></term>
-        <term>{indet}<description></description></term>
+        <term>{indet}<description><![CDATA[
+<div>
+    <div>
+        <p>cannot determine because material is embedded in sediment or its surface too heavily modified</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/464_carb.jpg" alt="files/data/gallery/464_carb.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
       </lookup>
     </property>
     <property name="Stone_-_Eggshell" type="enum">
@@ -11046,7 +11059,7 @@
         <term>{indet}<description><![CDATA[
 <div>
     <div>
-        <p>Cannot determine because material is embedded in sediment, covered with other material or with a sand veneer</p>
+        <p>cannot determine because material is embedded in sediment or its surface too heavily modified</p>
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/464_carb.jpg" alt="files/data/gallery/464_carb.jpg" />
