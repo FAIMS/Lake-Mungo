@@ -16530,7 +16530,7 @@
 </div>
 ]]></description>
     <lookup>
-        <term>{most}<description><![CDATA[
+        <term pictureURL="files/data/gallery/380_most.JPG">{most}<description><![CDATA[
 <div>
     <div>
         <p>the majority of the visible bone is in situ</p>
@@ -16550,7 +16550,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{some}<description><![CDATA[
+        <term pictureURL="files/data/gallery/384_some.jpg">{some}<description><![CDATA[
 <div>
     <div>
         <p>at least some of the bone is in situ</p>
@@ -16564,7 +16564,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{surface}<description><![CDATA[
+        <term pictureURL="files/data/gallery/386_surface.jpg">{surface}<description><![CDATA[
 <div>
     <div>
         <p>no bone is embedded in sediment</p>
@@ -16581,7 +16581,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{recement}<description><![CDATA[
+        <term pictureURL="files/data/gallery/389_recement.jpg">{recement}<description><![CDATA[
 <div>
     <div>
         <p>the bone appears to be in situ, but there is a high likelihood that it is actually cemented in redeposited sediment</p>
@@ -16598,7 +16598,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{ambiguous}<description><![CDATA[
+        <term pictureURL="files/data/gallery/392_ambiguous.jpg">{ambiguous}<description><![CDATA[
 <div>
     <div>
         <p>the bone appears to be in situ, but it is impossible to say whether it is actually recemented</p>
