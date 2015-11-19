@@ -877,7 +877,7 @@
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="Bone_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="Stone_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{stoneAssociatedMaterialsUI_assocBurntLacust}</label>
           <item>
             <label>placeholder</label>
@@ -961,7 +961,7 @@
             <value>placeholder</value>
           </item>
         </select>
-        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="Bone_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
+        <select1 ref="assocBurntLacust" appearance="full" faims_attribute_name="Stone_-_Burnt_lacustrine_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{stoneAssociatedMaterialsUI_assocBurntLacust}</label>
           <item>
             <label>placeholder</label>
