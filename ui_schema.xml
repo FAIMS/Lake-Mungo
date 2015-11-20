@@ -1,3 +1,4 @@
+<?xml version='1.0' encoding='utf-8'?>
 <h:html xmlns="http://www.w3.org/2002/xforms" xmlns:ev="http://www.w3.org/2001/xml-events" xmlns:h="http://www.w3.org/1999/xhtml" xmlns:jr="http://openrosa.org/javarosa" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <h:head>
     <h:title>Lake Mungo</h:title>
@@ -382,15 +383,15 @@
   </h:head>
   <h:body>
     <group ref="style">
-      <label></label>
+      <label/>
       <group ref="orientation">
-        <label></label>
+        <label/>
         <input ref="orientation" faims_attribute_type="measure">
           <label>horizontal</label>
         </input>
       </group>
       <group ref="even">
-        <label></label>
+        <label/>
         <input ref="layout_weight" faims_attribute_type="measure">
           <label>1</label>
         </input>
@@ -475,7 +476,7 @@
       </group>
       <group ref="hearthStructure">
         <label>{hearthUI_hearthStructure}</label>
-        <select1 type="image" ref="insituProportion" faims_attribute_name="Hearth_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="insituProportion" faims_attribute_name="Hearth_-_Proportion_of_material_that_remains_in_situ" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_insituProportion}</label>
           <item>
             <label>placeholder</label>
@@ -504,35 +505,35 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{hearthUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Hearth_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Hearth_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Hearth_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Hearth_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Hearth_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Hearth_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Hearth_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Hearth_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Hearth_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{hearthUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
@@ -796,35 +797,35 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{stoneArtefactClustersUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Stone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Stone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{stoneArtefactClustersUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Stone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Stone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{stoneArtefactClustersUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Stone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Stone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{stoneArtefactClustersUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Stone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{stoneArtefactClustersUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Stone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Stone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{stoneArtefactClustersUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
@@ -1053,35 +1054,35 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{isolatedOccurrencesUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Isolated_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Isolated_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{isolatedOccurrencesUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Isolated_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{isolatedOccurrencesUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Isolated_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Isolated_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{isolatedOccurrencesUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Isolated_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Isolated_-_Vulnerability_to_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{isolatedOccurrencesUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Isolated_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Isolated_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{isolatedOccurrencesUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
@@ -1173,35 +1174,35 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{middenUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="Shell_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="Shell_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{middenUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="Shell_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="Shell_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{middenUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Shell_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="Shell_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{middenUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Shell_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="Shell_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{middenUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Shell_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="Shell_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{middenUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
@@ -1411,35 +1412,35 @@
       </group>
       <group ref="topAndStratSetting">
         <label>{oldBoneUI_topAndStratSetting}</label>
-        <select1 type="image" ref="topographicSetting" faims_attribute_name="OldBone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="topographicSetting" faims_attribute_name="OldBone_-_Topographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_topographicSetting}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="sedimentType" faims_attribute_name="OldBone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="sedimentType" faims_attribute_name="OldBone_-_Sediment_Type" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_sedimentType}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="OldBone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="stratigraphicUnit" faims_attribute_name="OldBone_-_Stratigraphic_Unit" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_stratigraphicUnit}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="erosionVulnerability" faims_attribute_name="OldBone_-_Vulnerability_To_Erosion" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_erosionVulnerability}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>
           </item>
         </select1>
-        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <select1 type="image" ref="paleotopographicSetting" faims_attribute_name="OldBone_-_Palaeotopographic_Setting" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true" faims_html_description="true">
           <label>{oldBoneUI_paleotopographicSetting}</label>
           <item>
             <label>placeholder</label>
@@ -1665,3 +1666,4 @@
     </group>
   </h:body>
 </h:html>
+
