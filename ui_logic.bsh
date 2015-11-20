@@ -120,7 +120,7 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
   makeDynamicVocab(type, path, attrib, label, callbackFunction, container, null, null);
 }
 
-makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container, String attributeName, String attributeType, Boolean htmlDescription) {
+makeDynamicVocab(String type, String path, String attrib, String label, String callbackFunction, String container, String attributeName, String attributeType) {
   htmlDescription = false;
   makeDynamicVocab(type, path, attrib, label, callbackFunction, container, attributeName, attributeType, htmlDescription);
 }
