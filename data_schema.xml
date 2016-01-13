@@ -7285,6 +7285,20 @@
 </div>
 ]]></description>
     <lookup>
+        <term>{nodule}<description><![CDATA[
+<div>
+    <div>
+        <p>A large, nodular or rounded cobble (>64 mm maximum dimension)</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/191_nodule.jpg" alt="files/data/gallery/191_nodule.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/192_nodule.jpg" alt="files/data/gallery/192_nodule.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
         <term>{slab}<description><![CDATA[
 <div>
     <div>
@@ -7313,6 +7327,7 @@
     <hr/>
 </div>
 ]]></description></term>
+        <term>{all}</term>
         <term>{indet}<description><![CDATA[
 <div>
     <div>
@@ -12726,6 +12741,7 @@
     <hr/>
 </div>
 ]]></description></term>
+        <term>{all}</term>
         <term>{indet}<description><![CDATA[
 <div>
     <div>
@@ -13863,6 +13879,7 @@
     <hr/>
 </div>
 ]]></description></term>
+        <term>{all}</term>
         <term>{indet}<description><![CDATA[
 <div>
     <div>
@@ -16843,6 +16860,7 @@
     <hr/>
 </div>
 ]]></description></term>
+        <term>{all}</term>
         <term>{indet}<description><![CDATA[
 <div>
     <div>
@@ -17599,7 +17617,8 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{other}<description><![CDATA[
+        <term>{all}</term>
+        <term>{indet}<description><![CDATA[
 <div>
     <div>
         <p>Rock is too deeply buried or encrusted to determine its size and shape</p>
