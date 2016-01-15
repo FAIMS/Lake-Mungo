@@ -12905,15 +12905,15 @@
     <property name="Stone_-_In_Situ_-_Ground_Stone_Raw_Material" type="enum">
       <description><![CDATA[
 <div>
-    <p>Raw materials for in situ ground stone artefacts</p>
+    <p>Select those types of raw material that have been observed:</p>
     <hr/>
 </div>
 ]]></description>
     <lookup>
-        <term>{silcfine}<description><![CDATA[
+        <term>{silcrete}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are less than 0.25 mm</p>
+        <p>Quartz grains in the matrix are < 0.25 mm</p>
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/228_silcfine.jpg" alt="files/data/gallery/228_silcfine.jpg" />
@@ -12921,7 +12921,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{silcmed}<description><![CDATA[
+        <term>{sandst}<description><![CDATA[
 <div>
     <div>
         <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
@@ -12935,7 +12935,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{silccoarse}<description><![CDATA[
+        <term>{qtzite}<description><![CDATA[
 <div>
     <div>
         <p>Quartz grains in the matrix are greater than 0.5mm</p>
@@ -12945,51 +12945,6 @@
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{silcmicroxtal}<description><![CDATA[
-<div>
-    <div>
-        <p>Naked eye cannot identify grains in the matrix</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/218_silcmicroxtal.jpg" alt="files/data/gallery/218_silcmicroxtal.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{sandst}<description><![CDATA[
-<div>
-    <div>
-        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{qtzite}<description><![CDATA[
-<div>
-    <div>
-        <p>Sugary texture, variable grain size and colour</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -13027,7 +12982,7 @@
         <term>{indet}<description><![CDATA[
 <div>
     <div>
-        <p>Artefact is too deeply buried or encrusted to identify raw material</p>
+        <p>Artefact too deeply buried or surface too encrusted to determine raw material</p>
     </div>
     <hr/>
 </div>
@@ -17027,8 +16982,14 @@
       </lookup>
     </property>
     <property name="ShellAssoc_-_Ground_stone_raw_material" type="enum">
-      <lookup>
-        <term>{silcfine}<description><![CDATA[
+      <description><![CDATA[
+<div>
+    <p>Select those types of raw material that have been observed:</p>
+    <hr/>
+</div>
+]]></description>
+    <lookup>
+        <term>{silcrete}<description><![CDATA[
 <div>
     <div>
         <p>Quartz grains in the matrix are < 0.25 mm</p>
@@ -17039,7 +17000,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{silcmed}<description><![CDATA[
+        <term>{sandst}<description><![CDATA[
 <div>
     <div>
         <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
@@ -17053,7 +17014,7 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{silccoarse}<description><![CDATA[
+        <term>{qtzite}<description><![CDATA[
 <div>
     <div>
         <p>Quartz grains in the matrix are greater than 0.5mm</p>
@@ -17063,51 +17024,6 @@
     </div>
     <div>
         <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{silcmicroxtal}<description><![CDATA[
-<div>
-    <div>
-        <p>Naked eye cannot identify grains in the matrix</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/218_silcmicroxtal.jpg" alt="files/data/gallery/218_silcmicroxtal.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{sandst}<description><![CDATA[
-<div>
-    <div>
-        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
-    </div>
-    <hr/>
-</div>
-]]></description></term>
-        <term>{qtzite}<description><![CDATA[
-<div>
-    <div>
-        <p>Sugary texture, variable grain size and colour</p>
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
-    </div>
-    <div>
-        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -17145,7 +17061,7 @@
         <term>{indet}<description><![CDATA[
 <div>
     <div>
-        <p>Artefact is too deeply buried or encrusted to identify raw material</p>
+        <p>Artefact too deeply buried or surface too encrusted to determine raw material</p>
     </div>
     <hr/>
 </div>
