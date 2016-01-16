@@ -1170,13 +1170,19 @@
         <term>{sandst}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
+        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/215_silcmed.jpg" alt="files/data/gallery/215_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/231_silcmed.jpg" alt="files/data/gallery/231_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
     </div>
     <hr/>
 </div>
@@ -1184,13 +1190,13 @@
         <term>{qtzite}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are greater than 0.5mm</p>
+        <p>Sugary texture, variable grain size and colour</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/235_silccoarse.jpg" alt="files/data/gallery/235_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -2500,13 +2506,19 @@
         <term>{sandst}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
+        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/215_silcmed.jpg" alt="files/data/gallery/215_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/231_silcmed.jpg" alt="files/data/gallery/231_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
     </div>
     <hr/>
 </div>
@@ -2514,13 +2526,13 @@
         <term>{qtzite}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are greater than 0.5mm</p>
+        <p>Sugary texture, variable grain size and colour</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/235_silccoarse.jpg" alt="files/data/gallery/235_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -7851,13 +7863,19 @@
         <term>{sandst}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
+        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/215_silcmed.jpg" alt="files/data/gallery/215_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/231_silcmed.jpg" alt="files/data/gallery/231_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
     </div>
     <hr/>
 </div>
@@ -7865,13 +7883,13 @@
         <term>{qtzite}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are greater than 0.5mm</p>
+        <p>Sugary texture, variable grain size and colour</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/235_silccoarse.jpg" alt="files/data/gallery/235_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -12984,13 +13002,19 @@
         <term>{sandst}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
+        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/215_silcmed.jpg" alt="files/data/gallery/215_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/231_silcmed.jpg" alt="files/data/gallery/231_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
     </div>
     <hr/>
 </div>
@@ -12998,13 +13022,13 @@
         <term>{qtzite}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are greater than 0.5mm</p>
+        <p>Sugary texture, variable grain size and colour</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/235_silccoarse.jpg" alt="files/data/gallery/235_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
@@ -17078,13 +17102,19 @@
         <term>{sandst}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are 0.25 -- 0.5 mm</p>
+        <p>A clastic sedimentary rock made up of sand-sized minerals or grains</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/215_silcmed.jpg" alt="files/data/gallery/215_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/202_amorph.jpg" alt="files/data/gallery/202_amorph.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/231_silcmed.jpg" alt="files/data/gallery/231_silcmed.jpg" />
+        <img style="width:100%" src="files/data/gallery/204_amorph.jpg" alt="files/data/gallery/204_amorph.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/245_sandst.jpg" alt="files/data/gallery/245_sandst.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/246_sandst.jpg" alt="files/data/gallery/246_sandst.jpg" />
     </div>
     <hr/>
 </div>
@@ -17092,13 +17122,13 @@
         <term>{qtzite}<description><![CDATA[
 <div>
     <div>
-        <p>Quartz grains in the matrix are greater than 0.5mm</p>
+        <p>Sugary texture, variable grain size and colour</p>
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/235_silccoarse.jpg" alt="files/data/gallery/235_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/220_qtzite.jpg" alt="files/data/gallery/220_qtzite.jpg" />
     </div>
     <div>
-        <img style="width:100%" src="files/data/gallery/236_silccoarse.jpg" alt="files/data/gallery/236_silccoarse.jpg" />
+        <img style="width:100%" src="files/data/gallery/247_qtzite.jpg" alt="files/data/gallery/247_qtzite.jpg" />
     </div>
     <hr/>
 </div>
