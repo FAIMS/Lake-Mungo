@@ -9,6 +9,7 @@ import java.io.File;
 import jsqlite;
 import jsqlite.Callback;
 
+
 Log.d("Lake Mungo Module", "Very first line of logic after imports.");
 
 User user; // don't touch
@@ -16,8 +17,25 @@ String userid;
 
 makeLocalID(){
     fetchOne("CREATE TABLE IF NOT EXISTS localSettings (key text primary key, value text);");
+    fetchOne("CREATE TABLE IF NOT EXISTS grid (label text primary key);");
+    fetchOne("CREATE TABLE IF NOT EXISTS gridbuffer (warning text primary key);");
+    
+    fetchOne("select * from (Select count(*) as grid from grid), (Select count(*) as gridbuffer from gridbuffer);",  new FetchCallback() {
+      onFetch(result) {
+        Log.d("Grid", "Created Grid: "+result.get(0)+" "+result.get(1));
+
+        if (result.get(0).equals("0")){
+          Log.d("Grid", "Making Grid: "+result.get(0));
+
+          fetchOne("select AddGeometryColumn('grid', 'grid', 28354, 'POLYGON', 'XY');");
+          fetchOne("select AddGeometryColumn('gridbuffer', 'gridbuffer', 28354, 'POLYGON', 'XY');");
+          showWarning("Grid!", "You have not yet initialised the grid. Go to the action bar (kebab menu) and click 'initlalise grid' (and get a coffee) ");
+        }
+      }
+    });
+    
 }
-makeLocalID();
+
 
 /******************************************************************************/
 /**                                   UTIL                                   **/
@@ -56,7 +74,10 @@ makeVocab(String type, String path, String attrib, List vocabExclusions, String 
   if (type.equals("PictureGallery")) {
     fetchAll("select vocabid, vocabname, pictureurl from vocabulary left join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
       onFetch(pictures) {
-        populatePictureGallery(path, pictures);
+        try {
+          populatePictureGallery(path, pictures);
+        } catch (Exception e) {
+        }
         if (callbackFunction != null && !isNull(callbackFunction)) {
           execute(callbackFunction);
         }
@@ -278,6 +299,17 @@ stopSync() {
 /******************************************************************************/
 /**                                ACTION BAR                                **/
 /******************************************************************************/
+addActionBarItem("grid", new ActionButtonCallback() {
+    actionOnLabel() {
+        "Initalize Grid";
+    }
+    actionOn() {
+        showWarning("Get a coffee.", "This will take some time.");
+        makeGrid();
+    }
+    
+});
+
 addActionBarItem("sync", new ToggleActionButtonCallback() {
     actionOnLabel() {
         "{Disable_Sync}";
@@ -501,9 +533,10 @@ calculateGridSquare(String id, String tabgroup, String gridSquareViewPath) {
   saveArchEnt(id, tabgroup, geolist, null, new SaveCallback() {
     onSave(uuid, newRecord) {
       Log.d("calculateGridSquare()", "Saved geometry: " + geolist.toString());
-      // queryGridDB(easting.toString(), northing.toString(), gridSquareViewPath);
-      queryGridDB("693400", "6257300", gridSquareViewPath); // Used for testing
-      showWarning("Alert", "The calculate grid square is currently using the following mock projections for testing: (693400, 6257300)");
+      queryGridDB(easting.toString(), northing.toString(), gridSquareViewPath);
+
+      //queryGridDB("693400", "6257300", gridSquareViewPath); // Used for testing
+      //showWarning("Alert", "The calculate grid square is currently using the following mock projections for testing: (693400, 6257300)");
       dialog.dismiss();
     }  
   });
@@ -512,14 +545,51 @@ calculateGridSquare(String id, String tabgroup, String gridSquareViewPath) {
 /** Connects to and queries the grid db. **/
 queryGridDB(String easting, String northing, String gridSquareViewPath) {
   String srid = getModuleSrid();
-  File file = new File("/sdcard/faims/modules/"+getModuleId()+"/files/data/grid.sqlite3");
+  String filename = "/sdcard/faims/modules/"+getModuleId()+"/files/data/grid.sqlite3";
+  File file = new File(filename);
   type = jsqlite.Constants.SQLITE_OPEN_READONLY;
   jsqlite.Database db = new jsqlite.Database();
   // Query the grid square
-  String gridSquareQuery = "select label from grid where coveredBy(pointfromtext('POINT ("+easting+" "+northing+")',"+srid+"), grid) order by x,y limit 1;";
+  String helpQuery = "select sqlite_version(), spatialite_version();";
+
+  String gridSquareQuery = "select label from grid where coveredBy(pointfromtext('POINT ("+easting+" "+northing+")',"+srid+"), grid) order by label limit 1;";
+  String warningQuery = "select warning from gridbuffer where  coveredBy(pointfromtext('POINT ("+easting+" "+northing+")',"+srid+"), gridbuffer);";
+
   Log.d("queryGridDB()", "Running query to select grid label: " + gridSquareQuery);
   try {
+    fetchOne(gridSquareQuery,  new FetchCallback() {
+      onFetch(result) {
+        if (isNull(result)){
+          showToast("No grid result found. You are either not within the grid, or you need to initalise the grid via the action bar.");
+        } else {          
+          setFieldValue(gridSquareViewPath, result.get(0));
+          fetchOne(warningQuery, new FetchCallback() {
+          onFetch(result) {
+            if (isNull(result)){
+              showToast("Grid recorded. You're probably not near a grid square boundary.");
+            } else {          
+              showWarning("Warning", "You are close to a grid square boundary");
+            }
+          }
+        });
+        }
+      }
+    });
+
+    
+    
+  } catch (Exception e) {
+    Log.e("error dumping database", e.toString());
+
+  } 
+
+/*  try {
+
+
+
+    fetchOne()
     db.open(file.getPath(), type);
+
     db.exec(gridSquareQuery, new Callback() {
       public void columns(String[] coldata) {
         Log.d("grid square query", "coldata: " + Arrays.toString(coldata));
@@ -527,10 +597,10 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
       public void types(String[] types) {
         Log.d("grid square query", "types: " + Arrays.toString(types));
       }
-      public boolean newrow(String[] rowdata) {
+      public boolean newrow(rowdata) {
         Log.d("grid square query", "rowdata: " + Arrays.toString(rowdata));
-        setFieldValue(gridSquareViewPath, rowdata[0].toString());
-        showToast("You are in grid square " + rowdata[0].toString());
+        //setFieldValue(gridSquareViewPath, rowdata[0].toString());
+        //showToast("You are in grid square " + rowdata[0].toString());
         return false;
       }
     });
@@ -563,7 +633,7 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
     Log.e("error dumping database", e.toString());
   } finally {
     db.close();
-  }
+  }*/
 }
 
 /******************************************************************************/
@@ -3137,3 +3207,19 @@ onEvent(oldboneAssoc_insituTabgroup   + "/associatedStoneArtefacts/assocStone", 
 onEvent(oldboneAssoc_surfaceTabgroup  + "/nearbyMaterial/assocSurfaceMaterial",   "click", "oldboneAssoc_renderTabsAndViews();");
 onEvent(oldboneAssoc_surfaceTabgroup  + "/associatedStoneArtefacts/assocStone",   "click", "oldboneAssoc_renderViews();");
 oldboneAssoc_init();
+
+
+makeGrid(){
+  String filename = "/sdcard/faims/modules/"+getModuleId()+"/files/data/makeGrid.sql";
+  FileInputStream fstream = new FileInputStream(filename);
+  DataInputStream instream = new DataInputStream(fstream);  
+  BufferedReader br = new BufferedReader(new InputStreamReader(instream));  
+  Object line;  
+  while (!isNull(line = br.readLine())){
+    fetchOne(line);
+  }
+  
+
+      
+}
+makeLocalID();

@@ -404,7 +404,7 @@
         <select1 appearance="compact" ref="users" faims_certainty="false" faims_annotation="false">
           <label>{users}</label>
           <item>
-            <label>placeholder</label>
+            <label>Loading, please wait.</label>
             <value>placeholder</value>
           </item>
         </select1>
