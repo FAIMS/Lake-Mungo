@@ -24,7 +24,7 @@ makeLocalID(){
       onFetch(result) {
         Log.d("Grid", "Created Grid: "+result.get(0)+" "+result.get(1));
 
-        if (result.get(0).equals("0")){
+        if (!result.get(0).equals("2913")){
           Log.d("Grid", "Making Grid: "+result.get(0));
 
           fetchOne("select AddGeometryColumn('grid', 'grid', 28354, 'POLYGON', 'XY');");
@@ -304,8 +304,18 @@ addActionBarItem("grid", new ActionButtonCallback() {
         "Initalize Grid";
     }
     actionOn() {
-        showWarning("Get a coffee.", "This will take some time.");
+        showToast("This will take 5 minutes. Please leave your device on this screen for a while, then click validate Grid.");
         makeGrid();
+    }
+    
+});
+
+addActionBarItem("validateGrid", new ActionButtonCallback() {
+    actionOnLabel() {
+        "Validate Grid";
+    }
+    actionOn() {
+      validateGrid();
     }
     
 });
@@ -3218,8 +3228,38 @@ makeGrid(){
   while (!isNull(line = br.readLine())){
     fetchOne(line);
   }
-  
+  validateGrid();
 
       
+}
+validateGrid(){
+  dialog = showBusy("Validating grid", "please wait");
+
+  String validateGridQuery="Select count(label) as gridCount from grid;";
+  String validateGridBufferQuery="Select count(warning) as gridWarningCount from gridbuffer;";
+  String results = "";
+  fetchOne(validateGridQuery,  new FetchCallback() {
+      onFetch(result) {        
+        dialog.dismiss();
+        if (isNull(result)){
+          showToast("No grid table found, this should not happen. Redownload module.");
+        } else { 
+          results="You have "+result.get(0)+" grids stored.";
+          //no, I don't know why I can't cartesian join these in a single damn query either.
+          fetchOne(validateGridBufferQuery,  new FetchCallback() {
+            onFetch(result) {
+              results += " You have "+result.get(0)+" buffer for warnings stored.";
+              showWarning("Validation Results", results);
+            }
+
+          });
+
+        }
+      }
+      onError(result){
+        showWarning("help!", "There's been an error!");
+      }
+    });
+
 }
 makeLocalID();
