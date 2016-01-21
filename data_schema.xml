@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding='utf-8'?>
+<?xml version="1.0" encoding="utf-8"?>
 <dataSchema>
   <RelationshipElement name="Shell And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Shell and Shell Associated Materials</description>
@@ -18,7 +18,6 @@
   <RelationshipElement name="Hearth And Associated Materials" type="bidirectional">
     <description>Implements a 1:N relationship between Hearth and Hearth Associated Materials</description>
   </RelationshipElement>
-  
   <ArchaeologicalElement name="Bone Associated Insitu Materials">
     <description>A material associated with a feature cluster</description>
     <property name="OldBone_-_Associated_in_situ_material" type="enum" isIdentifier="true">
@@ -28,7 +27,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[$1]]></formatString>
+      <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
         <term>{hearthmaterial}<description><![CDATA[
@@ -96,6 +95,7 @@
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{good}<description><![CDATA[
 <div>
@@ -140,6 +140,7 @@
     </property>
     <property name="OldBone_-_Burned_Mussel" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{yes}<description><![CDATA[
 <div>
@@ -180,7 +181,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{hsclay}<description><![CDATA[
 <div>
     <div>
@@ -295,7 +297,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{emu}<description><![CDATA[
 <div>
     <div>
@@ -350,6 +353,7 @@
     </property>
     <property name="OldBone_-_Burned_Eggshel" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{yes}<description><![CDATA[
 <div>
@@ -399,7 +403,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -450,7 +455,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -534,6 +540,7 @@
     </property>
     <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{notch}<description><![CDATA[
 <div>
@@ -627,7 +634,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
     <div>
@@ -688,7 +696,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
     <div>
@@ -797,7 +806,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -843,7 +853,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -982,7 +993,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -1140,7 +1152,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcrete}<description><![CDATA[
 <div>
     <div>
@@ -1248,7 +1261,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
     <div>
@@ -1375,7 +1389,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[$1]]></formatString>
+      <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
         <term>{hearthmaterial}<description><![CDATA[
@@ -1443,6 +1457,7 @@
     </property>
     <property name="OldBone_-_Bivalve_preservation" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{good}<description><![CDATA[
 <div>
@@ -1487,6 +1502,7 @@
     </property>
     <property name="OldBone_-_Burned_Mussel" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{yes}<description><![CDATA[
 <div>
@@ -1527,7 +1543,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{hsclay}<description><![CDATA[
 <div>
     <div>
@@ -1631,7 +1648,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{emu}<description><![CDATA[
 <div>
     <div>
@@ -1686,6 +1704,7 @@
     </property>
     <property name="OldBone_-_Burned_Eggshel" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{yes}<description><![CDATA[
 <div>
@@ -1735,7 +1754,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -1786,7 +1806,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -1870,6 +1891,7 @@
     </property>
     <property name="OldBone_-_Associated_Retouched_Artefacts" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{notch}<description><![CDATA[
 <div>
@@ -1963,7 +1985,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
     <div>
@@ -2024,7 +2047,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
     <div>
@@ -2133,7 +2157,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -2179,7 +2204,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -2318,7 +2344,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -2476,7 +2503,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcrete}<description><![CDATA[
 <div>
     <div>
@@ -2584,7 +2612,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
     <div>
@@ -2711,7 +2740,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
     <property name="Hearth_-_ID_Number" type="measure" isIdentifier="true">
       <description><![CDATA[
@@ -2720,10 +2749,11 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Hearth $2]]></formatString>
+      <formatString><![CDATA[Hearth $2]]></formatString>
     </property>
     <property name="Hearth_-_Hearth_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Hearths_with_heat-retainer_hearthstones}<term>{hsclay}<description><![CDATA[
 <div>
@@ -2962,9 +2992,11 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Hearth_-_Charcoal" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{none}<description><![CDATA[
 <div>
@@ -3035,7 +3067,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/328_most.JPG">{most}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -3146,7 +3179,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -3251,7 +3285,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -3394,7 +3429,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/2_platform2.jpg">{platform}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -3738,7 +3774,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/30_redsand.jpg">{redsand}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -4261,6 +4298,7 @@
     </property>
     <property name="Hearth_-_Stratigraphic_Unit" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Golgol}<description><![CDATA[
 <i>Glossary:</i>
@@ -4431,7 +4469,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/94_low on clayeysand except rills.jpg">{low}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -4550,7 +4589,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/111_foredune backdune.jpg">{foredune}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -4740,6 +4780,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Hearth_-_Notes" type="measure">
       <description><![CDATA[
@@ -4748,9 +4789,9 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
   </ArchaeologicalElement>
-
   <ArchaeologicalElement name="Shell">
     <description/>
     <property name="Shell_-_Grid_Square" type="measure" isIdentifier="true">
@@ -4762,7 +4803,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
     <property name="Shell_-_ID_Number" type="measure" isIdentifier="true">
       <description><![CDATA[
@@ -4773,10 +4814,11 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Shell $2]]></formatString>
+      <formatString><![CDATA[Shell $2]]></formatString>
     </property>
     <property name="Shell_-_Shell_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{dispers}<description><![CDATA[
 <div>
@@ -4851,7 +4893,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{continuous}<description><![CDATA[
 <div>
     <div>
@@ -4886,7 +4929,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -4957,7 +5001,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{most}<description><![CDATA[
 <div>
     <div>
@@ -5028,7 +5073,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{good}<description><![CDATA[
 <div>
     <div>
@@ -5072,6 +5118,7 @@
     </property>
     <property name="Shell_-_Bivalve_dispersal" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{low}<description><![CDATA[
 <div>
@@ -5120,7 +5167,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/2_platform2.jpg">{platform}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -5464,7 +5512,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/30_redsand.jpg">{redsand}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -5987,6 +6036,7 @@
     </property>
     <property name="Shell_-_Stratigraphic_Unit" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Golgol}<description><![CDATA[
 <i>Glossary:</i>
@@ -6157,7 +6207,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/94_low on clayeysand except rills.jpg">{low}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -6276,7 +6327,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/111_foredune backdune.jpg">{foredune}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -6466,6 +6518,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Shell_-_Notes" type="measure">
       <description><![CDATA[
@@ -6474,9 +6527,9 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
   </ArchaeologicalElement>
-
   <ArchaeologicalElement name="Hearth Associated Materials">
     <description>Select those of the following that have been observed</description>
     <property name="HearthAssoc_-_Associated_material" type="enum" isIdentifier="true">
@@ -6589,7 +6642,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{mussel}<description><![CDATA[
 <div>
     <div>
@@ -6688,7 +6742,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -6731,7 +6786,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{wombat}<description><![CDATA[
 <div>
     <div>
@@ -6924,7 +6980,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -6970,7 +7027,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{emu}<description><![CDATA[
 <div>
     <div>
@@ -7030,7 +7088,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -7079,7 +7138,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -7130,7 +7190,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -7230,7 +7291,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{scraper}<description><![CDATA[
 <div>
     <div>
@@ -7326,7 +7388,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
     <div>
@@ -7387,7 +7450,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
     <div>
@@ -7496,7 +7560,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -7542,7 +7607,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -7681,7 +7747,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -7833,6 +7900,7 @@
       </lookup>
     </property>
     <property name="HearthAssoc_-_Ground_stone_raw_material" type="enum">
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{silcrete}<description><![CDATA[
 <div>
@@ -7941,7 +8009,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
     <div>
@@ -8059,7 +8128,6 @@
       </lookup>
     </property>
   </ArchaeologicalElement>
-
   <ArchaeologicalElement name="Isolated">
     <description/>
     <property name="Isolated_-_Grid_Square" type="measure" isIdentifier="true">
@@ -8077,7 +8145,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{insitu}<description><![CDATA[
 <div>
     <div>
@@ -8150,6 +8219,7 @@
     </property>
     <property name="Isolated_-_Occurrence_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Stone_Artefacts}<term>{notch}<description><![CDATA[
 <div>
@@ -8790,6 +8860,7 @@
     </property>
     <property name="Isolated_-_Stone_Raw_Material_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
@@ -8973,6 +9044,7 @@
     </property>
     <property name="Isolated_-_Modification_to_Organic_Material" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{none}<description><![CDATA[
 <div>
@@ -9222,6 +9294,7 @@
     </property>
     <property name="Isolated_-_Modification_to_Stone_Material" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{none}<description><![CDATA[
 <div>
@@ -9313,6 +9386,7 @@
     </property>
     <property name="Isolated_-_Topographic_Setting" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term pictureURL="files/data/gallery/2_platform2.jpg">{platform}<description><![CDATA[
 <i>Glossary:</i>
@@ -9650,6 +9724,7 @@
     </property>
     <property name="Isolated_-_Sediment_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term pictureURL="files/data/gallery/30_redsand.jpg">{redsand}<description><![CDATA[
 <i>Glossary:</i>
@@ -10173,6 +10248,7 @@
     </property>
     <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term pictureURL="files/data/gallery/94_low on clayeysand except rills.jpg">{low}<description><![CDATA[
 <i>Glossary:</i>
@@ -10285,6 +10361,7 @@
     </property>
     <property name="Isolated_-_Palaeotopographic_Setting" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term pictureURL="files/data/gallery/111_foredune backdune.jpg">{foredune}<description><![CDATA[
 <i>Glossary:</i>
@@ -10465,6 +10542,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Isolated_-_Photos" type="file" file="true" thumbnail="true">
       <description><![CDATA[
@@ -10483,8 +10561,10 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
-  <property name="Isolated_-_Stratigraphic_Unit">
+    <property name="Isolated_-_Stratigraphic_Unit">
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Golgol}<description><![CDATA[
 <i>Glossary:</i>
@@ -10646,7 +10726,7 @@
 ]]></description></term>
       </lookup>
     </property>
-    </ArchaeologicalElement>
+  </ArchaeologicalElement>
   <ArchaeologicalElement name="Stone Associated Insitu">
     <description/>
     <property name="Stone_-_In_Situ" type="enum" isIdentifier="true">
@@ -10865,6 +10945,7 @@
     </property>
     <property name="Stone_-_Hearth" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{hsclay}<description><![CDATA[
 <div>
@@ -10966,6 +11047,7 @@
     </property>
     <property name="Stone_-_Lacustrine" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{mussel}<description><![CDATA[
 <div>
@@ -11068,6 +11150,7 @@
     </property>
     <property name="Stone_-_Terrestrial" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{mammal}<description><![CDATA[
 <div>
@@ -11225,7 +11308,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -11266,6 +11350,7 @@
     </property>
     <property name="Stone_-_Eggshell" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{emu}<description><![CDATA[
 <div>
@@ -11321,6 +11406,7 @@
     </property>
     <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
@@ -11445,7 +11531,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -11485,7 +11572,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -11528,7 +11616,6 @@
       </lookup>
     </property>
   </ArchaeologicalElement>
-
   <ArchaeologicalElement name="Stone Associated Surface">
     <description/>
     <property name="Stone_-_In_Situ" type="enum" isIdentifier="true">
@@ -11747,6 +11834,7 @@
     </property>
     <property name="Stone_-_Hearth" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{hsclay}<description><![CDATA[
 <div>
@@ -11848,6 +11936,7 @@
     </property>
     <property name="Stone_-_Lacustrine" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{mussel}<description><![CDATA[
 <div>
@@ -11950,6 +12039,7 @@
     </property>
     <property name="Stone_-_Terrestrial" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{mammal}<description><![CDATA[
 <div>
@@ -12107,7 +12197,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -12148,6 +12239,7 @@
     </property>
     <property name="Stone_-_Eggshell" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{emu}<description><![CDATA[
 <div>
@@ -12203,6 +12295,7 @@
     </property>
     <property name="Stone_-_Other_Worked_or_Transported_Material" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
@@ -12327,7 +12420,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -12367,7 +12461,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -12410,7 +12505,6 @@
       </lookup>
     </property>
   </ArchaeologicalElement>
-
   <ArchaeologicalElement name="Stone Artefact Clusters">
     <description/>
     <property name="Stone_-_Grid_Square" type="measure" isIdentifier="true">
@@ -12420,7 +12514,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
     <property name="Stone_-_ID_Number" type="measure" isIdentifier="true">
       <description><![CDATA[
@@ -12429,10 +12523,11 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Stone $2]]></formatString>
+      <formatString><![CDATA[Stone $2]]></formatString>
     </property>
     <property name="Stone_-_Cluster_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Stone_artefacts_only}<term>{insitu}<description><![CDATA[
 <div>
@@ -12533,7 +12628,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -12584,7 +12680,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -12673,7 +12770,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{notch}<description><![CDATA[
 <div>
     <div>
@@ -12761,6 +12859,7 @@
     </property>
     <property name="Stone_-_In_Situ_-_Unmodified_Stone_Types" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
@@ -12817,6 +12916,7 @@
     </property>
     <property name="Stone_-_In_Situ_-_Ground_Stone_Types" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
@@ -12926,7 +13026,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -12972,7 +13073,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcrete}<description><![CDATA[
 <div>
     <div>
@@ -13080,7 +13182,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -13179,6 +13282,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Stone_-_In_Situ_-_Chipped_Stone_Raw_Material" type="enum">
       <description><![CDATA[
@@ -13187,7 +13291,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -13326,7 +13431,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -13484,7 +13590,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -13634,6 +13741,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Stone_-_Surface_-_Stone_Artefacts" type="enum">
       <description><![CDATA[
@@ -13642,7 +13750,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -13693,7 +13802,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -13782,7 +13892,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{notch}<description><![CDATA[
 <div>
     <div>
@@ -13875,7 +13986,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
     <div>
@@ -13936,7 +14048,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
     <div>
@@ -14045,7 +14158,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -14091,7 +14205,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -14190,7 +14305,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -14329,7 +14445,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -14487,7 +14604,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -14614,6 +14732,7 @@
     </property>
     <property name="Stone_-_Surface_-_Surface_Modification" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{none}<description><![CDATA[
 <div>
@@ -14715,7 +14834,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/2_platform2.jpg">{platform}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -15059,7 +15179,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/30_redsand.jpg">{redsand}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -15582,6 +15703,7 @@
     </property>
     <property name="Stone_-_Stratigraphic_Unit" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Golgol}<description><![CDATA[
 <i>Glossary:</i>
@@ -15752,7 +15874,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/94_low on clayeysand except rills.jpg">{low}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -15871,7 +15994,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/111_foredune backdune.jpg">{foredune}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -16064,6 +16188,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="Stone_-_Notes" type="measure">
       <description><![CDATA[
@@ -16072,6 +16197,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
   </ArchaeologicalElement>
   <ArchaeologicalElement name="Shell Associated Materials">
@@ -16083,7 +16209,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[$1]]></formatString>
+      <formatString><![CDATA[$1]]></formatString>
       <appendCharacterString><![CDATA[+]]></appendCharacterString>
       <lookup>
         <term>{none}<description><![CDATA[
@@ -16206,7 +16332,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{fishbone}<description><![CDATA[
 <div>
     <div>
@@ -16302,7 +16429,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -16342,7 +16470,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{mammal}<description><![CDATA[
 <div>
     <div>
@@ -16468,7 +16597,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -16514,7 +16644,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{emu}<description><![CDATA[
 <div>
     <div>
@@ -16574,7 +16705,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{Yes}<description><![CDATA[
 <div>
     <div>
@@ -16623,7 +16755,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cs}<description><![CDATA[
 <div>
     <div>
@@ -16674,7 +16807,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{ru}<description><![CDATA[
 <div>
     <div>
@@ -16763,7 +16897,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{notch}<description><![CDATA[
 <div>
     <div>
@@ -16856,7 +16991,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
     <div>
@@ -16917,7 +17053,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{millstone}<description><![CDATA[
 <div>
     <div>
@@ -17026,7 +17163,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{whole}<description><![CDATA[
 <div>
     <div>
@@ -17072,7 +17210,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcrete}<description><![CDATA[
 <div>
     <div>
@@ -17180,7 +17319,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -17319,7 +17459,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{silcfine}<description><![CDATA[
 <div>
     <div>
@@ -17477,7 +17618,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{bonemod}<description><![CDATA[
 <div>
     <div>
@@ -17594,7 +17736,8 @@
 ]]></description></term>
       </lookup>
     </property>
-  <property name="ShellAssoc_-_Unmodified_Stone_Types">
+    <property name="ShellAssoc_-_Unmodified_Stone_Types">
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{nodule}<description><![CDATA[
 <div>
@@ -17649,7 +17792,7 @@
 ]]></description></term>
       </lookup>
     </property>
-    </ArchaeologicalElement>
+  </ArchaeologicalElement>
   <ArchaeologicalElement name="Bone">
     <description/>
     <property name="OldBone_-_Grid_Square" type="measure" isIdentifier="true">
@@ -17659,7 +17802,7 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Grid Square $2 - ]]></formatString>
+      <formatString><![CDATA[Grid Square $2 - ]]></formatString>
     </property>
     <property name="OldBone_-_ID_Number" type="measure" isIdentifier="true">
       <description><![CDATA[
@@ -17668,10 +17811,11 @@
     <hr/>
 </div>
 ]]></description>
-    <formatString><![CDATA[Bone $2]]></formatString>
-    </property>  
+      <formatString><![CDATA[Bone $2]]></formatString>
+    </property>
     <property name="OldBone_-_Cluster_Type" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{boneOnly}<term>{insitBO}<description><![CDATA[
 <div>
@@ -17779,7 +17923,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/380_most.JPG">{most}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -17893,7 +18038,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{cranAndTooth}<description><![CDATA[
 <div>
     <div>
@@ -18138,7 +18284,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{wombat}<description><![CDATA[
 <div>
     <div>
@@ -18429,7 +18576,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{good}<description><![CDATA[
 <div>
     <div>
@@ -18603,7 +18751,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term>{none}<description><![CDATA[
 <div>
     <div>
@@ -18704,7 +18853,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/2_platform2.jpg">{platform}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -19048,7 +19198,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/30_redsand.jpg">{redsand}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -19571,6 +19722,7 @@
     </property>
     <property name="OldBone_-_Stratigraphic_Unit" type="enum">
       <description/>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
       <lookup>
         <term>{Golgol}<description><![CDATA[
 <i>Glossary:</i>
@@ -19741,7 +19893,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/94_low on clayeysand except rills.jpg">{low}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -19860,7 +20013,8 @@
     <hr/>
 </div>
 ]]></description>
-    <lookup>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
         <term pictureURL="files/data/gallery/111_foredune backdune.jpg">{foredune}<description><![CDATA[
 <i>Glossary:</i>
 <br>
@@ -20050,6 +20204,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
     <property name="OldBone_-_Notes" type="measure">
       <description><![CDATA[
@@ -20058,7 +20213,7 @@
     <hr/>
 </div>
 ]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
     </property>
   </ArchaeologicalElement>
 </dataSchema>
-
