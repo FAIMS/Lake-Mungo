@@ -847,7 +847,7 @@ isolated_checkOccurrenceType() {
        || selectedName.equals("{exoskel}")    || selectedName.equals("{fishbone}")  || selectedName.equals("{glith}")     || selectedName.equals("{indetbone}")
        || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}")
        || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")    || selectedName.equals("{bonemod}")   || selectedName.equals("{shellmod}")
-       || selectedName.equals("{eggmod}")) {
+       || selectedName.equals("{eggmod}")     || selectedName.equals("{turbo}")) {
         isolated_removeOrganicMaterial = false;
       } else {
         isolated_removeOrganicMaterial = true;
