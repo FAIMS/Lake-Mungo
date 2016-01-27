@@ -4294,6 +4294,7 @@
     </li>
 </ul>
 ]]></description></term>
+        <term>{indet}<description/></term>
       </lookup>
     </property>
     <property name="Hearth_-_Stratigraphic_Unit" type="enum">
@@ -6032,6 +6033,7 @@
     </li>
 </ul>
 ]]></description></term>
+        <term>{indet}<description/></term>
       </lookup>
     </property>
     <property name="Shell_-_Stratigraphic_Unit" type="enum">
@@ -10246,6 +10248,7 @@
     </li>
 </ul>
 ]]></description></term>
+        <term>{indet}<description/></term>
       </lookup>
     </property>
     <property name="Isolated_-_Vulnerability_to_Erosion" type="enum">
@@ -15701,6 +15704,7 @@
     </li>
 </ul>
 ]]></description></term>
+        <term>{indet}<description/></term>
       </lookup>
     </property>
     <property name="Stone_-_Stratigraphic_Unit" type="enum">
@@ -19720,6 +19724,7 @@
     </li>
 </ul>
 ]]></description></term>
+        <term>{indet}<description/></term>
       </lookup>
     </property>
     <property name="OldBone_-_Stratigraphic_Unit" type="enum">
