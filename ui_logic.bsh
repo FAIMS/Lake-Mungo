@@ -858,7 +858,7 @@ isolated_checkOccurrenceType() {
        || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
        || selectedName.equals("{ochre}")    || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
        || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")  || selectedName.equals("{ochrediss}")  || selectedName.equals("{ochrenod}")
-       || selectedName.equals("{ochrefact}")|| selectedName.equals("{qtzxal}")) {
+       || selectedName.equals("{ochrefacet}")|| selectedName.equals("{qtzxal}")) {
         isolated_removeStoneMaterial = false;
       } else {
         isolated_removeStoneMaterial = true;
