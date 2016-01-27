@@ -8378,7 +8378,9 @@
     <hr/>
 </div>
 ]]></description></term></term>
-        <term>{Faunal_Remains}<term>{wombat}<description><![CDATA[
+        <term>{Faunal_Remains}
+          <term>{bivalve}<description/></term>
+          <term>{wombat}<description><![CDATA[
 <div>
     <div>
         <p>Wombats have a distinctive morphology (broad flat skull, 2 incisors, no canine, molars that grown continuosly) and often died in their burrows, so are common in the record</p>
