@@ -258,6 +258,9 @@
             <control>
               <assocMaterial/>
             </control>
+            <associatedHearthMaterial>
+              <assocHearth/>
+            </associatedHearthMaterial>
             <associatedLacustrineMaterial>
               <assocLacust/>
               <assocBurntLacust/>
@@ -1230,6 +1233,16 @@
         <label>{middenAssociatedMaterialsUI_control}</label>
         <select ref="assocMaterial" faims_attribute_name="ShellAssoc_-_Associated_material" faims_attribute_type="vocab" faims_annotation="true" faims_certainty="true">
           <label>{middenAssociatedMaterialsUI_assocMaterial}</label>
+          <item>
+            <label>placeholder</label>
+            <value>placeholder</value>
+          </item>
+        </select>
+      </group>
+      <group ref="associatedHearthMaterial">
+        <label>{middenUI_associatedHearthMaterial}</label>
+        <select ref="assocHearth" faims_attribute_name="ShellAssoc_-_Associated_Hearth_Material" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+          <label>{middenUI_assocHearth}</label>
           <item>
             <label>placeholder</label>
             <value>placeholder</value>

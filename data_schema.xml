@@ -16331,6 +16331,122 @@
 ]]></description></term>
       </lookup>
     </property>
+    <property name="ShellAssoc_-_Associated_Hearth_Material" type="enum">
+      <description><![CDATA[
+<div>
+    <p>Select those of the following that have been observed:</p>
+    <hr/>
+</div>
+]]></description>
+      <formatString><![CDATA[{{if $1 then $1}}{{if and($1, $2) then " " }}{{if $2 then $2}}{{if $3 then " ($3)"}}{{if between($4,0,0.49) then "??" elsif lessThan($4,1) then "?" }}]]></formatString>
+      <lookup>
+        <term>{hsclay}<description><![CDATA[
+<div>
+    <div>
+        <p>Heat retainers made from clay or sandy clay</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/295_hsclay.jpg" alt="files/data/gallery/295_hsclay.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/296_hsclay.jpg" alt="files/data/gallery/296_hsclay.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{hscarb}<description><![CDATA[
+<div>
+    <div>
+        <p>Heat retainers made from carbonate nodules</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/293_hscarb%20burned%20_%20unburned.jpg" alt="files/data/gallery/293_hscarb%20burned%20_%20unburned.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{hsterm}<description><![CDATA[
+<div>
+    <div>
+        <p>Heat retainers made from termite nest -  sandy with visible voids and channels</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/257_none.jpg" alt="files/data/gallery/257_none.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/289_hsterm_plan.jpg" alt="files/data/gallery/289_hsterm_plan.jpg" />
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/290_hsterm_section.jpg" alt="files/data/gallery/290_hsterm_section.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{hsother}<description><![CDATA[
+<div>
+    <div>
+        <p>Heat retainers made from other material, e.g. silcrete nodules (record in annotations)</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/297_hsother_silcrete.jpg" alt="files/data/gallery/297_hsother_silcrete.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{hsindet}<description><![CDATA[
+<div>
+    <div>
+        <p>Too deeply buried or encrusted to determine type</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/298_hsindet.jpg" alt="files/data/gallery/298_hsindet.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{bakedclay}<description><![CDATA[
+<div>
+    <div>
+        <p>Thin layer or small lumps of burnt clay, orange in colour when freshly exposed, broken surfaces may be smooth</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/305_bakedclay_pieces.jpg" alt="files/data/gallery/305_bakedclay_pieces.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{bakedsed}<description><![CDATA[
+<div>
+    <div>
+        <p>Ashy sediment, baked hard</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/487_hearth%20material_baked%20sed.JPG" alt="files/data/gallery/487_hearth%20material_baked%20sed.JPG" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{staining}<description><![CDATA[
+<div>
+    <div>
+        <p>Sediment exhibits organic staining with or without charcoal</p>
+    </div>
+    <div>
+        <img style="width:100%" src="files/data/gallery/320_staining_burnt%20bone.jpg" alt="files/data/gallery/320_staining_burnt%20bone.jpg" />
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+        <term>{other}<description><![CDATA[
+<div>
+    <div>
+        <p>Baked, ashy sediment, or charcoal or organic rich sediment, not described above (record in annotations)</p>
+    </div>
+    <hr/>
+</div>
+]]></description></term>
+      </lookup>
+    </property>
     <property name="ShellAssoc_-_Associated_lacustrine_material" type="enum">
       <description><![CDATA[
 <div>

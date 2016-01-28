@@ -1595,6 +1595,7 @@ String middenAssoc_archentType = "Shell Associated Materials";
 String middenAssoc_relTypeName = "Shell And Associated Materials";
 String middenAssoc_id = null;
 Boolean middenAssoc_loading = false;
+Boolean middenAssoc_removeAssocHearth = true;
 Boolean middenAssoc_removeLacust = true;
 Boolean middenAssoc_removeTerrestrial = true;
 Boolean middenAssoc_removeEggshell = true;
@@ -1611,6 +1612,7 @@ List middenAssoc_chippedStoneVocabulary = new ArrayList();
 /** Initialises the tabgroup vocabularies. **/
 middenAssoc_init() {
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/control/assocMaterial",                          "ShellAssoc_-_Associated_material");
+  makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedHearthMaterial/assocHearth",           "ShellAssoc_-_Associated_Hearth_Material");
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocLacust",       "ShellAssoc_-_Associated_lacustrine_material");
   makeVocab("RadioGroup",     middenAssoc_tabgroup+"/associatedLacustrineMaterial/assocBurntLacust",  "ShellAssoc_-_Burnt_lacustrine_material");
   makeVocab("CheckBoxGroup",  middenAssoc_tabgroup+"/associatedTerrestrialBone/assocTerrestrial",     "ShellAssoc_-_Associated_terrestrial_bone");
@@ -1661,6 +1663,7 @@ middenAssoc_load() {
 
 /** Prepares the tabgroup for loading by making all dynamic views which values can be loaded into. **/
 middenAssoc_prepareLoading() {
+  middenAssoc_removeAssocHearth = false;
   middenAssoc_removeLacust = false;
   middenAssoc_removeTerrestrial = false;
   middenAssoc_removeEggshell = false;
@@ -1676,6 +1679,7 @@ middenAssoc_prepareLoading() {
 /** Resets all tab and view flags for the tabgroup **/
 middenAssoc_resetFlags() {
   // set flags to default
+  middenAssoc_removeAssocHearth = true;
   middenAssoc_removeLacust = true;
   middenAssoc_removeTerrestrial = true;
   middenAssoc_removeEggshell = true;
@@ -1757,7 +1761,9 @@ middenAssoc_checkSelections() {
     for (type : middenAssoc_assocMaterialVocabulary) {
       if (selectedItem.getName().equals(type.get(0))) {
         Log.d("middenAssoc_renderAssocTabs()", "Selected "+middenAssoc_tabgroup+" "+type.get(1));
-        if (type.get(1).equals("{lacust}")) {
+        if (type.get(1).equals("{hearthmaterial}")) {
+          middenAssoc_removeAssocHearth = false;
+        } else if (type.get(1).equals("{lacust}")) {
           middenAssoc_removeLacust = false;
         } else if(type.get(1).equals("{terrbone}")) {
           middenAssoc_removeTerrestrial = false;
@@ -1813,6 +1819,9 @@ middenAssoc_checkSelections() {
 middenAssoc_toggleTabs() {
   Boolean tabChanged = false;
   // remove unselected tabs
+  if (middenAssoc_removeAssocHearth) {
+    cancelTab(middenAssoc_tabgroup+"/associatedHearthMaterial", false);
+  } 
   if (middenAssoc_removeLacust) {
     cancelTab(middenAssoc_tabgroup+"/associatedLacustrineMaterial", false);
   }
@@ -1829,6 +1838,10 @@ middenAssoc_toggleTabs() {
     cancelTab(middenAssoc_tabgroup+"/associatedOtherWorkedMaterial", false);
   }
   // show the selected tabs
+  if (!middenAssoc_removeAssocHearth) {
+    showTab(middenAssoc_tabgroup+"/associatedHearthMaterial");
+    tabChanged = true;
+  }
   if (!middenAssoc_removeLacust) {
     showTab(middenAssoc_tabgroup+"/associatedLacustrineMaterial");
     tabChanged = true;
