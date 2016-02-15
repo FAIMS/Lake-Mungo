@@ -185,16 +185,17 @@ makeDynamicVocab(String type, String path, String attrib, String label, String c
       String tabgroup = path.split("/")[0];
       String tab = path.split("/")[1];
       String view = path.split("/")[2];
+
+      if (!isNull(container)) {
+        Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in container '" + container + "'");
+        if (!hasView(path)) createView(path, viewDef, container);
+      } else {
+        Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in tab '" + tabgroup + "/" + tab + "'");
+        if (!hasView(path)) createView(path, viewDef);
+      }
+
       fetchAll("select vocabid, vocabname, pictureurl from vocabulary join attributekey using (attributeid) where attributename = '" + attrib + "' order by vocabcountorder;", new FetchCallback() {
         onFetch(result) {
-          if (!isNull(container)) {
-            Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in container '" + container + "'");
-            createView(path, viewDef, container);
-          } else {
-            Log.d("makeDynamicVocab()", "Creating dynamic view '" + view + "' in tab '" + tabgroup + "/" + tab + "'");
-            createView(path, viewDef);
-          }
-
           if (type.equals("DropDown")) {
             // populateDropDown(path, result);
             populateDropDown(path, result, true);
@@ -816,6 +817,7 @@ isolated_load() {
   // display all dynamic views
   isolated_removeOrganicMaterial = false;
   isolated_removeStoneMaterial = false;
+  isolated_removeStoneRawMaterialType = false;
   isolated_displayDynamicViews();
   // load the entity and populate any dynamic views with their saved value
   showTabGroup(isolated_tabgroup, isolated_id, new FetchCallback() {
