@@ -543,7 +543,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Hearth_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Hearth_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{hearthUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Hearth_-_Photos" faims_attribute_type="measure">
@@ -835,7 +835,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Stone_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Stone_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{stoneArtefactClustersUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Stone_-_Photos" faims_attribute_type="measure">
@@ -1212,7 +1212,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="Shell_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="Shell_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{middenUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="Shell_-_Photos" faims_attribute_type="measure">
@@ -1460,7 +1460,7 @@
             <value>placeholder</value>
           </item>
         </select1>
-        <input ref="notes" faims_attribute_name="OldBone_-_Notes" faims_attribute_type="vocab" faims_certainty="true" faims_annotation="true">
+        <input ref="notes" faims_attribute_name="OldBone_-_Notes" faims_attribute_type="measure" faims_certainty="true" faims_annotation="true">
           <label>{oldBoneUI_notes}</label>
         </input>
         <select type="camera" faims_sync="true" ref="photos" faims_attribute_name="OldBone_-_Photos" faims_attribute_type="measure">
