@@ -1162,7 +1162,8 @@ hearthAssoc_save() {
       hearthAssoc_id = uuid;
       Log.d("hearthAssociatedMaterials.hearthAssoc_save()", "Saving the relation between hearth " + hearth_id + " and " + hearthAssoc_tabgroup + " " + hearthAssoc_id);
       String callback = "hearth_listAssociatedMaterials();" + "showTab(\"hearth/associatedMaterials\");";
-      saveEntitiesToRel(hearthAssoc_relTypeName, hearth_id, hearthAssoc_id, callback);
+      if (newRecord)
+        saveEntitiesToRel(hearthAssoc_relTypeName, hearth_id, hearthAssoc_id, callback);
     }
   }, enable_autosave);
 }
@@ -1646,7 +1647,8 @@ middenAssoc_save() {
       middenAssoc_id = uuid;
       Log.d("middenAssociatedMaterials.middenAssoc_save()", "Saving the relation between midden " + midden_id + " and " + middenAssoc_tabgroup + " " + middenAssoc_id);
       String callback = "midden_listAssociatedMaterials();" + "showTab(\"midden/associatedMaterials\");";
-      saveEntitiesToRel(middenAssoc_relTypeName, midden_id, middenAssoc_id, callback);
+      if (newRecord)
+        saveEntitiesToRel(middenAssoc_relTypeName, midden_id, middenAssoc_id, callback);
     }
   }, enable_autosave);
 }
@@ -2485,7 +2487,8 @@ stoneAssoc_save() {
       stoneAssoc_id = uuid;
       Log.d("stoneAssoc_save()", "Saving the relation between stone " + stone_id + " and " + tabgroup + " " + stoneAssoc_id);
       String callback = "stone_listAssociatedMaterials();" + "showTab(\"stoneArtefactClusters/associatedMaterials\");";
-      saveEntitiesToRel(relTypeName, stone_id, stoneAssoc_id, callback);
+      if (newRecord)
+        saveEntitiesToRel(relTypeName, stone_id, stoneAssoc_id, callback);
     }
   }, enable_autosave);
 }
@@ -2902,7 +2905,8 @@ oldboneAssoc_save() {
       oldboneAssoc_id = uuid;
       Log.d("oldboneAssoc_save()", "Saving the relation between oldBone " + oldbone_id + " and " + tabgroup + " " + oldboneAssoc_id);
       String callback = "oldbone_listAssociatedMaterials();" + "showTab(\"oldBone/associatedMaterials\");";
-      saveEntitiesToRel(relTypeName, oldbone_id, oldboneAssoc_id, callback);
+      if (newRecord)
+        saveEntitiesToRel(relTypeName, oldbone_id, oldboneAssoc_id, callback);
     }
   }, enable_autosave);
 }
