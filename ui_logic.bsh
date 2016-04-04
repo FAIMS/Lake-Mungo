@@ -321,6 +321,15 @@ addActionBarItem("validateGrid", new ActionButtonCallback() {
     
 });
 
+addActionBarItem("clean_synced_files", new ActionButtonCallback() {
+    actionOnLabel() {
+      "Clean Synced Files";
+    }
+    actionOn() {
+      cleanSyncedFiles();
+    }
+});
+
 addActionBarItem("sync", new ToggleActionButtonCallback() {
     actionOnLabel() {
         "{Disable_Sync}";
