@@ -29,7 +29,7 @@ makeLocalID(){
 
           fetchOne("select AddGeometryColumn('grid', 'grid', 28354, 'POLYGON', 'XY');");
           fetchOne("select AddGeometryColumn('gridbuffer', 'gridbuffer', 28354, 'POLYGON', 'XY');");
-          showWarning("Grid!", "You have not yet initialised the grid. Go to the action bar (kebab menu) and click 'initlalise grid' (and get a coffee) ");
+          showWarning("Grid!", "You have not yet initialised the grid. Go to the action bar (kebab menu) and click 'initialised grid' (and get a coffee) ");
         }
       }
     });
@@ -580,7 +580,7 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
     fetchOne(gridSquareQuery,  new FetchCallback() {
       onFetch(result) {
         if (isNull(result)){
-          showToast("No grid result found. You are either not within the grid, or you need to initalise the grid via the action bar.");
+          showToast("No grid result found. You are either not within the grid, or you need to initialised the grid via the action bar.");
         } else {          
           setFieldValue(gridSquareViewPath, result.get(0));
           fetchOne(warningQuery, new FetchCallback() {
@@ -859,18 +859,19 @@ isolated_checkOccurrenceType() {
        || selectedName.equals("{macropod}")   || selectedName.equals("{otherbird}") || selectedName.equals("{reptile}")   || selectedName.equals("{rodent}")
        || selectedName.equals("{smallmars}")  || selectedName.equals("{wombat}")    || selectedName.equals("{bonemod}")   || selectedName.equals("{shellmod}")
        || selectedName.equals("{eggmod}")     || selectedName.equals("{turbo}")     || selectedName.equals("{other}")     || selectedName.equals("{undiag}")
-       || selectedName.equals("{unident}")) {
+       || selectedName.equals("{unident}")    || selectedName.equals("{otoliths}")  || selectedName.equals("{birdother}") || selectedName.equals("{birdbone}")
+       || selectedName.equals("{mammal}")     || selectedName.equals("{mega}")      || selectedName.equals("{scat}")) {
         isolated_removeOrganicMaterial = false;
       } else {
         isolated_removeOrganicMaterial = true;
       }
-      if (selectedName.equals("{backed}")   || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
-       || selectedName.equals("{debris}")   || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
-       || selectedName.equals("{hammer}")   || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
-       || selectedName.equals("{hsterm}")   || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
-       || selectedName.equals("{ochre}")    || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
-       || selectedName.equals("{shellmod}") || selectedName.equals("{unifpt}")  || selectedName.equals("{ochrediss}")  || selectedName.equals("{ochrenod}")
-       || selectedName.equals("{ochrefacet}")|| selectedName.equals("{qtzxal}")) {
+      if (selectedName.equals("{backed}")     || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
+       || selectedName.equals("{debris}")     || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
+       || selectedName.equals("{hammer}")     || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
+       || selectedName.equals("{hsterm}")     || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
+       || selectedName.equals("{ochre}")      || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
+       || selectedName.equals("{shellmod}")   || selectedName.equals("{unifpt}")  || selectedName.equals("{ochrediss}")  || selectedName.equals("{ochrenod}")
+       || selectedName.equals("{ochrefacet}") || selectedName.equals("{qtzxal}")  || selectedName.equals("{hsindet}")) {
         isolated_removeStoneMaterial = false;
       } else {
         isolated_removeStoneMaterial = true;
