@@ -29,7 +29,7 @@ makeLocalID(){
 
           fetchOne("select AddGeometryColumn('grid', 'grid', 28354, 'POLYGON', 'XY');");
           fetchOne("select AddGeometryColumn('gridbuffer', 'gridbuffer', 28354, 'POLYGON', 'XY');");
-          showWarning("Grid!", "You have not yet initialised the grid. Go to the action bar (kebab menu) and click 'initialised grid' (and get a coffee) ");
+          showWarning("Grid!", "You have not yet initialised the grid. Go to the action bar (kebab menu) and click 'initialise grid' (and get a coffee) ");
         }
       }
     });
@@ -580,7 +580,7 @@ queryGridDB(String easting, String northing, String gridSquareViewPath) {
     fetchOne(gridSquareQuery,  new FetchCallback() {
       onFetch(result) {
         if (isNull(result)){
-          showToast("No grid result found. You are either not within the grid, or you need to initialised the grid via the action bar.");
+          showToast("No grid result found. You are either not within the grid, or you need to initialise the grid via the action bar.");
         } else {          
           setFieldValue(gridSquareViewPath, result.get(0));
           fetchOne(warningQuery, new FetchCallback() {
