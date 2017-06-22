@@ -302,7 +302,7 @@ stopSync() {
 /******************************************************************************/
 addActionBarItem("grid", new ActionButtonCallback() {
     actionOnLabel() {
-        "Initalize Grid";
+        "Initialise Grid";
     }
     actionOn() {
         showToast("This will take 5 minutes. Please leave your device on this screen for a while, then click validate Grid.");
