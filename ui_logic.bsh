@@ -868,7 +868,7 @@ isolated_checkOccurrenceType() {
       if (selectedName.equals("{backed}")     || selectedName.equals("{bifac}")   || selectedName.equals("{bonetool}")   || selectedName.equals("{core}") 
        || selectedName.equals("{debris}")     || selectedName.equals("{eggmod}")  || selectedName.equals("{facetochre}") || selectedName.equals("{groundst}") 
        || selectedName.equals("{hammer}")     || selectedName.equals("{hscarb}")  || selectedName.equals("{hsclay}")     || selectedName.equals("{hsother}")
-       || selectedName.equals("{hsterm}")     || selectedName.equals("{indet}")   || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
+       || selectedName.equals("{hsterm}")     || selectedName.equals("{indetst}") || selectedName.equals("{mport}")      || selectedName.equals("{notch}") 
        || selectedName.equals("{ochre}")      || selectedName.equals("{otherru}") || selectedName.equals("{qtzxtal}")    || selectedName.equals("{scraper}") 
        || selectedName.equals("{shellmod}")   || selectedName.equals("{unifpt}")  || selectedName.equals("{ochrediss}")  || selectedName.equals("{ochrenod}")
        || selectedName.equals("{ochrefacet}") || selectedName.equals("{qtzxal}")  || selectedName.equals("{hsindet}")) {
@@ -876,7 +876,7 @@ isolated_checkOccurrenceType() {
       } else {
         isolated_removeStoneMaterial = true;
       }
-      if (selectedName.equals("{notch}") || selectedName.equals("{scraper}") || selectedName.equals("{backed}") || selectedName.equals("{unifpt}") || selectedName.equals("{bifac}") || selectedName.equals("{otherru}") || selectedName.equals("{debris}") || selectedName.equals("{core}") || selectedName.equals("{hammer}") || selectedName.equals("{mport}") || selectedName.equals("{groundst}") || selectedName.equals("{indet}")) {
+      if (selectedName.equals("{notch}") || selectedName.equals("{scraper}") || selectedName.equals("{backed}") || selectedName.equals("{unifpt}") || selectedName.equals("{bifac}") || selectedName.equals("{otherru}") || selectedName.equals("{debris}") || selectedName.equals("{core}") || selectedName.equals("{hammer}") || selectedName.equals("{mport}") || selectedName.equals("{groundst}") || selectedName.equals("{indetst}")) {
         isolated_removeStoneRawMaterialType = false;
       } else {
         isolated_removeStoneRawMaterialType = true;
