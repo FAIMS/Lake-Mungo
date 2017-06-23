@@ -18397,7 +18397,14 @@
     <hr/>
 </div>
 ]]></description></term>
-        <term>{eggshell}<description/></term>
+        <term>{eggshell}<description><![CDATA[
+<div>
+    <div>
+        <p>broken fragments of eggshell; bird or reptile</p>
+    </div>
+    <hr/>
+</div>
+]]></description></term>
       </lookup>
     </property>
     <property name="OldBone_-_Taxon_Identified" type="enum">
