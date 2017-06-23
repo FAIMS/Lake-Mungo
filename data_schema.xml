@@ -9532,10 +9532,10 @@
     </li>
 </ul>
 ]]></description></term>
-        <term pictureURL="files/data/gallery/8_slope_12_ridge rill.jpg">{riderill}<description><![CDATA[
+        <term pictureURL="files/data/gallery/8_slope_12_ridge rill.jpg">{ridgerill}<description><![CDATA[
 <ul>
     <li>
-        <b>{riderill}</b>
+        <b>{ridgerill}</b>
 
         <div>
             <p>Feature in a heavily eroded area is cut by deep rills and straddles rill wall and rill flow</p>
@@ -9595,10 +9595,10 @@
     </li>
 </ul>
 ]]></description></term>
-        <term pictureURL="files/data/gallery/18_deepgulwal_deepgulfl.jpg">{deppgulfl}<description><![CDATA[
+        <term pictureURL="files/data/gallery/18_deepgulwal_deepgulfl.jpg">{deepgulfl}<description><![CDATA[
 <ul>
     <li>
-        <b>{deppgulfl}</b>
+        <b>{deepgulfl}</b>
 
         <div>
             <p>In the floor of a gully greater than 1.5m wide and deep</p>
