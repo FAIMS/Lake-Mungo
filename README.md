@@ -9,7 +9,7 @@ Development of this module was funded by **ARC LE140100151** aimed to transform 
 
 
 ## Date of release:
-Most recent: April 2017 (previous versions June 2015 & 2016)
+Most recent: June 2017 (previous versions June 2015 & 2016)
 
 ## FAIMS Mobile version
 FAIMS **v2.5** (Android 6+)
