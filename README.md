@@ -32,6 +32,7 @@ This module is part of the **FAIMS Demo library** on our publicly accessible Dem
 
 ## This module can be used with no or minor modification for:
 * document sites and record features
+* see also the [custom exporter for Lake Mungo](https://github.com/FAIMS/mungoExport)
 
 
 ## Contact info:
